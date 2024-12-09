@@ -116,7 +116,7 @@ author:
   name             : "Nicholas Wijaya"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Your **Actuarial** Dude"
-  location         : "Netherlands"
+  location         : # "Netherlands"
   email            :
   links:
     - label: "LinkedIN"
