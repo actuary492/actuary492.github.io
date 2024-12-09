@@ -142,7 +142,7 @@ author:
 footer:
   links:
     - label: "LinkedIN"
-      # icon: "LinkedIn_logo_initials.png"
+      icon: "fa-brands fa-linkedin"
       url: "https://www.linkedin.com/in/nwjya/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
@@ -325,4 +325,9 @@ defaults:
       related: true
       show_date: true
       search: true
+
+# Lunr
+lunr:
+  search_within_pages: true
+
 
