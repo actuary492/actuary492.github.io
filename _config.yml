@@ -142,11 +142,11 @@ author:
 footer:
   links:
     - label: "LinkedIN"
-      icon: "LinkedIn_logo_initials.png"
+      # icon: "LinkedIn_logo_initials.png"
       url: "https://www.linkedin.com/in/nwjya/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      # url:
+      url: "https://www.linkedin.com/in/nwjya/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url:
