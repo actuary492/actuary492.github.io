@@ -120,7 +120,7 @@ author:
   email            :
   links:
     - label: "LinkedIN"
-      icon: "/assets/LinkedIn_logo_initials.png"
+      icon: "fab fa-fw fa-linkedin-square"
       url: "https://www.linkedin.com/in/nwjya/"
     - label: "Website"
       icon: "fas fa-fw fa-link"
