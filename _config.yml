@@ -146,7 +146,7 @@ footer:
       url: "https://www.linkedin.com/in/nwjya/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.linkedin.com/in/nwjya/"
+      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url:
