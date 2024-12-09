@@ -19,8 +19,8 @@ locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "actuary492"
 title_separator          : "-"
-subtitle                 : Your site for everything Actuarial Science
-name                     : "Your Name"
+subtitle                 : "Your site for everything Actuarial Science"
+name                     : "Nicholas Wijaya"
 description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
