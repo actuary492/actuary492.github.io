@@ -331,4 +331,7 @@ defaults:
 lunr:
   search_within_pages: true
 
+# Conversion
+markdown: kramdown
+
 
