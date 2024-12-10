@@ -22,8 +22,8 @@ title_separator          : #"-"
 subtitle                 : "Your site for everything Actuarial Science"
 name                     : "Nicholas Wijaya"
 description              : "Your source of inspiration"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : /io
+url                      : "https://actuary492.github.io"
+baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 header:
   teaser                 : "/assets/stethoscope-financial-graphs-scaled.jpg"
