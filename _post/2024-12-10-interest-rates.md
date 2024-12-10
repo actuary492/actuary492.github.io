@@ -1,4 +1,14 @@
+---
 layout: single
-classes: wide
-excerpt: "A unique line of text to describe this post that will display in an archive listing and meta description with SEO benefits."
+title: "My First Post"
+date: 2024-12-10
+excerpt: "This is a short preview of my first post."
+author_profile: true
+header:
+  image: "/assets/images/your-header-image.jpg"
+  caption: "Photo credit: Unsplash"
+categories: [Blog, Photography]
+tags: [post, blog, jekyll]
+---
+
 
