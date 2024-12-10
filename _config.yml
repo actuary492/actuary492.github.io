@@ -25,7 +25,7 @@ description              : "Your source of inspiration"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : "/assets/stethoscope-financial-graphs-scaled.jpg"
 logo                     : "/assets/pngimg.com - letter_a_PNG19.png"
 masthead_title           : "Actuary 492"
 breadcrumbs              : # true, false (default)
