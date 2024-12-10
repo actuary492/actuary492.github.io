@@ -23,7 +23,7 @@ subtitle                 : "Your site for everything Actuarial Science"
 name                     : "Nicholas Wijaya"
 description              : "Your source of inspiration"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+baseurl                  : /io
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 header:
   teaser                 : "/assets/stethoscope-financial-graphs-scaled.jpg"
