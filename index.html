@@ -1,4 +1,25 @@
 ---
-layout: home
-author_profile: true
+layout: default
+title: "Welcome to My Blog"
 ---
+
+<div class="featured-post">
+  {% assign latest_post = site.posts.first %}
+  <h2><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h2>
+  <p>{{ latest_post.excerpt | strip_html }}</p>
+  {% if latest_post.teaser %}
+  <img src="{{ latest_post.teaser | relative_url }}" alt="{{ latest_post.title }}">
+  {% endif %}
+</div>
+
+<hr>
+
+<h3>Other Posts</h3>
+<ul class="other-posts">
+  {% for post in site.posts offset:1 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
