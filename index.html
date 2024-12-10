@@ -9,6 +9,8 @@ title: "{{ site.posts.first.title }}"
   <p>{{ latest_post.excerpt | strip_html }}</p>
   {% if latest_post.teaser %}
     <img src="{{ latest_post.teaser | relative_url }}" alt="{{ latest_post.title }}" class="featured-teaser">
+  {% else %}
+    <p>No teaser image available for this post.</p>
   {% endif %}
 </div>
 
@@ -21,6 +23,8 @@ title: "{{ site.posts.first.title }}"
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       {% if post.teaser %}
         <img src="{{ post.teaser | relative_url }}" alt="{{ post.title }}" class="post-teaser">
+      {% else %}
+        <p>No teaser image available.</p>
       {% endif %}
     </li>
   {% endfor %}
