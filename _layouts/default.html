@@ -9,6 +9,15 @@
     {% include head/custom.html %}
   </head>
 
+  <head>
+  <!-- KaTeX CDN for LaTeX Rendering -->
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js">
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+  </head>
+
+
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
     {% include_cached skip-links.html %}
     {% include_cached masthead.html %}
