@@ -8,7 +8,7 @@ title: "Welcome to My Blog"
   <h2><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h2>
   <p>{{ latest_post.excerpt | strip_html }}</p>
   {% if latest_post.teaser %}
-  <img src="{{ latest_post.teaser | relative_url }}" alt="{{ latest_post.title }}">
+    <img src="{{ latest_post.teaser | relative_url }}" alt="{{ latest_post.title }}" class="featured-teaser">
   {% endif %}
 </div>
 
@@ -19,7 +19,11 @@ title: "Welcome to My Blog"
   {% for post in site.posts offset:1 %}
     <li>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {% if post.teaser %}
+        <img src="{{ post.teaser | relative_url }}" alt="{{ post.title }}" class="post-teaser">
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
+
 
