@@ -2,6 +2,7 @@
 layout: single
 title: "My First Post"
 date: 2024-12-10
+teaser: "/assets/stethoscope-financial-graphs-scaled.jpg"
 excerpt: "This is a short preview of my first post."
 author_profile: true
 header:
