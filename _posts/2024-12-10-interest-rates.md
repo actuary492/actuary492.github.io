@@ -1,16 +1,17 @@
 ---
-layout: single
+layout: splash
 title: "My First Post"
 date: 2024-12-10
-teaser: "/assets/stethoscope-financial-graphs-scaled.jpg"
 excerpt: "This is a short preview of my first post."
 author_profile: true
 header:
   image: "/assets/stethoscope-financial-graphs-scaled.jpg"
   caption: "Photo credit: Unsplash"
+teaser: "/assets/stethoscope-financial-graphs-scaled.jpg"
 categories: [Blog, Photography]
 tags: [post, blog, jekyll]
 ---
+
 
 ## Welcome to My Blog
 
