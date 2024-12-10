@@ -15,7 +15,7 @@ tags: [post, blog, jekyll]
 
 This is my first post with a nice layout. Here’s a beautiful image:
 
-![A Stunning Sunset](/assets/sunset.jpg)
+image: "/assets/sunset.jpg"
 
 ### Features
 
@@ -25,7 +25,7 @@ This is my first post with a nice layout. Here’s a beautiful image:
 
 And here's another image with a caption:
 
-![A Calm Forest](/assets/forest.jpg)
+image: "/assets/forest.jpg"
 *Photo credit: Unsplash*
 
 
