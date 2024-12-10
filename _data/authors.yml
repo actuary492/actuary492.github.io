@@ -1,0 +1,16 @@
+# /_data/authors.yml
+
+Nicholas Wijaya:
+  name        : "Nicholas Wijaya"
+  bio         : "Your man to the rescue for Actuarial Science!"
+  avatar      : #"/assets/images/bio-photo-2.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "nicholas.wijaya1971@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://actuary492.github.io/io/"
+    - label: "LinkedIN"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/extravagantman"
