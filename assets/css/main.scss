@@ -1,41 +1,31 @@
-/* Resetting styles for .initial-content and .search-content */
-.initial-content,
-.search-content {
-  padding: 0 !important;       /* Remove any padding */
-  margin: 0 !important;        /* Remove any margin */
-  border: none !important;     /* Remove borders if any */
-  background-color: transparent !important; /* Remove background color */
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+.featured-post {
+  border: 2px solid #333;
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-bottom: 30px;
 }
 
-/* Removing grey frame for .featured-post */
-.featured-post,
-.featured-post * {
-  border: none !important;             /* Remove all borders */
-  background-color: transparent !important;  /* Make background transparent */
+.featured-post h2 {
+  font-size: 1.5em;
 }
 
-/* Ensuring images stretch to fill the container and have no border */
 .featured-post img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important; /* Make sure it covers the entire area */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
 }
 
-/* Additional styling for the layout */
-.archive__item, .featured-post {
-  border: none !important; /* Remove border from the entire post */
-  background-color: transparent !important; /* Remove background */
-}
-
-/* Ensuring no box-shadow applied anywhere */
-* {
-  box-shadow: none !important;
-}
-
-/* Optional: For content areas that may have unwanted spacing */
-body, div {
-  padding: 0 !important;
-  margin: 0 !important;
-  background-color: transparent !important; /* Remove background if needed */
-  border: none !important; /* Reset borders */
+.other-posts li {
+  margin: 5px 0;
 }
