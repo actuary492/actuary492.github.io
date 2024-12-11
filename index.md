@@ -1,13 +1,8 @@
 ---
 layout: splash
-title: "Welcome to My Blog"
+title: "Latest Post"
 permalink: /
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
-  overlay_image: /assets/images/default-header.jpg
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Discover the latest posts and updates!"
+excerpt: "Discover the latest post and read now!"
 ---
 
 {% assign latest_post = site.posts.first %}
@@ -17,7 +12,7 @@ excerpt: "Discover the latest posts and updates!"
   {% assign dynamic_header_url = latest_post.url %}
 {% else %}
   {% assign dynamic_header_image = '/assets/images/default-header.jpg' %}
-  {% assign dynamic_header_excerpt = "Welcome to my blog! Stay tuned for the latest updates." %}
+  {% assign dynamic_header_excerpt = "No posts available yet." %}
   {% assign dynamic_header_url = '#' %}
 {% endif %}
 
@@ -32,7 +27,7 @@ excerpt: "Discover the latest posts and updates!"
   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5);">
     <div style="position: relative; top: 50%; transform: translateY(-50%); padding: 20px;">
       <!-- Header Title -->
-      <h1>Welcome to My Blog</h1>
+      <h1>{{ latest_post.title }}</h1>
       <!-- Header Excerpt -->
       <p style="max-width: 600px; margin: 0 auto;">{{ dynamic_header_excerpt }}</p>
       <!-- Read Now Button -->
@@ -47,9 +42,9 @@ excerpt: "Discover the latest posts and updates!"
 
 <hr>
 
+<!-- Featured Post Section -->
 <div class="featured-post" style="text-align: center; margin-bottom: 30px;">
   {% if latest_post %}
-    <!-- Featured Post Section -->
     <div style="position: relative; max-width: 800px; margin: 0 auto;">
       <a href="{{ latest_post.url }}" style="text-decoration: none;">
         <!-- Teaser Image -->
@@ -70,27 +65,6 @@ excerpt: "Discover the latest posts and updates!"
       </div>
     </div>
   {% else %}
-    <!-- Fallback if no posts exist -->
     <p>No posts available yet. Check back soon!</p>
   {% endif %}
 </div>
-
-<hr>
-
-<div class="recent-posts">
-  <h3>Other Recent Posts</h3>
-  <ul style="list-style: none; padding: 0;">
-    {% for post in site.posts offset:1 limit:5 %}
-      <li style="margin-bottom: 15px;">
-        <a href="{{ post.url }}" style="text-decoration: none; color: #333;">
-          <h4>{{ post.title }}</h4>
-          <p>{{ post.excerpt | strip_html }}</p>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
-
-
-
-
