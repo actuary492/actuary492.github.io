@@ -1,8 +1,8 @@
 ---
 layout: splash
-title: "My First Post"
+title: "Interest Rates"
 date: 2024-12-10
-excerpt: "This is a short preview of my first post."
+excerpt: "We will learn about application of interest rates in Actuarial Science."
 author_profile: Nicholas Wijaya
 header: 
   image: "/assets/stethoscope-financial-graphs-scaled.jpg"
