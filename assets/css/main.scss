@@ -1,31 +1,14 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
-search: false
----
-
-@charset "utf-8";
-
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
-
-.featured-post {
-  border: 2px solid #333;
-  padding: 20px;
-  background-color: #f9f9f9;
-  margin-bottom: 30px;
-}
-
-.featured-post h2 {
-  font-size: 1.5em;
+.feature-row div {
+  background-size: cover; /* Ensure image covers the container */
+  background-position: center; /* Center the image */
+  height: 300px; /* Adjust as needed */
+  border-radius: 10px; /* Keep rounded corners */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
 }
 
 .featured-post img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px 0;
-}
-
-.other-posts li {
-  margin: 5px 0;
+  width: 100%; /* Ensure image fills the container's width */
+  height: 100%; /* Ensure image fills the container's height */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
