@@ -6,7 +6,7 @@ excerpt: "We will learn about application of interest rates in Actuarial Science
 author: Nicholas Wijaya
 header: 
   image: "/assets/stethoscope-financial-graphs-scaled.jpg"
-categories: [actuarial science]
+categories: [posts,actuarial science]
 tags: [post, blog, jekyll]
 ---
 
