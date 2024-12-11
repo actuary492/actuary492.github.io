@@ -15,7 +15,7 @@ excerpt: "Discover the latest posts and explore topics of interest."
     <div style="background-image: url('{{ latest_post.header.image | default: '/assets/images/default-header.jpg' }}'); 
                 background-size: cover; 
                 background-position: center; 
-                height: 400px; 
+                height: 1000px; 
                 filter: brightness(50%);">
     </div>
     <!-- Overlay -->
