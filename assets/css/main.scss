@@ -1,32 +1,6 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
-search: false
----
-
-@charset "utf-8";
-
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
-
 .featured-post {
-  border: 2px solid #333;
+  border: none !important;           /* Remove the border */
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: transparent !important;  /* Remove the background */
   margin-bottom: 30px;
 }
-
-.featured-post h2 {
-  font-size: 1.5em;
-}
-
-.featured-post img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px 0;
-}
-
-.other-posts li {
-  margin: 5px 0;
-}
-
