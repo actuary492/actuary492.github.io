@@ -15,13 +15,13 @@ tags: [post, blog, jekyll]
 
 <h2 style="color:dark; font-style:italic;">Effective Interest Rates</h2>
 <p style="color:black;">
-	Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by 10% to $X_{t+1}$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year (in arrears), which can be visualized by the formula below.
+	Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by $10%$ to $X_{t+1}$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year (in arrears), which can be visualized by the formula below.
  
 $$
 X_1 = X_0(1+i)
 $$
 
-	However, this concept is quite flawed in it's essence. Sure, it is easy to assume that the interest will be paid out at the end of year in our example for instance. However, in this concept of effective interest rates, we are not able to calculate the growth of a fund $X_t$ at any time between that one time period (i.e. calculating the fund at $t=0.06$ between $0<t<1$) except for the amount at the end of the time period. Essentially, the fund amount in any $t$ between $0<t<1$ will therefore still remain at the original amount of $X_t$ because at t=0.06, we have not received the interest yet based on this concept. This can or cannot be true - we do not know. 
+	However, this concept is quite flawed in it's essence. Sure, it is easy to assume that the interest will be paid out at the end of year in our example for instance. However, in this concept of effective interest rates, we are not able to calculate the growth of a fund $X_t$ at any time between that one time period (i.e. calculating the fund at $t=0.06$ between $0<t<1$) except for the amount at the end of the time period. Essentially, the fund amount in any $t$ between $0<t<1$ will therefore still remain at the original amount of $X_t$ because at $t=0.06$, we have not received the interest yet based on this concept. This can or cannot be true - we do not know. 
 	This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries are expected to calculate with fund growth within much specific timeframes, it could be within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such duty. Now comes the question, what is the remedy for this?
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
