@@ -8,7 +8,7 @@ header:
   image: "/assets/stethoscope-financial-graphs-scaled.jpg"
   caption: "Photo credit: Unsplash"
 teaser: "/assets/stethoscope-financial-graphs-scaled.jpg"
-categories: [Blog, Photography]
+categories: [posts, actuarial-science]
 tags: [post, blog, jekyll]
 ---
 
