@@ -1,33 +1,38 @@
 ---
-layout: default
-title: "{{ site.posts.first.title }}"
+title: "Homepage"
+layout: splash
+permalink: /
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/unsplash-image-1.jpg
+  actions:
+    - label: "Read Now"
+      url: "/posts/actuarial-science/interest-rates/"
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: "Welcome to my blog, where I share insights about actuarial science and more!"
+intro: 
+  - excerpt: 'Discover insightful articles, explore featured posts, and learn more about actuarial science. *Centered with* `type="center"`'
+feature_row:
+  - image_path: /assets/images/unsplash-gallery-image-1-th.jpg
+    alt: "Placeholder image 1"
+    title: "Actuarial Insights"
+    excerpt: "This post dives into the intricacies of actuarial science."
+    url: "/posts/actuarial-science/interest-rates/"
+    btn_label: "Read Now"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+    alt: "Placeholder image 2"
+    title: "Investment Strategies"
+    excerpt: "Explore tips and strategies for effective investments."
+    url: "/posts/investments/tips/"
+    btn_label: "Explore"
+    btn_class: "btn--secondary"
 ---
 
-<div class="featured-post">
-  {% assign latest_post = site.posts.first %}
-  <h2><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h2>
-  <p>{{ latest_post.excerpt | strip_html }}</p>
-  {% if latest_post.teaser %}
-    <img src="{{ latest_post.teaser | relative_url }}" alt="{{ latest_post.title }}" class="featured-teaser">
-  {% else %}
-    <p>No teaser image available for this post.</p>
-  {% endif %}
-</div>
+{% include feature_row id="intro" type="center" %}
 
-<hr>
+{% include feature_row %}
 
-<h3>Other Posts</h3>
-<ul class="other-posts">
-  {% for post in site.posts offset:1 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      {% if post.teaser %}
-        <img src="{{ post.teaser | relative_url }}" alt="{{ post.title }}" class="post-teaser">
-      {% else %}
-        <p>No teaser image available.</p>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
 
 
