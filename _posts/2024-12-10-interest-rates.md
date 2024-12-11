@@ -3,7 +3,7 @@ layout: splash
 title: "My First Post"
 date: 2024-12-10
 excerpt: "This is a short preview of my first post."
-author_profile: true
+author_profile: Nicholas Wijaya
 header:
   overlay_image: "/assets/stethoscope-financial-graphs-scaled.jpg"
   caption: "Photo credit: Unsplash"
