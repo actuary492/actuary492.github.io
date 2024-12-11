@@ -4,7 +4,8 @@ title: "My First Post"
 date: 2024-12-10
 excerpt: "This is a short preview of my first post."
 author_profile: Nicholas Wijaya
-header: "/assets/stethoscope-financial-graphs-scaled.jpg"
+header: 
+  image: "/assets/stethoscope-financial-graphs-scaled.jpg"
 categories: [posts, actuarial-science]
 tags: [post, blog, jekyll]
 ---
