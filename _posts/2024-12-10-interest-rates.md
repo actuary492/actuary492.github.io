@@ -12,7 +12,7 @@ tags: [post, blog, jekyll]
 
 > *Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the percent growth of an amount of fund $X_t$ at some time t over a specified time period, typically in the next year. This concept is very useful especially for actuaries for calculating cashflows of their client's portfolios in order to get a good overview of their financial risk. In this article, I will bring to you the different interest rates around that can be useful to actuaries.*
 
-<h2 style="color:darkgray; font-style:italic;Effective Interest Rates and It's Downsides">
+<h2 style="color:dark; font-style:italic;">Effective Interest Rates and It's Downsides</h2>
 
 <p style="color:black;">
 
@@ -29,7 +29,7 @@ $$
 	This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries are expected to calculate with fund growth within much specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such duty. Now comes the question, which type of interest rate can do this?
 
 
-<h2 style="color:darkgray; font-style:italic;The Force of Interest">
+<h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
   The force of interest, that is usually represented as \delta_t
 
