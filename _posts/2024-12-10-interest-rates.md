@@ -39,7 +39,7 @@ In this post, we will discuss Einstein's famous equation $ E = mc^2$. The equati
 For a particle at rest, its energy is given by:
 
 $$
-E_0 = m_0 c^2
+E = mc^2
 $$
 
 Where:
