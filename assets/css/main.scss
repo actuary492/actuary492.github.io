@@ -1,12 +1,12 @@
 /* Targeting featured post specifically */
-.featured-post,
-.featured-post * {
-  border: none !important;             /* Remove all borders */
-  background-color: transparent !important;  /* Make background transparent */
+.feature__item,
+.archive__item {
+  border: none !important; /* Remove any border */
+  background-color: transparent !important; /* Ensure no background color */
 }
 
-/* Additional styles to ensure the post remains clean */
-.featured-post img {
-  border: none !important;             /* Remove any border around images */
+.feature__item img,
+.archive__item img {
+  border: none !important; /* Remove any border around images */
 }
 
