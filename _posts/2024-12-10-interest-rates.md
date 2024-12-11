@@ -15,7 +15,7 @@ tags: [post, blog, jekyll]
 
 <h2 style="color:dark; font-style:italic;">Effective Interest Rates</h2>
 <p style="color:black;">
-	Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by 10% to $X_t+1$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year (in arrears), which can be visualized by the formula below.
+	Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by 10% to $X_{t+1}$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year (in arrears), which can be visualized by the formula below.
 $$
 X_1 = X_0(1+i)
 $$
