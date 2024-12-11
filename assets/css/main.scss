@@ -1,12 +1,13 @@
-/* Targeting featured post specifically */
-.feature__item,
-.archive__item {
-  border: none !important; /* Remove any border */
-  background-color: transparent !important; /* Ensure no background color */
+.featured-post {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background-color: transparent !important;
+  border: none !important;
 }
 
-.feature__item img,
-.archive__item img {
-  border: none !important; /* Remove any border around images */
+.featured-post img {
+  width: 100% !important; /* Make the image take the full width */
+  height: 100% !important; /* Make the image take the full height */
+  object-fit: cover !important; /* Ensure the image covers the entire area */
 }
-
