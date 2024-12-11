@@ -3,7 +3,7 @@ layout: splash
 title: "Interest Rates"
 date: 2024-12-10
 excerpt: "We will learn about application of interest rates in Actuarial Science."
-author_profile: Nicholas Wijaya
+author: Nicholas Wijaya
 header: 
   image: "/assets/stethoscope-financial-graphs-scaled.jpg"
 categories: [posts, actuarial-science]
@@ -11,9 +11,12 @@ tags: [post, blog, jekyll]
 ---
 
 
-## Welcome to My Blog
+<h2 style="color:lightgray; font-style:italic;">Interest rates</h2>
 
-This is my first post with a nice layout. Here’s a beautiful image:
+<p style="color:lightgray; font-style:italic;">
+Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the growth of an amount of fund X over one specified time period, that can be second, hour or year. Nevertheless, in practice, we encounter most often the annual interest rate.
+</p>
+
 
 ![A Stunning Sunset](/assets/sunset.jpg)
 
