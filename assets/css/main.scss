@@ -1,22 +1,41 @@
-/* Remove padding and margins from the featured post and related items */
+/* Resetting styles for .initial-content and .search-content */
+.initial-content,
+.search-content {
+  padding: 0 !important;       /* Remove any padding */
+  margin: 0 !important;        /* Remove any margin */
+  border: none !important;     /* Remove borders if any */
+  background-color: transparent !important; /* Remove background color */
+}
+
+/* Removing grey frame for .featured-post */
 .featured-post,
-.archive__item {
-  padding: 0 !important;  /* Remove padding */
-  margin: 0 !important;   /* Remove margin */
-  border: none !important;  /* Remove any border */
+.featured-post * {
+  border: none !important;             /* Remove all borders */
   background-color: transparent !important;  /* Make background transparent */
 }
 
-/* Ensure the featured image covers the entire container */
+/* Ensuring images stretch to fill the container and have no border */
 .featured-post img {
   width: 100% !important;
-  height: auto !important;  /* Maintain aspect ratio */
-  object-fit: cover !important;  /* Make sure the image covers the space */
+  height: auto !important;
+  object-fit: cover !important; /* Make sure it covers the entire area */
 }
 
-/* Optional: Set a background for featured posts */
-.archive__item-body {
-  background-color: transparent !important;  /* Remove any background */
+/* Additional styling for the layout */
+.archive__item, .featured-post {
+  border: none !important; /* Remove border from the entire post */
+  background-color: transparent !important; /* Remove background */
 }
 
+/* Ensuring no box-shadow applied anywhere */
+* {
+  box-shadow: none !important;
+}
 
+/* Optional: For content areas that may have unwanted spacing */
+body, div {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important; /* Remove background if needed */
+  border: none !important; /* Reset borders */
+}
