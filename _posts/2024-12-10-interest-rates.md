@@ -12,8 +12,9 @@ tags: [post, blog, jekyll]
 
 > *Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the percent growth of an amount of fund $X_t$ at some time t over a specified time period, typically in the next year. This concept is very useful especially for actuaries for calculating cashflows of their client's portfolios in order to get a good overview of their financial risk. In this article, I will bring to you the different interest rates around that can be useful to actuaries.*
 
+## Effective Interest Rates and It's Downsides
 
-## Effective Interest Rates
+<p style="color:black;">
 	Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by $10%$ to $X_{t+1}$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year (in arrears), which can be visualized by the formula below.
  
 $$
@@ -24,7 +25,7 @@ $$
  
 	This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries are expected to calculate with fund growth within much specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such duty. Now comes the question, which type of interest rate can do this?
 
-<h2 style="color:dark; font-style:italic;">Force of Interest</h2>
+## Force of Interest
 <p style="color:black;">
 
 
