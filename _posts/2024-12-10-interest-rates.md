@@ -14,9 +14,6 @@ header:
 teaser: "/assets/stethoscope-financial-graphs-scaled.jpg"
 categories: [posts, actuarial-science]
 tags: [post, blog, jekyll]
-actions:
-    - label: "Read Now"
-      url: "/posts/actuarial-science/interest-rates/"
 ---
 
 
