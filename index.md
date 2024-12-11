@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: splash
 title: "Welcome to My Blog"
 permalink: /
 excerpt: "Discover the latest posts and explore topics of interest."
