@@ -1,6 +1,12 @@
-.featured-post {
-  border: none !important;           /* Remove the border */
-  padding: 20px;
-  background-color: transparent !important;  /* Remove the background */
-  margin-bottom: 30px;
+/* Targeting featured post specifically */
+.featured-post,
+.featured-post * {
+  border: none !important;             /* Remove all borders */
+  background-color: transparent !important;  /* Make background transparent */
 }
+
+/* Additional styles to ensure the post remains clean */
+.featured-post img {
+  border: none !important;             /* Remove any border around images */
+}
+
