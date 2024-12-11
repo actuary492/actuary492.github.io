@@ -1,18 +1,18 @@
 ---
-layout: splash
-title: "Latest Posts"
+layout: home
+title: "Welcome to My Blog"
 permalink: /
-excerpt: "Discover the most recent posts and explore topics of interest."
+excerpt: "Discover the latest posts and explore topics of interest."
 ---
 
 {% assign latest_post = site.posts.first %}
 {% assign other_posts = site.posts offset: 1 %}
 
-<!-- Most Recent Post -->
+<!-- Most Recent Post with Teaser Image -->
 {% if latest_post %}
   <div class="splash-header" style="position: relative; text-align: left; color: white; padding: 50px;">
-    <!-- Header Image -->
-    <div style="background-image: url('{{ latest_post.header_image | default: '/assets/images/default-header.jpg' }}'); 
+    <!-- Header Image (Teaser Image from the latest post) -->
+    <div style="background-image: url('{{ latest_post.header.image | default: '/assets/images/default-header.jpg' }}'); 
                 background-size: cover; 
                 background-position: center; 
                 height: 400px; 
@@ -43,7 +43,7 @@ excerpt: "Discover the most recent posts and explore topics of interest."
     <div class="feature-row" style="max-width: 800px; margin: 20px auto; position: relative;">
       <a href="{{ post.url }}" style="text-decoration: none;">
         <!-- Teaser Image -->
-        <div style="background-image: url('{{ post.header_image | default: '/assets/images/default-header.jpg' }}'); 
+        <div style="background-image: url('{{ post.header.image | default: '/assets/images/default-header.jpg' }}'); 
                     background-size: cover; background-position: center; height: 300px; border-radius: 10px;">
         </div>
         <!-- Post Title and Excerpt -->
