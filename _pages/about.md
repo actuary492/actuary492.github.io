@@ -1,7 +1,9 @@
 ---
-layout: page
 title: "About"
 permalink: /about/
+layout: single
+author: true
 ---
-Write about yourself or the purpose of your site here.
+This is your about page content.
+
 
