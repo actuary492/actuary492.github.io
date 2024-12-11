@@ -10,7 +10,7 @@ excerpt: "Discover the latest posts and explore topics of interest."
 
 <!-- Most Recent Post with Teaser Image -->
 {% if latest_post %}
-  <div class="splash-header" style="position: relative; text-align: left; color: white; padding: 50px;">
+  <div class="splash-header" style="position: relative; text-align: left; color: white; padding: 0px;">
     <!-- Header Image (Teaser Image from the latest post) -->
     <div class="header-image" style="background-image: url('{{ latest_post.header.image | default: '/assets/images/default-header.jpg' }}'); 
                                     background-size: cover; 
@@ -27,7 +27,7 @@ excerpt: "Discover the latest posts and explore topics of interest."
         <p style="margin: 10px 0;">{{ latest_post.excerpt }}</p>
         <!-- Read Now Button -->
         <div style="margin-top: 20px;">
-          <a href="{{ latest_post.url }}" class="btn btn-primary" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+          <a href="{{ latest_post.url }}" class="btn btn-primary" style="padding: 0px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
             Read Now
           </a>
         </div>
