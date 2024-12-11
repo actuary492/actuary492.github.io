@@ -1,16 +1,9 @@
----
+a---
 layout: splash
 title: "My First Post"
 date: 2024-12-10
 excerpt: "This is a short preview of my first post."
 author_profile: Nicholas Wijaya
-header:
-  overlay_image: "/assets/stethoscope-financial-graphs-scaled.jpg"
-  caption: "Photo credit: Unsplash"
-  overlay_filter: 0.5 # opacity
-  actions:
-    - label: "Read Now"
-      url: "/posts/actuarial-science/interest-rates/"
 teaser: "/assets/stethoscope-financial-graphs-scaled.jpg"
 categories: [posts, actuarial-science]
 tags: [post, blog, jekyll]
