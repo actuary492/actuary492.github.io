@@ -1,5 +1,5 @@
 ---
-title: "Homepage"
+title: "Interest Rates"
 layout: splash
 permalink: /
 header:
@@ -10,9 +10,9 @@ header:
     - label: "Read Now"
       url: "/posts/actuarial-science/interest-rates/"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Welcome to my blog, where I share insights about actuarial science and more!"
+excerpt: "Interest rates"
 intro: 
-  - excerpt: 'Discover insightful articles, explore featured posts, and learn more about actuarial science. *Centered with* `type="center"`'
+  - excerpt: 'Discover insightful articles, explore featured posts, and learn more about actuarial science.'
 feature_row:
   - image_path: /assets/images/unsplash-gallery-image-1-th.jpg
     alt: "Placeholder image 1"
