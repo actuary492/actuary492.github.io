@@ -11,7 +11,7 @@ tags: [post, blog, jekyll]
 ---
 
 <p style="color:darkgray; font-style:italic;">
-      Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the growth of an amount of fund $X_t$ at some time t over a specified time period, that can be the next second, next hour or next year. Nevertheless, in practice, we encounter most often the annual interest rate. But, have you wondered what types of interest rates do actuaries use? They are no other than the force of interest and the effective interest rate.
+      Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the percent growth of an amount of fund $X_t$ at some time t over a specified time period, typically in the next year. This concept is very useful especially for actuaries for calculating cashflows of their client's portfolios in order to get a good overview of their financial risk. In this article, I will bring to you the different interest rates around that can be useful to actuaries.
 
 <h2 style="color:dark; font-style:italic;">Effective Interest Rates</h2>
 <p style="color:black;">
