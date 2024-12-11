@@ -1,23 +1,22 @@
-/* Remove any border and background styling on featured post items */
-.archive__item,
-.archive__item * {
-  border: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
+/* Remove padding and margins from the featured post and related items */
+.featured-post,
+.archive__item {
+  padding: 0 !important;  /* Remove padding */
+  margin: 0 !important;   /* Remove margin */
+  border: none !important;  /* Remove any border */
+  background-color: transparent !important;  /* Make background transparent */
 }
 
-/* Ensure the featured image takes up the entire container */
+/* Ensure the featured image covers the entire container */
 .featured-post img {
   width: 100% !important;
-  height: auto !important; /* Ensure correct aspect ratio */
-  object-fit: cover !important; /* Ensure the image covers the space */
+  height: auto !important;  /* Maintain aspect ratio */
+  object-fit: cover !important;  /* Make sure the image covers the space */
 }
 
-/* Remove padding and margin from the featured post container */
-.featured-post {
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;  /* Ensure no border */
-  background-color: transparent !important; /* Ensure no background */
+/* Optional: Set a background for featured posts */
+.archive__item-body {
+  background-color: transparent !important;  /* Remove any background */
 }
+
 
