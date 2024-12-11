@@ -11,7 +11,7 @@ tags: [post, blog, jekyll]
 ---
 
 
-<h2 style="color:lightgray; font-style:italic;">Interest rates</h2>
+<h2 style="color:black; font-style:italic;">Interest rates</h2>
 
 <p style="color:lightgray; font-style:italic;">
 Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the growth of an amount of fund X over one specified time period, that can be second, hour or year. Nevertheless, in practice, we encounter most often the annual interest rate.
