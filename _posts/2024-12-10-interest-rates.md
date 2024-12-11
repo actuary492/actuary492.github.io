@@ -14,7 +14,7 @@ tags: [post, blog, jekyll]
 <h2 style="color:black; font-style:italic;">Interest rates</h2>
 
 <p style="color:darkgray; font-style:italic;">
-Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the growth of an amount of fund X over one specified time period, that can be second, hour or year. Nevertheless, in practice, we encounter most often the annual interest rate.
+Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the growth of an amount of fund $X_t$ over a specified time period, that can be second, hour or year. Nevertheless, in practice, we encounter most often the annual interest rate.
 </p>
 
 
@@ -32,7 +32,7 @@ And here's another image with a caption:
 *Photo credit: Unsplash*
 
 
-In this post, we will discuss Einstein's famous equation \( E = mc^2 \). The equation states that energy is equal to mass times the speed of light squared.
+In this post, we will discuss Einstein's famous equation $\( E = mc^2 \)$. The equation states that energy is equal to mass times the speed of light squared.
 
 For a particle at rest, its energy is given by:
 
