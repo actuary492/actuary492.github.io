@@ -1,13 +1,23 @@
-.featured-post {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  background-color: transparent !important;
+/* Remove any border and background styling on featured post items */
+.archive__item,
+.archive__item * {
   border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
+/* Ensure the featured image takes up the entire container */
 .featured-post img {
-  width: 100% !important; /* Make the image take the full width */
-  height: 100% !important; /* Make the image take the full height */
-  object-fit: cover !important; /* Ensure the image covers the entire area */
+  width: 100% !important;
+  height: auto !important; /* Ensure correct aspect ratio */
+  object-fit: cover !important; /* Ensure the image covers the space */
 }
+
+/* Remove padding and margin from the featured post container */
+.featured-post {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;  /* Ensure no border */
+  background-color: transparent !important; /* Ensure no background */
+}
+
