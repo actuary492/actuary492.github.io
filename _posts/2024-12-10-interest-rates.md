@@ -31,7 +31,7 @@ $$
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
-  The force of interest, that is usually represented as \delta_t
+  The force of interest, that is usually represented as \( \gamma_{t} \)
 
 
 
@@ -47,7 +47,7 @@ And here's another image with a caption:
 *Photo credit: Unsplash*
 
 
-In this post, we will discuss Einstein's famous equation $ E = mc^2$. The equation states that energy is equal to mass times the speed of light squared.
+In this post, we will discuss Einstein's famous equation $E = mc^2$. The equation states that energy is equal to mass times the speed of light squared.
 
 For a particle at rest, its energy is given by:
 
@@ -56,9 +56,9 @@ E = mc^2
 $$
 
 Where:
-- \( E_0 \) is the rest energy,
-- \( m_0 \) is the rest mass,
-- \( c \) is the speed of light.
+- $E_0$ is the rest energy,
+- $m_0$ is the rest mass,
+- $c$ is the speed of light.
 
 Another interesting formula is the Lorentz factor \( \gamma \), which is defined as:
 
