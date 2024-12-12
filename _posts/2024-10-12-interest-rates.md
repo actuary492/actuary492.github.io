@@ -17,6 +17,7 @@ tags: [post, blog, jekyll]
 
 # Effective Interest Rates and It's Downsides
 
+<p style="color:black;">
 Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by 10% to $X_{t+1}$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year. This can be visualized by the formula below.
 
 $$
@@ -30,7 +31,8 @@ However, this concept is quite flawed in it's essence. Sure, it is easy and more
 This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries can be expected to calculate fund growth in much more specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such task. Now comes the question, which type of interest rate can do this?
 
 # Force of Interest
-    
+
+<p style="color:black;">
 It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
   
 <p style="color:black;">
