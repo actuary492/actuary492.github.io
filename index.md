@@ -35,14 +35,3 @@ permalink: /
   </div>
   <hr>
 {% endif %}
-
-<!-- Remove Other Posts Section -->
-<!-- 
-<div class="featured-posts">
-  {% for post in other_posts %}
-    <div class="feature-row">
-      <!-- Post content here -->
-    </div>
-  {% endfor %}
-</div>
--->
