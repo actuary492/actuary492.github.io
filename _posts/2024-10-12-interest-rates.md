@@ -46,51 +46,40 @@ $$
 \delta_{t} \ = \frac{1}{X_t} * \frac{dX_t}{dt}
 $$
 
-<p style="color:black;">
 At this point, we should be aware that the fund $X_t$ can be a function that calculates the amount of fund at some time $t$, which can be also denoted as $X(t)$. Now, let us then move to the main part. Let us first observe this number line.
-
 
 <img src="https://actuary492.github.io/assets/images/cashflow.png" alt="description">
 
-
-
-<p style="color:black;">
 This number line tells us the growth of fund $X_t$ [ $X(t)$ ] over a time interval $h$ to $X_{t+h}$ [ ($X(t+h)$ ]. The interest earned in this time interval, following simple interest rate definition, can be visualised as:
 
 $$
 i[t, t+h] = \frac{X(t+h) - X(t)}{X(t)}
 $$
-
-<p style="color:black;">  
+ 
 Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until $h$ becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals, otherwise known as the force of interest \( \delta_{t} \) :
 
 $$
 \delta_t = \lim_{h \to 0} \frac{i[t, t+h]}{h}  = \lim_{h \to 0} \frac{\frac{X(t+h) - X(t)}{X(t)}}{h} = \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)}
 $$
 
-<p style="color:black;">  
 Remembering the limit definition of a derivative below:
 
 $$
 \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = f'(x)
 $$
 
-<p style="color:black;">  
 We can then simplify the proof as follows by using definition of derivative:
 
 $$
 \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \frac{1}{X(t)} * \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} = \frac{X'(t)}{X(t)} =  \delta_{t}
 $$
 
-
-<p style="color:black;">  
 In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$, that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of \( \delta_{t} \). 
 
 $$
 \delta_{t} = \frac{X'(t)}{X(t)}
 $$
 
-<p style="color:black;"> 
 Integrating both sides in some time interval $t$ to $t+n$:
 
 $$
@@ -105,7 +94,6 @@ $$
 \int_t^{t+n} \delta_{t} \ ds = ln(X_{t+n}) - ln(X_t) = ln(\frac{X_{t+n}}{X_t})
 $$
 
-<p style="color:black;"> 
 Now, we can simply rearrange the equation above to express $X_{t+n}$ in terms of $X_t$ and \( \delta_{t} \).
 
 $$
@@ -120,25 +108,22 @@ $$
 X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
 $$
 
-<p style="color:black;"> 
 Looking at the equation above, we can clearly see that the interest rate is not exactly the force of interest, but rather the equation that is:
 
 $$
 e^{\int_t^{t+n} \delta_{t} \ ds}
 $$
 
-<p style="color:black;">
 To find the discounting rate using the force of interest, simply add a negative behind the integral of the function above:
 
 $$
 e^{-\int_t^{t+n} \delta_{t} \ ds}
 $$
 
-<p style="color:black;"> 
-  This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours and this solves the limitation of the effective interest rates. This is further embedded into logic by the integral definition in the equation, which tells us that we are calculating the average of interest rates between some arbitrary time period. This explains the <em style="font-style:italic;">continuous</em> nature of this force of interest.
+This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours and this solves the limitation of the effective interest rates. This is further embedded into logic by the integral definition in the equation, which tells us that we are calculating the average of interest rates between some arbitrary time period. This explains the <em style="font-style:italic;">continuous</em> nature of this force of interest.
 
-<p style="color:black;"> 
-  Let us take an example where we need to calculate the interest of borrowing $100 000$  in 10 days time for one day, given an constant annual force of interest of \( \delta \) $= 0.05$ . By the accumulation formula based on the force of interest, it should be fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
+
+Let us take an example where we need to calculate the interest of borrowing $100 000$  in 10 days time for one day, given an constant annual force of interest of \( \delta \) $= 0.05$ . By the accumulation formula based on the force of interest, it should be fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
 
 $$
 X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
@@ -148,7 +133,7 @@ $$
 X(11/365) = X(10/365) e^{\int_{10/365}^{11/365} 0.05 \ ds} = 100000 e^{\int_{10/365}^{11/365} 0.05 \ ds} \approx 100013.7
 $$
 
-<p style="color:black;">
+
 We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th day is about $13.70$ based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
 
 # The Relationship between Force of Interest and Effective Interest Rates
@@ -159,7 +144,6 @@ $$
 e^{\int_{0}^{1} \delta \ ds} = e^{\delta} = (1+i)
 $$
 
-<p style="color:black;">
 This gives us an extremely important relationship. Starting with a fund of $1$, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$  in the end.
 
 # Nominal Interest Rates
@@ -174,24 +158,17 @@ $$
 
   For example, $i^{(12)} = 0.1$ tells us that the nominal rate that is 0.1 per annum payable can be converted monthly, by dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, the nominal rate for the monthly time interval. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitrary time point in between the monthly time periods.
 
-<p style="color:black;">
 # When are Effective Interest Rates and Force of Interest Used?
 
-<p style="color:black;">
   Effective rates are used often in the world of finance due to the regular and discrete characteristic of cashflows which we encounter, such as insurance premiums and monthly pension payments. As these cashflows are received or paid out at fixed time intervals, using an effective rate consistent whose period is consistent with the frequency of payments suffices to reflect financial risk in practice. Thus, force of interest is not really needed. However, in situations where patterns of interest rates or payments are irregular and continuous in nature, the force of interest will be needed for calculations.  
 
-<p style="color:black;">
   Using mortality rates as an example which you might have encountered some time in your academics, if we are only required to measure death rates between discrete time intervals, then mortality rate suffices. However, if we are asked to measure death rates over non-integer time ranges, such as the probability of survival an 80.2 year old in the next 2.5 years, the force of mortality will be better suited for this purpose.
 
-<p style="color:black;">
 # Conclusion
 
-<p style="color:black;">
   In this article, we have learned about the different types of interest rates used by actuaries, it's characteristics, and in which situations are these types of interest rates used. I hope you have learned something from this article. See you on the next one!
 
-<p style="color:black;">
 # References
 
-<p style="color:black;">
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
