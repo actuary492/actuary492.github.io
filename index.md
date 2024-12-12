@@ -1,6 +1,6 @@
 <!-- Splash Page Section -->
 <div class="splash-header" style="position: relative; text-align: left; color: white; padding: 0px;">
-  <div style="background-image: url('{{ site.header.overlay_image | default: '/assets/images/default-header.jpg' }}'); 
+  <div style="background-image: url('{{ site.header.overlay_image | default: '/assets/images/default-header.png' }}'); 
               background-size: cover; 
               background-position: center; 
               height: 400px; 
