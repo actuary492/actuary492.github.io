@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 markdown: kramdown
 title: "Interest Rates"
 date: 2024-12-10
