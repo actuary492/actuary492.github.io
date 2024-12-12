@@ -82,7 +82,7 @@ $$
 
 
 <p style="color:black;">  
-  In order to see how the fund evolves with the force of interest, we have to express $X(t)$ in terms of \( \delta_{t} \). 
+  In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$. that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of \( \delta_{t} \). 
 
 $$
 \delta_{t} = \frac{X'(t)}{X(t)}
@@ -103,5 +103,26 @@ $$
 \int_t^{t+n} \delta_{t} \ ds = ln(X_{t+n}) - ln(X_t) = ln(\frac{X_{t+n}}{X_t})
 $$
 
+<p style="color:black;"> 
+  Now, we can simply rearrange the equation above to express 
+
+$$
+\int_t^{t+n} \delta_{t} \ ds = ln(\frac{X_{t+n}}{X_t})
+$$
+
+$$
+e^{\int_t^{t+n} \delta_{t} \ ds} = \frac{X_{t+n}}{X_t}
+$$
+
+$$
+X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
+$$
+
+<p style="color:black;"> 
+  Looking at the equation above, we can clearly see that the interest rate is not exactly the force of interest, but rather the equation that is:
+
+$$
+e^{\int_t^{t+n} \delta_{t} \ ds}
+$$
 
 
