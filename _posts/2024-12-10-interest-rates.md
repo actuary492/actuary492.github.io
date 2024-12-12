@@ -92,7 +92,7 @@ $$
   Integrating both sides in some time interval $t$ to $t+n$:
 
 $$
-\int_t^{t+n} \delta_{t} \ ds = \int_t^t+n \frac{X'(s)}{X(s)} \, ds
+\int_t^{t+n} \delta_{t} \ ds = \int_t^{t+n} \frac{X'(s)}{X(s)} \, ds
 $$
 
 $$
