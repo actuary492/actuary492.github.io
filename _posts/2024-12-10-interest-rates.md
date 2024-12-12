@@ -60,7 +60,7 @@ $$
 
 
 <p style="color:black;">
-  	This number line tells us the growth of fund $X_t$ ($X(t)$) over a time interval $h$ to $X_{t+h}$ (($X(t+h)$). The interest earned in this time interval, following simple interest rate definition, can be visualised as:
+  	This number line tells us the growth of fund $X_t$ [ $X(t)$ ] over a time interval $h$ to $X_{t+h}$ [ ($X(t+h)$ ]. The interest earned in this time interval, following simple interest rate definition, can be visualised as:
 
 $$
 i[t, t+h] = \frac{X(t+h) - X(t)}{X(t)}
