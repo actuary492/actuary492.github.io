@@ -327,6 +327,7 @@ defaults:
       related: true
       show_date: true
       search: true
+      toc: true
 
 # Lunr
 lunr:
