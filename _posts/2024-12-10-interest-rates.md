@@ -89,7 +89,7 @@ $$
 
 
 <p style="color:black;">  
-  In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$. that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of \( \delta_{t} \). 
+  In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$, that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of \( \delta_{t} \). 
 
 $$
 \delta_{t} = \frac{X'(t)}{X(t)}
