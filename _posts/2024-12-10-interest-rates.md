@@ -159,16 +159,23 @@ $$
 <h2 style="color:dark; font-style:italic;">The Relationship between Effective Interest Rates and the Force of Interest</h2>
 
 <p style="color:black;">
-  Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which they will need to likely use to calculate growth of funds over smaller time intervals, serving as a bridge between theory and practice. Finding the relationship between effective rates and the force of interest allows us to calculate growth of fund in between time periods by only requiring the effective interest rate. In order to do this, we have to assume equality between the two different interest accumulation functions: consider the interest accumulated at a time interval $0<t<1$, using the constant force of interest (to simplify calculations) is equivalent to the interest accrued using the effective interest rate. This can be visualised by the following equation:
+  Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which can likely be used to calculate growth of funds over smaller time intervals, serving as a bridge between theory and practice. Finding the relationship between effective rates and the force of interest allows us to calculate growth of fund in between time periods by only requiring the effective interest rate. In order to do this, we have to assume equality between the two different interest accumulation functions: consider the interest accumulated at a time interval $0<t<1$, using the constant force of interest (to simplify calculations) is equivalent to the interest accrued using the effective interest rate. This can be visualised by the following equation:
 
 $$
-e^{\int_{0}^{1} \delta \ds} = e^{\delta} = (1+i)
+e^{\int_{0}^{1} \delta \ ds} = e^{\delta} = (1+i)
 $$
 
 <p style="color:black;">
   This gives us an extremely important relationship. Starting with a fund of $1, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i) in the end.
 
 
-  
+<h2 style="color:dark; font-style:italic;">Nominal Interest Rates</h2>
+<p style="color:black;">
+
+
+
+
+<h2 style="color:dark; font-style:italic;">Force of Interest</h2>
+<p style="color:black;">
   
 
