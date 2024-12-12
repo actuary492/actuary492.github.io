@@ -327,11 +327,6 @@ defaults:
       share: true
       related: true
 
-
-# Lunr
-lunr:
-  search_within_pages: true
-
 # Let Jekyll see _pages
 include: ["_pages"]
 
