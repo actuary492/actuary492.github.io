@@ -37,11 +37,6 @@
         <p>{{ latest_post.excerpt | strip_html }}</p>
       </div>
     </a>
-    <div style="margin-top: 10px; text-align: center;">
-      <a href="{{ latest_post.url }}" class="btn btn-primary" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
-        Read Now
-      </a>
-    </div>
   </div>
   <hr>
 {% endif %}
