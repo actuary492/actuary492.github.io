@@ -81,7 +81,19 @@ $$
 $$
 
 
-  Let us now do some integration in order 
+<p style="color:black;">  
+  In order to see how the fund evolves with the force of interest, we have to express $X(t)$ in terms of \( \delta_{t} \). 
+
+$$
+\delta_{t} = \frac{X'(t)}{X(t)}
+$$
+
+<p style="color:black;"> 
+  Integrating both sides in some time interval $t$ to $t+n$:
+
+$$
+\int_t^t+n \delta_{t} \, ds = \int_t^t+n \frac{X'(t)}{X(t)} \, ds
+$$
 
 
 
