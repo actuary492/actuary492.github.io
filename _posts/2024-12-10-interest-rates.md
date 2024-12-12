@@ -31,7 +31,7 @@ $$
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
-  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the amount of interest earned in an "infinitesimally" small time interval. Let us start with a step-by-step proof of this force of interest to show how can we use to calculate the growth of some fund $X_t$.
+  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the amount of interest earned in an "infinitesimally" small time interval. Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
 
 <p style="color:black;">
   The amount of interest \( \delta_{t} \) earned in a small time interval \( \Delta t \)  from a fund of $X_t$, is equivalent to the change in fund $X_t$ denoted as \( \Delta $X_t$ \), which can be visualised as follows:
