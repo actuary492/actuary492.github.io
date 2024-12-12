@@ -9,6 +9,8 @@ classes: wide
 header: 
   image: "/assets/images/stethoscope-financial-graphs-scaled.jpg"
 permalink: /posts/interest-rates/
+published: true
+draft: false
 tags: [post, blog, jekyll]
 ---
 
