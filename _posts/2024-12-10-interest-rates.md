@@ -197,5 +197,5 @@ $$
   
 <h2 style="color:dark; font-style:italic;">References</h2>
 
-McQuire, A., & Kume, M. (2020). *R Programming for Actuarial Science*. Wiley.
+McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
