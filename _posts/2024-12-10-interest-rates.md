@@ -143,7 +143,7 @@ $$
   This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours and this solves the limitation of the effective interest rates. This explains the <em style="font-style:italic;">continuous</em> nature of this force of interest.
 
 <p style="color:black;"> 
-  Let us take an example where we need to calculate the interest of borrowing $100 000 in 10 days time for one day, given an constant annual force of interest of $\( \delta \) = 0.05$ . By the accumulation formula, it is fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
+  Let us take an example where we need to calculate the interest of borrowing $100 000$  in 10 days time for one day, given an constant annual force of interest of $\( \delta \) = 0.05$ . By the accumulation formula, it is fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
 
 $$
 X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
@@ -154,7 +154,7 @@ X(11/365) = X(10/365) e^{\int_{10/365}^{11/365} 0.05 \ ds} = 100000 e^{\int_{10/
 $$
 
 <p style="color:black;">
-  We therefore see that the interest of borrowing $100 000 for 1 day in the 10th is about $13.70 based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
+  We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th is about $13.70 based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
 
 <h2 style="color:dark; font-style:italic;">The Relationship between Effective Interest Rates and the Force of Interest</h2>
 
@@ -166,7 +166,7 @@ e^{\int_{0}^{1} \delta \ ds} = e^{\delta} = (1+i)
 $$
 
 <p style="color:black;">
-  This gives us an extremely important relationship. Starting with a fund of $1, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i) in the end.
+  This gives us an extremely important relationship. Starting with a fund of $1$, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i) in the end.
 
 
 <h2 style="color:dark; font-style:italic;">Nominal Interest Rates</h2>
