@@ -54,7 +54,8 @@ $$
 <p style="color:black;">
   At this point, we should be aware that the fund $X_t$ can be a function that calculates the amount of fund at some time $t$, which can be also denoted as $X(t)$. Now, let us then move to the main part. Let us first observe this number line.
 
-![Cashflow timeline](./assets/images/cashflow.png)
+![Cashflow timeline]({{ site.baseurl }}/assets/images/cashflow.png)
+
 
 <p style="color:black;">
   	This number line tells us the growth of fund $X_t$ ($X(t)$) over a time interval $h$ to $X_{t+h}$ (($X(t+h)$). The interest earned in this time interval, following simple interest rate definition, can be visualised as:
