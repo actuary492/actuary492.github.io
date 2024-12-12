@@ -166,7 +166,7 @@ e^{\int_{0}^{1} \delta \ ds} = e^{\delta} = (1+i)
 $$
 
 <p style="color:black;">
-  This gives us an extremely important relationship. Starting with a fund of $1$, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i) in the end.
+  This gives us an extremely important relationship. Starting with a fund of $1$, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$  in the end.
 
 
 <h2 style="color:dark; font-style:italic;">Nominal Interest Rates</h2>
