@@ -99,5 +99,9 @@ $$
 \int_t^{t+n} \delta_{t} \ ds = \left[ ln(X(s)) \right]_t^{t+n}
 $$
 
+$$
+\int_t^{t+n} \delta_{t} \ ds = ln(X_{t+n}) - ln(X_t) = ln(\frac{X_{t+n}}{X_t})
+$$
+
 
 
