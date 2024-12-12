@@ -154,7 +154,7 @@ X(11/365) = X(10/365) e^{\int_{10/365}^{11/365} 0.05 \ ds} = 100000 e^{\int_{10/
 $$
 
 <p style="color:black;">
-  We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th day is about $13.70 based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
+  We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th day is about $13.70$ based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
 
 <h2 style="color:dark; font-style:italic;">The Relationship between Effective Interest Rates and the Force of Interest</h2>
 
