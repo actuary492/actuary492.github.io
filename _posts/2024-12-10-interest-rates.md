@@ -31,15 +31,29 @@ $$
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
-  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the amount of interest earned in an "infinitesimally" small time interval. Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
+  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
 
 <p style="color:black;">
-  The amount of interest \( \delta_{t} \) earned in a small time interval \( \Delta t \)  from a fund of $X_t$, is equivalent to the change in fund $X_t$ denoted as \( \Delta $X_t$ \), which can be visualised as follows:
+  First, we need some prerequisites. The interest \( \delta_{t} \) earned in a small time interval d$t$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as d$X_t$, which can be visualised as follows:
 
 $$
-X_t * \delta_{t} \ * \Delta t \ = \Delta X_t \
+X_t * \delta_{t}\ * dt = dX_t 
 $$
 
+<p style="color:black;">
+  Rearranging the equation, with \( \delta_{t} \) as the subject, we get as follows:
+
+$$
+\delta_{t} \ = \frac{1}{X_t} * \frac{dX_t}{dt}
+$$
+
+<p style="color:black;">
+  Now, let us then move to the main part. Let us first observe this number line.
+
+$$
+\text{Time Line:} \quad
+\underset{X_t}{\bullet} \; \xrightarrow{\text{h}} \; \underset{X_{t+h}}{\bullet} 
+$$
 
 
 
