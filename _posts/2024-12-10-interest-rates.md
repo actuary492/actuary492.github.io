@@ -52,7 +52,21 @@ $$
 
 ![Cashflow timeline](/assets/images/cashflow.png)
 
+<p style="color:black;">
+  	This number line tells us the growth of fund $X_t$ ($X(t)$) over a time interval $h$ to $X_{t+h}$ (($X(t+h)$). The interest earned in this time interval, following simple interest rate definition, can be visualised as:
 
+$$
+i[t, t+h] = \frac{X(t+h) - X(t)}{X(t)}
+$$
+
+<p style="color:black;">  
+    Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until h becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals:
+
+$$
+\[
+\lim_{h \to 0} \frac{i[t, t+h]}{h}  = \lim_{h \to 0} \frac{\frac{X(t+h) - X(t)}{X(t)}}{h}
+\]
+$$
 
 
 
