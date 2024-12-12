@@ -157,7 +157,6 @@ $$
 
 # The Relationship between Force of Interest and Effective Interest Rates
 
-<p style="color:black;">
   Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which can likely be used to calculate growth of funds over smaller time intervals. Finding the relationship between effective rates and the force of interest allows us to calculate growth of fund in between time periods by only requiring the effective interest rate, serving as a bridge between theory and practice. In order to do this, we have to assume equality between the two different interest accumulation functions: consider the interest accumulated at a time interval $0<t<1$, using the constant force of interest (to simplify calculations) is equivalent to the interest accrued using the effective interest rate. This can be visualised by the following equation:
 
 $$
@@ -184,7 +183,6 @@ $$
 
 # When are Effective Interest Rates and Force of Interest Used?
 
-<p style="color:black;">
   Effective rates are used often in the world of finance due to the regular and discrete characteristic of cashflows which we encounter, such as insurance premiums and monthly pension payments. As these cashflows are received or paid out at fixed time intervals, using an effective rate consistent whose period is consistent with the frequency of payments suffices to reflect financial risk in practice. Thus, force of interest is not really needed. However, in situations where patterns of interest rates or payments are irregular and continuous in nature, the force of interest will be needed for calculations.  
 
 <p style="color:black;">
@@ -192,11 +190,9 @@ $$
 
 # Conclusion
 
-<p style="color:black;">
   In this article, we have learned about the different types of interest rates used by actuaries, it's characteristics, and in which situations are these types of interest rates used. I hope you have learned something from this article. See you on the next one!
 
 # References
 
-<p style="color:black;">
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
