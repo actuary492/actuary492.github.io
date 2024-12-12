@@ -9,6 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/markowitz.jpg"
 permalink: /posts/modern-portfolio-theory/
+published: true
 tags: [post, blog, jekyll]
 ---
 
