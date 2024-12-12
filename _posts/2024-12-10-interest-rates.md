@@ -51,8 +51,9 @@ $$
   Now, let us then move to the main part. Let us first observe this number line.
 
 $$
-\text{Time Line:} \quad
-\underset{X_t}{\bullet} \; \xrightarrow{\text{h}} \; \underset{X_{t+h}}{\bullet} 
+\[
+\text{Time Line:} \quad t \cdots \cdots \cdots t+h \quad \Rightarrow \quad \text{(Label positions above section as designed)}
+\]
 $$
 
 
