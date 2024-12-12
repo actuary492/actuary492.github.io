@@ -26,8 +26,8 @@ url                      : "https://actuary492.github.io"
 baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 header:
-  teaser                 : "/assets/stethoscope-financial-graphs-scaled.jpg"
-logo                     : "/assets/pngimg.com - letter_a_PNG19.png"
+  teaser                 : "/assets/images/stethoscope-financial-graphs-scaled.jpg"
+logo                     : "/assets/images/pngimg.com - letter_a_PNG19.png"
 masthead_title           : "Actuary 492"
 breadcrumbs              : true
 permalink                : /posts/:title/
