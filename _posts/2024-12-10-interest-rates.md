@@ -31,7 +31,10 @@ $$
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
-  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
+  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the *forward interest rate*. 
+  
+  <p style="color:black;">
+  Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
 
 <p style="color:black;">
   First, we need some prerequisites. The interest \( \delta_{t} \) earned in a small time interval d$t$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as d$X_t$, which can be visualised as follows:
@@ -124,5 +127,9 @@ $$
 $$
 e^{\int_t^{t+n} \delta_{t} \ ds}
 $$
+
+<p style="color:black;"> 
+  This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours. 
+
 
 
