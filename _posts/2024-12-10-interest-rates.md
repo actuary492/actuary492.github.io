@@ -77,8 +77,11 @@ $$
   We can then simplify the proof as follows by using definition of derivative:
 
 $$
-\lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \lim_{h \to 0} \frac{X'(t)}{X(t)}
+\lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \frac{1}{X(t)} * \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} = \frac{X'(t)}{X(t)} =  \delta_{t}
 $$
+
+
+  Let us now do some integration in order 
 
 
 
