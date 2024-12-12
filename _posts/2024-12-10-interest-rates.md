@@ -32,7 +32,7 @@ $$
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
-  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the _forward interest rate_. 
+  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the *forward interest rate*. 
   
   <p style="color:black;">
   Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
@@ -108,7 +108,7 @@ $$
 $$
 
 <p style="color:black;"> 
-  Now, we can simply rearrange the equation above to express 
+  Now, we can simply rearrange the equation above to express $X_{t+n}$ in terms of $X_t$ and \( \delta_{t} \).
 
 $$
 \int_t^{t+n} \delta_{t} \ ds = ln(\frac{X_{t+n}}{X_t})
