@@ -1,5 +1,6 @@
 ---
 layout: single
+markdown: kramdown
 title: "Interest Rates"
 date: 2024-12-10
 excerpt: "We will learn about application of interest rates in Actuarial Science."
