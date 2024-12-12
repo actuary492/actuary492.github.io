@@ -319,15 +319,13 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: post
+      layout: single
       author_profile: true
       read_time: true
       comments: true
       share: true
       related: true
-      show_date: true
-      search: true
-      toc: true
+
 
 # Lunr
 lunr:
