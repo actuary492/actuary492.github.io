@@ -174,7 +174,7 @@ $$
   Previously, we interpreted effective interest rates as the interest received at the end of one period. The nominal interest rates ($i^(p)$) essentially has the same idea as effective interest rates, except that this concept can be interpreted as receiving interest more than once per unit period. Nominal rates are still discrete in nature, however they allow us to calculate interest rates of smaller time intervals. The relationship between effective and nominal rates is as follows:
 
 $$
-i^(p) = p((1+i)^{\frac{1}{p}} - 1)
+i^{(p)} = p((1+i)^{\frac{1}{p}} - 1)
 $$
 
 <p style="color:black;">
