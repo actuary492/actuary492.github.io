@@ -60,24 +60,24 @@ i[t, t+h] = \frac{X(t+h) - X(t)}{X(t)}
 $$
 
 <p style="color:black;">  
-    Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until h becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals, otherwise known as the force of interest \delta_{t} :
+    Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until h becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals, otherwise known as the force of interest \( \delta_{t} \) :
 
 $$
 \delta_t = \lim_{h \to 0} \frac{i[t, t+h]}{h}  = \lim_{h \to 0} \frac{\frac{X(t+h) - X(t)}{X(t)}}{h} = \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)}
 $$
 
 <p style="color:black;">  
-  Remembering the definition of a derivative below in terms of limit:
+  Remembering the limit definition of a derivative below:
 
 $$
 \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = f'(x)
 $$
 
 <p style="color:black;">  
-  We can then simplify the proof as follows:
+  We can then simplify the proof as follows by using definition of derivative:
 
 $$
-\lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = 
+\lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \lim_{h \to 0} \frac{X'(t)}{X(t)}
 $$
 
 
