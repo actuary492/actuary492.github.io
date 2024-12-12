@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Interest Rates"
+title: "Jack Rates"
 date: 2024-12-10
-excerpt: "We will learn about application of interest rates in Actuarial Science."
+excerpt: "Jack rates are bullshit."
 author: Nicholas Wijaya
 toc: true
 classes: wide
