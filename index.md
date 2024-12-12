@@ -49,9 +49,9 @@
 {% endif %}
 
 <!-- Other Posts -->
-<div class="featured-posts-row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; margin-top: 40px;">
+<div class="featured-posts">
   {% for post in other_posts %}
-    <div class="feature-row" style="flex: 1 1 calc(33.33% - 20px); margin-bottom: 20px;">
+    <div class="feature-row" style="max-width: 800px; margin: 20px auto; position: relative; padding: 0px;">
       <a href="{{ post.url }}" style="text-decoration: none;">
         <div style="background-image: url('{{ post.header.image | default: '/assets/images/default-header.jpg' }}'); 
                     background-size: cover; background-position: center; height: 300px; border-radius: 10px;">
@@ -69,3 +69,4 @@
     </div>
   {% endfor %}
 </div>
+
