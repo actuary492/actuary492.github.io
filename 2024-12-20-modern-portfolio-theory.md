@@ -1,9 +1,3 @@
-<ul>
-  {% for post in site.posts %}
-    <li>{{ post.title }}</li>
-  {% endfor %}
-</ul>
-
 {% assign latest_post = site.posts.first %}
 {% assign other_posts = site.posts offset: 1 %}
 
