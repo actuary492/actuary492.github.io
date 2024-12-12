@@ -55,7 +55,7 @@ $$
   At this point, we should be aware that the fund $X_t$ can be a function that calculates the amount of fund at some time $t$, which can be also denoted as $X(t)$. Now, let us then move to the main part. Let us first observe this number line.
 
 
-<img src="{{ site.baseurl }}/assets/images/casfhlow.png" alt="description">
+<img src="https://actuary492.github.io/assets/images/casfhlow.png" alt="description">
 
 
 
