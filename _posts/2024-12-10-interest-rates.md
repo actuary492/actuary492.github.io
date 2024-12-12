@@ -37,7 +37,7 @@ $$
   The amount of interest \( \delta_{t} \) earned in a small time interval \( \Delta t \)  from a fund of $X_t$, is equivalent to the change in fund $X_t$ denoted as \( \Delta $X_t$ \), which can be visualised as follows:
 
 $$
-X_t * \( \delta_{t} \) * \( \Delta t \) = \( \Delta X_t \)
+X_t * \delta_{t} \ * \Delta t \ = \Delta X_t \
 $$
 
 
