@@ -2,11 +2,10 @@
 layout: home
 title: "Welcome to My Blog"
 permalink: /
-excerpt: "Discover the latest posts and explore topics of interest."
 ---
 
 {% assign latest_post = site.posts.first %}
-{% assign other_posts = site.posts offset: 1 %}
+{% assign other_posts = site.posts offset: 5 %}
 
 <!-- Most Recent Post with Teaser Image -->
 {% if latest_post %}
