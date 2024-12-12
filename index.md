@@ -51,7 +51,7 @@
 <!-- Other Posts -->
 <div class="featured-posts-row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; margin-top: 40px;">
   {% for post in other_posts %}
-    <div class="feature-row" style="flex: 1 1 calc(33.33% - 20px); max-width: calc(33.33% - 20px); position: relative; padding: 0px;">
+    <div class="feature-row" style="flex: 1 1 calc(33.33% - 20px); margin-bottom: 20px;">
       <a href="{{ post.url }}" style="text-decoration: none;">
         <div style="background-image: url('{{ post.header.image | default: '/assets/images/default-header.jpg' }}'); 
                     background-size: cover; background-position: center; height: 300px; border-radius: 10px;">
