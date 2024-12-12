@@ -24,7 +24,7 @@ X_1 = X_0(1+i)
 $$
 
 <p style="color:black;">
-	However, this concept is quite flawed in it's essence. Sure, it is easy to assume that the interest will be paid out at the end of year in our example for instance. However, in this concept of effective interest rates, we are not able to calculate the growth of a fund $X_t$ at any time between that one time period (i.e. calculating the fund at $t=0.06$ between $0<t<1$) except for the amount at the end of the time period. Essentially, the fund amount in any $t$ between $0<t<1$ will therefore still remain at the original amount of $X_t$ because at $t=0.06$, we have not received the interest yet at $t=0.06$ based on this concept. This assumption can or cannot be true - we do not know. Let's take an example where this isn't true. We open a savings account that gives us interest of 3.5% per annum. Sure, we can assume that at the end of the year the fund in our savings will rise by 3.5%. But, also logically speaking, we know that at every second, minute, hour within that one year, interest is building up. Yet, we are not able to calculate them simply by using effective interest rates.
+	However, this concept is quite flawed in it's essence. Sure, it is easy and more understandable for the normal person to assume that the interest will be paid out at the end of year in our example for instance. However, in this concept of effective interest rates, we are not able to calculate the growth of a fund $X_t$ at any time between that one time period (i.e. calculating the fund at $t=0.06$ between $0<t<1$) except for the amount at the end of the time period. Essentially, the fund amount in any $t$ between $0<t<1$ will therefore still remain at the original amount of $X_t$ because at $t=0.06$, we have not received the interest yet at $t=0.06$ based on this concept. This assumption can or cannot be true - we do not know. Let's take an example where this isn't true. We open a savings account that gives us interest of 3.5% per annum. Sure, we can assume that at the end of the year the fund in our savings will rise by 3.5%. But, also logically speaking, we know that at every second, minute, hour within that one year, interest is building up. Yet, we are not able to calculate them simply by using effective interest rates.
 
 <p style="color:black;">
 	This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries can be expected to calculate fund growth in much more specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such task. Now comes the question, which type of interest rate can do this?
@@ -32,7 +32,7 @@ $$
 
 <h2 style="color:dark; font-style:italic;">Force of Interest</h2>
 <p style="color:black;">
-  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
+  It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval or seen as the continuous compounding rate. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
   
   <p style="color:black;">
   Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
@@ -132,11 +132,18 @@ $$
 e^{\int_t^{t+n} \delta_{t} \ ds}
 $$
 
+<p style="color:black;">
+To find the discounting rate using the force of interest, simply add a negative behind the integral of the function above:
+
+$$
+e^{-\int_t^{t+n} \delta_{t} \ ds}
+$$
+
 <p style="color:black;"> 
   This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours. 
 
 <p style="color:black;"> 
-  Let us take an example where we need to calculate the interest of borrowing $100 in 10 days time for one day, given an constant annual force of interest of $\( \delta \) = 0.05$ . By the accumulation formula, it is fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
+  Let us take an example where we need to calculate the interest of borrowing $100 000 in 10 days time for one day, given an constant annual force of interest of $\( \delta \) = 0.05$ . By the accumulation formula, it is fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
 
 $$
 X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
@@ -146,4 +153,22 @@ $$
 X(11/365) = X(10/365) e^{\int_{10/365}^{11/365} 0.05 \ ds} = 100000 e^{\int_{10/365}^{11/365} 0.05 \ ds} \approx 100013.7
 $$
 
+<p style="color:black;">
+  We therefore see that the interest of borrowing $100 000 for 1 day is about $13.70 based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
+
+<h2 style="color:dark; font-style:italic;">The Relationship between Effective Interest Rates and the Force of Interest</h2>
+
+<p style="color:black;">
+  Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which they will need to likely use to calculate growth of funds over smaller time intervals, serving as a bridge between theory and practice. Finding the relationship between effective rates and the force of interest allows us to calculate growth of fund in between time periods by only requiring the effective interest rate. In order to do this, we have to assume equality between the two different interest accumulation functions: consider the interest accumulated at a time interval $0<t<1$, using the constant force of interest (to simplify calculations) is equivalent to the interest accrued using the effective interest rate. This can be visualised by the following equation:
+
+$$
+e^{\int_{0}^{1} \delta \ds} = e^{\delta} = (1+i)
+$$
+
+<p style="color:black;">
+  This gives us an extremely important relationship. Starting with a fund of $1, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i) in the end.
+
+
+  
+  
 
