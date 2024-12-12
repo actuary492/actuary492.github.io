@@ -63,9 +63,7 @@ $$
     Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until h becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals:
 
 $$
-\[
 \lim_{h \to 0} \frac{i[t, t+h]}{h}  = \lim_{h \to 0} \frac{\frac{X(t+h) - X(t)}{X(t)}}{h}
-\]
 $$
 
 
