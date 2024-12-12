@@ -22,7 +22,7 @@
 <hr>
 
 <!-- Latest Posts Section -->
-<h2 id="latest-posts" style="text-align: center; font-size: 2em; margin-bottom: 20px;">Latest Posts</h2>
+<h2 id="latest-posts" style="text-align: center; font-size: 2em; margin-bottom: 20px;">Latest Post</h2>
 
 <!-- Most Recent Post with Teaser Image -->
 {% assign latest_post = site.posts | first %}
@@ -42,7 +42,7 @@
 {% endif %}
 
 <!-- Other Posts -->
-<h3 style="text-align: center; margin-top: 30px;">Featured Posts</h3>
+<h3 style="text-align: center; margin-top: 30px;">Other Posts</h3>
 <div class="featured-posts" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
   {% for post in site.posts offset: 1 %}
     <div class="post-card" style="width: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
