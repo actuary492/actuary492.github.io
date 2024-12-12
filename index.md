@@ -5,7 +5,6 @@ permalink: /
 ---
 
 {% assign latest_post = site.posts.first %}
-{% assign other_posts = site.posts offset: 1 limit: 5 %}  <!-- Adjusted offset and limit -->
 
 <!-- Most Recent Post with Teaser Image -->
 {% if latest_post %}
