@@ -135,5 +135,15 @@ $$
 <p style="color:black;"> 
   This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours. 
 
+<p style="color:black;"> 
+  Let us take an example where we need to calculate the interest of borrowing $100 in 10 days time for one day, given an constant annual force of interest of $\( \delta \) = 0.05$ . By the accumulation formula, it is fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t=10/365$ and $t=11/365$. Plugging this into the accumulation function of the force of interest:
+
+$$
+X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
+$$
+
+$$
+X(11/365) = X(10/365) e^{\int_{10/365}^{11/365} 0.05 \ ds} = 100000 e^{\int_{10/365}^{11/365} 0.05 \ ds} \approx 100013.7
+$$
 
 
