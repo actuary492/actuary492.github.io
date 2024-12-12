@@ -6,6 +6,7 @@ date: 2024-12-10
 excerpt: "We will learn about application of interest rates in Actuarial Science."
 author: Nicholas Wijaya
 toc: true
+classes: wide
 header: 
   image: "/assets/images/stethoscope-financial-graphs-scaled.jpg"
 permalink: /posts/interest-rates/
