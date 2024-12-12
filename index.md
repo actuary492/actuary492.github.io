@@ -5,7 +5,7 @@ permalink: /
 ---
 
 {% assign latest_post = site.posts.first %}
-{% assign other_posts = site.posts offset: 1 limit: 5 %}  <!-- Adjusted offset and limit -->
+{% assign other_posts = site.posts offset: 1 limit: 5 %}
 
 <!-- Most Recent Post with Teaser Image -->
 {% if latest_post %}
@@ -35,3 +35,14 @@ permalink: /
   </div>
   <hr>
 {% endif %}
+
+<!-- Remove Other Posts Section -->
+<!-- 
+<div class="featured-posts">
+  {% for post in other_posts %}
+    <div class="feature-row">
+      <!-- Post content here -->
+    </div>
+  {% endfor %}
+</div>
+-->
