@@ -10,6 +10,7 @@ header:
   image: "/assets/images/markowitz.jpg"
 permalink: /posts/modern-portfolio-theory/
 published: true
+draft: false
 tags: [post, blog, jekyll]
 ---
 
