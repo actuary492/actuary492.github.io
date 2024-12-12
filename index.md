@@ -1,10 +1,3 @@
----
-layout: home
-title: "Welcome to My Blog"
-permalink: /
-excerpt: "Discover the latest posts and explore topics of interest."
----
-
 <!-- Splash Page Section -->
 <div class="splash-header" style="position: relative; text-align: left; color: white; padding: 0px;">
   <div style="background-image: url('{{ site.header.overlay_image | default: '/assets/images/default-header.jpg' }}'); 
