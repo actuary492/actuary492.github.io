@@ -32,7 +32,8 @@ $$
 	This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries can be expected to calculate fund growth in much more specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such task. Now comes the question, which type of interest rate can do this?
 
 
-<h2 style="color:dark; font-style:italic;">Force of Interest</h2>
+# Force of Interest
+
 <p style="color:black;">
   It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
   
@@ -158,7 +159,7 @@ $$
 <p style="color:black;">
   We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th day is about $13.70$ based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
 
-<h2 style="color:dark; font-style:italic;">The Relationship between Effective Interest Rates and the Force of Interest</h2>
+# The Relationship between Effective Interest Rates and the Force of Interest
 
 <p style="color:black;">
   Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which can likely be used to calculate growth of funds over smaller time intervals. Finding the relationship between effective rates and the force of interest allows us to calculate growth of fund in between time periods by only requiring the effective interest rate, serving as a bridge between theory and practice. In order to do this, we have to assume equality between the two different interest accumulation functions: consider the interest accumulated at a time interval $0<t<1$, using the constant force of interest (to simplify calculations) is equivalent to the interest accrued using the effective interest rate. This can be visualised by the following equation:
@@ -171,7 +172,8 @@ $$
   This gives us an extremely important relationship. Starting with a fund of $1$, applying \( \delta \) to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$  in the end.
 
 
-<h2 style="color:dark; font-style:italic;">Nominal Interest Rates</h2>
+# Nominal Interest Rates
+
 <p style="color:black;">
   Previously, we interpreted effective interest rates as the interest received at the end of one period. The nominal interest rates ($i^{(p)}$) essentially has the same idea as effective interest rates, except that this concept can be interpreted as receiving interest more than once per unit period. Nominal rates are still discrete in nature, however they allow us to calculate interest rates of smaller time intervals. The relationship between effective and nominal rates is as follows:
 
@@ -186,18 +188,22 @@ $$
   For example, $i^{(12)} = 0.1$ tells us that the nominal rate that is 0.1 per annum payable can be converted monthly, by dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, the nominal rate for the monthly time interval. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitrary time point in between the monthly time periods.
 
 
-<h2 style="color:dark; font-style:italic;">When are Effective Interest Rates and Force of Interest used?</h2>
+# When are Effective Interest Rates and Force of Interest used?
+
 <p style="color:black;">
   Effective rates are used often in the world of finance due to the regular and discrete characteristic of cashflows which we encounter, such as insurance premiums and monthly pension payments. As these cashflows are received or paid out at fixed time intervals, using an effective rate consistent whose period is consistent with the frequency of payments suffices to reflect financial risk in practice. Thus, force of interest is not really needed. However, in situations where patterns of interest rates or payments are irregular and continuous in nature, the force of interest will be needed for calculations.  
 
 <p style="color:black;">
   Using mortality rates as an example which you might have encountered some time in your academics, if we are only required to measure death rates between discrete time intervals, then mortality rate suffices. However, if we are asked to measure death rates over non-integer time ranges, such as the probability of survival an 80.2 year old in the next 2.5 years, the force of mortality will be better suited for this purpose.
 
-<h2 style="color:dark; font-style:italic;">Conclusion</h2>
+# Conclusion
+
+<p style="color:black;">
   In this article, we have learned about the different types of interest rates used by actuaries, it's characteristics, and in which situations are these types of interest rates used. I hope you have learned something from this article. See you on the next one!
 
   
-<h2 style="color:dark; font-style:italic;">References</h2>
+# References
 
+<p style="color:black;">
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
