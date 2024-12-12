@@ -13,21 +13,9 @@ permalink: /posts/interest-rates/
 tags: [post, blog, jekyll]
 ---
 
-* TOC
-{:toc}
-
-# Heading One
-# Heading Two
-# Heading Three
-# Heading Four
-# Heading Five
-# Heading Six
-
 > *Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the percent growth of an amount of fund $X_t$ at some time t over a specified time period, typically in the next year. This concept is very useful especially for actuaries in order to calculate cashflows of their client's portfolios in order to get a good overview of their financial risk. In this article, I will bring to you the different interest rates around actuarial literature that can be useful to actuaries.*
 
-<h1 style="color:dark; font-style:italic;">Effective Interest Rates and It's Downsides</h1>
 # Effective Interest Rates and It's Downsides
-
 <p style="color:black;">
 
 Effective interest rate (per unit time, i.e. 10% per annum) tells us that the end of a time period, the fund $X_t$ will grow by 10% to $X_{t+1}$. Essentially, we can consider this as a simple interest rate where we assume that the interest is paid at the end of the year. This can be visualized by the formula below.
@@ -43,9 +31,7 @@ $$
 	This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries can be expected to calculate fund growth in much more specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such task. Now comes the question, which type of interest rate can do this?
 
 
-<h1 style="color:dark; font-style:italic;">Force of Interest</h1>
-## Force of Interest
-
+# Force of Interest
 <p style="color:black;">
   It is no other than the force of interest. The force of interest, that is usually denoted as \( \delta_{t} \) can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
   
