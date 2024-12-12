@@ -333,10 +333,6 @@ defaults:
 lunr:
   search_within_pages: true
 
-#Kramdown
-kramdown:
-  toc_levels: 1..6
-
 
 
 
