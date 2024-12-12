@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Modern Portfolio Theory"
-date: 2024-20-12
+date: 2024-12-20
 excerpt: "Modern portfolio theory is so wonderful."
 author: Nicholas Wijaya
 toc: true
