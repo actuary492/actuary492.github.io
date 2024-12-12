@@ -1,3 +1,5 @@
+<p>{{ site.posts.size }}</p>
+
 <!-- Splash Page Section -->
 <div class="splash-header" style="position: relative; text-align: left; color: white; padding: 0px;">
   <div style="background-image: url('{{ site.header.overlay_image | default: '/assets/images/default-header.png' }}'); 
