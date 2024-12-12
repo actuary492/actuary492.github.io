@@ -178,17 +178,24 @@ $$
 
   For example, $i^{(12)} = 0.1$ tells us that the nominal rate that is 0.1 per annum payable can be converted monthly, by dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, the nominal rate for the monthly time interval. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitrary time point in between the monthly time periods.
 
+<p style="color:black;">
 # When are Effective Interest Rates and Force of Interest Used?
 
+<p style="color:black;">
   Effective rates are used often in the world of finance due to the regular and discrete characteristic of cashflows which we encounter, such as insurance premiums and monthly pension payments. As these cashflows are received or paid out at fixed time intervals, using an effective rate consistent whose period is consistent with the frequency of payments suffices to reflect financial risk in practice. Thus, force of interest is not really needed. However, in situations where patterns of interest rates or payments are irregular and continuous in nature, the force of interest will be needed for calculations.  
 
+<p style="color:black;">
   Using mortality rates as an example which you might have encountered some time in your academics, if we are only required to measure death rates between discrete time intervals, then mortality rate suffices. However, if we are asked to measure death rates over non-integer time ranges, such as the probability of survival an 80.2 year old in the next 2.5 years, the force of mortality will be better suited for this purpose.
 
+<p style="color:black;">
 # Conclusion
 
+<p style="color:black;">
   In this article, we have learned about the different types of interest rates used by actuaries, it's characteristics, and in which situations are these types of interest rates used. I hope you have learned something from this article. See you on the next one!
 
+<p style="color:black;">
 # References
 
+<p style="color:black;">
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
