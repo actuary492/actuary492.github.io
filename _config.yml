@@ -30,7 +30,7 @@ header:
 logo                     : "/assets/images/pngimg.com - letter_a_PNG19.png"
 masthead_title           : "Actuary 492"
 breadcrumbs              : true
-permalink                : /"categories/:title/
+permalink                : /posts/:title/
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
 copyright                : # "copyright" name, defaults to site.title
