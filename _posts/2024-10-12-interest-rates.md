@@ -34,13 +34,13 @@ It is no other than the force of interest. The force of interest, that is usuall
   
 Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
 
-First, we need some prerequisites. The interest \( \delta_{t} \) earned in a small time interval d$t$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as d$X_t$, which can be visualised as follows:
+First, we need some prerequisites. The interest $\delta_{t}$ earned in a small time interval $dt$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as $dX_t$, which can be visualised as follows:
 
 $$
 X_t * \delta_{t}\ * dt = dX_t 
 $$
 
-Rearranging the equation, with \( \delta_{t} \) as the subject, we get as follows:
+Rearranging the equation, with $\delta_{t}$ as the subject, we get as follows:
 
 $$
 \delta_{t} \ = \frac{1}{X_t} * \frac{dX_t}{dt}
@@ -56,7 +56,7 @@ $$
 i[t, t+h] = \frac{X(t+h) - X(t)}{X(t)}
 $$
  
-Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until $h$ becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals, otherwise known as the force of interest \( \delta_{t} \) :
+Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until $h$ becomes infinitesimally small. Equating the interest rate between $X_t$ and $X_{t+h}$ for infinitesimally small time intervals, otherwise known as the force of interest $\delta_{t}$ :
 
 $$
 \delta_t = \lim_{h \to 0} \frac{i[t, t+h]}{h}  = \lim_{h \to 0} \frac{\frac{X(t+h) - X(t)}{X(t)}}{h} = \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)}
@@ -74,7 +74,7 @@ $$
 \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \frac{1}{X(t)} * \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} = \frac{X'(t)}{X(t)} =  \delta_{t}
 $$
 
-In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$, that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of \( \delta_{t} \). 
+In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$, that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of $\delta_{t}$. 
 
 $$
 \delta_{t} = \frac{X'(t)}{X(t)}
@@ -94,7 +94,7 @@ $$
 \int_t^{t+n} \delta_{t} \ ds = ln(X_{t+n}) - ln(X_t) = ln(\frac{X_{t+n}}{X_t})
 $$
 
-Now, we can simply rearrange the equation above to express $X_{t+n}$ in terms of $X_t$ and \( \delta_{t} \).
+Now, we can simply rearrange the equation above to express $X_{t+n}$ in terms of $X_t$ and $\delta_{t}$.
 
 $$
 \int_t^{t+n} \delta_{t} \ ds = ln(\frac{X_{t+n}}{X_t})
