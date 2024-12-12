@@ -178,13 +178,13 @@ i^{(p)} = p((1+i)^{\frac{1}{p}} - 1)
 $$
 
 <p style="color:black;">
-  The nominal rate essentially tells us that some effective interest rate per unit period can be convertible into a much smaller unit period. For instance, a 1 year unit period, covertible into the quarterly unit period. Normally, if we are given or have derived $i^{(p)}$, we have to note that is still the annual nominal rate, and the $p$ in the notation tells us the number we have to divide with in order to convert the nominal interest rate into the appropriate unit period for our calculations. This concept may be quite difficult at first glance, hence it is advised to re-read several times to get the jist of it.
+  The nominal rate essentially tells us that some effective interest rate per unit period can be convertible into a much smaller unit period. For instance, a 1 year unit period, convertible into the quarterly unit period. Normally, if we are given or have derived $i^{(p)}$, we have to note that is still the annual nominal rate, and the $p$ in the notation tells us the number we have to divide with in order to convert the nominal interest rate into the appropriate unit period for our calculations. This concept may be quite difficult at first glance, hence it is advised to re-read several times to get the jist of it.
 
 <p style="color:black;">
   For example, $i^{(12)} = 0.1$ tells us that the nominal rate that is 0.1 per annum payable can be converted monthly, by dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, the nominal rate for the monthly time interval. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitary time point in between the monthly time periods.
 
 
-<h2 style="color:dark; font-style:italic;">When do we use Effective Interest Rates and Force of Interest</h2>
+<h2 style="color:dark; font-style:italic;">When are Effective Interest Rates and Force of Interest used?</h2>
 <p style="color:black;">
   Effective rates are used often in the world of finance due to the regular and discrete characteristic of cashflows which we encounter, such as insurance premiums and monthly pension payments. As these cashflows are received or paid out at fixed time intervals, using an effective rate consistent whose period is consistent with the frequency of payments suffices to reflect financial risk in practice. Thus, force of interest is not really needed. However, in situations where patterns of interest rates or payments are irregular and continuous in nature, the force of interest will be needed for calculations.  
 
