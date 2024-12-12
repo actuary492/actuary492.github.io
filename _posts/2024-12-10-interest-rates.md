@@ -178,7 +178,7 @@ i^{(p)} = p((1+i)^{\frac{1}{p}} - 1)
 $$
 
 <p style="color:black;">
-  The nominal rate essentially tells us that some interest rate per unit period can be convertible into a much smaller unit period. For instance, a 1 year unit period, covertible into the quarterly unit period. Normally, if we are given or have derived $i^{(p)}$, we have to note that is still the annual nominal rate, and the $p$ in the notation tells us the number we have to divide with in order to convert the nominal interest rate into the appropriate unit period for our calculations. This concept may be quite difficult at first glance, hence it is advised to re-read several times to get the jist of it.
+  The nominal rate essentially tells us that some effective interest rate per unit period can be convertible into a much smaller unit period. For instance, a 1 year unit period, covertible into the quarterly unit period. Normally, if we are given or have derived $i^{(p)}$, we have to note that is still the annual nominal rate, and the $p$ in the notation tells us the number we have to divide with in order to convert the nominal interest rate into the appropriate unit period for our calculations. This concept may be quite difficult at first glance, hence it is advised to re-read several times to get the jist of it.
 
 <p style="color:black;">
   For example, $i^{(12)} = 0.1$ tells us that the nominal rate that is 0.1 per annum payable can be converted monthly, by dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, the nominal rate for the monthly time interval. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitary time point in between the monthly time periods.
