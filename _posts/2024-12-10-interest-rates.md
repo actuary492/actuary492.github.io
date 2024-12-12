@@ -195,4 +195,7 @@ $$
   In this article, we have learned about the different types of interest rates used by actuaries, it's characteristics, and in which situations are these types of interest rates used. I hope you have learned something from this article. See you on the next one!
 
   
+<h2 style="color:dark; font-style:italic;">References</h2>
+
+McQuire, A., & Kume, M. (2020). *R Programming for Actuarial Science*. Wiley.
 
