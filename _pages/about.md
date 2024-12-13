@@ -8,7 +8,7 @@ author: true
   <!-- Profile Picture -->
   <img src="https://actuary492.github.io/assets/images/myself.jpg" 
        alt="description" 
-       style="width: 150px; height: auto; border-radius: 50%;">
+       style="width: 150px; height: auto; border-radius: 0%;">
 
   <!-- Text and Social Links -->
   <div>
