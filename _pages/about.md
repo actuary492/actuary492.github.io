@@ -4,7 +4,6 @@ permalink: /about/
 layout: single
 author: true
 ---
-# About the Author
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <!-- Profile Picture -->
