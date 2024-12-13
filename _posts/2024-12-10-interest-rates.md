@@ -158,15 +158,23 @@ This gives us an extremely important relationship. Starting with a fund of $1$, 
 
 # Nominal Interest Rates
 
-Previously, we interpreted effective interest rates as the interest received at the end of one period. The nominal interest rates ($i^{(p)}$) essentially has the same idea as effective interest rates, except that this concept can be interpreted as receiving interest more than once per unit period. Nominal rates are still discrete in nature, however they allow us to calculate interest rates of smaller discrete time intervals. The relationship between effective and nominal rates is as follows, where $p$ can be seen as the frequency of payments in that one unit period:
+Previously, we interpreted effective interest rates as the interest received at the end of one period. The nominal interest rates ($i^{(p)}$) essentially has the same idea as effective interest rates, except that this concept can be interpreted as receiving interest more than once per unit period, where $p$ can be seen as the frequency of payments in that one unit period. For example, if $p=2$ it tells us that 2 payments are made in one unit period (i.e. 2 half-yearly payments in one year). Nominal rates are still discrete in nature, however they allow us to calculate interest rates of smaller discrete time intervals. The relationship between effective and nominal rates is as follows:
 
 $$
 i^{(p)} = p((1+i)^{\frac{1}{p}} - 1)
 $$
 
-  The nominal rate essentially tells us that some effective interest rate per unit period can be convertible into a much smaller unit period. For instance, a 1 year unit period, convertible into the quarterly unit period. If we have derived $i^{(p)}$ from $i$, we have to note that the unit time of $i^{(p)}$ must be the same as the time unit as the $i$ which we have used to derive it, and the frequency $p$ in the notation tells us the number we have to divide the derived nominal interest with in order to convert the nominal interest rate into the appropriate unit period for our calculations. Additionally, we have to take note the compounding nature of the equation which may result in $i^{(p)}$ being smaller than $i$. This concept may be quite difficult at first glance, hence it is advised to re-read several times to get the jist of it.
+Giving a quick rearrangement we can see:
 
-  For example, we need to calculate present value of monthly payments, however, we are only given that the nominal rate that is 0.1 per annum ($i^{(12)} = 0.1$) which can be compounded monthly. By dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, we get the nominal rate for the monthly time interval which we then can use then to calculate the present value of monthly payments. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitrary time point in between the monthly time periods.
+$$
+\frac{i^{(p)}}{p} = ((1+i)^{\frac{1}{p}} - 1)
+$$
+
+The nominal rate essentially tells us that some effective interest rate per unit period can be convertible or compounded into a much smaller unit period. In the rearranged equation, simply plugging in the effective interest rate, we are already able to obtain the nominal rate that is already adjusted for the payment frequency $p$, that is $\frac{i^{(p)}}{p}$.
+
+With the above in mind, we have to be careful and note that $i^{(p)}$ is still not the rate that has been converted to fit the payment frequency, and has to be divided by payment frequency $p$ to get the nominal rate adjusted for payment frequency. Thus, we have to differentiate between $i^{(p)}$ and $\frac{i^{(p)}}{p}$, and recognise which one is appropriate to use.
+
+To put this concept into example, let's say we need to calculate present value of monthly payments. However, we are only given that the nominal rate that is 0.1 per annum ($i^{(12)} = 0.1$) which can be compounded monthly. By dividing $i^{(12)}$ by 12, that becomes $\frac{0.1}{12} \approx 0.0083 $, we get the nominal rate for the monthly time interval which we then can use then to calculate the present value of monthly payments. However, to be clear once again, due to it's discrete nature, we are still not able to calculate the growth of fund at some arbitrary time point in between the monthly time periods.
 
 # When are Effective Interest Rates and Force of Interest Used?
 
