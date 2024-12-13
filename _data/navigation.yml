@@ -5,7 +5,5 @@ main:
     url: /posts/
   - title: "About"
     url: /about/
-  - title: "External"
-    url: /external/
 
 
