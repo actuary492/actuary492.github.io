@@ -148,7 +148,7 @@ This gives us an extremely important relationship. Starting with a fund of $1$, 
 
 # Nominal Interest Rates
 
-Previously, we interpreted effective interest rates as the interest received at the end of one period. The nominal interest rates ($i^{(p)}$) essentially has the same idea as effective interest rates, except that this concept can be interpreted as receiving interest more than once per unit period. Nominal rates are still discrete in nature, however they allow us to calculate interest rates of smaller discrete time intervals. The relationship between effective and nominal rates is as follows:
+Previously, we interpreted effective interest rates as the interest received at the end of one period. The nominal interest rates ($i^{(p)}$) essentially has the same idea as effective interest rates, except that this concept can be interpreted as receiving interest more than once per unit period. Nominal rates are still discrete in nature, however they allow us to calculate interest rates of smaller discrete time intervals. The relationship between effective and nominal rates is as follows, where $p$ can be seen as the frequency of payments in that one unit period:
 
 $$
 i^{(p)} = p((1+i)^{\frac{1}{p}} - 1)
