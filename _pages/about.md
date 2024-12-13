@@ -4,13 +4,11 @@ permalink: /about/
 layout: single
 author: true
 ---
-# About the Author
-
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <!-- Profile Picture -->
   <img src="https://actuary492.github.io/assets/images/myself.jpg" 
        alt="description" 
-       style="width: 150px; height: 150px; object-fit: cover;">
+       style="width: 150px; height: auto; border-radius: 50%;">
 
   <!-- Text and Social Links -->
   <div>
