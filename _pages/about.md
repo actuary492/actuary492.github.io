@@ -4,12 +4,13 @@ permalink: /about/
 layout: single
 author: true
 ---
+# About the Author
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <!-- Profile Picture -->
   <img src="https://actuary492.github.io/assets/images/myself.jpg" 
        alt="description" 
-       style="width: 150px; height: auto; border-radius: 0%;">
+       style="width: 150px; height: 150px; object-fit: cover;">
 
   <!-- Text and Social Links -->
   <div>
@@ -25,8 +26,19 @@ author: true
 
     <!-- Social Links -->
   <div style="margin-top: 10px;">
-      <a href="https://linkedin.com/in/nwjya" target="_blank" style="margin-right: 10px; text-decoration: none; color: #0077b5;">
-        LinkedIn
+      <!-- LinkedIn Logo -->
+      <a href="https://linkedin.com/in/nicholas-wijaya" target="_blank" style="margin-right: 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+             alt="LinkedIn" 
+             style="width: 30px; height: 30px;">
       </a>
-      <a href="https://github.com/actuary492" target="_blank" style="margin-right: 10px; text-decoration: none; color: #333;">
-        GitHub
+      
+      <!-- GitHub Logo -->
+  <a href="https://github.com/actuary492" target="_blank" style="margin-right: 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+             alt="GitHub" 
+             style="width: 30px; height: 30px;">
+      </a>
+    </div>
+  </div>
+</div>
