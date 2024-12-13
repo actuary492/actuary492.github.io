@@ -25,7 +25,7 @@ author: true
     <!-- Social Links -->
   <div style="margin-top: 10px;">
       <!-- LinkedIn Logo -->
-      <a href="https://linkedin.com/in/nicholas-wijaya" target="_blank" style="margin-right: 10px;">
+      <a href="https://linkedin.com/in/nwjya" target="_blank" style="margin-right: 10px;">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
              alt="LinkedIn" 
              style="width: 30px; height: 30px;">
