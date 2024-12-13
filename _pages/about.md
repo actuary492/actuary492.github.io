@@ -37,6 +37,13 @@ author: true
              alt="GitHub" 
              style="width: 30px; height: 30px;">
       </a>
+      
+      <!-- Email Icon -->
+  <a href="mailto:nicholas.wijaya1971@gmail.com" style="margin-right: 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
+             alt="Email" 
+             style="width: 30px; height: 30px;">
+      </a>
     </div>
   </div>
 </div>
