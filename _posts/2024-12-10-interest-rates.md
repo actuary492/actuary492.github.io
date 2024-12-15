@@ -24,7 +24,7 @@ tags: [post, blog, jekyll]
   }
 </style>
 
-> *Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the percent growth of an amount of fund $X_t$ at some time t over a specified time period, typically in the next year. This concept is very useful especially for actuaries in order to calculate cashflows of their client's portfolios in order to get a good overview of their financial risk. In this article, I will bring to you the different interest rates around actuarial literature that can be useful to actuaries.*
+> *Interest rates. Something that we have encountered multiple times during our finance classes and in our daily lives. Examples of interest rates are coupon rates in bonds, or forward rates in derivatives. Essentially, the interest rate tells us the percent growth of an amount of fund $X_t$ at some time t over a specified time period, typically in the next year. This concept is very useful especially for actuaries in order to calculate cashflows of their client's portfolios in order to get a good overview of their financial risk. In this article, I will bring to you the different interest rates around financial literature that can be useful to actuaries.*
 
 
 # Effective Interest Rates and It's Downsides
