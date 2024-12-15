@@ -162,8 +162,6 @@ $$
 PV = \int_{19}{20} \rho(s)exp{-\int_{1}{t} \delta_{s} \ ds} \ dt
 $$
 
-
-
 # The Relationship between Force of Interest and Effective Interest Rates
 
 Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which they can only make use of to calculate growth of funds over smaller time intervals. Thus, finding the relationship between effective rates and the force of interest essentially serves as a bridge between theory and practice. In order to do this, we have to assume equality between the two different interest accumulation functions: consider two types of interest accumulated at the same time interval $0<t<1$, one using the constant force of interest (to simplify calculations) is equivalent to the other interest accrued using the effective interest rate. This can be visualised by the following equation:
