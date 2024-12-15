@@ -86,50 +86,50 @@ $$
 \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \frac{1}{X(t)} * \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} = \frac{X'(t)}{X(t)} =  \delta_{t}
 $$
 
-In order to see how the fund evolves with the force of interest, we have to express $X(t+n)$, that is the fund at new time $t+n$, in terms of $X(t)$, the original fund amount at time $t$ and in terms of $\delta_{t}$. 
+In order to see how the fund evolves with the force of interest, we have to express $X(t_2)$, that is the fund at some arbitrary new time $t_2$, in terms of $X(t_1)$, the original fund amount at some arbitrary time $t_1$ and in terms of $\delta_{t}$. 
 
 $$
 \delta_{t} = \frac{X'(t)}{X(t)}
 $$
 
-Integrating both sides in some time interval $t$ to $t+n$:
+Integrating both sides in some time interval $t_1$ to $t_2$:
 
 $$
-\int_t^{t+n} \delta_{t} \ ds = \int_t^{t+n} \frac{X'(s)}{X(s)} \, ds
-$$
-
-$$
-\int_t^{t+n} \delta_{t} \ ds = \left[ ln(X(s)) \right]_t^{t+n}
+\int_{t_1}^{t_2} \delta_{t} \ ds = \int_{t_1}^{t_2} \frac{X'(s)}{X(s)} \, ds
 $$
 
 $$
-\int_t^{t+n} \delta_{t} \ ds = ln(X_{t+n}) - ln(X_t) = ln(\frac{X_{t+n}}{X_t})
-$$
-
-Now, we can simply rearrange the equation above to express $X_{t+n}$ in terms of $X_t$ and $\delta_{t}$.
-
-$$
-\int_t^{t+n} \delta_{t} \ ds = ln(\frac{X_{t+n}}{X_t})
+\int_{t_1}^{t_2} \delta_{t} \ ds = \left[ ln(X(s)) \right]_{t_1}^{t_2}
 $$
 
 $$
-e^{\int_t^{t+n} \delta_{t} \ ds} = \frac{X_{t+n}}{X_t}
+\int_{t_1}^{t_2} \delta_{t} \ ds = ln(X_{t_2}) - ln(X_{t_1}) = ln(\frac{X_{t_2}}{X_{t_1}})
+$$
+
+Now, we can simply rearrange the equation above to express $X_{t_2}$ in terms of $X_{t_1}$ and $\delta_{t}$.
+
+$$
+\int_{t_1}^{t_2} \delta_{t} \ ds = ln(\frac{X_{t_2}}{X_{t_1}})
 $$
 
 $$
-X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
+e^{\int_{t_1}^{t_2} \delta_{t} \ ds} = \frac{X_{t_2}}{X_(t_1}}
+$$
+
+$$
+X_{t_2} = X_{t_1} * e^{\int_{t_1}^{t_2} \delta_{t} \ ds}
 $$
 
 Looking at the equation above, we can clearly see that the interest rate is not exactly the force of interest, but rather the equation that is:
 
 $$
-e^{\int_t^{t+n} \delta_{t} \ ds}
+e^{\int_{t_1}^{t_2} \delta_{t} \ ds}
 $$
 
 To find the discounting rate using the force of interest, simply add a negative behind the integral of the function above:
 
 $$
-e^{-\int_t^{t+n} \delta_{t} \ ds}
+e^{-\int_{t_1}^{t_2} \delta_{t} \ ds}
 $$
 
 This interest accumulation equation itself, based on the force of interest, is very important in the world of financial mathematics. With this equation, even if we are given a force of interest that is per annum, we are still able to calculate the interest that shall be accrued between time intervals of minutes, days, or hours and this solves the limitation of the effective interest rates. This is further embedded into logic by the integral in the equation, which tells us that we are esentially calculating the average of interest rates between some arbitrary time period. The integral also explains the <em style="font-style:italic;">continuous</em> nature of this force of interest, and why people regard the force of interest also as the continuous interest rate.
