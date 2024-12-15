@@ -149,10 +149,10 @@ We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th 
 Let us visualise another equation where we assume instead of fixed cash flows, we have continuous cashflows, and we want to find the PV of these cashflows. Let us say we want to calculate the present value at $t=0$ of a cashflow in between arbitrary times $t_1$ and $t_2$. The formula to do so thus simply becomes:
 
 $$
-PV = \int_{t_1}^{t_2} \rho(s)e^{-\int_{0}^{t} \delta_{s} \ ds} \ dt
+PV = \int_{t_1}^{t_2} \rho(t)e^{-\int_{0}^{t} \delta_{s} \ ds} \ dt
 $$
 
-When we use fixed or continuous cashflows, the formula essentially still stays the same, except that for continuous cashflows (that are now dependent on $t$), the equation for it must be, logically speaking, sent inside the integral, before solving for the integral to get the PV.
+When we use fixed or continuous cashflows, the formula essentially still stays the same, except that for continuous cashflows, that are now dependent on $t$, the equation for it must be, logically speaking, sent inside the integral, before solving for the integral to get the PV.
 
 I want to explain the inner and outer integral bounds, which may be confusing. First, the reason for inner integral bound of the force of interest to be from $0$ to $t$ is because we are interested in finding the PV at $t=0$, thus we have to adjust the force of interest to find the accumulating discounting factor from $t=0$ until some arbitrary time $t$ when the cashflow payments starts. This arbitary $t$ is then made clear in the outer integral bounds, which in our case we are interested in finding PVs of cashflows starting between $t_1$ and $t_2$. In essence, what we are then doing with this inner integration is simply first defining the accumulating discounting factor, by figuring out and constructing the integral to the time of interest which we want to discount the cashflows back to, before we use it to calculate the PV of all infinitesimally small cashflows over some time period through the outer integration. 
 
