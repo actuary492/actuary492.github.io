@@ -40,7 +40,7 @@ However, this concept is quite flawed in it's essence. Sure, it is easy and more
 
 This concept thus can be handy if actuaries are only interested in cashflows only at certain time periods. But in some cases, actuaries can be expected to calculate fund growth in much more specific periods, such as within seconds, minutes, or hours. But, this concept of effective interest rates will not be able to fulfill such task. Now comes the question, which type of interest rate can do this?
 
-# Force of Interest
+# Force of Interest and It's Applications
 
 It is no other than the force of interest. The force of interest, that is usually denoted as $ \delta_{t}$ can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
   
@@ -144,7 +144,25 @@ $$
 X(11/365) = X(10/365) e^{\int_{10/365}^{11/365} 0.05 \ ds} = 100000 e^{\int_{10/365}^{11/365} 0.05 \ ds} \approx 100013.7
 $$
 
-We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th day is about $13.70$ based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates.
+We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th day is about $13.70$ based on this concept. Looking back, this is something we could not have calculated with only the effective interest rates
+
+Let us visualise another equation where we assume instead of fixed cash flows, we have continuous cashflows, and we want to find the PV of these cashflows. Let us say we want to calculate the present value at $t=0$ of a cashflow in between arbitrary times $t_1$ and $t_2$. The formula to do so thus simply becomes:
+
+$$
+PV = \int_{t_1}{t_2} \rho(s)exp{-\int_{0}{t} \delta_{s} \ ds} \ dt
+$$
+
+When we use fixed or continuous cashflows, the formula essentially still stays the same, except that for continuous cashflows (that are now dependent on $t$), the equation for it must be, logically speaking, sent inside the integral, before solving for the integral to get the PV.
+
+I want to explain the inner and outer integral bounds, which may be confusing. First, the reason for inner integral bound of the force of interest to be from 0 to $t$ is because we are interested in finding the PV at $t=0$, thus we have to adjust the force of interest to find the accumulating discounting factor from $t=0$ until some arbitrary time $t$ when the cashflow payments starts. This arbitary $t$ is then made clear in the outer integral bounds, which in our case we are interested in finding PVs of cashflows starting between $t_1$ and $t_2$. In essence, what we are then doing with this inner integration is simply first defining the accumulating discounting factor, by figuring out and constructing the integral to the time of interest which we want to discount the cashflows back to, before we use it to calculate the PV of all infinitesimally small cashflows over some time period through the outer integration. 
+
+So, to visualise variations to this equation, if we are expected to find the PV of continuous cashflows at some point in time between $t=20$ and $t=19$ discounted back to $t=1$, this means the bounds of the inner integral changes to between $1$ and $t$, while the outer integral bound changes to between $19$ and $20$, becoming:
+
+$$
+PV = \int_{19}{20} \rho(s)exp{-\int_{1}{t} \delta_{s} \ ds} \ dt
+$$
+
+
 
 # The Relationship between Force of Interest and Effective Interest Rates
 
