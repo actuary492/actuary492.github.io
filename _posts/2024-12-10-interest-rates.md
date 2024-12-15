@@ -113,7 +113,7 @@ $$
 $$
 
 $$
-e^{\int_{t_1}^{t_2} \delta_{t} \ ds} = \frac{X_{t_2}}{X_(t_1}}
+e^{\int_{t_1}^{t_2} \delta_{t} \ ds} = \frac{X_{t_2}}{X_{t_1}}
 $$
 
 $$
