@@ -137,7 +137,7 @@ This interest accumulation equation itself, based on the force of interest, is v
 Let us take an example where we need to calculate the interest of borrowing $100 000$ in 10 days time for one day, given an constant annual force of interest of $\delta = 0.05$ . By the accumulation formula based on the force of interest, it should be fairly simple. We first have to adjust the annual $t$ into daily time interval by dividing by 365. What this means is that we are interested in the fund growth between time $t_1=10/365$ and $t_2=11/365$. Plugging this into the accumulation function of the force of interest:
 
 $$
-X_{t+n} = X_{t} * e^{\int_t^{t+n} \delta_{t} \ ds}
+X_{t_2} = X_{t_1} * e^{\int_{t_1}^{t_2} \delta_{t} \ ds}
 $$
 
 $$
