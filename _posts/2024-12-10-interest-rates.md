@@ -149,7 +149,7 @@ We therefore see that the interest of borrowing $100 000$ for 1 day in the 10th 
 Let us visualise another equation where we assume instead of fixed cash flows, we have continuous cashflows, and we want to find the PV of these cashflows. Let us say we want to calculate the present value at $t=0$ of a cashflow in between arbitrary times $t_1$ and $t_2$. The formula to do so thus simply becomes:
 
 $$
-PV = \int_{t_1}^{t_2} \rho(s)exp{-\int_{0}^{t} \delta_{s} \ ds} \ dt
+PV = \int_{t_1}^{t_2} \rho(s) e^{-\int_{0}^{t} \delta_{s} \ ds} \ dt
 $$
 
 When we use fixed or continuous cashflows, the formula essentially still stays the same, except that for continuous cashflows (that are now dependent on $t$), the equation for it must be, logically speaking, sent inside the integral, before solving for the integral to get the PV.
