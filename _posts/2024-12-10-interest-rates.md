@@ -180,13 +180,25 @@ $$
 
 # The Relationship between Force of Interest and Effective Interest Rates
 
-Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which they can only make use of to calculate growth of funds over smaller time intervals. Thus, finding the relationship between effective rates and the force of interest essentially serves as a bridge between theory and practice. In order to do this, we have to assume equality between the two different interest accumulation functions: consider two types of interest accumulated at the same time interval $0<t<1$, one using the constant force of interest (to simplify calculations) is equivalent to the other interest accrued using the effective interest rate. This can be visualised by the following equation:
+Taking a glance back, it was argued earlier how effective interest rates are not able to calculate interest built up in between a time period, while the force of interest is able to do so. The latter is definitely desired, however in the real world, actuaries are only often served effective interest rates, which they can only make use of to calculate growth of funds over smaller time intervals. Thus, finding the relationship between effective rates and the force of interest essentially serves as a bridge between theory and practice. In order to do this, we have to assume equality between the two different interest accumulation functions: consider two types of interest accumulated at the same time interval $0<t<1$, one using the constant force of interest (to simplify calculations) is equivalent to the other interest accrued using the effective interest rate. 
+
+Let us first equate the accumulation functions of the force of interest and effective rate:
 
 $$
-e^{\int_{0}^{1} \delta \ ds} = e^{\delta} = (1+i)
+X(1) = X(0)e^{\int_{0}^{1} \delta \ ds} = X(0)e^{\delta}
 $$
 
-This gives us an extremely important relationship. Starting with a fund of $1$, applying $\delta$ to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$ in the end. What this also implies is that the $i$ that we derive from $\delta$ using this equation receives the continuous compounding effect, meaning $i$ can directly be applied to extremely small time intervals, despite the $\delta$ being calculated as per annum for instance. This may allow for more straightforward calculations. 
+$$
+X(1) = X(0)*(1+i)
+$$
+
+Equating the two accumulation functions:
+
+$$
+e^{\delta} = (1+i)
+$$
+
+This gives us an extremely important relationship. Starting with a fund of $1$, applying $\delta$ to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$ in the end. What this also implies is that the $i$ that we derive from $\delta$ using this equation receives the continuous compounding effect due to the equality assumed, meaning $i$ can directly be applied to extremely small time intervals, despite the $\delta$ being calculated as per annum for instance. This may allow for more straightforward calculations. 
 
 # Nominal Interest Rates
 
