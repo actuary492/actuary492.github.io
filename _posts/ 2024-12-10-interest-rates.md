@@ -185,7 +185,7 @@ Taking a glance back, it was argued earlier how effective interest rates are not
 Let us first equate the accumulation functions of the force of interest and effective rate:
 
 $$
-X(1) = X(0)e^{\int_{0}^{1} \delta \ ds} = X(0)e^{\delta}
+X(1) = X(0)e^{\int_{0}^{1} \delta \ ds} = X(0)*e^{\delta}
 $$
 
 $$
