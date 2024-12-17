@@ -58,7 +58,9 @@ $$
 \delta_{t} \ = \frac{1}{X_t} * \frac{dX_t}{dt}
 $$
 
-At this point, we should be aware that the fund $X_t$ can be a function that calculates the amount of fund at some time $t$, which can be also denoted as $X(t)$. Now, let us then move to the main part. Let us first observe this number line.
+At this point, we should be aware that the fund $X_t$ can be a function that calculates the amount of fund at some time $t$, which can be also denoted as $X(t)$.
+
+Now, I want to show you another way to get into the equation above.
 
 <img src="https://actuary492.github.io/assets/images/cashflow.png" alt="description">
 
