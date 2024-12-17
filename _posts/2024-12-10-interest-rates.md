@@ -74,7 +74,7 @@ $$
 i[t, t+h] = \frac{X(t+h) - X(t)}{X(t)}
 $$
  
-Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until $h$ becomes infinitesimally small. This also directly translates to chopping up the interest rate accrued between $t$ and $t+h$, that is $i[t, t+h]$, into $h$ infinitesimally small intervals, towards the limit where $h -> 0$, to give us the interest rate at infinitesimally small intervals, which we also know is the definition of the force of interest $\delta$.
+Now, let us assume that we can chop up more intervals in between $t$ and $t+h$ until $h$ becomes infinitesimally small. This also directly translates to chopping up the interest rate accrued between $t$ and $t+h$, that is $i[t, t+h]$, into $h$ infinitesimally small intervals, towards the limit where $h \rightarrow 0$, to give us the interest rate at infinitesimally small intervals, which we also know is the definition of the force of interest $\delta$.
 
 This equation described above is illustrated below as:
 
