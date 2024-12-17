@@ -44,7 +44,7 @@ This concept thus can be handy if actuaries are only interested in cashflows onl
 
 It is no other than the force of interest. The force of interest, that is usually denoted as $ \delta_{t}$ can be considered as the interest earned in an "infinitesimally" small time interval. This force of interest can be variable (in terms of $t$) or be constant (i.e. 0.05). A variable force of interest, that can allow us to calculate force of interest at some future time point is also called as the <em style="font-style:italic;">forward interest rate</em>. 
   
-Let us start with a step-by-step proof of this force of interest to show how can we use it to calculate the growth of some fund $X_t$.
+I will illustrate two methods, with a step-by-step proof to show how can we use the force of interest to calculate the growth of some fund $X_t$.
 
 First, we need some prerequisites. The interest $\delta_{t}$ earned in a small time interval $dt$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as $dX_t$, which can be visualised as follows:
 
@@ -64,7 +64,7 @@ $$
 \delta_{t} \ = \frac{X'_t}{X_t} = \frac{X'(t)}{X(t)}
 $$
 
-Now, I want to show you another way to get into the equation above. Let us start with this number line
+Now, I want to show you another way to get into the equation above before we move on further. Let us start with this number line:
 
 <img src="https://actuary492.github.io/assets/images/cashflow.png" alt="description">
 
@@ -92,13 +92,21 @@ $$
 \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} * \frac{1}{X(t)} = \frac{1}{X(t)} * \lim_{h \to 0} \frac{X(t+h) - X(t)}{h} = \frac{X'(t)}{X(t)} =  \delta_{t}
 $$
 
-In order to see how the fund evolves with the force of interest, we have to express $X(t_2)$, that is the fund at some arbitrary new time $t_2$, in terms of $X(t_1)$, the original fund amount at some arbitrary time $t_1$ and in terms of $\delta_{t}$. 
+We have now seen that this also arrives at the same equation that equates force of interest earlier above in the first method.
 
 $$
 \delta_{t} = \frac{X'(t)}{X(t)}
 $$
 
-Integrating both sides in some time interval $t_1$ to $t_2$:
+It is important to understand the reasoning behind how both methods are able construct the equation relating to the force of interest. Now, in order to see how the fund evolves with the force of interest, we have to express $X(t_2)$, that is the fund at some arbitrary new time $t_2$, in terms of $X(t_1)$, the original fund amount at some arbitrary time $t_1$ and in terms of $\delta_{t}$.
+
+We now start with the equation we just derived below:
+
+$$
+\delta_{t} = \frac{X'(t)}{X(t)}
+$$
+
+Next, let us integrate both sides in some time interval $t_1$ to $t_2$:
 
 $$
 \int_{t_1}^{t_2} \delta_{t} \ ds = \int_{t_1}^{t_2} \frac{X'(s)}{X(s)} \, ds
