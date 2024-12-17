@@ -46,7 +46,7 @@ It is no other than the force of interest. The force of interest, that is usuall
   
 I will illustrate two methods, with a step-by-step proof to show how can we use the force of interest to calculate the growth of some fund $X_t$.
 
-First, we need some prerequisites. The interest $\delta_{t}$ earned in a small time interval $dt$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as $dX_t$, which can be visualised as follows:
+This is the first method. It starts with this reasoning. The interest $\delta_{t}$ earned in a small time interval $dt$ from a fund of $X_t$, is equivalent to the increase in fund $X_t$ denoted as $dX_t$, which can be visualised as follows:
 
 $$
 X_t * \delta_{t}\ * dt = dX_t 
@@ -64,7 +64,7 @@ $$
 \delta_{t} \ = \frac{X'_t}{X_t} = \frac{X'(t)}{X(t)}
 $$
 
-Now, I want to show you another way to get into the equation above before we move on further. Let us start with this number line:
+Now, I want to show the second method to get into the equation above before we move on further. Let us start with this number line:
 
 <img src="https://actuary492.github.io/assets/images/cashflow.png" alt="description">
 
