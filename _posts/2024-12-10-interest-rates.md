@@ -55,12 +55,12 @@ $$
 Rearranging the equation, with $\delta_{t}$ as the subject, we get as follows:
 
 $$
-\delta_{t} \ = \frac{1}{X_t} * \frac{dX_t}{dt}
+\delta_{t} \ = \frac{1}{X_t} * \frac{dX_t}{dt} = \frac{X'_t}{X_t}
 $$
 
 At this point, we should be aware that the fund $X_t$ can be a function that calculates the amount of fund at some time $t$, which can be also denoted as $X(t)$.
 
-Now, I want to show you another way to get into the equation above.
+Now, I want to show you another way to get into the equation above. Let us start with this number line
 
 <img src="https://actuary492.github.io/assets/images/cashflow.png" alt="description">
 
