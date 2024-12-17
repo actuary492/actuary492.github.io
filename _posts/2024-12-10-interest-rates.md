@@ -186,7 +186,7 @@ $$
 e^{\int_{0}^{1} \delta \ ds} = e^{\delta} = (1+i)
 $$
 
-This gives us an extremely important relationship. Starting with a fund of $1$, applying $\delta$ to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$ in the end.
+This gives us an extremely important relationship. Starting with a fund of $1$, applying $\delta$ to infinitesimally small time intervals, then calculating the interest accrued over these time intervals, gives us $(1+i)$ in the end. What this also implies is that the $i$ that we derive from $\delta$ using this equation receives the continuous compounding effect, meaning $i$ can directly be applied to extremely small time intervals, despite the $\delta$ being calculated as per annum for instance. This may allow for more straightforward calculations. 
 
 # Nominal Interest Rates
 
