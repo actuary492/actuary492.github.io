@@ -11,6 +11,7 @@ header:
 permalink: /posts/interest-rates/
 published: true
 draft: false
+runs-on: ubuntu-22.04
 tags: [post, blog, jekyll]
 ---
 
