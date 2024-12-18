@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/markowitz.jpg"
 permalink: /posts/jack-rates/
-published: false
+published: true
 draft: false
 tags: [post, haha]
 ---
