@@ -2,7 +2,7 @@
 layout: single
 title: "Jack Rates"
 date: 2024-12-10
-excerpt: "Jack rates are bullshit."
+excerpt: "Jack rates are nice."
 author: Nicholas Wijaya
 toc: true
 classes: wide
@@ -11,6 +11,7 @@ header:
 permalink: /posts/jack-rates/
 published: false
 draft: false
+runs-on: ubuntu-22.04
 tags: [post, haha]
 ---
 
