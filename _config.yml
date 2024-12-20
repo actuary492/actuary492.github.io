@@ -22,6 +22,7 @@ title_separator          : #"-"
 subtitle                 : "Your site for everything Actuarial Science"
 name                     : "Nicholas Wijaya"
 description              : "Your source of inspiration"
+future                   : true
 url                      : "https://actuary492.github.io"
 baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
