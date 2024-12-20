@@ -22,3 +22,5 @@ tags: [post, present, value]
     margin: 0 auto;  /* Center the image */
   }
 </style>
+
+> *The Present Value is extremely important concept in the world of finance. In practice, this concept, by the name itself, is used very often to arrive at the value financial instruments at some arbitrary time $t$. Knowing the value of financial products in one's possesion is essential to quantify financial risks and have a good overview of the health of one's investments. In this article, I will present the concepts of the present value, and apply some coding examples in R to illustrate the applications of this concept in the real world.*
