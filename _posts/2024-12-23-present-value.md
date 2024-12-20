@@ -7,11 +7,11 @@ author: Nicholas Wijaya
 toc: true
 classes: wide
 header: 
-  image: "/assets/images/markowitz.jpg"
-permalink: /posts/jack-rates/
+  image: "/assets/images/pig.jpg"
+permalink: /posts/present-value/
 published: false
 draft: false
-tags: [post, haha]
+tags: [post, present value]
 ---
 
 <style>
