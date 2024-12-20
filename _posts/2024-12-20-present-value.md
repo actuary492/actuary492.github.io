@@ -8,9 +8,9 @@ toc: true
 classes: wide
 header: 
   image: "/assets/images/pig.jpg"
-permalink: /posts/modern-portfolio-theory/
+permalink: /posts/present-value/
 published: true
-tags: [post, modern]
+tags: [post, present, value]
 ---
 
 <style>
