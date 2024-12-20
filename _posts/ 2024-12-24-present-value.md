@@ -1,8 +1,7 @@
 ---
-
 layout: single
 title: "Present Value"
-date: 2024-12-19
+date: 2024-12-18
 excerpt: "We will explore the uses of the concept of present value and it's applications using R"
 author: Nicholas Wijaya
 toc: true
@@ -12,7 +11,6 @@ header:
 permalink: /posts/present-value/
 published: true
 tags: [post, present value]
-
 ---
 
 <style>
