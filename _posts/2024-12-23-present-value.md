@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/pig.jpg"
 permalink: /posts/present-value/
-published: false
+published: true
 draft: false
 tags: [post, present value]
 ---
