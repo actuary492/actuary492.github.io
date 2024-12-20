@@ -22,3 +22,5 @@ tags: [post, present value]
     margin: 0 auto;  /* Center the image */
   }
 </style>
+
+X
