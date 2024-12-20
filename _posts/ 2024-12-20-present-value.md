@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Present Value"
-date: 2024-12-18
+date: 2024-12-20
 excerpt: "We will explore the uses of the concept of present value and it's applications using R"
 author: Nicholas Wijaya
 toc: true
