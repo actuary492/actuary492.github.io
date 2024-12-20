@@ -7,7 +7,7 @@ author: Nicholas Wijaya
 toc: true
 classes: wide
 header: 
-  image: "/assets/images/pig.jpg"
+  image: "/assets/images/money.jpg"
 permalink: /posts/present-value/
 published: true
 tags: [post, present, value]
