@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Jack Rates"
-date: 2024-12-10
-excerpt: "Jack rates are nice."
+title: "Present Value"
+date: 2024-12-23
+excerpt: "We will explore the uses of the concept of present value and it's applications using R"
 author: Nicholas Wijaya
 toc: true
 classes: wide
