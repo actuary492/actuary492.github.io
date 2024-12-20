@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Modern Portfolio Theory"
+title: "Present Value"
 date: 2024-12-18
-excerpt: "Modern Portfolio Theory is Great"
+excerpt: "We will explore the uses of the concept of present value and it's applications using R"
 author: Nicholas Wijaya
 toc: true
 classes: wide
 header: 
-  image: "/assets/images/markowitz.jpg"
+  image: "/assets/images/pig.jpg"
 permalink: /posts/modern-portfolio-theory/
 published: true
 tags: [post, modern]
