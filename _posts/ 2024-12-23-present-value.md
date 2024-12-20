@@ -10,7 +10,7 @@ header:
   image: "/assets/images/pig.jpg"
 permalink: /posts/present-value/
 published: true
-tags: [post, haha]
+tags: [post, present value]
 ---
 
 <style>
