@@ -144,8 +144,8 @@ time <- seq(0,9)
 #Input the effective rate for discounting; assumes constant rate of i for all time intervals
 i <- 0.05
 #Plug everything into presentValue()
-
 presentValue(cashflow, time, i)
+
 [1] 41.34247
 ```
 
