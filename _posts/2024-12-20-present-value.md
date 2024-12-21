@@ -131,7 +131,7 @@ In this section I will show you how to build up a function in R that calculates 
 
 ## Built-in function of presentValue
 
-In the "lifecontingencies" package, the presentValue function is extremely handy to calculate the present value. Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) caleady allows us to find the present value easily. 
+In the "lifecontingencies" package, the presentValue function is extremely handy to calculate the present value. Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) already allows us to find the present value easily. 
 
 ```r
 install.packages("lifecontingencies")
