@@ -93,7 +93,7 @@ This notation tells us that the cashflows in question are given out at the begin
 ## Deferred Annuity in arrears
 
 $$
-\ddot{a}_{\mathstrut t|}^{i} \hspace{-0.3cm} \overline{n}|
+\ddot{a}_{\mathstrut t|}^{i} \hspace{-2cm} \overline{n}|
 $$
 
 
