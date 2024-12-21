@@ -31,7 +31,7 @@ Present value tells us the current worth of a of future receivable or to be give
 
 This concept is easily simplified by this number line we see.
 
-<img src="https://actuary492.github.io/assets/images/cf2.png" alt="description">
+<img src="https://actuary492.github.io/assets/images/cf2.png" alt="description" style="width: 60%; height: auto;">
 
 Assume that we have cashflows of 1 from $t=1$ to $t=5$. Assume that these cashflows are given at the end of the period. We are then asked to find the present value (at $t=0$) of this series of cashflows. Looking at the number line above, the goal is to discount all the cashflows (thus from $t=1$ to $t=5$) back into $t=0$. After that, we can sum up all the current values of the cashflows in the future to get the present value of the series of cashflows at $t=0$. Assume a constant discounting rate to use is 5%. The formula to do so is simplified below:
 
@@ -55,7 +55,7 @@ $$
 
 We should note variations to the formula. If the discounting rate is variable, the notation should be changed to $i_{t_n}$. 
 
-<img src="https://actuary492.github.io/assets/images/cf3.png" alt="description">
+<img src="https://actuary492.github.io/assets/images/cf3.png" alt="description" style="width: 60%; height: auto;">
 
 Now, what if I want to calculate the present value of the same cashflow series (paid at the end of the period) above in the picture, assuming same constant discounting rate of 5%, but at $t=1$? What this means is that cashflows in between $t \in (0,1]$ will be ignored. Why? The cashflow of 1 has been received/given out at $t=1$, thus it is not further in our interest to find the present value of 1 of $t=1$ as it has been received. What we now focus on is the cashflows in $t \in (1,5]$. Remember the point of present value is to calculate the current value of all cashflows to be given to or received in the future. Calculating the present value thus becomes as illustrated by the number line:
 
@@ -69,5 +69,16 @@ This is a quick overview of the concept of the present value along with motivati
 
 In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways of cashflows being received or given out which I briefly touched upon. These are explained below:
 
-Immediate annuity: $a_{\overline{n}|}$
+Immediate Annuity or Annuity in advance: $\ddot{a}_{\overline{n}|}^{i}$
+
+<img src="https://actuary492.github.io/assets/images/cf4.png" alt="description" style="width: 60%; height: auto;">
+
+
+This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It also immediately gives the present value of the series of 1 unit cashflows, as shown in the picture above.
+
+Annuity Due or Annuity in arrears: $a{\overline{n}|}^{i}$
+
+<img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 60%; height: auto;">
+
+This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until $t=n-1$. It also immediately gives the present value of the series of 1 unit cashflows, as shown in the picture above, including the cashflow at $t=0$.
 
