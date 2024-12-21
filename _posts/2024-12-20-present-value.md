@@ -113,7 +113,7 @@ $$
 What if we are faced with cashflows of $p$ frequencies per annum? What does the notation become? What happens to our calculations? Let us take an example of an monthly annuity in arrears.
 
 $$
-a_{\overline{n}|}^{(p)@i} = \sum_{t = 1}^{n*p} \frac{\frac{\text{Cashflow}}{p}}{(1 + i)^t}
+a_{\overline{n}|}^{(p)@i} = \sum_{t = 1}^{n*p} \frac{\frac{\text{Cashflow}}{p}}{(1 + i^(p))^t}
 $$
 
 
