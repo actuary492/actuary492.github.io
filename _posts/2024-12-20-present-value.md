@@ -71,4 +71,5 @@ In Actuarial Science, there is a concept of annuity that embeds the concept of p
 
 $$
 ( a_{\overline{n}|} )
+\mathrel{\phantom{\angle}}\!\!\angle n^{(i)}
 $$
