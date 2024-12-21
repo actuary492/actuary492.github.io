@@ -178,7 +178,7 @@ As you can see, the code is straightforward. Note that I tried to find the prese
 
 To make the function of annuity in advance, simply requires a change in the time vector to seq(0, n*p - 1), which I will not illustrate further.
 
-Let us try to make a deferred cashflow function now:
+Let us try to make a deferred annuity function now:
 
 ```r
 deferred_in_arrear <- function(i, n, m, p){
