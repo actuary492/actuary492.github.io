@@ -65,14 +65,14 @@ $$
 
 This is a quick overview of the concept of the present value along with motivation of its use. In the next section, I will explain how this concept of present value is simplified in Actuarial Science.
 
-# The Present Value Notation in Actuarial Science
+# The Present Value Notations in Actuarial Science
 
 In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways of cashflows being received or given out which I briefly touched upon. Some of these are explained below:
 
 ## Immediate Annuity or Annuity in advance: 
 
 $$
-\ddot{a}_{\overline{n}|}^{i}
+\ddot{a}_{\overline{n}|}^{i} = \sum_{t = 1}^{n} \frac{\text{Cashflow}_{t}}{(1 + i)^t}
 $$
 
 <img src="https://actuary492.github.io/assets/images/cf4.png" alt="description" style="width: 80%; height: auto;">
@@ -83,18 +83,38 @@ This notation tells us that the cashflows in question are given out at the end o
 ## Annuity Due or Annuity in arrears: 
 
 $$
-a_{\overline{n}|}^{i}
+a_{\overline{n}|}^{i} = \sum_{t = 0}^{n-1} \frac{\text{Cashflow}_{t}}{(1 + i)^t}
 $$
 
 <img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
 
 This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until arbitrary time $t=n-1$. It calculates the sum of all the present value of cashflows above in the picture discounted by constant i. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
 
-## Deferred Annuity in arrears
+## Deferred Annuity in arrears and in advance
+
+I am not able to reproduce the notation of the deferred annuity in arrears using MathJax. However, the difference is not much. We simply add $m|$, where $m$ is the deferment period, to the left subscript of the notation for annuity in arrears, to get deferred annuity in arrears equation. A deferment is simply a period of delay before the payment of 1 unit starts at exactly the end of $t=m$, in line with the arrears definition.
 
 $$
-\left|x\right|
+\text{Deferred Annuity in Arrears} = \sum_{t = 1}^{n-m} \frac{\text{Cashflow}_{t}}{(1 + i)^t}
 $$
+
+<img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
+
+We see that cashflows start at $t=m$ up until $t=n$ and these are discounted back to $t=0$, the present. 
+
+For deferred annuity in advance, where cashflows are given out or received at the beginning of the period, the only difference in cashflow to the image above, is that of course, the last cashflow ends at $t=n-1$ instead of $t=n$.
+
+$$
+\text{Deferred Annuity in Advance} = \sum_{t = 0}^{n-m-1} \frac{\text{Cashflow}_{t}}{(1 + i)^t}
+$$
+
+## Other Types of Annuities
+
+There are more types of annuities in practice. Think of continuous annuities, increasing or decreasing annuities. These will not be further discussed here, and can be easily read online. The concept of these to the ones above remain the same, it is a simple notation to tell us the sum of present values of a specific set of cashflows.
+
+
+
+
 
 
 
