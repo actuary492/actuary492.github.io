@@ -134,7 +134,7 @@ In this section I will show you how to build up a function in R that calculates 
 
 ## Built-in function of presentValue
 
-In the "lifecontingencies" package, the presentValue function is extremely handy to calculate the present value. owever, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) already allows us to find the present value easily as shown below.
+In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) already allows us to find the present value easily as shown below.
 
 ```r
 install.packages("lifecontingencies")
@@ -182,10 +182,10 @@ Let us try to make a deferred cashflow function now:
 
 ```r
 deferred_in_arrear <- function(i, n, m, p){
-  #Constructs the time vector to when the cashflow start paying out 
-  time <- seq(m*p + 1, (m+n)*p, 1)
   #Constructs the cashflow of each time interval above
   cashflow <- rep(1/p, each = n*p)
+  #Constructs the time vector to when the cashflow start paying out 
+  time <- seq(m*p + 1, (m+n)*p, 1)
   #Changes the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
   #Finds the present value of cashflows
