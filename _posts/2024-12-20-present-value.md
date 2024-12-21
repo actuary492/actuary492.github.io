@@ -31,21 +31,22 @@ Present value tells us the current worth of a of future cashflow (or a series of
 
 <img src="https://actuary492.github.io/assets/images/cf.png" alt="description">
 
-Assume that we have cashflows of $1 from t=0 to t=5. We are then asked to find the present value of this series of cashflows. Looking at the number line above, the goal is to discount all the cashflows happening in the future (thus from $t=1$ to $t=5$) back into $t=0$. After that, we can sum up all the current values of the cashflows in the future, along with the cashflow at $t=0$ as well, whose present value of course remains at $1 as $t=0$ is the present to which we discount all the future cashflows to. Assume a constant discounting rate to use is 5%. The formula to do so is simplified below:
+Assume that we have cashflows of $1 from t=0 to t=5. We are then asked to find the present value (at $t=0$) of this series of cashflows. Looking at the number line above, the goal is to discount all the cashflows happening in the future (thus from $t=1$ to $t=5$) back into $t=0$. After that, we can sum up all the current values of the cashflows in the future, along with the cashflow at $t=0$ as well (whose present value of course remains at $1 as $t=0$ is the present, to which we discount all the future cashflows to) to get the present value of the series of cashflows. Assume a constant discounting rate to use is 5%. The formula to do so is simplified below:
 
 $$
-\sum_{t=0}^5 Cashflow/(1+i)^t
+\sum_{t=0}^5 \frac{Cashflow}{(1+i)^t}
 $$
 
 Plugging in numbers, we arrive at:
 
 $$
-$1/(1+0.05)^0 + $1/(1+0.05)^1 + ... + $1/(1+0.05)^5 = $5.329477
+\frac{$1}{(1+0.05)^0} + \frac{$1}{(1+0.05)^1} + ... + \frac{$1}{(1+0.05)^5} = $5.329477
 $$
 
-We can summarize the general formula of the present Value, assuming constant interest rates:
+We can summarize the general formula of the present Value, assuming constant interest rates, and if we want to find the present value at the time of the first cashflow:
 
 $$
-\sum_{t= Time of the First Cashflow}^{Time of the Last Cashflow} Cashflow/(1+i)^t
+\sum_{t = \text{Time of First Cashflow}}^{\text{Time of the Last Cashflow}} \frac{\text{Cashflow}}{(1 + i)^t}
 $$
+
 
