@@ -92,7 +92,9 @@ This notation tells us that the cashflows in question are given out at the begin
 
 ## Deferred Annuity in arrears
 
-<img src="https://actuary492.github.io/assets/images/symb.png" alt="description" style="width: 80%; height: auto;">
+$$
+${}_{t}p_{x}$
+$$
 
 
 
