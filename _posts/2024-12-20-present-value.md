@@ -116,7 +116,7 @@ $$
 a_{\overline{n}|}^{(p)@i} = \sum_{t = 1}^{n*p} \frac{\frac{\text{1}}{p}}{(1 + i^{(p)})^t}
 $$
 
-The differences are clear and understandable. The nominal interest rate should be used instead to fit the $p$-thly intervals. The cashflow itself has also been scaled down by $p$ in order to reflect the true cashflows of the of p-thly interval. This should be logical because it would not be possible for you to use discount a 1 unit yearly cashflow on p-thly intervals. Then, it is just a matter of summing up the present values of each $\frac{1}{p} cashflows.
+The differences are clear and understandable. The nominal interest rate should be used instead to fit the $p$-thly intervals. The cashflow itself has also been scaled down by $p$ in order to reflect the true cashflows of the of p-thly interval. Then, it is just a matter of summing up the present values of each $\frac{1}{p} cashflows.
 
 
 ## Other Types of Annuities
