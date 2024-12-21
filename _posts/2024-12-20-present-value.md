@@ -78,7 +78,7 @@ $$
 <img src="https://actuary492.github.io/assets/images/cf4.png" alt="description" style="width: 80%; height: auto;">
 
 
-This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It gives the present value to $t=0$ of the series of 1 unit cashflows, as shown in the picture above.
+This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It gives the present value to $t=0$ of the series of 1 unit cashflows, discounted by constant i, as shown in the picture above.
 
 ## Annuity Due or Annuity in arrears: 
 
@@ -88,12 +88,12 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
 
-This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until $t=n-1$. It calculates the sum of all the present value of cashflows above in the picture. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
+This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until $t=n-1$. It calculates the sum of all the present value of cashflows above in the picture discounted by constant i. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
 
 ## Deferred Annuity in arrears
 
 $$
-\underset{{ u \vert }}{\ddot{a}}_x
+u \vert_\ddot{a}_{\overline{n}|}^{i}
 $$
 
 
