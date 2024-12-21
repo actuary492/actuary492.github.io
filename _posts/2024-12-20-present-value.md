@@ -69,7 +69,7 @@ This is a quick overview of the concept of the present value along with motivati
 
 In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways of cashflows being received or given out which I briefly touched upon. These are explained below:
 
-Immediate Annuity or Annuity in advance: 
+## Immediate Annuity or Annuity in advance: 
 
 $$
 \ddot{a}_{\overline{n}|}^{i}
@@ -80,7 +80,7 @@ $$
 
 This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It also immediately gives the present value of the series of 1 unit cashflows, as shown in the picture above.
 
-Annuity Due or Annuity in arrears: 
+## Annuity Due or Annuity in arrears: 
 
 $$
 a_{\overline{n}|}^{i}
