@@ -39,7 +39,7 @@ $$
 PV_{t=0} = \frac{$1}{(1+0.05)^1} + \frac{$1}{(1+0.05)^2} + ... + \frac{$1}{(1+0.05)^5} = $4.329477
 $$
 
-We can summarize the general formula of the present Value, assuming constant interest rates, and if we want to find the present value (of series of n cashflows) discounted back to $t=0$, as follows:
+We can summarize the general formula of the finding the present value, of a series of n cashflows discounted back to $t=0$, assuming constant discounting rate as follows:
 
 $$
 \sum_{n = 1}^{n} \frac{\text{Cashflow}_{t_n}}{(1 + i)^t_n}
