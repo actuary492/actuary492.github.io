@@ -42,15 +42,15 @@ $$
 We can summarize the general formula of the present Value, assuming constant interest rates, and if we want to find the present value (of series of n cashflows) discounted back to $t=0$, as follows:
 
 $$
-\sum_{n = 1}^{n} \frac{Cashflow_{t_n}}{(1 + i)^t_n}
+\sum_{n = 1}^{n} \frac{\text{Cashflow}_{t_n}}{(1 + i)^t_n}
 $$
 
-The $t_n$ is the arbitrary time which we want to start the discounting from. This can be $t_1 = 0$ or $t_1 = 1$. The reason I do not start with $t$, but with $t_n$ instead, is due to the fact that the time variable in this formula may vary based on the circumstances of the cashflows (cashflows may be received/given out at the beginning or end of period). This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
+The $t_n$ is the arbitrary time which we want to start the discounting from. This can be $t_1 = 0$ or $t_1 = 1$. The reason I do not start with $t$, but with $t_n$ instead, is due to the fact that the time variable in this formula may vary based on the way that cashflows may be received/given out. This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
 
 If we are asked to find the PV at t=0 using the constant force of interest, it is quite straightforward as well:
 
 $$
-\sum_{n = 1}^{n} {Cashflow_{t_n}}e^{-\int_{t_1 = 0}^{t_2 = n} \delta \ ds}
+\sum_{n = 1}^{n} {\text{Cashflow}_{t_n}}e^{-\int_{t_1 = 0}^{t_2 = n} \delta \ ds}
 $$
 
 We should note variations to the formula. If the discounting rate is variable, the notation should be changed to $i_{t_n}$. 
@@ -63,8 +63,12 @@ $$
 PV_{t=1} = \frac{$1}{(1+0.05)^1} + ... + \frac{$1}{(1+0.05)^4} = $3.545951
 $$
 
-This is a quick overview of the concept of the present value. In the next section, I will explain how this concept of present value is simplified in Actuarial Science.
+This is a quick overview of the concept of the present value along with motivation of its use. In the next section, I will explain how this concept of present value is simplified in Actuarial Science.
 
-# The Present Value Notation Actuarial Science
+# The Present Value Notation in Actuarial Science
 
-In Actuarial Science, there is a concept of annuity that is embeds the concept of present value into it. 
+In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways of cashflows being received or given out which I briefly touched upon. These are explained below:
+
+$$
+( a_{\overline{n}|} )
+$$
