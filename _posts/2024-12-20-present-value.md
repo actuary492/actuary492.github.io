@@ -93,6 +93,7 @@ This notation tells us that the cashflows in question are given out at the begin
 ## Deferred Annuity in arrears
 
 $$
-\underset{u \vert}{\ddot{a}}_x 
+\underset{\{ u \vert \}}{\ddot{a}}_x
 $$
+
 
