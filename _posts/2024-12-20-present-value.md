@@ -98,7 +98,7 @@ $$
 \text{Deferred Annuity in Arrears} = \sum_{t = 1}^{n-m} \frac{\text{Cashflow}_{t}}{(1 + i)^t}
 $$
 
-<img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/cf6.png" alt="description" style="width: 80%; height: auto;">
 
 We see that cashflows start at $t=m$ up until $t=n$ and these are discounted back to $t=0$, the present. 
 
