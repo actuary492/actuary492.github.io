@@ -76,7 +76,7 @@ Immediate Annuity or Annuity in advance: $\ddot{a}_{\overline{n}|}^{i}$
 
 This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It also immediately gives the present value of the series of 1 unit cashflows, as shown in the picture above.
 
-Annuity Due or Annuity in arrears: $a{\overline{n}|}^{i}$
+Annuity Due or Annuity in arrears: $a_{\overline{n}|}^{i}$
 
 <img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 60%; height: auto;">
 
