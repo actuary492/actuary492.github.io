@@ -121,7 +121,7 @@ The differences are clear and understandable. The nominal interest rate should b
 Of course, we can also rewrite the notation in a different way:
 
 $$
-a_{\overline{n}|}^{(p)@i} = \sum_{t = 1}^{n*p} \frac{\frac{\text{1}}{p}}{(1 + i^{(p)})^t}
+a_{\overline{n}|}^{(p)@i} = \sum_{t = \frac{1}{p}}^{n} \frac{\frac{\text{1}}{p}}{(1 + i^{(p)})^t}
 $$
 
 
