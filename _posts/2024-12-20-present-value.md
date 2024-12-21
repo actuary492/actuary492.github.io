@@ -127,11 +127,11 @@ There are more types of annuities in practice. Think of continuous annuities, in
 
 # Present Value Function and Constructing Annuity Function in R
 
-In this section I will show you how to build up a function in R that calculates value of an annuity, using the built in presentValue() function
+In this section I will show you how to build up a function in R that calculates value of an annuity, using the built in presentValue() function. To understand this section it is assumed the reader has familiarity with R to some degree.
 
 ## Built-in function of presentValue
 
-In the "lifecontingencies" package, the presentValue function is extremely handy to calculate the present value. Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) already allows us to find the present value easily. 
+In the "lifecontingencies" package, the presentValue function is extremely handy to calculate the present value. owever, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) already allows us to find the present value easily as shown below.
 
 ```r
 install.packages("lifecontingencies")
@@ -144,20 +144,30 @@ time <- seq(0,9)
 #Input the effective rate for discounting; assumes constant rate of i for all time intervals
 i <- 0.05
 #Plug everything into presentValue()
-result <- presentValue(cashflow, time, i)
+
+presentValue(cashflow, time, i)
+[1] 41.34247
 ```
 
 ## Annuity Code
 
-Knowing the definition and characteristics of the annuity, we can construct the code for annuity in advance and in arrears.
+Knowing the definition and characteristics of the annuity, we can construct the code for annuity. This is the code for annuity in arrears. 
 
 ```r
-annuity_in_arrears <- function(i, p, n){
-  
+annuity_arrears <- function(i, n, p){
+  cashflow <- rep(1/p, each=n*p) #Constructs cashflow of annuity, accounting for p-thly intervals.
+  time <- seq(1, n*p, 1) #Constructs time intervals of the annuity, considering p.
+  i_p <- (1+i)^(1/p) - 1 #Changes effective rate into the nominal rate for every interval.
+  annuity_value <- presentValue(cashflow, time, i_p) #Calculates the present value of the annuity.
 }
 
-```
+annuity_in_arrears_2(0.04,10,12)
+annuity_in_arrears_2(0.04,10,1)
 
+[1] 8.258543
+[1] 8.110896
+```
+As you can see, the code is straightforward. We simply need to define the vector cashflows, time, and effective rate, then simply plugging them 
 
 
 
