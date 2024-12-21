@@ -67,7 +67,7 @@ This is a quick overview of the concept of the present value along with motivati
 
 # The Present Value Notation in Actuarial Science
 
-In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways of cashflows being received or given out which I briefly touched upon. These are explained below:
+In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways of cashflows being received or given out which I briefly touched upon. Some of these are explained below:
 
 ## Immediate Annuity or Annuity in advance: 
 
@@ -78,7 +78,7 @@ $$
 <img src="https://actuary492.github.io/assets/images/cf4.png" alt="description" style="width: 80%; height: auto;">
 
 
-This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It also immediately gives the present value of the series of 1 unit cashflows, as shown in the picture above.
+This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until $t=n$. It gives the present value to $t=0$ of the series of 1 unit cashflows, as shown in the picture above.
 
 ## Annuity Due or Annuity in arrears: 
 
@@ -88,5 +88,11 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
 
-This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until $t=n-1$. It also immediately gives the present value of the series of 1 unit cashflows, as shown in the picture above, including the cashflow at $t=0$.
+This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until $t=n-1$. It calculates the sum of all the present value of cashflows above in the picture. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
+
+## Deferred Annuity in arrears
+
+$$
+\( \underset{u \vert}{\ddot{a}}_x \)
+$$
 
