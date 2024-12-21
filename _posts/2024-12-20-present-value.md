@@ -29,6 +29,8 @@ tags: [post, present, value]
 
 Present value tells us the current worth of a of future cashflow (or a series of one) by discounting it to the present using the appropriate discount (interest) rates. This concept is easily simplified by this number line we see.
 
+<img src="https://actuary492.github.io/assets/images/cf.png" alt="description">
+
 
 
 
