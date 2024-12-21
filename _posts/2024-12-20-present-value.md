@@ -118,7 +118,7 @@ $$
 
 The differences are clear and understandable. The nominal interest rate should be used instead to fit the $p$-thly intervals. The cashflow itself has also been scaled down by $p$ in order to reflect the true cashflows of the of p-thly interval. Then, it is just a matter of summing up the present values of each $\frac{1}{p}$ cashflows. 
 
-Of course, we can also rewrite the notation in a different way:
+Of course, we can also rewrite the notation in a different way, remembering the definition of the nominal interest rates:
 
 $$
 a_{\overline{n}|}^{(p)@i} = \sum_{t = \frac{1}{p}}^{n} \frac{\frac{\text{1}}{p}}{(1 + i^{(p)})^t}
