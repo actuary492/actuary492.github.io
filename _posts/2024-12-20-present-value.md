@@ -45,16 +45,19 @@ $$
 \sum_{n = 1}^{n} \frac{Cashflow_{t_n}}{(1 + i)^t_n}
 $$
 
-The $t_n$ is the arbitrary time which we want to start the discounting from. This can be $t_1 = 0$ or $t_1 = 1$. The reason I do not start with $t_n$ instead of $t$ directly, is due to the fact that the time variable in this formula may vary based on the circumstances of the cashflows (cashflows may be received/given out at the beginning or end of period). This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
+The $t_n$ is the arbitrary time which we want to start the discounting from. This can be $t_1 = 0$ or $t_1 = 1$. The reason I do not start with $t$, but with $t_n$ instead, is due to the fact that the time variable in this formula may vary based on the circumstances of the cashflows (cashflows may be received/given out at the beginning or end of period). This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
 
 We should note variations to the formula. If the discounting rate is variable, the notaton should be changed to $i_{t_n}$. 
 
 <img src="https://actuary492.github.io/assets/images/cf3.png" alt="description">
 
-Now, what if I want to calculate the present value of the same cashflow series (paid at the end of the period) above in the picture, assuming same constant discounting rate of 5%, but at $t=1$? What this means is that cashflows in between $t \in (0,1]$ will be ignored. Why? The cashflow of 1 has been paid at $t=1$, thus it is not further in our interest to find the present value of 1 of $t=1$ as it has been received. What we now focus on is the cashflows in $t \in (1,5]$. Remember the point of present value is to calculate the current value of all cashflows to be given to or received in the future. Calculating the present value thus becomes as illustrated by the number line:
+Now, what if I want to calculate the present value of the same cashflow series (paid at the end of the period) above in the picture, assuming same constant discounting rate of 5%, but at $t=1$? What this means is that cashflows in between $t \in (0,1]$ will be ignored. Why? The cashflow of 1 has been received/given out at $t=1$, thus it is not further in our interest to find the present value of 1 of $t=1$ as it has been received. What we now focus on is the cashflows in $t \in (1,5]$. Remember the point of present value is to calculate the current value of all cashflows to be given to or received in the future. Calculating the present value thus becomes as illustrated by the number line:
 
 $$
 PV_{t=1} = \frac{$1}{(1+0.05)^1} + ... + \frac{$1}{(1+0.05)^4} = $3.545951
 $$
 
+This is a quick overview of the concept of the present value. In the next section, I will explain how this concept of present value is simplified in Actuarial Science.
+
+# The Present Value in Actuarial Science
 
