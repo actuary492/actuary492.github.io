@@ -88,7 +88,7 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
 
-This notation tells us that the cashflows in question are given out at the beginning of the period, starting from $t=0$ up until arbitrary time $t=n-1$. It calculates the sum of all the present value of same amount of cashflows above in the picture discounted by constant i. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
+This notation tells us that the cashflows in question are given out directly at the beginning of the period, starting from $t=0$ up until arbitrary time $t=n-1$. It calculates the sum of all the present value of same amount of cashflows above in the picture discounted by constant i. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
 
 ## Deferred Annuity in arrears and in advance
 
