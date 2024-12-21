@@ -92,7 +92,7 @@ This notation tells us that the cashflows in question are given out at the begin
 
 ## Deferred Annuity in arrears and in advance
 
-I am not able to reproduce the notation of the deferred annuity in arrears using MathJax. However, the difference is not much. We simply add $m$, where $m$ is the deferment period, to the left subscript of the notation for annuity in arrears, to get deferred annuity in arrears equation. A deferment is simply a period of delay before the payment of 1 unit starts at exactly the end of $t=m$, in line with the arrears definition.
+I am not able to reproduce the notation of the deferred annuity in arrears using MathJax. However, the difference is not much. We simply add $m \vert$, where $m$ is the deferment period, to the left subscript of the notation for annuity in arrears, to get deferred annuity in arrears equation. A deferment is simply a period of delay before the payment of 1 unit starts at exactly the end of $t=m$, in line with the arrears definition.
 
 $$
 \text{Deferred Annuity in Arrears} = \sum_{t = m}^{n} \frac{\text{1}}{(1 + i)^t}
@@ -129,9 +129,11 @@ We see that instead of using discrete time intervals from $t=1$ to $t=n*p$, we c
 
 ## Other Types of Annuities
 
-There are more types of annuities in practice. Think of continuous annuities, increasing or decreasing annuities. These will not be further discussed here, and can be easily read online. The concept of these to the ones above remain the same, it is a simple notation to tell us the sum of present values of a specific set of cashflows.
+There are more types of annuities in practice. Think of continuous annuities, increasing or decreasing annuities. These will not be further discussed here, and can be easily read online. The concept of these to the ones above remain the same, these are notations to tell us the sum of present values of a specific set of cashflows.
 
 
+
+# Applying concepts of the Present Value and Annuity in R
 
 
 
