@@ -134,7 +134,7 @@ In this section I will show you how to build up a function in R that calculates 
 
 ## Built-in function of presentValue
 
-In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) already allows us to find the present value easily as shown below.
+In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) into the function already allows us to find the present value easily as shown below.
 
 ```r
 install.packages("lifecontingencies")
@@ -162,7 +162,7 @@ annuity_arrears <- function(i, n, p){
   cashflow <- rep(1/p, each=n*p)
   #Constructs time intervals of the annuity, considering p.
   time <- seq(1, n*p, 1)
-  #Finds the appropriate nominal rate accounting for the payment frequency p.
+  #Changes the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
   #Calculates the present value of the annuity.
   annuity_value <- presentValue(cashflow, time, i_p)
@@ -182,9 +182,9 @@ Let us try to make a deferred annuity function now:
 
 ```r
 deferred_in_arrear <- function(i, n, m, p){
-  #Constructs the cashflow of each time interval above
+  #Constructs cashflow of annuity, accounting for p-thly intervals.
   cashflow <- rep(1/p, each = n*p)
-  #Constructs the time vector to when the cashflow start paying out 
+  #Constructs the time vector to when the cashflow start paying out after deferment 
   time <- seq(m*p + 1, (m+n)*p, 1)
   #Changes the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
@@ -199,7 +199,12 @@ We can see that it is not that complex either. The only thing we need to change 
 
 Note that it would be wise to cross-check your function with the results of the built-in function of annuity of the "lifecontingencies" package, to check for the validity of the function coded, which I have done.
 
+We have seen that building the annuity function is not hard as it is! Again, simply defining your cashflows, time sequence, and interest rates is all there is to it! The presentValue() function does the hard part for you!
 
+
+## Calculating other Financial Instruments using presentValue()
+
+As mentioned before, we can use annuities only if we know our cashflows to be constant.
 
 
 
