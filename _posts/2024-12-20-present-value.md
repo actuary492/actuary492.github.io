@@ -139,6 +139,12 @@ In this section I will show you how to build up a function in R that calculates 
 
 ## Present Value Code
 
+```r
+# R example code
+x <- c(1, 2, 3, 4)
+mean(x)
+```
+
 ## Annuity Code
 
 ## Built-in function of presentValue
