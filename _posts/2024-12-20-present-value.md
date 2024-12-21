@@ -100,9 +100,11 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/cf6.png" alt="description" style="width: 80%; height: auto;">
 
-We see that cashflows start at $t=m$ up until $t=n$ and these are discounted back to $t=0$, the present. 
+We see that cashflows start at $t=m+1$ up until $t=n$ and these are discounted back to $t=0$, the present. 
 
-For deferred annuity in advance, where cashflows are given out or received at the beginning of the period, the only difference in cashflow to the image above, is that of course, the last cashflow ends at $t=n-1$ instead of $t=n$.
+For deferred annuity in advance, where cashflows are given out or received at the beginning of the period, the only difference in cashflow to the image above, is that of course, the first cashflow starts directly at the beginning of $t=m$ and ends at $t=n-1$, shown in the picture below.
+
+<img src="https://actuary492.github.io/assets/images/cf7.png" alt="description" style="width: 80%; height: auto;">
 
 $$
 \text{Deferred Annuity in Advance} = \sum_{t = m}^{n-1} \frac{\text{1}}{(1 + i)^t}
@@ -154,11 +156,15 @@ presentValue(cashflow, time, i)
 Knowing the definition and characteristics of the annuity, we can construct the code for annuity, accounting for payment frequency $p$. This is the code for annuity in arrears. 
 
 ```r
-annuity_arrears <- function(i, n, p){ 
-  cashflow <- rep(1/p, each=n*p) #Constructs cashflow of annuity, accounting for p-thly intervals.
-  time <- seq(1, n*p, 1) #Constructs time intervals of the annuity, considering p.
-  i_p <- (1+i)^(1/p) - 1 #Changes effective rate into the nominal rate for every interval.
-  annuity_value <- presentValue(cashflow, time, i_p) #Calculates the present value of the annuity.
+annuity_arrears <- function(i, n, p){
+  #Constructs cashflow of annuity, accounting for p-thly intervals.
+  cashflow <- rep(1/p, each=n*p)
+  #Constructs time intervals of the annuity, considering p.
+  time <- seq(1, n*p, 1)
+  #Finds the appropriate nominal rate accounting for the payment frequency p.
+  i_p <- (1+i)^(1/p) - 1
+  #Calculates the present value of the annuity.
+  annuity_value <- presentValue(cashflow, time, i_p)
 }
 
 annuity_in_arrears_2(0.04,10,12)
@@ -167,7 +173,7 @@ annuity_in_arrears_2(0.04,10,1)
 [1] 8.258543
 [1] 8.110896
 ```
-As you can see, the code is straightforward. Note that I tried to find the present value of a 10-year annuity discounted at a effective rate of 4%, one with a yearly payment frequency while the other with a monthly payment frequency. The results shown are not far away from each other, with the slight difference to being the effective rate used due to frequency compounding.
+As you can see, the code is straightforward. Note that I tried to find the present value of a 10-year annuity discounted at a effective rate of 4%, one with a yearly payment frequency while the other with a monthly payment frequency. The results shown are not far away from each other, with the slight difference due to different effective rate used due to frequency compounding.
 
 To make the function of annuity in advance, simply requires a change in the time vector to seq(0, n*p - 1), which I will not illustrate further.
 
