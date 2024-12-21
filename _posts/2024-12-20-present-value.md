@@ -168,8 +168,8 @@ annuity_arrears <- function(i, n, p){
   annuity_value <- presentValue(cashflow, time, i_p)
 }
 
-annuity_in_arrears_2(0.04,10,12)
-annuity_in_arrears_2(0.04,10,1)
+annuity_arrears(0.04,10,12)
+annuity_arrears(0.04,10,1)
 
 [1] 8.258543
 [1] 8.110896
@@ -179,6 +179,27 @@ As you can see, the code is straightforward. Note that I tried to find the prese
 To make the function of annuity in advance, simply requires a change in the time vector to seq(0, n*p - 1), which I will not illustrate further.
 
 Let us try to make a deferred cashflow function now:
+
+```r
+deferred_in_arrear <- function(i, n, m, p){
+  #Constructs the time vector to when the cashflow start paying out 
+  time <- seq(m*p + 1, (m+n)*p, 1)
+  #Constructs the cashflow of each time interval above
+  cashflow <- rep(1/p, each = n*p)
+  #Changes the effective rate into nominal rate suitable for p-thly intervals
+  i_p <- (1+i)^(1/p) - 1
+  #Finds the present value of cashflows
+  pres_val <- presentValue(cashflow, time, i_p)
+}
+
+deferred_in_arrear(0.04,10, 3, 12)
+[1] 7.341814
+```
+We can see that it is not that complex either. The only thing we need to change is the time sequence to fit the deferment period. 
+
+Note that it would be wise to cross-check your function with the results of the built-in function of annuity of the "lifecontingencies" package, to check for the validity of the function coded, which I have done.
+
+
 
 
 
