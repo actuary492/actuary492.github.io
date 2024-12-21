@@ -27,28 +27,34 @@ tags: [post, present, value]
 
 # Introduction to Present Value
 
-Present value tells us the current worth of a of future cashflow (or a series of one) by discounting it to the present using the appropriate discount (interest) rates. But why the concept of present value? Why discount the value of money? It all goes back to economics. The time concept of money tells us that yearly inflation erodes the value of money. This also directly erodes the value of every financial instrument that depends on cashflows of money. Due to this, people want to essentially estimate the value of their future money now, by using some appropriate discount rate, which now you can logically think, as some predicted inflation rate in the future, because they know their spending power (of money) in the future will not be as powerful as now.
+Present value tells us the current worth of a of future receivable or to be given out cashflow (or a series of one) by discounting it to the present using the appropriate discount (interest) rates. But why the concept of present value? Why discount the value of money? It all goes back to economics. The time concept of money tells us that yearly inflation erodes the value of money. This also directly erodes the value of every financial instrument that depends on cashflows of money. Due to this, people want to essentially estimate the value of their future money now, by using some appropriate discount rate, (which now you can logically think of as some predicted inflation rate in the future) because they know their spending power (of money) in the future will not be as powerful as now.
 
 This concept is easily simplified by this number line we see.
 
-<img src="https://actuary492.github.io/assets/images/cf.png" alt="description">
+<img src="https://actuary492.github.io/assets/images/cf2.png" alt="description">
 
-Assume that we have cashflows of $1 from t=0 to t=5. We are then asked to find the present value (at $t=0$) of this series of cashflows. Looking at the number line above, the goal is to discount all the cashflows happening in the future (thus from $t=1$ to $t=5$) back into $t=0$. After that, we can sum up all the current values of the cashflows in the future, along with the cashflow at $t=0$ as well (whose present value of course remains at $1 as $t=0$ is the present, to which we discount all the future cashflows to) to get the present value of the series of cashflows. Assume a constant discounting rate to use is 5%. The formula to do so is simplified below:
-
-$$
-\sum_{t=0}^5 \frac{\text{Cashflow}}{(1+i)^t}
-$$
-
-Plugging in numbers, we arrive at:
+Assume that we have cashflows of $1 from t=1 to t=5. Assume that these cashflows are given at the end of the period. We are then asked to find the present value (at $t=0$) of this series of cashflows. Looking at the number line above, the goal is to discount all the cashflows (thus from $t=1$ to $t=5$) back into $t=0$. After that, we can sum up all the current values of the cashflows in the future to get the present value of the series of cashflows at $t=0$. Assume a constant discounting rate to use is 5%. The formula to do so is simplified below:
 
 $$
-\frac{$1}{(1+0.05)^0} + \frac{$1}{(1+0.05)^1} + ... + \frac{$1}{(1+0.05)^5} = $5.329477
+PV_{t=0} = \frac{$1}{(1+0.05)^1} + \frac{$1}{(1+0.05)^2} + ... + \frac{$1}{(1+0.05)^5} = $4.329477
 $$
 
-We can summarize the general formula of the present Value, assuming constant interest rates, and if we want to find the present value discounted back to $t=0$, as follows:
+We can summarize the general formula of the present Value, assuming constant interest rates, and if we want to find the present value (of series of n cashflows) discounted back to $t=0$, as follows:
 
 $$
-\sum_{t = 0}^{n} \frac{\text{Cashflow}}{(1 + i)^t}
+\sum_{n = 1}^{n} \frac{Cashflow_{t_n}}{(1 + i)^t_n}
+$$
+
+The $t_n$ is the arbitrary time which we want to start the discounting from. This can be $t_1 = 0$ or $t_1 = 1$. The reason I do not start with $t_n$ instead of $t$ directly, is due to the fact that the time variable in this formula may vary based on the circumstances of the cashflows (cashflows may be received/given out at the beginning or end of period). This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
+
+We should note variations to the formula. If the discounting rate is variable, the notaton should be changed to $i_{t_n}$. 
+
+<img src="https://actuary492.github.io/assets/images/cf3.png" alt="description">
+
+Now, what if I want to calculate the present value of the same cashflow series (paid at the end of the period) above in the picture, assuming same constant discounting rate of 5%, but at $t=1$? What this means is that cashflows in between $t \in (0,1]$ will be ignored. Why? The cashflow of $1 has been paid at $t=1$, thus it is not further in our interest to find the present value of $1 as it has been received. What we now focus on is the cashflows in $t \in (1,5]$. Remember the point of present value is to calculate the current value of all cashflows to be given to or received in the future. Calculating the present value thus becomes as illustrated by the number line:
+
+$$
+PV_{t=1} = \frac{$1}{(1+0.05)^1} + ... + \frac{$1}{(1+0.05)^4} = $3.545951
 $$
 
 
