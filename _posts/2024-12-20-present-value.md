@@ -118,14 +118,6 @@ $$
 
 The differences are clear and understandable. The nominal interest rate of one unit interval that has been adjusted for frequency $p$, $\frac{i^{(p)}}{p}$ should be used to reflect the nominal rate per discrete $p$-thly intervals. The cashflow itself has also been scaled down by $p$ in order to reflect the true cashflows of the of p-thly interval. Then, it is just a matter of summing up the present values of each $\frac{1}{p}$ cashflows. 
 
-Of course, we can also rewrite the notation in a different way, remembering the definition of the nominal interest rates $i^{(p)}$, that is the annual rate that has been compounded $p$ times:
-
-$$
-a_{\overline{n}|}^{(p)@i} = \sum_{t = \frac{1}{p}}^{n} \frac{\frac{\text{1}}{p}}{(1 + i^{(p)})^t}
-$$
-
-We see that instead of using discrete time intervals from $t=1$ to $t=n*p$, we can use non-integer intervals from $t=\frac{1}{m}$ to $t=n$, while adjusting the rate to fit this time interval.
-
 
 ## Other Types of Annuities
 
@@ -133,21 +125,39 @@ There are more types of annuities in practice. Think of continuous annuities, in
 
 
 
-# Present Value and Annuity in R
+# Present Value Function and Constructing Annuity Function in R
 
-In this section I will show you how to build up a function in R that calculates the present value of cashflows and an annuity. It should be noted there are built-in functions in R that can immediately help us calculate these things, however, it is also essential to understand the steps in constructing the calculation of present values and code them to further improve our understanding of the concept.
+In this section I will show you how to build up a function in R that calculates value of an annuity, using the built in presentValue() function
 
-## Present Value Code
+## Built-in function of presentValue
+
+In the "lifecontingencies" package, the presentValue function is extremely handy to calculate the present value. Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) caleady allows us to find the present value easily. 
 
 ```r
-# R example code
-x <- c(1, 2, 3, 4)
-mean(x)
+install.packages("lifecontingencies")
+library(lifecontingencies)
+
+#Construct increasing cashflow of 1:5
+cashflow <- seq(1,10)
+#Construct time sequence when the cashflow occurs, from t=0 to t=9
+time <- seq(0,9)
+#Input the effective rate for discounting; assumes constant rate of i for all time intervals
+i <- 0.05
+#Plug everything into presentValue()
+result <- presentValue(cashflow, time, i)
 ```
 
 ## Annuity Code
 
-## Built-in function of presentValue
+Knowing the definition and characteristics of the annuity, we can construct the code for annuity in advance and in arrears.
+
+```r
+annuity_in_arrears <- function(i, p, n){
+  
+}
+
+```
+
 
 
 
