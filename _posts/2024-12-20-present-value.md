@@ -116,7 +116,7 @@ $$
 a_{\overline{n}|}^{(p)@i} = \sum_{t = 1}^{n*p} \frac{\frac{\text{1}}{p}}{(1 + \frac{i^{(p)}}{p})^t}
 $$
 
-The differences are clear and understandable. The nominal interest rate $\frac{i^{(p)}}{p}$, that has been adjusted for frequency $p$ per unit interval, should be used. The cashflow itself has also been scaled down by $p$ in order to reflect the true cashflows of the of p-thly interval. Then, it is just a matter of summing up the present values of each $\frac{1}{p}$ cashflows. 
+The differences are clear and understandable. The nominal interest rate of one unit interval that has been adjusted for frequency $p$, $\frac{i^{(p)}}{p}$ should be used to reflect the nominal rate per discrete $p$-thly intervals. The cashflow itself has also been scaled down by $p$ in order to reflect the true cashflows of the of p-thly interval. Then, it is just a matter of summing up the present values of each $\frac{1}{p}$ cashflows. 
 
 Of course, we can also rewrite the notation in a different way, remembering the definition of the nominal interest rates $i^{(p)}$, that is the annual rate that has been compounded $p$ times:
 
@@ -133,7 +133,15 @@ There are more types of annuities in practice. Think of continuous annuities, in
 
 
 
-# Applying concepts of the Present Value and Annuity in R
+# Present Value and Annuity in R
+
+In this section I will show you how to build up a function in R that calculates the present value of cashflows and an annuity. It should be noted there are built-in functions in R that can immediately help us calculate these things, however, it is also essential to understand the steps in constructing the calculation of present values and code them to further improve our understanding of the concept.
+
+## Present Value Code
+
+## Annuity Code
+
+## Built-in function of presentValue
 
 
 
