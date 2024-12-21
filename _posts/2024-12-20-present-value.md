@@ -47,7 +47,13 @@ $$
 
 The $t_n$ is the arbitrary time which we want to start the discounting from. This can be $t_1 = 0$ or $t_1 = 1$. The reason I do not start with $t$, but with $t_n$ instead, is due to the fact that the time variable in this formula may vary based on the circumstances of the cashflows (cashflows may be received/given out at the beginning or end of period). This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
 
-We should note variations to the formula. If the discounting rate is variable, the notaton should be changed to $i_{t_n}$. 
+If we are asked to find the PV at t=0 using the constant force of interest, it is quite straightforward as well:
+
+$$
+\sum_{n = 1}^{n} {Cashflow_{t_n}}e^{-\int_{t_1 = 0}^{t_2 = n} \delta \ ds}
+$$
+
+We should note variations to the formula. If the discounting rate is variable, the notation should be changed to $i_{t_n}$. 
 
 <img src="https://actuary492.github.io/assets/images/cf3.png" alt="description">
 
@@ -59,5 +65,6 @@ $$
 
 This is a quick overview of the concept of the present value. In the next section, I will explain how this concept of present value is simplified in Actuarial Science.
 
-# The Present Value in Actuarial Science
+# The Present Value Notation Actuarial Science
 
+In Actuarial Science, there is a concept of annuity that is embeds the concept of present value into it. 
