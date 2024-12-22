@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Present Value"
+title: "Present Value and it's Applications"
 date: 2024-12-18
 excerpt: "We will explore the concept of present value and it's applications using R"
 author: Nicholas Wijaya
@@ -53,7 +53,7 @@ $$
 \sum_{n = 1}^{n} {\text{Cashflow}_{t_n}}e^{-\int_{t_1 = 0}^{t_2 = n} \delta \ ds}
 $$
 
-We should note variations to the formula. If the discounting rate is variable, the notation should be changed to $i_{t_n}$. 
+We should note variations to the formula. If the discounting rate is variable, the notation should be changed to $\delta_{t_n}$. 
 
 <img src="https://actuary492.github.io/assets/images/cf3.png" alt="description" style="width: 80%; height: auto;">
 
