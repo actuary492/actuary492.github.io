@@ -140,13 +140,13 @@ In the "lifecontingencies" package, the presentValue() function is extremely han
 install.packages("lifecontingencies")
 library(lifecontingencies)
 
-#Construct increasing step increasing cashflow of 1:10
+# Construct a random increasing step cashflow
 cashflow <- seq(1,10)
-#Construct time sequence when the cashflow occurs, from t=0 to t=9
+# Construct a random time sequence for the discounting factor
 time <- seq(0,9)
-#Input the effective rate for discounting; assumes constant rate of i for all time intervals
+# Input a random effective rate for discounting; assumes constant rate of i for all time intervals
 i <- 0.05
-#Plug everything into presentValue()
+# Plug everything into presentValue()
 presentValue(cashflow, time, i)
 
 [1] 41.34247
@@ -154,49 +154,55 @@ presentValue(cashflow, time, i)
 
 ## Annuity Code
 
-Now, I will now construct a single function to calculate noth annuity in arrears and in advance, accounting for payment frequency. Look and try to understand the descriptions of each line of code. 
+Now, I will now construct a single function to calculate both annuity in arrears and in advance, accounting for payment frequency. Look and try to understand the descriptions of each line of code. 
 
 ```r
 # Note the inputs: the effective rate (i), the term of the annuity (n), the frequency of payments (p), and type that is a logical input (0: arrears or 1: advance) to tell the function if we are calculating annuity in advance or annuity in arrears.
 
+
 annuity <- function(i, n, p, type){
-  #Constructs cashflow of annuity, accounting for p-thly intervals.
+  #Construct cashflow of annuity, accounting for p-thly intervals.
   cashflow <- rep(1/p, each=n*p)
-  #Constructs time intervals of the annuity in arrear, considering p.
+  #Construct time intervals for the discounting factor for annuity in arrear back to t=0, considering p.
   time_arrear <- seq(1, n*p, 1)
-  #Constructs time intervals of the annuity in advance, considering p.
+  #Construct time intervals for the discounting factor for annuity in advance back to t=0, considering p.
   time_arrear <- seq(0, n*p-1, 1)
-  #Changes the effective rate into nominal rate suitable for p-thly intervals
+  #Change the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
-  #Calculates the value of the annuity given the inputs (either arrear or advance)
+  #Calculate the value of the annuity given the inputs (either arrear or advance)
   annuity_value <- ifelse(type == 1, presentValue(cashflow, time_advance, i_p), presentValue(cashflow, time_arrear, i_p)
 }
 
+# Value of a 1 unit 10-year annuity in arrears, with monthly payment frequency
 annuity(0.04,10,12,0)
+# Value of a 100 unit 10-year annuity in arrears, with monthly payment frequency (simply mutiply function above by 100)
+100*annuity(0.04,10,12,0)
+# Value of a 1 unit 10-year annuity, with yearly payment frequency
 annuity(0.04,10,1)
 
 [1] 8.258543
+[1] 825.8543
 [1] 8.110896
 ```
 
 I tried to find the present value of a 10-year annuity in arrears discounted at a effective rate of 4%, one with a yearly payment frequency while the other with a monthly payment frequency. The results shown are not far away from each other, with the slight difference due to different effective rate used due to frequency compounding. The steps are clear: construct the cashflow, time intervals, and effective rate, input all into the presentValue() function, before plugging all those into function I built.
 
 
-Now, let us try to add a deferred input into the function now (for advance and arrears):
+Now, let us try to add a deferred input into the function now (for advance and arrears), which builds up from the previous code:
 
 ```r
 # The inputs remain the same as the previous code, except for the addition of the variable m, that is the deferment period.
 
 deferred_annuity <- function(i, n, m, p, advance){
-  #Constructs cashflow of annuity, accounting for p-thly intervals.
+  #Construct cashflow of annuity, accounting for p-thly intervals.
   cashflow <- rep(1/p, each = n*p)
-  #Constructs the annuity in arrear time vector to when the cashflow start paying out after deferment 
+  #Construct the annuity in arrear time vector for the discounting factor back to t=0 when the cashflow start paying out after deferment 
   time_arrear <- seq(m*p + 1, (m+n)*p, 1)
-  #Constructs the annuity in advance time vector to when the cashflow start paying out after deferment 
+  #Construct the annuity in advance time vector for the discounting factor back to t=0 when the cashflow start paying out after deferment 
   time_advance <- seq(m*p, (m+n)*p - 1, 1)
-  #Changes the effective rate into nominal rate suitable for p-thly intervals
+  #Change the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
-  #Calculates the value of the annuity given the inputs (either arrear or advance)
+  #Calculate the value of the annuity given the inputs (either arrear or advance)
   pres_val <- ifelse(type == 1, presentValue(cashflow, time_advance, i_p), presentValue(cashflow, time_arrear, i_p)
 }
 
@@ -204,25 +210,36 @@ deferred_annuity(0.04,10, 3, 12)
 [1] 7.341814
 ```
 
-We can see that it is not that complex either. We simply need to incorporate $m$ into the previous function, which changes the content time intervals, as shown in the deferred annuity graph. It could be possible that you will not directly arrive at the function above, hence it is always wise to construct the annuity function step by step. For instance, first without considering frequency payments, then with frequency payments, then with the deferrment period.
+We can see that it is not that complex either. We simply need to incorporate $m$ into the previous function, which changes the content of the time intervals, as shown in the deferred annuity function. It could be possible that you will not directly arrive at the function above, hence it is always wise to construct the annuity function step by step. For instance, first without considering frequency payments, then with frequency payments, then with the deferrment period.
 
 We have seen that building the annuity function is not hard to construct. Again, simply define your cashflows, the time sequence, and interest rates, plug them into presentValue() function, and voila!
 
-Note that it would be wise to cross-check your function with the results of the built-in function of annuity() of the "lifecontingencies" package, to check for the validity of the function coded, which I have done. Additionally, it is also advised to experiment building different annuity functions out there, for instance of increasing or decreasing annuities. 
+Note that it would be wise to cross-check your function with the results of the built-in function of annuity() of the "lifecontingencies" package for the validity of the function coded. Additionally, it is also advised to experiment building different annuity functions out there, for instance of increasing or decreasing annuities.
 
 
-## Using annuity function above to value Financial Instruments
+## Valuing Financial Instruments in R: Loan and Bond Example
 
-The annuity function above can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+The annuity function coded above can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid back in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
 
-In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take an example of $n$-year coupon bearing bond with a face value of $F$ and coupon payment $c$. For the $n-1$ years, we will be paid out the constant cashflow of coupon payments. However, in the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. This non-constant cashflow makes using the annuity function not possible. What we have to do instead is build a separate function for 
+In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. Assume we want to find a value of a $n$-year coupon bearing bond with a face value of $F$ and coupon payment $c$ at time $t=0$. As how a normal bond payment is structured, for the $n-1$ years one will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. This forces us to recode where the non-constant cashflows are taken into account.
 
 ```r
-# Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%.
-face_value <- 100; coupon_rate <- 0.06; coupon <- face_value*coupon_rate; term <- 20
+# Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%, and constant effective interest of 6%.
+face_value <- 100; coupon_rate <- 0.06; coupon <- face_value*coupon_rate; term <- 20; i <- 0.06
+
+# Calculating the bond value at t=0:
+
+# Define cashflows of bond as described:
+bond_cashflow <- c(rep(coupon, each=term-1), face_value + coupon)
+# Define the time of cashflows of the bond, assumed payments are made in arrears
+bond_time <- seq(1,term)
+
+# Use presentValue to find bond value at t=0
+presentValue(bond_cashflow, bond_time, i)
 
 ```
 
+And so, we arrive at the value of the bond at t=0. This is the present value of all future cashflows yet to happen after t=0. Now, what about the value of the 20-year-bond at t=1? In this case, the first coupon payment has elapsed, hence this is not in our interest to calculate it's present value further. Now, we simply focus on the remaining cashflows: 18 further coupon payments, and 1 payment of the coupon plus face value, starting at $t=2$ and ending at $t=20$. To find the time vector for the discounting factor, find the difference of the time of the cashflows relative to the starting time of $t=1$. This creates a new time sequence factor starting from $t=1$ to $t=19$ instead. With the same logic, we can imagine how the cashflows and the time vector of the bond value at $t=2$, $t=3$, up to $t=20$ will look like. I will show you the code that produces a vector of the bond value starting from $t=0$ up to its maturity at $t=20$.
 
 
 
