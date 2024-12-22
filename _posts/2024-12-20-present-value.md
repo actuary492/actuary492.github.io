@@ -42,7 +42,7 @@ $$
 We can summarize the general formula of the finding the present value, of a series of n cashflows discounted back to $t=0$, assuming constant discounting rate as follows:
 
 $$
-\sum_{n = 1}^{n} \frac{\text{Cashflow}_{t_n}}{(1 + i)^{t_n}
+\sum_{n = 1}^{n} \frac{\text{Cashflow}_{t_n}}{(1 + i)^{t_n}} 
 $$
 
 The $t_n$ is the arbitrary time which we want to start the discounting from. The reason I do not start with arbitrary $t$ directly in the summation, but with $t_n$ instead, is due to the fact that the time variable in this formula may vary based on the way that cashflows may be received/given out. This will be further elaborated on the later sections. The $t_n$ belonging to the discounting factor can generally be seen as a sequence of differences between the time of the cashflow minus the time to which we want to discount back to.
