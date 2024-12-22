@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "Present Value and it's Applications"
+title: "Present Value"
 date: 2024-12-18
-excerpt: "We will explore the concept of present value and it's applications using R"
+excerpt: "We will explore the present value and it's applications in Actuarial Science using R"
 author: Nicholas Wijaya
 toc: true
 classes: wide
 header: 
   image: "/assets/images/money.jpg"
 permalink: /posts/present-value/
-published: true
+published: false
 tags: [post, present, value]
 ---
 
@@ -65,9 +65,9 @@ $$
 
 This is a quick overview of the concept of the present value along with motivation of its use. In the next section, I will explain how this concept of present value is simplified in Actuarial Science.
 
-# The Present Value Notations in Actuarial Science
+# Annuity in Actuarial Science: A Notation that Summarizes t
 
-In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways cashflows of the same amount of 1 unit (very important assumption to remember) are being received or given out which I briefly touched upon. This is again the reason why $t$ starts and ends at different time values for the different annuities below. Some of these are explained below:
+In Actuarial Science, there is a concept of annuity that embeds the concept of present value. The annuity is a notation that tells us the sum of present values of a set of future cashflows of unit 1 for a given time period. There are various notations to this annuity that reflects the different ways the 1 unit cashflows are being received or given out which I briefly touched upon. This is again the reason why $t$ starts and ends at different time values for the different annuities below. Some of these are explained below:
 
 ## Immediate Annuity or Annuity in advance: 
 
@@ -134,13 +134,13 @@ In this section I will show you how to build up a function in R that calculates 
 
 ## Built-in function of presentValue
 
-In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) into the function already allows us to find the present value easily as shown below. Below is an example.
+In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different input parameters. Simply plugging in the cashflow vector, time vector, and interest rate (vector, if applicable) into the function already allows us to find the present value easily as shown below. Below is an example.
 
 ```r
 install.packages("lifecontingencies")
 library(lifecontingencies)
 
-#Construct increasing cashflow of 1:5
+#Construct increasing step increasing cashflow of 1:10
 cashflow <- seq(1,10)
 #Construct time sequence when the cashflow occurs, from t=0 to t=9
 time <- seq(0,9)
@@ -151,10 +151,11 @@ presentValue(cashflow, time, i)
 
 [1] 41.34247
 ```
+An important step is to always check whether the length of your cashflows, time and interest vectors are the same, otherwise, the built-in function will produce an error.
 
 ## Annuity Code
 
-Knowing the definition and characteristics of the annuity, we can construct the code for annuity, accounting for payment frequency $p$. This is the code for annuity in arrears. 
+I will now construct a function to calculate annuity in arrears. Knowing the characteristics of the said annuity, accounting for payment frequency $p$ and assuming effective rates are given, this is the code for annuity in arrears.
 
 ```r
 annuity_arrears <- function(i, n, p){
@@ -174,7 +175,7 @@ annuity_arrears(0.04,10,1)
 [1] 8.258543
 [1] 8.110896
 ```
-As you can see, the code is straightforward. Note that I tried to find the present value of a 10-year annuity discounted at a effective rate of 4%, one with a yearly payment frequency while the other with a monthly payment frequency. The results shown are not far away from each other, with the slight difference due to different effective rate used due to frequency compounding.
+Note that I tried to find the present value of a 10-year annuity discounted at a effective rate of 4%, one with a yearly payment frequency while the other with a monthly payment frequency. The results shown are not far away from each other, with the slight difference due to different effective rate used due to frequency compounding.
 
 To make the function of annuity in advance, simply requires a change in the time vector to seq(0, n*p - 1), which I will not illustrate further.
 
@@ -206,9 +207,13 @@ We have seen that building the annuity function is not hard as it is! Again, sim
 
 The annuity function above can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
 
-Take example of $n$-year coupon bearing bond with a face value of $x$ and coupon payment $y$. For the $n-1$ years, we will be paid out the constant cashflow of coupon payments. However, in the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value. This non-constant cashflow makes using the annuity function 
+Take example of $n$-year coupon bearing bond with a face value of $F$ and coupon payment $c$. For the $n-1$ years, we will be paid out the constant cashflow of coupon payments. However, in the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value. This non-constant cashflow makes using the annuity function not possible. What we have to do instead is build a separate function for 
 
+```r
+# Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%.
+face_value <- 100; coupon_rate <- 0.06; coupon <- face_value*coupon_rate; term <- 20
 
+```
 
 
 
