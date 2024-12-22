@@ -96,14 +96,14 @@ I am not able to reproduce the notation of the deferred annuity in arrears using
 or after $t=m$, which in the case of cashflow in arrears, should start at $t=m+1$, after $t=m$.
 
 $$
-\text{Deferred Annuity in Arrears} = \sum_{t = m}^{n} \frac{\text{1}}{(1 + i)^t}
+\text{Deferred Annuity in Arrears} = \sum_{t = m+1}^{n} \frac{\text{1}}{(1 + i)^t}
 $$
 
 <img src="https://actuary492.github.io/assets/images/cf6.png" alt="description" style="width: 80%; height: auto;">
 
 We see that cashflows start at $t=m+1$ up until $t=n$ and these are discounted back to $t=0$, the present. 
 
-For deferred annuity in advance, where cashflows are given out or received at the beginning of the period, the only difference in cashflow to the image above, is that of course, the first cashflow starts directly at the beginning of $t=m$ and ends at $t=n-1$, shown in the picture below.
+For deferred annuity in advance, cashflows are given out or received at the beginning of the period. The only difference in cashflow to the image above, is that the first cashflow starts directly at the beginning of $t=m$ and ends at $t=n-1$, shown in the picture below.
 
 <img src="https://actuary492.github.io/assets/images/cf7.png" alt="description" style="width: 80%; height: auto;">
 
@@ -134,7 +134,7 @@ In this section I will show you how to build up a function in R that calculates 
 
 ## Built-in function of presentValue
 
-In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) into the function already allows us to find the present value easily as shown below.
+In the "lifecontingencies" package, the presentValue() function is extremely handy to simplify present value calculations. However, we should note a downside to this built-in function. We can only use the effective rate here. Thus, if we are given force of interest, it should be changed into the effective rate before it can be plugged into presentValue(). Using "?presentValue", we are able to see the different parameters. Simply inputting the cashflow vector, time vector, and interest rate (vector, if applicable) into the function already allows us to find the present value easily as shown below. Below is an example.
 
 ```r
 install.packages("lifecontingencies")
@@ -197,14 +197,16 @@ deferred_in_arrear(0.04,10, 3, 12)
 ```
 We can see that it is not that complex either. The only thing we need to change is the time sequence to fit the deferment period. 
 
-Note that it would be wise to cross-check your function with the results of the built-in function of annuity of the "lifecontingencies" package, to check for the validity of the function coded, which I have done.
+Note that it would be wise to cross-check your function with the results of the built-in function of annuity() of the "lifecontingencies" package, to check for the validity of the function coded, which I have done.
 
 We have seen that building the annuity function is not hard as it is! Again, simply defining your cashflows, time sequence, and interest rates is all there is to it! The presentValue() function does the hard part for you!
 
 
-## Calculating other Financial Instruments using presentValue()
+## Using annuity function above to value Financial Instruments
 
-As mentioned before, we can use annuities only if we know our cashflows to be constant.
+The annuity function above can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's 
+
+Take example of $n$-year coupon bearing bond with a face value of $x$ and coupon payment $y$. For the $n-1$ years, we will be paid out the constant cashflow of coupon payments. However, in the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value. This non-constant cashflow makes using the annuity function 
 
 
 
