@@ -232,6 +232,11 @@ Assume that we have received a loan schedule of this characteristics:
 
 To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
 
+```r
+# Use actuarial equivalence 
+
+```
+
 
 ## Bond Value Derivation
 
@@ -281,7 +286,9 @@ for(i in 1:term){
   value[i] <- presentValue(bond_cashflow(term+1-i), bond_time(term-i), interest[i:term])
 }
 
-# Note of the i and term+1-i; these are parts of the code are vital to ensure the correct values are returned, it follows my explanation of how the cashflow and time vectors are structured for values at t=0 up to t=19.
+# Note of the i and term+1-i; these are parts of the code are vital to ensure the correct values are returned
+# It follows my explanation of how the cashflow and time vectors are structured for values at t=0 up to t=19.
+# The bond value at t=20 will be manually added to create a new complete bond value vector from t=0 to t=20.
 
 # Returns the values of the bond from t=0 to t=20
 bond_value <- c(value, face_value + coupon)
@@ -323,13 +330,15 @@ We arrive at the bond value plot of below:
 
 <img src="https://actuary492.github.io/assets/images/plot2.jpeg" alt="description" style="width: 80%; height: auto;">
 
+The curvature of the plot tells us the dynamic nature of the bond value when subjected to non-constant interest rates, which we assumed here.
+
 One might wonder how can the data above be useful for in the concept of Asset Liability Management. Consider the scenario explained below:
 
 - Assume that at t=0, a company is offered to buy 10,000 bonds in question above at a par with the present value at t=0.
 - They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $20$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. - It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
-- In other words, they will consider the offer IF their bond value at $t=16$ (plus their coupons earned up to $t=16$) equals to $24,304,872$.
+- In other words, they will consider the offer IF their bond investment at $t=16$ (that is their money earned from sale of the bond plus their coupons earned up to $t=16$) equals to $24,304,872$.
 
-To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments at each time t.
+To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments already received at each time t.
 
 ```r
 # Construct a vector that shows how many coupon payments have been received from t=0 up to t=20.
@@ -339,8 +348,9 @@ for (i in 1:term-1){
   coupons_received[i] <- coupon*i
 }
 # The coupon payments at t=0 and t=20 are not well defined with the for loop above. We have to edit the bond value vector to fit the context above.
-# At t=0, the coupon payments we have received is still zero, hence we add 0 into the vector for the complete coupon payment vector
-# At t=20, we have calculated the bond value as the face value plus the coupon payment together. Instead of adding 800, that is 40 coupon payment * 20 terms to this last element, we add 760, showing instead we have received 19 coupon payments at t=20.
+# At t=0, the coupon payments we have received is still zero, hence we add 0 into the vector for the coupon payment vector
+# At t=20, we have calculated the bond value as the face value plus the coupon payment together. Instead of adding 800,
+that is 40 coupon payment * 20 terms to this last element, we add 760, showing instead we have received 19 coupon payments at t=20.
 coupons_received <- c(0, coupons_received, coupons_received[term-1]); coupons_received
 
 # Returns bond_value at time t=0 to t=20 inclusive of the coupons received so far at t
