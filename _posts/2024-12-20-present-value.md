@@ -9,8 +9,8 @@ classes: wide
 header: 
   image: "/assets/images/money.jpg"
 permalink: /posts/present-value/
-published: false
-tags: [post, present, value]
+published: true
+tags: [post, present value]
 ---
 
 <style>
@@ -160,32 +160,32 @@ Now, I will now construct a single function to calculate both annuity in arrears
 # Note the inputs: the effective rate (i), the term of the annuity (n), the frequency of payments (p), and type that is a logical input (0: arrears or 1: advance) to tell the function if we are calculating annuity in advance or annuity in arrears.
 
 
-annuity <- function(i, n, p, type){
+annuity_function <- function(i, n, p, advance){
   #Construct cashflow of annuity, accounting for p-thly intervals.
   cashflow <- rep(1/p, each=n*p)
   #Construct time intervals for the discounting factor for annuity in arrear back to t=0, considering p.
   time_arrear <- seq(1, n*p, 1)
   #Construct time intervals for the discounting factor for annuity in advance back to t=0, considering p.
-  time_arrear <- seq(0, n*p-1, 1)
+  time_advance <- seq(0, n*p-1, 1)
   #Change the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
   #Calculate the value of the annuity given the inputs (either arrear or advance)
-  annuity_value <- ifelse(type == 1, presentValue(cashflow, time_advance, i_p), presentValue(cashflow, time_arrear, i_p)
+  annuity_value <- ifelse(advance == 1, presentValue(cashflow, time_advance, i_p), presentValue(cashflow, time_arrear, i_p))
 }
 
 # Value of a 1 unit 10-year annuity in arrears, with monthly payment frequency
-annuity(0.04,10,12,0)
+annuity_function(0.04,10,12,0)
 # Value of a 100 unit 10-year annuity in arrears, with monthly payment frequency (simply mutiply function above by 100)
-100*annuity(0.04,10,12,0)
-# Value of a 1 unit 10-year annuity, with yearly payment frequency
-annuity(0.04,10,1)
+100*annuity_function(0.04,10,12,0)
+# Check validity of the function by comparing it to built in function annuity()
+annuity(i = 0.04, n = 10, m= 0, k = 12, type="arrears")
 
 [1] 8.258543
 [1] 825.8543
-[1] 8.110896
+[1] 8.258543
 ```
 
-I tried to find the present value of a 10-year annuity in arrears discounted at a effective rate of 4%, one with a yearly payment frequency while the other with a monthly payment frequency. The results shown are not far away from each other, with the slight difference due to different effective rate used due to frequency compounding. The steps are clear: construct the cashflow, time intervals, and effective rate, input all into the presentValue() function, before plugging all those into function I built.
+I tried to find the present value of a 10-year annuity in arrears discounted at a effective rate of 4%, with a monthly payment frequency. The steps are clear: construct the cashflow, time intervals, and effective rate, input all into the presentValue() function, before plugging all those into function I built.
 
 
 Now, let us try to add a deferred input into the function now (for advance and arrears), which builds up from the previous code:
@@ -203,10 +203,15 @@ deferred_annuity <- function(i, n, m, p, advance){
   #Change the effective rate into nominal rate suitable for p-thly intervals
   i_p <- (1+i)^(1/p) - 1
   #Calculate the value of the annuity given the inputs (either arrear or advance)
-  pres_val <- ifelse(type == 1, presentValue(cashflow, time_advance, i_p), presentValue(cashflow, time_arrear, i_p)
+  pres_val <- ifelse(advance == 1, presentValue(cashflow, time_advance, i_p), presentValue(cashflow, time_arrear, i_p))
 }
 
-deferred_annuity(0.04,10, 3, 12)
+# Find the present value at t=0 of an 3-year deferred annuity of length 10 years, subject to monthly payments, and has interest rate of 4%
+deferred_annuity_function(0.04,10, 3, 12, 0)
+[1] 7.341814
+
+# Validate if function is correct using built-in annuity function
+annuity(i = 0.04, n = 10, m= 3, k= 12, type="arrears")
 [1] 7.341814
 ```
 
@@ -230,7 +235,7 @@ Assume that we have received a traditional loan schedule of this characteristics
 - It is to be repaid back in 10 years alongside an effective interest of 5% per annum.
 - The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital at the end of the period (in arrears).
 
-To find the payment structure every year, we can use actuarial equivalence which asks us to find the yearly repayments whose sum of it's present value will equate to the original loan amount of $1000000$.
+To find the payment structure every year, we can use actuarial equivalence which asks us to find the equal n yearly repayments whose sum of it's present value will equate to the original loan amount of $1000000$. 
 
 $$
 \text{Repayment}*a_{\overline{n}|}^{@i} = \text{Loan Amount} \rightarrow \text{Repayment} = \frac{\text{Loan Amount}}{a_{\overline{n}|}^{@i}}
@@ -241,12 +246,93 @@ $$
 loan_amount <- 1000000; interest <- 0.05; term <- 10; p <- 1
 
 # Use actuarial equivalence on the annuity function we created earlier:
-
-
+repayment <- loan_amount/annuity(0.05, 10, 1, 0)
 
 ```
 
-To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+To find the value of the loan at every yearly interval during it's life, we simply deduct the annuity term every year by 1 multiplied by the repayment amount. This esentially gives us the amount of loan (value of loan) still due to the receiver by the borrower at every year until the loan maturity. 
+
+```r
+# Construct vector of loan values every year
+loan_value <- NULL
+
+# Construct for loop to find the annuity 
+for(i in seq(term,1,-1)){
+  loan_value[term+1-i] <- repayment*annuity_function(0.05, i, 1, 0)
+}
+loan_value
+
+# The value of the loan at t=10 is naturally 0 because we assumed the loan has been fully paid off at t=10 with the loan schedule.
+# The for loop does not catch this, so we have to manually add 0 to the end of the loan value vector
+loan_value <- c(loan_value, 0); loan_value
+
+# Construct table of loan
+table_loan <- data.frame("Time" = 0:term, "Loan_Value_at_t" = loan_value); table_loan
+
+    Time Loan_Value_at_t
+1     0       1000000.0
+2     1        920495.4
+3     2        837015.6
+4     3        749361.8
+5     4        657325.3
+6     5        560687.0
+7     6        459216.8
+8     7        352673.1
+9     8        240802.2
+10    9        123337.7
+11   10             0.0
+
+```
+
+To see whether this repayment structure makes sense or not, we can manually construct separate elements of the loan schedule above to check this.
+
+```r
+# Check the elements of the loan schedule from t=0 to t=10
+# We want to see whether this repayment schedule does indeed already cover all the outstanding loans and 
+# the interests associated to it
+# There is the element of loan_outstanding, loan_paid, and interest_paid
+loan_outstanding <- NULL; interest_paid <- NULL; loan_paid <- NULL
+for (i in 1:term){
+  # The loan at t=0 is the original loan amount
+  loan_outstanding[1] <- loan_amount
+  # The interest paid is the interest rate multiplied by the current outstanding loan, which
+  # decreases by year as we pay off the loan capital
+  interest_paid[i] <- interest*loan_outstanding[i]
+  # We assumed part of the repayment consists of the payment of interest and payment of loan,
+  # thus, to find the loan amount paid, we subtract the repayment with the interest paid at t
+  loan_paid[i] <- repayment - interest_paid[i]
+  # The outstanding loan left at the next period is naturally the outstanding loan amount in the previous
+  # period subtracted by the loan paid in the previous period
+  loan_outstanding[i+1] <- loan_outstanding[i]-loan_paid[i]
+  # The for loop only produces loan_paid and interest_paid up to i=9, because outstanding_loan at t=10 is already 0 as shown.
+  # This already confirms that our repayment structure does indeed work in repaying the whole loan plus interest
+  # To complete things, we have to manually add 0 as the last elements in both of the vectors mentioned.
+  loan_paid[term+1] <- 0
+  interest_paid[term+1] <- 0
+}
+
+# Table of the loan schedule from t=0 to t=10
+# We add the repayment vector along the table, to allow us to see that this repayment does
+# indeed equal to the loan paid plus interest paid for each time period from t=0 to t=10
+data.frame("Time" = 0:10, "Outstanding Loan"= round(loan_outstanding,2), "Loan Paid"= loan_paid, 
+           "Interest Paid" = interest_paid, "Repayment" = c(rep(repayment, each=term), 0))
+
+    Time Outstanding.Loan Loan.Paid Interest.Paid Repayment
+1     0        1000000.0  79504.57     50000.000  129504.6
+2     1         920495.4  83479.80     46024.771  129504.6
+3     2         837015.6  87653.79     41850.781  129504.6
+4     3         749361.8  92036.48     37468.091  129504.6
+5     4         657325.3  96638.31     32866.267  129504.6
+6     5         560687.0 101470.22     28034.352  129504.6
+7     6         459216.8 106543.73     22960.841  129504.6
+8     7         352673.1 111870.92     17633.654  129504.6
+9     8         240802.2 117464.47     12040.108  129504.6
+10    9         123337.7 123337.69      6166.885  129504.6
+11   10              0.0      0.00         0.000       0.0
+```
+Through this loan schedule, we can see that the repayment structure works perfectly fine, and therefore the annuity function can indeed be used as a much more simpler method to calculate the value of a loan. A interesting point to note here is that the loan and interest payment structure in each repayment differs. As we pay off the loan capital slowly, it is logical that the interest amount we are going to pay decreases in proportion of the repayment, which in turn increases the loan amount proportion in the repayment as time passes until the maturity.
+
+Knowing how to calculate the loan value at certain points in time is important for asset management. Assume that a bank has a loan portfolio and wishes to know the value of their loans (or how much loans do their borrowers still owe them) at some point in time. A code can be constructed to calculate these if we are given a dataset which gives information on all the loans available at the bank.
 
 ## Bond Value Derivation
 
@@ -397,8 +483,10 @@ df2 <- data.frame("t" = 0:20, "Bond_Value_with_Coupons_at_t" = bond_value)
 If we look at the value of the bond at $t=16$ with the coupons the company has received so far up to $t=16$ with the $10,000$ bonds, we see that the amount that the company now holds from the coupons plus the fee they will get if they sell the bond now with the price equalling to it's present value at $t=16$, will be around $1011.3715*10000 = 10,113,715$. This clearly is far off from the $24,304,872$ which the company must expect to receive from their bond investment to pay off their debt of $20$ million at $t=16$. Thus, the conclusion for the company is that it will not be wise to take up the offer. 
 
 # Conclusion
-I have attempted to explain the concept of present value, as well as the annuity notation that stems from the present value widely used in Actuarial Science. To further get a peek at the importance of this concept, I showed how we can use the present value and annuity functions created in R for real-world applications, especially in asset liability management. I hope this article has been an informative one!
+I have attempted to explain the concept of present value, as well as the annuity notation that incorporates the present value, which is widely used in Actuarial Science. To get a peek at the importance of this concept, I showed how we can use the present value and annuity functions created in R for real-world applications, especially in asset liability management. I hope this article has been an informative one!
 
+# References
+McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
 
 
