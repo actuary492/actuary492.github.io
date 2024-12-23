@@ -221,6 +221,8 @@ Note that it would be wise to cross-check your function with the results of the 
 
 One important application of the presentValue() is in Asset Liabiity Management. As I have briefly touched upon in the excerpt, this presentValue() can allow us to calculate the health of one's investments in financial products, and even potentially allow for decision making to purchase or sell a financial assets. In this section I will give examples on how we can visualise the value of a financial product over time, using the presentValue() and annuity function, which is the essence of asset liability management. 
 
+## Loan Value Derivation
+
 The annuity function coded in the previous section can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. 
 
 Assume that we have received a loan schedule of this characteristics:
@@ -230,6 +232,8 @@ Assume that we have received a loan schedule of this characteristics:
 
 To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
 
+
+## Bond Value Derivation
 
 In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. 
 
