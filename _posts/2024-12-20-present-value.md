@@ -23,7 +23,7 @@ tags: [post, present, value]
   }
 </style>
 
-> *The Present Value is extremely important concept in the world of finance. In practice, this concept, by the name itself, is used very often to arrive at the current value financial instruments. Knowing the current value of financial products in one's possesion is essential to quantify financial risks, and allows us to have a good overview of the health of one's investments. In this article, I will present the concepts of the present value, and apply some coding examples in R to illustrate the applications of this concept in the real world.*
+> *The Present Value is extremely important concept in the world of finance. In practice, this concept, by the name itself, is used very often to arrive at the current value financial products. Knowing the current value of financial products in one's possesion is essential to quantify financial risks, and allows us to have a good overview of the health of one's investments. In this article, I will present the concepts of the present value, and apply some coding examples in R to illustrate the applications of this concept in the real world.*
 
 # Introduction to Present Value
 
@@ -217,15 +217,22 @@ We have seen that building the annuity function is not hard to construct. Again,
 Note that it would be wise to cross-check your function with the results of the built-in function of annuity() of the "lifecontingencies" package for the validity of the function coded. Additionally, it is also advised to experiment building different annuity functions out there, for instance of increasing or decreasing annuities.
 
 
-## Valuing Financial Instruments in R: Loan and Bond Example
+# Valuing Financial Products as an Application of Interest Rates: Loan and Bond Value Calculation Example in R
 
-The annuity function coded above can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid back in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+One important application of the presentValue() is in Asset Liabiity Management. As I have briefly touched upon in the excerpt, this presentValue() can allow us to calculate the health of one's investments in financial products, and even potentially allow for decision making to purchase or sell one's assets. In this section I will give examples on how we can visualise the value of a financial product over time, using the presentValue() and annuity function, which is the essence of asset liability management. 
 
-In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. Assume we want to find a value of a $n$-year coupon bearing bond with a face value of $F$ and coupon payment $c$ at time $t=0$. As how a normal bond payment is structured, for the $n-1$ years one will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. This forces us to recode where the non-constant cashflows are taken into account.
+The annuity function coded in the previous section can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid back in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+
+In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. 
+
+Assume we want to find a values over time of a coupon bearing bond with these characteristics:
+- \( \bullet \) A face value of $F$
+
+Coupon payment $c$ at time $t=0$. Assume that interest rates are updated every year uniformly upwards,  As how a normal bond payment is structured, for the $n-1$ years one will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. This forces us to recode where the non-constant cashflows are taken into account.
 
 ```r
 # Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%, and constant effective interest of 6%.
-face_value <- 100; coupon_rate <- 0.06; coupon <- face_value*coupon_rate; term <- 20; i <- 0.06
+face_value <- 400; coupon_rate <- 0.1; coupon <- face_value*coupon_rate; term <- 20; i <- 0.06
 
 # Calculating the bond value at t=0:
 
@@ -239,9 +246,35 @@ presentValue(bond_cashflow, bond_time, i)
 
 ```
 
-And so, we arrive at the value of the bond at t=0. This is the present value of all future cashflows yet to happen after t=0. Now, what about the value of the 20-year-bond at t=1? In this case, the first coupon payment has elapsed, hence this is not in our interest to calculate it's present value further. Now, we simply focus on the remaining cashflows: 18 further coupon payments, and 1 payment of the coupon plus face value, starting at $t=2$ and ending at $t=20$. To find the time vector for the discounting factor, find the difference of the time of the cashflows relative to the starting time of $t=1$. This creates a new time sequence factor starting from $t=1$ to $t=19$ instead. With the same logic, we can imagine how the cashflows and the time vector of the bond value at $t=2$, $t=3$, up to $t=20$ will look like. I will show you the code that produces a vector of the bond value starting from $t=0$ up to its maturity at $t=20$.
+And so, we arrive at the value of the bond at t=0. This is the present value of all future cashflows yet to happen after t=0. Now, what about the value of the 20-year-bond at t=1? In this case, the first coupon payment has elapsed, hence this is not in our interest to calculate it's present value further. Now, we simply focus on the remaining cashflows: 18 further coupon payments, and 1 payment of the coupon plus face value, starting at $t=2$ and ending at $t=20$. To find the time vector for the discounting factor, find the difference of the time of the cashflows relative to the starting time of $t=1$. This creates a new time sequence factor starting from $t=1$ to $t=19$. With the same logic, we can imagine how the cashflows and the time vector are structured for the bond value at $t=2$, $t=3$, up to $t=20$. I will show you the code that produces a vector of the bond value starting from $t=0$ up to its before it's maturity at $t=19$. Note that the present value at $t=20$ is not applicable to find, because we have received the face value at that moment, hence there are no more cashflows right after $t=20$ to calculate the present value anymore, given the assumption that our payment is done in arrears.
 
+```r
+# Create a bond cashflow function which produces the cashflow to find the value of bond at arbitrary t
+bond_cashflow <- function(time){
+  cf <- c(rep(coupon, each=time-1), face_value + coupon)
+}
 
+# Create a time vector function for the discounting factor to find the value of the bond at arbitrary t
+bond_time <- function(time){
+  time <- seq(1,time)
+}
+
+# Create an empty vector to store the bond values
+value <- NULL
+
+# Used a for loop to calculate the values of the bond from t=0 to t=19
+for(i in 1:term){
+  value[i] <- presentValue(bond_cashflow(term+1-i), bond_time(term-i), 0.06)
+}
+
+# Note of the i and term+1-i; these are parts of the code are vital to ensure the correct values are returned, it follows my explanation of how the cashflow and time vectors are structured for values at t=0 up to t=19.
+
+# Returns the values of the bond from t=0 to t=19
+value
+
+# Plot the bond value from t=0 to t=19
+plot(1:length(value), value, type="p", pch=8)
+```
 
 
 
