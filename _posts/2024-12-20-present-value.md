@@ -230,10 +230,10 @@ Assume that we have received a traditional loan schedule of this characteristics
 - It is to be repaid back in 10 years alongside an effective interest of 5% per annum.
 - The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital at the end of the period (in arrears).
 
-To find the payment structure every year, we can use actuarial equivalence.
+To find the payment structure every year, we can use actuarial equivalence which asks us to find the yearly repayments whose sum of it's present value will equate to the original loan amount of $1000000$.
 
 $$
-\text{Repayment}*a_{\overline{n}|}^{@i} = \text{Loan Amount}
+\text{Repayment}*a_{\overline{n}|}^{@i} = \text{Loan Amount} \rightarrow \text{Repayment} = \frac{\text{Loan Amount}}{a_{\overline{n}|}^{@i}}
 $$
 
 ```r
@@ -241,6 +241,7 @@ $$
 loan_amount <- 1000000; interest <- 0.05; term <- 10; p <- 1
 
 # Use actuarial equivalence on the annuity function we created earlier:
+
 
 
 ```
@@ -359,7 +360,7 @@ for (i in 1:term-1){
 # The coupon payments at t=0 and t=20 are not well defined with the for loop above. We have to edit the bond value vector to fit the context above.
 # At t=0, the coupon payments we have received is still zero, hence we add 0 into the vector for the coupon payment vector
 # At t=20, we have calculated the bond value as the face value plus the coupon payment together. Instead of adding 800,
-that is 40 coupon payment * 20 terms to this last element, we add 760, showing instead we have received 19 coupon payments at t=20.
+# that is 40 coupon payment * 20 terms to this last element, we add 760, showing instead we have received 19 coupon payments at t=20.
 coupons_received <- c(0, coupons_received, coupons_received[term-1]); coupons_received
 
 # Returns bond_value at time t=0 to t=20 inclusive of the coupons received so far at t
