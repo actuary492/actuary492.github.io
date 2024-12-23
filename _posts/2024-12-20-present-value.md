@@ -489,7 +489,7 @@ I have attempted to explain the concept of present value, as well as the annuity
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
 # R-Script Download
-The R-Script can be downloaded from the assets directory in my GitHub page.
+The R-Script can be downloaded from the assets directory in my GitHub repository. The file is named Presentvalue_Rcode_Actuary492.R
 
 
 
