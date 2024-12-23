@@ -225,18 +225,27 @@ One important application of the presentValue() is in Asset Liabiity Management.
 
 The annuity function coded in the previous section can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. 
 
-Assume that we have received a loan schedule of this characteristics:
+Assume that we have received a traditional loan schedule of this characteristics:
 - The loan has a value of 1 million
 - It is to be repaid back in 10 years alongside an effective interest of 5% per annum.
-- The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital.
+- The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital at the end of the period (in arrears).
 
-To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+To find the payment structure every year, we can use actuarial equivalence.
+
+$$
+\text{Repayment}*a_{\overline{n}|}^{@i} = \text{Loan Amount}
+$$
 
 ```r
-# Use actuarial equivalence 
+# Define loan characteristics
+loan_amount <- 1000000; interest <- 0.05; term <- 10; p <- 1
+
+# Use actuarial equivalence on the annuity function we created earlier:
+
 
 ```
 
+To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
 
 ## Bond Value Derivation
 
@@ -359,7 +368,7 @@ bond_value_with_coupons <- bond_value + coupons_received; bond_value_with_coupon
 # Constructs table to show the bond values inclusive coupons received
 df2 <- data.frame("t" = 0:20, "Bond_Value_with_Coupons_at_t" = bond_value)
 
-t Bond_Value_with_Coupons_at_t
+    t   Bond_Value_with_Coupons_at_t
 1   0                     430.4872
 2   1                     459.0653
 3   2                     488.7146
@@ -386,7 +395,8 @@ t Bond_Value_with_Coupons_at_t
 
 If we look at the value of the bond at $t=16$ with the coupons the company has received so far up to $t=16$ with the $10,000$ bonds, we see that the amount that the company now holds from the coupons plus the fee they will get if they sell the bond now with the price equalling to it's present value at $t=16$, will be around $1011.3715*10000 = 10,113,715$. This clearly is far off from the $24,304,872$ which the company must expect to receive from their bond investment to pay off their debt of $20$ million at $t=16$. Thus, the conclusion for the company is that it will not be wise to take up the offer. 
 
-
+# Conclusion
+I have attempted to explain the concept of present value, as well as the annuity notation that stems from the present value widely used in Actuarial Science. To further get a peek at the importance of this concept, I showed how we can use the present value and annuity functions created in R for real-world applications, especially in asset liability management. I hope this article has been an informative one!
 
 
 
