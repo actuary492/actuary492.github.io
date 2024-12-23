@@ -380,7 +380,7 @@ value <- NULL
 
 # Used a for loop to calculate the values of the bond from t=0 to t=19
 for(i in 1:term){
-  value[i] <- presentValue(bond_cashflow(term+1-i), bond_time(term-i), interest[i:term])
+  value[i] <- presentValue(bond_cashflow(term+1-i), bond_time(term+1-i), interest[i:term])
 }
 
 # Note of the i and term+1-i; these are parts of the code are vital to ensure the correct values are returned
