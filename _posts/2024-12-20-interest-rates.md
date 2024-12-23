@@ -11,7 +11,7 @@ header:
 permalink: /posts/interest-rates/
 published: true
 draft: false
-tags: [post, blog, jekyll]
+tags: [post, interest rate]
 ---
 
 <style>
