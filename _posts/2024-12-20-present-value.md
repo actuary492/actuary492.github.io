@@ -226,13 +226,15 @@ The annuity function coded in the previous section can be useful to value some f
 In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. 
 
 Assume we want to find a values over time of a coupon bearing bond with these characteristics:
-- \( \bullet \) A face value of $F$
+- A face value of $400$
+- Coupon rate payment of $10$%, giving coupon payments of $40$
+- Assume increasing interest rates starting from 3% at t=1, and increasing 0.5% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by 3% and 3.5% respectively, and so on.
 
-Coupon payment $c$ at time $t=0$. Assume that interest rates are updated every year uniformly upwards,  As how a normal bond payment is structured, for the $n-1$ years one will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. This forces us to recode where the non-constant cashflows are taken into account.
+As how a normal bond payment is structured, for the $n-1$ years we will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. To find the present value at t=0, we can code as below:
 
 ```r
 # Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%, and constant effective interest of 6%.
-face_value <- 400; coupon_rate <- 0.1; coupon <- face_value*coupon_rate; term <- 20; i <- 0.06
+face_value <- 400; coupon_rate <- 0.1; coupon <- face_value*coupon_rate; term <- 20; interest <- seq(0.03, by=0.05)
 
 # Calculating the bond value at t=0:
 
@@ -242,7 +244,7 @@ bond_cashflow <- c(rep(coupon, each=term-1), face_value + coupon)
 bond_time <- seq(1,term)
 
 # Use presentValue to find bond value at t=0
-presentValue(bond_cashflow, bond_time, i)
+presentValue(bond_cashflow, bond_time, interest[1])
 
 ```
 
@@ -264,7 +266,7 @@ value <- NULL
 
 # Used a for loop to calculate the values of the bond from t=0 to t=19
 for(i in 1:term){
-  value[i] <- presentValue(bond_cashflow(term+1-i), bond_time(term-i), 0.06)
+  value[i] <- presentValue(bond_cashflow(term+1-i), bond_time(term-i), interest[i:term])
 }
 
 # Note of the i and term+1-i; these are parts of the code are vital to ensure the correct values are returned, it follows my explanation of how the cashflow and time vectors are structured for values at t=0 up to t=19.
@@ -272,9 +274,43 @@ for(i in 1:term){
 # Returns the values of the bond from t=0 to t=19
 value
 
+[1] 430.4872 419.0653 408.7146 399.4070 391.1215 383.8436 377.5648 372.2825 367.9995 364.7234 362.4664 361.2442
+[13] 361.0759 361.9825 363.9864 367.1094 371.3715 376.7883 383.3686 391.1111
+
+
+# Construct data frame to show table of values of the bond at every t
+df <- data.frame("PV_at_t" = 0:19, "Bond_Value" = value)
+
+   PV_at_t Bond_Value
+1        0   430.4872
+2        1   419.0653
+3        2   408.7146
+4        3   399.4070
+5        4   391.1215
+6        5   383.8436
+7        6   377.5648
+8        7   372.2825
+9        8   367.9995
+10       9   364.7234
+11      10   362.4664
+12      11   361.2442
+13      12   361.0759
+14      13   361.9825
+15      14   363.9864
+16      15   367.1094
+17      16   371.3715
+18      17   376.7883
+19      18   383.3686
+20      19   391.1111
+
 # Plot the bond value from t=0 to t=19
 plot(1:length(value), value, type="p", pch=8)
 ```
+We arrive at the bond value plot of below:
+
+<img src="https://actuary492.github.io/assets/images/plot_bond.jpeg" alt="description" style="width: 80%; height: auto;">
+
+
 
 
 
