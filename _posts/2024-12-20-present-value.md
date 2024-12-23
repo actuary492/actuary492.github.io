@@ -227,14 +227,14 @@ In another instance, the annuity function might not help us, because our annuity
 
 Assume we want to find a values over time of a coupon bearing bond with these characteristics:
 - A face value of $400$
-- Coupon rate payment of $10$%, giving coupon payments of $40$
-- Assume increasing interest rates starting from 3% at t=1, and increasing 0.5% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by 3% and 3.5% respectively, and so on. We can assume this reflects the true inflation path in the future. 
+- Coupon rate payment of $10$%, giving coupon payments of $40$ every year including at the maturity.
+- Assume increasing interest rates starting from $3$% at $t=1$, and decreasing $0.05$% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by $3$% and $3.5$% respectively, and so on. We can assume this reflects the true inflation path in the future. 
 
 As how a normal bond payment is structured, for the $n-1$ years we will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. To find the present value at t=0, we can code as below:
 
 ```r
-# Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%, and constant effective interest of 6%.
-face_value <- 400; coupon_rate <- 0.1; coupon <- face_value*coupon_rate; term <- 20; interest <- seq(0.03, by=0.05)
+# Define characteristics of bond: 20-year-bond of face value 100, with coupon rate of 6%, and interest vector assumed above:
+face_value <- 400; coupon_rate <- 0.1; coupon <- face_value*coupon_rate; term <- 20; interest <- seq(0.03, by=0.005)
 
 # Calculating the bond value at t=0:
 
@@ -248,7 +248,7 @@ presentValue(bond_cashflow, bond_time, interest[1])
 
 ```
 
-And so, we arrive at the value of the bond at t=0. This is the present value of all future cashflows yet to happen after t=0. Now, what about the value of the 20-year-bond at t=1? In this case, the first coupon payment has elapsed, hence this is not in our interest to calculate it's present value further. Now, we simply focus on the remaining cashflows: 18 further coupon payments, and 1 payment of the coupon plus face value, starting at $t=2$ and ending at $t=20$. To find the time vector for the discounting factor, find the difference of the time of the cashflows relative to the starting time of $t=1$. This creates a new time sequence factor starting from $t=1$ to $t=19$. With the same logic, we can imagine how the cashflows and the time vector are structured for the bond value at $t=2$, $t=3$, up to $t=20$. I will show you the code that produces a vector of the bond value starting from $t=0$ up to its before it's maturity at $t=19$. Note that the present value at $t=20$ is not applicable to find, because we have received the face value at that moment, hence there are no more cashflows right after $t=20$ to calculate the present value anymore, given the assumption that our payment is done in arrears.
+And so, we arrive at the value of the bond at t=0. This is the present value of all future cashflows yet to happen after t=0. Now, what about the value of the 20-year-bond at t=1? In this case, the first coupon payment has elapsed, hence this is not in our interest to calculate it's present value further. Now, we simply focus on the remaining cashflows: 18 further coupon payments, and 1 payment of the coupon plus face value, starting at $t=2$ and ending at $t=20$. To find the time vector for the discounting factor, find the difference of the time of the cashflows relative to the starting time of $t=1$. This creates a new time sequence factor starting from $t=1$ to $t=19$. With the same logic, we can imagine how the cashflows and the time vector are structured for the bond value at $t=2$, $t=3$, up to $t=20$. I will show you the code that produces a vector of the bond value starting from $t=0$ up to its before it's maturity at $t=20$. We should note that at $t=20$, it is clear that the discounting factor remains 1, thus the present value at $t=20$ equates to $F+c$.
 
 ```r
 # Create a bond cashflow function which produces the cashflow to find the value of bond at arbitrary t
@@ -271,17 +271,17 @@ for(i in 1:term){
 
 # Note of the i and term+1-i; these are parts of the code are vital to ensure the correct values are returned, it follows my explanation of how the cashflow and time vectors are structured for values at t=0 up to t=19.
 
-# Returns the values of the bond from t=0 to t=19
-value
+# Returns the values of the bond from t=0 to t=20
+bond_value <- c(value, face_value + coupon)
 
 [1] 430.4872 419.0653 408.7146 399.4070 391.1215 383.8436 377.5648 372.2825 367.9995 364.7234 362.4664 361.2442
-[13] 361.0759 361.9825 363.9864 367.1094 371.3715 376.7883 383.3686 391.1111
+[13] 361.0759 361.9825 363.9864 367.1094 371.3715 376.7883 383.3686 391.1111 440.0000
 
 
 # Construct data frame to show table of values of the bond at every t
-df <- data.frame("PV_at_t" = 0:19, "Bond_Value" = value)
+df <- data.frame("t" = 0:20, "Bond_Value_at_t" = bond_value)
 
-   PV_at_t Bond_Value
+         t   Bond_Value_at_t
 1        0   430.4872
 2        1   419.0653
 3        2   408.7146
@@ -302,17 +302,18 @@ df <- data.frame("PV_at_t" = 0:19, "Bond_Value" = value)
 18      17   376.7883
 19      18   383.3686
 20      19   391.1111
+21      20   440.0000
 
 # Plot the bond value from t=0 to t=19
-plot(1:length(value), value, type="p", pch=8)
+plot(1:length(bond_value), value, type="p", pch=8, xlab="Time", ylab="Value", main="Value Growth of Bond")
 ```
 We arrive at the bond value plot of below:
 
-<img src="https://actuary492.github.io/assets/images/plot_bond.jpeg" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/plot2.jpeg" alt="description" style="width: 80%; height: auto;">
 
 One might wonder how can the graph above be useful for in the concept of Asset Liability Management. Consider the scenario below:
 
-- Assume that a company are offered to buy the bond in question above at a par value at t=0. They want to consider
+- Assume that a company are offered to buy the bond in question above at a par value at t=0. They want to consider this offer if they believe that purchasing $X$ amount of this bond can help them pay off their company debt that shall be due on t=10 that is around $370$ million dollars, assuming the increasing discount rates that they have projected. 
 
 
 
