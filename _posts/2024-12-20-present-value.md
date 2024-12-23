@@ -27,7 +27,7 @@ tags: [post, present value]
 
 # Introduction to Present Value
 
-Present value tells us the current worth of a of future receivable or to be given out cashflow (or a series of one) by discounting it to the present using the appropriate discount (interest) rates. But why the concept of present value? Why discount the value of money? It all goes back to economics. The time concept of money tells us that yearly inflation erodes the value of money. This also directly erodes the value of every financial product that obviously depends on cashflows of money. Due to this, people want to essentially estimate the value of their future money now, by using some appropriate discount rate (which now you can logically think of as some predicted inflation rate in the future) because they know their spending power (of money) in the future will not be as powerful as now.
+Present value tells us the current worth of a of future receivable or to be given out cashflow (or a series of one) by discounting it to the present using the appropriate discount (interest) rates. But why the concept of present value? Why discount the value of money? It all goes back to economics. The time concept of money tells us that yearly inflation erodes the value of money. This also directly erodes the value of every financial product that obviously depends on cashflows of money. Due to this, people want to essentially estimate the value of their future money now, by using some appropriate discount rate because they know their spending power (of money) in the future will not be as powerful as now. While the discount rate may reflect predicted inflation, it also reflect other factors such as the opportunity cost of capital or risk premium, or a minimal yield that a person is willing to undertake for an investment.
 
 This concept is easily simplified by this number line we see.
 
@@ -342,7 +342,7 @@ In another instance, the annuity function might not help us, because our annuity
 Assume we want to find a values over time of a coupon bearing bond with these characteristics:
 - A face value of $400$
 - Coupon rate payment of $10$%, giving coupon payments of $40$ every year including at the maturity.
-- Assume increasing interest rates starting from $3$% at $t=1$, and decreasing $0.05$% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by $3$% and $3.5$% respectively, and so on. We can assume this reflects the true inflation path in the future. 
+- Assume increasing interest rates starting from $3$% at $t=1$, and decreasing $0.05$% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by $3$% and $3.5$% respectively, and so on. We can assume this reflects the forecasted inflation path in the future. 
 
 As how a normal bond payment is structured, for the $n-1$ years we will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. To find the present value at t=0, we can code as below:
 
