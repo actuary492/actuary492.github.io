@@ -157,7 +157,7 @@ presentValue(cashflow, time, i)
 Now, I will now construct a single function to calculate both annuity in arrears and in advance, accounting for payment frequency. Look and try to understand the descriptions of each line of code. 
 
 ```r
-# Note the inputs: the effective rate (i), the term of the annuity (n), the frequency of payments (p), and type that is a logical input (0: arrears or 1: advance) to tell the function if we are calculating annuity in advance or annuity in arrears.
+# Note the inputs: the effective rate (i), the term of the annuity (n), the frequency of payments # (p), and type that is a logical input (0: arrears or 1: advance) to tell the function if we are # calculating annuity in advance or annuity in arrears.
 
 
 annuity_function <- function(i, n, p, advance){
@@ -191,7 +191,8 @@ I tried to find the present value of a 10-year annuity in arrears discounted at 
 Now, let us try to add a deferred input into the function now (for advance and arrears), which builds up from the previous code:
 
 ```r
-# The inputs remain the same as the previous code, except for the addition of the variable m, that is the deferment period.
+# The inputs remain the same as the previous code, except for the addition
+# of the variable m, that is the deferment period.
 
 deferred_annuity <- function(i, n, m, p, advance){
   #Construct cashflow of annuity, accounting for p-thly intervals.
