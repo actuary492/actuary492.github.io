@@ -217,11 +217,19 @@ We have seen that building the annuity function is not hard to construct. Again,
 Note that it would be wise to cross-check your function with the results of the built-in function of annuity() of the "lifecontingencies" package for the validity of the function coded. Additionally, it is also advised to experiment building different annuity functions out there, for instance of increasing or decreasing annuities.
 
 
-# Valuing Financial Products as an Application of Interest Rates: Loan and Bond Value Calculation Example in R
+# Valuing Financial Products as an Application of Present Value: Loan and Bond Value Calculation Example in R
 
-One important application of the presentValue() is in Asset Liabiity Management. As I have briefly touched upon in the excerpt, this presentValue() can allow us to calculate the health of one's investments in financial products, and even potentially allow for decision making to purchase or sell one's assets. In this section I will give examples on how we can visualise the value of a financial product over time, using the presentValue() and annuity function, which is the essence of asset liability management. 
+One important application of the presentValue() is in Asset Liabiity Management. As I have briefly touched upon in the excerpt, this presentValue() can allow us to calculate the health of one's investments in financial products, and even potentially allow for decision making to purchase or sell a financial assets. In this section I will give examples on how we can visualise the value of a financial product over time, using the presentValue() and annuity function, which is the essence of asset liability management. 
 
-The annuity function coded in the previous section can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. Assume that we have received a loan of some amount, to be repaid back in 10 years with interest. The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital. To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+The annuity function coded in the previous section can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. 
+
+Assume that we have received a loan schedule of this characteristics:
+- The loan has a value of 1 million
+- It is to be repaid back in 10 years alongside an effective interest of 5% per annum.
+- The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital.
+
+To find how much repayment will be done in 1 year, we can use actuarial equivalence. To find the value of the loan at every yearly interval during it's life, we can also use the annuity function after finding it's yearly repayments.
+
 
 In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. 
 
@@ -313,13 +321,11 @@ We arrive at the bond value plot of below:
 
 One might wonder how can the data above be useful for in the concept of Asset Liability Management. Consider the scenario explained below:
 
-- Assume that a company are offered to buy 10,000 bonds in question above at a par value at t=0.
-- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $1$ million dollars that shall be due on $t=17$, assuming the increasing discount rates that they have projected. - It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are not subjected to discounting thus.
-- In other words, they will consider the offer IF their bond investment will rise to $5,304,872$.
-- We can compare the amount above with the value of 10000 bonds at $t=17$ using the graph, which is $3,767,883$.
-- This tells us that this will be a losing investment which will not pay off the debt, thus the company should not to take the offer.
+- Assume that at t=0, a company is offered to buy 10,000 bonds in question above at a par with the present value at t=0.
+- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $20$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. - It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
+- In other words, they will consider the offer IF their bond value at $t=16$ (plus their coupons earned up to $t=16$) equals to $24,304,872$.
 
-To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments at each time.
+To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments at each time t.
 
 ```r
 # Construct a vector that shows how many coupon payments have been received from t=0 up to t=20.
@@ -364,6 +370,7 @@ t Bond_Value_with_Coupons_at_t
 
 ```
 
+If we look at the value of the bond at $t=16$ with the coupons the company has received so far up to $t=16$ with the $10,000$ bonds, we see that the amount that the company now holds from the coupons plus the fee they will get if they sell the bond now with the price equalling to it's present value at $t=16$, will be around $1011.3715*10000 = 10,113,715$. This clearly is far off from the $24,304,872$ which the company must expect to receive from their bond investment to pay off their debt of $20$ million at $t=16$. Thus, the conclusion for the company is that it will not be wise to take up the offer. 
 
 
 
