@@ -488,6 +488,8 @@ I have attempted to explain the concept of present value, as well as the annuity
 # References
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
+# R-Script
+You can download the R script [here](assets/example-script.R).
 
 
 
