@@ -311,9 +311,58 @@ We arrive at the bond value plot of below:
 
 <img src="https://actuary492.github.io/assets/images/plot2.jpeg" alt="description" style="width: 80%; height: auto;">
 
-One might wonder how can the graph above be useful for in the concept of Asset Liability Management. Consider the scenario below:
+One might wonder how can the data above be useful for in the concept of Asset Liability Management. Consider the scenario explained below:
 
-- Assume that a company are offered to buy the bond in question above at a par value at t=0. They want to consider this offer if they believe that purchasing $X$ amount of this bond can help them pay off their company debt that shall be due on t=10 that is around $370$ million dollars, assuming the increasing discount rates that they have projected. 
+- Assume that a company are offered to buy 10,000 bonds in question above at a par value at t=0.
+- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $1$ million dollars that shall be due on $t=17$, assuming the increasing discount rates that they have projected. - It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are not subjected to discounting thus.
+- In other words, they will consider the offer IF their bond investment will rise to $5,304,872$.
+- We can compare the amount above with the value of 10000 bonds at $t=17$ using the graph, which is $3,767,883$.
+- This tells us that this will be a losing investment which will not pay off the debt, thus the company should not to take the offer.
+
+To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments at each time.
+
+```r
+# Construct a vector that shows how many coupon payments have been received from t=0 up to t=20.
+coupons_received <- NULL
+# Construct for loop that gives the coupon payments received so far at t=1 up to t=19
+for (i in 1:term-1){
+  coupons_received[i] <- coupon*i
+}
+# The coupon payments at t=0 and t=20 are not well defined with the for loop above. We have to edit the bond value vector to fit the context above.
+# At t=0, the coupon payments we have received is still zero, hence we add 0 into the vector for the complete coupon payment vector
+# At t=20, we have calculated the bond value as the face value plus the coupon payment together. Instead of adding 800, that is 40 coupon payment * 20 terms to this last element, we add 760, showing instead we have received 19 coupon payments at t=20.
+coupons_received <- c(0, coupons_received, coupons_received[term-1]); coupons_received
+
+# Returns bond_value at time t=0 to t=20 inclusive of the coupons received so far at t
+bond_value_with_coupons <- bond_value + coupons_received; bond_value_with_coupons
+
+# Constructs table to show the bond values inclusive coupons received
+df2 <- data.frame("t" = 0:20, "Bond_Value_with_Coupons_at_t" = bond_value)
+
+t Bond_Value_with_Coupons_at_t
+1   0                     430.4872
+2   1                     459.0653
+3   2                     488.7146
+4   3                     519.4070
+5   4                     551.1215
+6   5                     583.8436
+7   6                     617.5648
+8   7                     652.2825
+9   8                     687.9995
+10  9                     724.7234
+11 10                     762.4664
+12 11                     801.2442
+13 12                     841.0759
+14 13                     881.9825
+15 14                     923.9864
+16 15                     967.1094
+17 16                    1011.3715
+18 17                    1056.7883
+19 18                    1103.3686
+20 19                    1151.1111
+21 20                    1200.0000
+
+```
 
 
 
