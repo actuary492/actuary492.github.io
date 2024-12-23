@@ -228,7 +228,7 @@ In another instance, the annuity function might not help us, because our annuity
 Assume we want to find a values over time of a coupon bearing bond with these characteristics:
 - A face value of $400$
 - Coupon rate payment of $10$%, giving coupon payments of $40$
-- Assume increasing interest rates starting from 3% at t=1, and increasing 0.5% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by 3% and 3.5% respectively, and so on.
+- Assume increasing interest rates starting from 3% at t=1, and increasing 0.5% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by 3% and 3.5% respectively, and so on. We can assume this reflects the true inflation path in the future. 
 
 As how a normal bond payment is structured, for the $n-1$ years we will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. To find the present value at t=0, we can code as below:
 
@@ -310,7 +310,9 @@ We arrive at the bond value plot of below:
 
 <img src="https://actuary492.github.io/assets/images/plot_bond.jpeg" alt="description" style="width: 80%; height: auto;">
 
+One might wonder how can the graph above be useful for in the concept of Asset Liability Management. Consider the scenario below:
 
+- Assume that a company are offered to buy the bond in question above at a par value at t=0. They want to consider
 
 
 
