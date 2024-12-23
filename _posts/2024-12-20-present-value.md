@@ -235,7 +235,7 @@ To find how much repayment will be done in 1 year, we can use actuarial equivale
 
 ## Bond Value Derivation
 
-In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. 
+In another instance, the annuity function might not help us, because our annuity function above does not take into account non-constant cash flows unlike the loan schedule above. Take a bond for example. It is assumed that the reader knows the basics of a bond.
 
 Assume we want to find a values over time of a coupon bearing bond with these characteristics:
 - A face value of $400$
