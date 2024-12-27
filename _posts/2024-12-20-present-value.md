@@ -225,7 +225,7 @@ Note that it would be wise to cross-check your function with the results of the 
 
 # Valuing Financial Products for Asset Liability Management as an Application of Present Value: Loan and Bond Value Calculation Example in R
 
-One important application of the presentValue() is in Asset Liabiity Management. As I have briefly touched upon in the excerpt, this presentValue() can allow us to calculate the health of one's investments in financial products, and potentially allow for decision making to purchase or sell financial assets. In this section I will give examples on how we can visualise the value of a financial product over time, using the presentValue() and annuity function, which is the essence of asset liability management. 
+One important application of the presentValue() is in Asset Liability Management. As I have briefly touched upon in the excerpt, this presentValue() can allow us to calculate the health of one's investments in financial products, and potentially allow for decision making to purchase or sell financial assets. In this section I will give examples on how we can visualise the value of a financial product over time, using the presentValue() and annuity function, which is the essence of asset liability management. 
 
 ## Loan Value Derivation
 
