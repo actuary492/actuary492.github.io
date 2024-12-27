@@ -232,8 +232,8 @@ One important application of the presentValue() is in Asset Liabiity Management.
 The annuity function coded in the previous section can be useful to value some financial instruments that may have a constant cashflow. An example is a loan schedule. 
 
 Assume that we have received a traditional loan schedule of this characteristics:
-- The loan has a value of 1 million
-- It is to be repaid back in 10 years alongside an effective interest of 5% per annum.
+- The loan has a value of $1$ million
+- It is to be repaid back in $10$ years alongside an effective interest of $5$% per annum.
 - The payment structure can be arranged, such that every year we pay the same amount that covers both the interest and the capital at the end of the period (in arrears).
 
 To find the payment structure every year, we can use actuarial equivalence which asks us to find the equal n yearly repayments whose sum of it's present value will equate to the original loan amount of $1000000$. 
@@ -432,7 +432,7 @@ The curvature of the plot tells us the dynamic nature of the bond value when sub
 One might wonder how can the data above be useful for in the concept of Asset Liability Management. Consider the scenario explained below:
 
 - Assume that at t=0, a company is offered to buy 10,000 bonds in question above at a par with the present value at t=0.
-- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $20$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. - It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
+- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $20$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
 - In other words, they will consider the offer IF their bond investment at $t=16$ (that is their money earned from sale of the bond plus their coupons earned up to $t=16$) equals to $24,304,872$.
 
 To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments already received at each time t.
