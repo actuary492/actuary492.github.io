@@ -386,7 +386,7 @@ outstanding <- function(q){
   # and that shows the loan value in 2021
   ifelse(year_of_interest > as.numeric(q[3])+as.numeric(q[5]), 0, df[year_of_interest-as.numeric(q[5])+1, 2])
 }
-# The apply functions applies every row of the Loan100 csv dataset into the function, and returns every 
+# The built-in apply function applies every row of the Loan100 csv dataset into the function, and returns every 
 # loan value of each loan at 2021 if applicable (remember the if function above that filters out the loans
 # that have matured in 2021)
 x <- apply(Loan100, 1, outstanding); x
