@@ -358,7 +358,9 @@ bond_cashflow <- c(rep(coupon, each=term-1), face_value + coupon)
 bond_time <- seq(1,term)
 
 # Use presentValue to find bond value at t=0
-presentValue(bond_cashflow, bond_time, interest[1])
+presentValue(bond_cashflow, bond_time, interest[1:length(bond_cashflow)])
+
+[1] 430.4872
 
 ```
 
