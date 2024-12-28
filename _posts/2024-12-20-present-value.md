@@ -395,7 +395,7 @@ bond_value <- c(value, face_value + coupon)
 
 
 # Construct data frame to show table of values of the bond at every t
-df <- data.frame("t" = 0:20, "Bond_Value_at_t" = bond_value)
+df <- data.frame("t" = 0:20, "Bond_Value_at_t" = bond_value); df
 
          t   Bond_Value_at_t
 1        0   430.4872
@@ -420,8 +420,8 @@ df <- data.frame("t" = 0:20, "Bond_Value_at_t" = bond_value)
 20      19   391.1111
 21      20   440.0000
 
-# Plot the bond value from t=0 to t=19
-plot(1:length(bond_value), value, type="p", pch=8, xlab="Time", ylab="Value", main="Value Growth of Bond")
+# Plot the bond value from t=0 to t=20
+plot(1:length(bond_value), bond_value, type="p", pch=8, xlab="Time", ylab="Value", main="Value Growth of Bond")
 ```
 We arrive at the bond value plot of below:
 
@@ -432,8 +432,8 @@ The curvature of the plot tells us the dynamic nature of the bond value when sub
 One might wonder how can the data above be useful for in the concept of Asset Liability Management. Consider the scenario explained below:
 
 - Assume that at t=0, a company is offered to buy 10,000 bonds in question above at a par with the present value at t=0.
-- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $20$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
-- In other words, they will consider the offer IF their bond investment at $t=16$ (that is their money earned from sale of the bond plus their coupons earned up to $t=16$) equals to $24,304,872$.
+- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $10$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
+- In other words, they will consider the offer IF their bond investment at $t=16$ (that is their money earned from sale of the bond plus their coupons earned up to $t=16$) equals to $14,304,872$.
 
 To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments already received at each time t.
 
@@ -481,7 +481,7 @@ df2 <- data.frame("t" = 0:20, "Bond_Value_with_Coupons_at_t" = bond_value)
 
 ```
 
-If we look at the value of the bond at $t=16$ with the coupons the company has received so far up to $t=16$ with the $10,000$ bonds, we see that the amount that the company now holds from the coupons plus the fee they will get if they sell the bond now with the price equalling to it's present value at $t=16$, will be around $1011.3715*10000 = 10,113,715$. This clearly is far off from the $24,304,872$ which the company must expect to receive from their bond investment to pay off their debt of $20$ million at $t=16$. Thus, the conclusion for the company is that it will not be wise to take up the offer. 
+If we look at the value of the bond at $t=16$ with the coupons the company has received so far up to $t=16$ with the $10,000$ bonds, we see that the amount that the company now holds from the coupons plus the fee they will get if they sell the bond now with the price equalling to it's present value at $t=16$, will be around $1011.3715*10000 = 10,113,715$. This clearly is far off from the $14,304,872$ which the company must expect to receive from their bond investment to pay off their debt of $10$ million at $t=16$. Thus, the conclusion for the company is that it will not be wise to take up the offer. 
 
 # Conclusion
 I have attempted to explain the concept of present value, as well as the annuity notation that incorporates the present value, which is widely used in Actuarial Science. To get a peek at the importance of this concept, I showed how we can use the present value and annuity functions created in R for real-world applications, especially in asset liability management. I hope this article has been an informative one!
