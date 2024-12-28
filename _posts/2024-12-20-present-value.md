@@ -247,7 +247,7 @@ $$
 loan_amount <- 1000000; interest <- 0.05; term <- 10; p <- 1
 
 # Use actuarial equivalence on the annuity function we created earlier:
-repayment <- loan_amount/annuity(0.05, 10, 1, 0)
+repayment <- loan_amount/annuity_function(0.05, 10, 1, 0)
 
 ```
 
