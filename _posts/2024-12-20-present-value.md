@@ -336,7 +336,7 @@ Knowing how to calculate the loan value at certain points in time is important f
 
 ```r
 # First, load the dataset. Make sure to fit the code below to fit your directory
-Loans100<- read.csv("Risk Analysis Textbooks + Codes/Data Files/Loans100_for_exercise.csv")
+Loans100<- read.csv("~/Loans100_for_exercise.csv")
 # Shows the contents of the csv file
 head(Loans100)
   Loan.number Intial.loan Term Agreed.rate Start.date..1.Jan.
@@ -580,7 +580,7 @@ I have attempted to explain the concept of present value, as well as the annuity
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
 # R-Script Download
-The R-Script can be downloaded from the assets directory in my GitHub repository. The file is named Presentvalue_Rcode_Actuary492.R
+The R-Script, along with the dataset, can be downloaded from the assets directory in my GitHub repository. The file is named Presentvalue_Rcode_Actuary492.R
 
 
 
