@@ -521,8 +521,8 @@ The curvature of the plot tells us the dynamic nature of the bond value when sub
 
 One might wonder how can the data above be useful for in the concept of Asset Liability Management. Consider the scenario explained below:
 
-- Assume that at t=0, a company is offered to buy 10,000 bonds in question above at a par with the present value at t=0.
-- They want to consider this offer if they see that purchasing 10,000 of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $10$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
+- Assume that at $t=0$, a company is offered to buy 10,000 bonds in question above at a par with the present value at $t=0$.
+- They want to consider this offer if they see that purchasing $10,000$ of this bond, amounting to $4,304,872$ can help them pay off their company debt of around $10$ million dollars that shall be due on $t=16$, assuming the increasing discount rates that they have projected. It is assumed that they keep the coupons received from the bonds, and will use it to pay the loan back. This coupons are therefore not subjected to discounting.
 - In other words, they will consider the offer IF their bond investment at $t=16$ (that is their money earned from sale of the bond plus their coupons earned up to $t=16$) equals to $14,304,872$.
 
 To be able to answer this question, we first have to modify the bond value vector derived, by adding the coupon payments already received at each time t.
