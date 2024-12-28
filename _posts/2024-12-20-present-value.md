@@ -78,7 +78,7 @@ $$
 <img src="https://actuary492.github.io/assets/images/cf4.png" alt="description" style="width: 80%; height: auto;">
 
 
-This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until arbitrary time $t=n$. It gives the present value to $t=0$ of the series of 1 unit of cashflows, discounted by constant i, as shown in the picture above.
+This notation tells us that the cashflows in question are given out at the end of the period, starting from $t=1$ up until arbitrary time $t=n$. It gives the present value to $t=0$ of the series of 1 unit of cashflows, discounted by constant $i$, as shown in the picture above.
 
 ## Annuity due or annuity in arrears: 
 
@@ -88,12 +88,11 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/cf5.png" alt="description" style="width: 80%; height: auto;">
 
-This notation tells us that the cashflows in question are given out directly at the beginning of the period, starting from $t=0$ up until arbitrary time $t=n-1$. It calculates the sum of all the present value of same amount of cashflows above in the picture discounted by constant i. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
+This notation tells us that the cashflows in question are given out directly at the beginning of the period, starting from $t=0$ up until arbitrary time $t=n-1$. It calculates the sum of all the present value of same amount of cashflows above in the picture discounted by constant $i$. Note here we also calculate the present value of the cashflow at $t=0$, which shall logically remain as 1. 
 
 ## Deferred annuity in arrears and in advance
 
-I am not able to reproduce the notation of the deferred annuity in arrears using MathJax. However, the difference is not much. We simply add $m \vert$, where $m$ is the deferment period, to the left subscript of the notation for annuity in arrears, to get deferred annuity in arrears equation. A deferment period of $m$ a m-period of delay before the payment of 1 unit starts at 
-or after $t=m$, which in the case of cashflow in arrears, should start at $t=m+1$, after $t=m$.
+I am not able to reproduce the notation of the deferred annuity in arrears using MathJax. However, the difference is not much. We simply add $m \vert$, where $m$ is the deferment period, to the left subscript of the notation for annuity in arrears, to get deferred annuity in arrears equation. A deferment period of $m$ a m-period of delay before the payment of 1 unit starts at or after $t=m$, which in the case of cashflow in arrears, should start at $t=m+1$, after $t=m$.
 
 $$
 \text{Deferred Annuity in Arrears} = \sum_{t = m+1}^{n} \frac{\text{1}}{(1 + i)^t}
