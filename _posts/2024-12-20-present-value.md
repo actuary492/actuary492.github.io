@@ -430,7 +430,7 @@ In another instance, the annuity function might not help us, because our annuity
 Assume we want to find a values over time of a coupon bearing bond with these characteristics:
 - A face value of $400$
 - Coupon rate payment of $10$%, giving coupon payments of $40$ every year including at the maturity.
-- Assume increasing interest rates starting from $3$% at $t=1$, and increasing $0.5$% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by $3$% and $3.5$% respectively, and so on. We can assume this reflects the expected return the company has set for this particular bond.
+- Assume increasing interest rates starting from $3$% at $t=1$, and increasing $0.5$% yearly. This means that if our cashflows are at t=1, t=2 we must discount it by $3$% and $3.5$% respectively, and so on. We can assume this reflects the expected return that has been set for this particular bond.
 
 As how a normal bond payment is structured, for the $n-1$ years we will only receive cashflow of coupon payments. In the last cashflow at maturity $n$, we will be paid out the coupon payment along with the face value $F+c$. We also logically assume that these cashflows are paid at the end of the period. To find the present value at t=0, we can code as below:
 
