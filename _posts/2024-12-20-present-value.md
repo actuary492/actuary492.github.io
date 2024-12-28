@@ -405,7 +405,10 @@ sum(x)
 [1] 46933798
 
 # Of course, if one is interested in finding the sum of their loans every year onwards, they can use a for loop
-# to change the year of interest in the line ifelse(year_of_interest > as.numeric(q[3])+as.numeric(q[5]), 0,       df[year_of_interest-as.numeric(q[5])+1, 2]) of 2021 into 2022, 2023, and further.
+# to change the year of interest in the line ifelse(year_of_interest > as.numeric(q[3])+as.numeric(q[5]), 0,      
+# df[year_of_interest-as.numeric(q[5])+1, 2]) of 2021 into 2022, 2023, and further.
+
+# I am interested in calculating value of loans of the portfolio from 2021 to 2040
 
 xx <- NULL
 for(i in 2021:2040){
