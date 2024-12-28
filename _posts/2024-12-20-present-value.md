@@ -332,7 +332,96 @@ data.frame("Time" = 0:10, "Outstanding Loan"= round(loan_outstanding,2), "Loan P
 ```
 Through this loan schedule, we can see that the repayment structure works perfectly fine, and therefore the annuity function can indeed be used as a much more simpler method to calculate the value of a loan. A interesting point to note here is that the loan and interest payment structure in each repayment differs. As we pay off the loan capital slowly, it is logical that the interest amount we are going to pay decreases in proportion of the repayment, which in turn increases the loan amount proportion in the repayment as time passes until the maturity.
 
-Knowing how to calculate the loan value at certain points in time is important for asset management. Assume that a bank has a loan portfolio and wishes to know the value of their loans (or how much loans do their borrowers still owe them) at some point in time. A code can be constructed to calculate these if we are given a dataset which gives information on all the loans available at the bank.
+Knowing how to calculate the loan value at certain points in time is important for asset management. Assume that a bank has a loan portfolio and wishes to know the value of their loans (or how much loans do their borrowers still owe them) at some point in time. I will use the loan portfolio dataset arrived from the book R Programming for Actuarial Science by McQuire and Kume to illustrate on how to calculate one's loan portfolio (the total value of loans outstanding).
+
+```r
+# First, load the dataset. Make sure to fit the code below to fit your directory
+Loans100<- read.csv("Risk Analysis Textbooks + Codes/Data Files/Loans100_for_exercise.csv")
+# Shows the contents of the csv file
+head(Loans100)
+  Loan.number Intial.loan Term Agreed.rate Start.date..1.Jan.
+1           1      320000    2       0.026               2020
+2           2      520000   13       0.049               2017
+3           3      650000   23       0.048               2020
+4           4      570000   12       0.048               2010
+5           5      480000   12       0.022               2018
+6           6      430000   18       0.042               2019
+
+tail(Loans100)
+95           95      140000   19       0.033               2016
+96           96      790000   14       0.047               2017
+97           97      930000   20       0.047               2016
+98           98      230000   22       0.045               2017
+99           99      380000   24       0.039               2017
+100         100      700000   18       0.040               2020
+
+# Construct a function that uses the columns of the Loan100 function (that is Loan100[i]),
+# that contains characteristics of the loan, but we use q[] to represent an arbitrary csv dataset.
+# It follows the same code as earlier, which is now adjusted a little.
+year_of_interest <- 2021
+outstanding <- function(q){
+  # Construct first the null vectors of the loan schedule elements
+  outstanding_loan <- NULL
+  interest_paid <- NULL
+  loan_repaid <- NULL
+  # q[3] (Loan[3], if one checks, is the row of the time to maturity of bond)
+  time <- seq(0, as.numeric(q[3]))
+  for(i in 1:as.numeric(q[3])){
+    # q[2] or Loan100[2] is the loan amount
+    outstanding_loan[1] <- as.numeric(q[2])
+    # Calculates yearly repayments of the individual loan schedules in the portfolio
+    p <- as.numeric(q[2])/annuity(as.numeric(q[4]), n=as.numeric(q[3]), type="arrears")
+    # q[4] or Loan100[4] is the column of interest rates agreed in each loan schedule
+    interest_paid[i] <- outstanding_loan[i]*as.numeric(q[4])
+    loan_repaid[i] <- p - interest_paid[i]
+    outstanding_loan[i+1] <- outstanding_loan[i]-loan_repaid[i]
+    loan_repaid[as.numeric(q[3])+1] <- 0
+    interest_paid[as.numeric(q[3])+1] <- 0
+  }
+  # Constructs a table that shows the loan value development of ONE loan 
+  df <- data.frame(time, round(outstanding_loan,2), interest_paid, loan_repaid, c(rep(p, as.numeric(q[3])),0))
+  # This is a if function that tells us if the loan in question has already matured in 2021, it will return 0,
+  # as the loan value that is matured, is obviously 0. While loans that have not matured in 2021, will be 
+  # considered and their element will plucked out of the dataframe that shows loan value development
+  # and that shows the loan value in 2021
+  ifelse(year_of_interest > as.numeric(q[3])+as.numeric(q[5]), 0, df[year_of_interest-as.numeric(q[5])+1, 2])
+}
+# The apply functions applies every row of the Loan100 csv dataset into the function, and returns every 
+# loan value of each loan at 2021 if applicable (remember the if function above that filters out the loans
+# that have matured in 2021)
+x <- apply(Loan100, 1, outstanding); x
+  [1] 162053.31 392849.89 633915.40  60674.72 371483.43 396385.42 615368.73 170758.12 277870.34 377538.96 101097.75
+ [12] 495151.71 436304.79 661951.25 460987.44 496298.07 527597.08 474340.07 405392.65 421199.59 528752.60 785780.90
+ [23] 881155.75 451112.97 196854.32 544671.17 794181.27 513412.23 337819.94 694016.49 118523.35 244217.67 335018.73
+ [34] 513747.88 378288.95 705479.10 507207.77 697078.13 409885.29 646438.90 682784.45 624971.16 634469.03 112274.56
+ [45] 330052.26 544159.61 378245.95 486590.22 200433.44 583416.42 492423.86 689129.83 532002.81 404208.39 764176.24
+ [56] 490786.26 509013.31 152451.13  90133.33 333288.98 695905.32 141850.76 544211.08 122544.96 966559.58 125186.33
+ [67] 693639.28 609369.14 610045.70 125235.04 641950.67 801525.31 200467.03 740654.53 537106.10 255740.63 664072.61
+ [78] 904470.05 743848.54 446704.46 271442.19 328564.14 616048.12 232656.20 800250.44 273858.53 449750.20 812704.46
+ [89] 604547.33 452113.07 571897.80 646000.62 164736.42 171392.39 111076.25 613404.31 770553.92 202895.53 338241.03
+[100] 672704.67
+
+sum(x)
+[1] 46933798
+
+# Of course, if one is interested in finding the sum of their loans every year onwards, they can use a for loop
+# to change the year of interest in the line ifelse(year_of_interest > as.numeric(q[3])+as.numeric(q[5]), 0,       df[year_of_interest-as.numeric(q[5])+1, 2]) of 2021 into 2022, 2023, and further.
+
+xx <- NULL
+for(i in 2021:2040){
+  year_of_interest <- i
+  # To tidy up the matrix dimensions, make sure it starts from 1st element up to last element,
+  # not from the 2021th element to 2045th element.
+  xx[i-2020] <- sum(apply(Loans100, 1, outstanding))
+}
+
+# Gives sum of loan values of the portfolio from 2020 up to 2040
+xx
+ [1] 46933798 43894236 40967909 37927472 34768098 31484742 28072130 24524748 21196191 18003762 15001798 12447732
+[13] 10182781  8155268  6406811  4765972  3459815  2408741  1731569  1116183
+```
+
+We can see that this code succesfully calculates the loan value of a portfolio of loans, and gives us a good overview of amount of loans left that one can receive. Of course, this assumes that all loans are paid accordingly when the time comes to pay. In real life, this might not happen, and thus codes above can be adjusted to calculate loan values in the circumstances mentioned above.
 
 ## Bond Value Derivation
 
