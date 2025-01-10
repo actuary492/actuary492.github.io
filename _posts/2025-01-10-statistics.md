@@ -121,11 +121,9 @@ $$
 Multivariate Normal Distribution pdf with the mean vector and variance-covariance matrix
 
 $$
-$$
 f(\mathbf{x}) = \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
 $$
 
-$$
 
 
 
