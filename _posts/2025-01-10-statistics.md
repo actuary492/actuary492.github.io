@@ -140,7 +140,7 @@ dmnorm(input_vector, mean_vecx, covar_matx)
 [1] 0.0111859
 ```
 
-We can also find the cdf of multivariate distributions using pmnorm(),which we can see as the probability that $X$ lies below some and $Y$ lies below some value, that is $P[X<x , Y<y)$ . We can generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution in every column. 
+We can also find the cdf of multivariate distributions using pmnorm(), which we can see as the joint probability that $X$ lies below some realisation $x$ and $Y$ lies below some realisation $y$, that is $P[X<x , Y<y]$ . We can generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution in every column. 
 
 
 # Descriptive Statistics
