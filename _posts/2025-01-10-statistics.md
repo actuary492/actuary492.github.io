@@ -121,6 +121,7 @@ $$
 f(\mathbf{x}) = \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
 $$
 
+$$
 \begin{aligned}
 \mathbf{\mu} &= 
 \begin{bmatrix}
@@ -144,7 +145,7 @@ $$
 \text{Cov}(X_n, X_1) & \text{Cov}(X_n, X_2) & \cdots & \text{Var}(X_n)
 \end{bmatrix}
 \end{aligned}
-
+$$
 
 
 
