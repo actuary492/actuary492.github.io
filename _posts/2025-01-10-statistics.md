@@ -178,22 +178,24 @@ Take for instance the built-in functions of plot() which gives us the scatter pl
 plot(trees)
 
 ```
-<img src="https://actuary492.github.io/assets/images/scat.jpeg" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/scat.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 Another useful function is the histogram. This allows us to see the spread of a variable. We can use hist(). Let us find the histogram of the variable Diameter in the trees dataset.
 
 ```r
 hist(trees$Diameter)
 ```
-<img src="https://actuary492.github.io/assets/images/hit.jpeg" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/hit.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 The most informative built-in function for descriptive statistics is the pairs.panels() data. The built-in function creates pairwise plots of regression lines, histogram and correlation coefficients of variables in the data.
 
 ```r
+library(psych) #install psych if not yet done
 pairs.panels(trees)
 ```
-<img src="https://actuary492.github.io/assets/images/panel.jpeg" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/panel.jpeg" alt="description" style="width: 80%; height: 80%;">
 
+This is everything so far on descriptive statistics. Of course, there are more built-in functions out there which I might not have discussed. It is always wise to explore those further.
 
 # Statistical Tests
 
