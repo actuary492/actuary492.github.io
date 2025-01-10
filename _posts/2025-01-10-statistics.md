@@ -180,9 +180,14 @@ plot(trees)
 ```
 <img src="https://actuary492.github.io/assets/images/scat.jpeg" alt="description" style="width: 80%; height: auto;">
 
-Another useful function is the histogram. This allows us to see the spread of a variable. We can use hist().
+Another useful function is the histogram. This allows us to see the spread of a variable. We can use hist(). Let us find the histogram of the variable Diameter in the trees dataset.
 
-The most informative built-in function is the pairs.panels() data. The built-in function creates pairwise plots of regression lines, histogram and correlation coefficients of variables in the data.
+```r
+hist(trees$Diameter)
+```
+<img src="https://actuary492.github.io/assets/images/hit.jpeg" alt="description" style="width: 80%; height: auto;">
+
+The most informative built-in function for descriptive statistics is the pairs.panels() data. The built-in function creates pairwise plots of regression lines, histogram and correlation coefficients of variables in the data.
 
 ```r
 pairs.panels(trees)
