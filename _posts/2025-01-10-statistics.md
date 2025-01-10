@@ -140,10 +140,55 @@ dmnorm(input_vector, mean_vecx, covar_matx)
 [1] 0.0111859
 ```
 
-We can also find the cdf of multivariate distributions using pmnorm(), which we can see as the joint probability that $X$ lies below some realisation $x$ and $Y$ lies below some realisation $y$, that is $P[X<x , Y<y]$ . We can generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution in every column. 
+We can also find the cdf of multivariate distributions using pmnorm(), which we can see as the joint probability that $X$ lies below some realisation $x$ and $Y$ lies below some realisation $y$, that is $P[X<x , Y<y]$ . We can generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution by columns. One can try to practice by finding pdf's and cdf's of higher variate distributions, for instance of 3 random variables.
 
 
 # Descriptive Statistics
+
+## summary() Function
+
+We can use the summary() function in R to look at important descriptive statistics. This function produces a list of important descriptive statistics that can inform the user on how the dataset is distributed. Let us take a summary of the $\text{Trees}$ dataset R.
+
+```r
+library(datasets) #install.packages("datasets") if not yet installed
+trees #trees dataset is base dataset, there is no need to load it, simply typing trees will show
+colnames(trees)[1] <- "Diameter" # change column name from "Girth" to "Diameter"
+summary(trees)
+
+    Diameter    Height       Volume     
+ Min.   : 8.30   Min.   :63   Min.   :10.20  
+ 1st Qu.:11.05   1st Qu.:72   1st Qu.:19.40  
+ Median :12.90   Median :76   Median :24.20  
+ Mean   :13.25   Mean   :76   Mean   :30.17  
+ 3rd Qu.:15.25   3rd Qu.:80   3rd Qu.:37.30  
+ Max.   :20.60   Max.   :87   Max.   :77.00  
+```
+
+The summary gives us important statistics such as the minimum and maximum values of the variable in the datasets, and important quantiles.
+
+To find the most common descriptive statistics of mean and variance in R, we can use mean() and var().
+
+## Plots 
+
+There are also functions that can help visualise distributions of the data. 
+
+Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a extremely positive correlation between the variable Diameter and Volume. 
+
+```r
+plot(trees)
+
+```
+<img src="https://actuary492.github.io/assets/images/scat.jpg" alt="description" style="width: 80%; height: auto;">
+
+Another useful function is the histogram. This allows us to see the spread of a variable. We can use hist().
+
+The most informative built-in function is the pairs.panels() data. The built-in function creates pairwise plots of regression lines, histogram and correlation coefficients of variables in the data.
+
+```r
+pairs.panels(trees)
+```
+<img src="https://actuary492.github.io/assets/images/panel.jpg" alt="description" style="width: 80%; height: auto;">
+
 
 # Statistical Tests
 
