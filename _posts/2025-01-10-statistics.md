@@ -118,13 +118,29 @@ f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\r
 $$
 
 
-Multivariate Normal Distribution pdf with the mean vector and variance-covariance matrix
+Multivariate (n) Normal Distribution pdf with the mean vector (bolded $\mu$) and variance-covariance (bolded $\Sigma$) matrix.
 
 $$
-f(\mathbf{x}) = \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
+f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
 $$
 
 
+In order to calculate the bivariate normal pdf (as a case of the multivariate distribution) in R, we can use the built in function dmnorm(). In other words we aim to find $P[X = 1 , Y = 1]$
+
+```r
+# First, we construct the mean vector and variance-covariance matrix of the bivariate normal distribution
+mean_vecx<-c(2,5) # mu
+varX<-4; varY<-16; corXY<-0.1
+covXY<-corXY*(varX*varY)^0.5
+covar_matx<-matrix(c(varX,covXY,covXY,varY),2,2)
+
+#Now, we want to find the probability of A=1 and B=1
+input_vector <- c(1,1)
+dmnorm(input_vector, mean_vecx, covar_matx)
+[1] 0.0111859
+```
+
+We can also find the cdf of multivariate distributions using pmnorm(),which we can see as the probability that $X$ lies below some and $Y$ lies below some value, that is $P[X<x , Y<y)$ . We can generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution in every column. 
 
 
 # Descriptive Statistics
