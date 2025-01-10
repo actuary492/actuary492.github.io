@@ -178,7 +178,7 @@ Take for instance the built-in functions of plot() which gives us the scatter pl
 plot(trees)
 
 ```
-<img src="https://actuary492.github.io/assets/images/scat.jpg" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/scat.jpeg" alt="description" style="width: 80%; height: auto;">
 
 Another useful function is the histogram. This allows us to see the spread of a variable. We can use hist().
 
@@ -187,7 +187,7 @@ The most informative built-in function is the pairs.panels() data. The built-in 
 ```r
 pairs.panels(trees)
 ```
-<img src="https://actuary492.github.io/assets/images/panel.jpg" alt="description" style="width: 80%; height: auto;">
+<img src="https://actuary492.github.io/assets/images/panel.jpeg" alt="description" style="width: 80%; height: auto;">
 
 
 # Statistical Tests
