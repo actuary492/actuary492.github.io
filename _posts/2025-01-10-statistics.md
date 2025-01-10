@@ -119,6 +119,7 @@ $$
 
 
 Multivariate Normal Distribution pdf with the mean vector and variance-covariance matrix
+
 $$
 \begin{aligned}
 f(\mathbf{x}) &= \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} 
@@ -145,7 +146,6 @@ f(\mathbf{x}) &= \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}}
 \text{Cov}(X_n, X_1) & \text{Cov}(X_n, X_2) & \cdots & \text{Var}(X_n)
 \end{bmatrix}.
 \end{aligned}
-
 $$
 
 
