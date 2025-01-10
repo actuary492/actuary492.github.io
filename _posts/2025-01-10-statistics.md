@@ -144,7 +144,7 @@ f(\mathbf{x}) &= \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}}
 \text{Cov}(X_2, X_1) & \text{Var}(X_2) & \cdots & \text{Cov}(X_2, X_n) \\
 \vdots & \vdots & \ddots & \vdots \\
 \text{Cov}(X_n, X_1) & \text{Cov}(X_n, X_2) & \cdots & \text{Var}(X_n)
-\end{bmatrix}.
+\end{bmatrix}
 \end{aligned}
 $$
 
