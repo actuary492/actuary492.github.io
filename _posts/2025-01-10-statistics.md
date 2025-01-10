@@ -79,7 +79,7 @@ ppois(8, lambda=5)
 The quantile function on the other hand is the inverse of the cdf function. It basically gives us the realisation as threshold for which a given percentage of realisations falls below this threshold. The percentage is known as the quantile of the distribution.
 
 $$
-\text{Quantile Function} = \text{cdf}{-1}(x)
+\text{Quantile Function} = \text{cdf}^{-1}(x)
 $$
 
 In Rstudio, the function to find the quantile function is q<<distribution code>>. It can be qnorm(), qpois(), et cetera.
