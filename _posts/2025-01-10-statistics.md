@@ -124,7 +124,7 @@ $$
 where
 
 $$
-\boldsymbol{\mu} = 
+\mathbf{\mu} = 
 \begin{bmatrix}
 \mu_1 \\
 \mu_2 \\
@@ -139,7 +139,6 @@ $$
 \mathbb{E}[X_d]
 \end{bmatrix}
 $$
-
 
 
 
