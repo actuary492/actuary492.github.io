@@ -172,7 +172,7 @@ To find the most common descriptive statistics of mean and variance in R, we can
 
 There are also functions that can help visualise distributions of the data. 
 
-Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a extremely positive correlation between the variable Diameter and Volume. 
+Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a extremely positive correlation between the variable Diameter and Volume simply by looking at the plots without having to know the precise correlation coefficient.
 
 ```r
 plot(trees)
