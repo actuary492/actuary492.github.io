@@ -36,7 +36,7 @@ Of course we should remember there will certainly be cases where realisations ca
 
 Distributions can be described by this set of default matrics that is the mean and variance. The mean tells us the average values of the random realisations, while the variance tells us the spread of such random realisations from the mean. However, we will come to see that not all distributions directly have these parameters. 
 
-A very common continuous distribution out there is the Normal Distribution. The Normal distribution tells us directly that some random variable is distributed with some arbitrary mean $\mu$ and some arbitrary standard deviation $\sigma$. A common discrete distribution is the Poisson distribution that has a lambda parameter. The lambda parameter tells us the expected rate of which an event (that is Poisson distributed) occurs at some fixed interval. In this case we are not explicitly given the mean and variance, but the mean and variance can be found using the $\lambda$. Lambda of $5$ essentially tells us that the average of the different realisations of the Poisson distributed random variable will be 5.
+A very common continuous distribution out there is the Normal Distribution. The Normal distribution tells us directly that some random variable is distributed with some arbitrary mean $\mu$ and some arbitrary standard deviation $\sigma$. A common discrete distribution is the Poisson distribution that has a lambda parameter. The $\lambda$ parameter tells us the expected rate of which an event (that is Poisson distributed) occurs at some fixed interval. In this case we are not explicitly given the mean and variance, but the mean and variance can be found using the $\lambda$. Lambda of $5$ essentially tells us that the average of the different realisations of the Poisson distributed random variable will be 5.
 
 Every random variable that has a distribution will have these probability metrics: the probability density function (pdf), the cumulative distribution function (cdf), and the quantile function.
 
@@ -45,38 +45,50 @@ In R, distributions are given different codes. These codes are imperative in ord
 
 ## Probability Density Function (pdf)
 
-The probability density function (pdf) is a function that gives us the probability mass of some realisation $X=x$ happening.
+The probability density function (pdf) is a function that gives us the probability mass of a random variable $X$ taking on some realisation $x$, $X=x$.
 
 $$ 
 P[X=x] = pdf(x)
 $$
 
-In Rstudio, the function to find the density function is d<<distributioncode>>. It can be dnorm, dpois, et cetera.
+In Rstudio, the function to find the density function is d<<distribution code>>. It can be dnorm, dpois, et cetera.
 
 ```{r}
 # Find probability of a realization of 8 in a Poisson distribution with lambda 5
 dpois(8, lambda=5)
-
+[1] 0.06527804
 ```
  
 ## Cumulative Distribution Function (cdf)
 
-The cumulative distribution function is the function that gives us the probability mass of being less than some realization $X<x$.
+The cumulative distribution function is the function that gives us the probability mass of a random variable $X$ being less than some realization $x$, $X<x$.
 
 $$
 P[X < x] = cdf(x)
 $$
 
-In Rstudio, the function to find the density function is d<<distributioncode>>. It can be pnorm, ppois, et cetera.
+In Rstudio, the function to find the density function is d<<distribution code>>. It can be pnorm, ppois, et cetera.
 
 ```{r}
 # Find probability of that a realization is less than 8 in a Poisson distribution with lambda 5
 ppois(8, lambda=5)
-
+[1] 0.9319064
 ```
 
 ## Quantile Function
+The quantile function on the other hand is the inverse of the cdf function. It basically gives us the realisation as threshold for which a given percentage of realisations falls below this threshold. The percentage is known as the quantile of the distribution.
 
+$$
+\text{Quantile Function} = \text{cdf}{-1}(x)
+$$
+
+In Rstudio, the function to find the quantile function is q<<distribution code>>. It  can be qnorm, qpois, et cetera.
+
+```{r}
+# Find the realisation (threshold) for which 70% of the observations of Poisson distribution with lambda 5 lie below this threshold.
+ppois(8, lambda=5)
+[1] 6
+```
 
 # Descriptive Statistics
 
