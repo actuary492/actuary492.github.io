@@ -111,11 +111,14 @@ We need to note some changes to elements of the multivariate normal distribution
 
 To visualise, we compare:
 
-Univariate Normal Distribution pdf
+Univariate Normal Distribution pdf with only one mean and variance.
+
+$$
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+$$
 
 
-
-Multivariate Normal Distribution pdf
+Multivariate Normal Distribution pdf with the mean vector and variance-covariance matrix
 $$
 \begin{aligned}
 f(\mathbf{x}) &= \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} 
