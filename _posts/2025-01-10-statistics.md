@@ -119,9 +119,11 @@ Multivariate Normal Distribution pdf
 
 $$
 f(\mathbf{x}) = \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
+$$
 
-\begin{aligned}
-\mathbf{\mu} &= 
+It has the mean vector:
+$$
+\mathbf{\mu} = 
 \begin{bmatrix}
 \mu_1 \\
 \mu_2 \\
@@ -134,15 +136,19 @@ f(\mathbf{x}) = \frac{1}{(2\pi)^{d/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\lef
 \mathbb{E}[X_2] \\
 \vdots \\
 \mathbb{E}[X_d]
-\end{bmatrix}, & 
-\boldsymbol{\Sigma} &= 
+\end{bmatrix}
+$$
+
+And the variance-covariance matrix of
+$$
+\boldsymbol{\Sigma} = 
 \begin{bmatrix}
 \text{Var}(X_1) & \text{Cov}(X_1, X_2) & \cdots & \text{Cov}(X_1, X_n) \\
 \text{Cov}(X_2, X_1) & \text{Var}(X_2) & \cdots & \text{Cov}(X_2, X_n) \\
 \vdots & \vdots & \ddots & \vdots \\
 \text{Cov}(X_n, X_1) & \text{Cov}(X_n, X_2) & \cdots & \text{Var}(X_n)
 \end{bmatrix}
-\end{aligned}
+
 $$
 
 
