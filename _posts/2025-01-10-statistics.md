@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/stat.jpg"
 permalink: /posts/statistics/
-published: true
+published: false
 draft: false
 tags: [post, statistics]
 ---
