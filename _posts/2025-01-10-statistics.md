@@ -320,6 +320,52 @@ There are several common statistical tests out there. I will attempt to elaborat
 
 ## Normality Tests
 
+Tests are normality are very common on statistical literature. This is necessary because conducting t-tests and variance tests (explained below) will require that the data in question is normally distributed in order to produce accurate statistical inferences. Common causes of un-normality can be when data is skewed heavy to one side, or when there are many outliers outside typical ranges in the data. Testing for normality can be done graphically or analytically.
+
+### Testing Normality Graphically
+
+I give an example where I test if the the variable $\text{Diameter}$ in dataset $\text{Trees}$ is normally distributed via superposing the normal pdf function using mean and variance of variable above into the histogram of the variable.
+
+```r
+#Find mean and variance of the variable Height assuming it has normal distribution
+mh <- mean(trees$Height); vh <- var(trees$Height)
+
+#Graph the spread of the variable Height
+hist(trees$Height, freq=FALSE, main="Graphically Testing Normality of Height")
+
+#We see that height takes value from 60 to 90, thus we try to find pdf of these height values assuming
+#height is normally distributed
+
+lines(60:90, dnorm(60:90, mh, sqrt(vh)))
+
+#The histogram and the pdf clearly tells us that Height is normally distributed via this method as the spread
+#of the Height fits the pdf of the height assuming it was normally distributed with some mean and variance.
+```
+
+<img src="https://actuary492.github.io/assets/images/gtnoh.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+Another method is to use the Normal QQ-Plot. The qqnorm() function plots the points of quantiles based on the given data of the variable, while the qqline() plot draws a line connecting the theoretical quantiles of the variables if it were normally distributed with mean and variance based on the data of the variable.
+
+```r
+#Using QQ-plot
+par(mfrow=c(1,3))
+#The function qqnorm() produces the 
+qqnorm(trees$Height, main="QQ Plot Height"); qqline(trees$Height)
+qqnorm(trees$Diameter, main="QQ Plot Diameter"); qqline(trees$Diameter)
+qqnorm(trees$Volume, main="QQ Plot Volume"); qqline(trees$Volume)
+```
+
+The deciding factor here to see whether such variable is normally distributed, is to see whether quantile points from the sample coincides with the theoretical quantile line. If quantile points from the data is close to the theoretical line, then it is enough evidence to suggest that the variable is normally distributed. 
+
+<img src="https://actuary492.github.io/assets/images/qqp.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+We can see that Height is clearly normally distributed, while there can be reasonable view to suggest that Diameter and Volume is also normally distributed, although we see couple of outliers in the quantiles of these variables compared to the theoretical quantiles.
+
+### Testing Normality Analytically
+
+There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (usually done when observations are large) and the Shapiro-Wilk Test (normally used when observations are small). 
+
+
 ## T-Tests
 
 ## Tests for the mean
