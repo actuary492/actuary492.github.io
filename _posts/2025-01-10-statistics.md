@@ -286,7 +286,7 @@ pairs.panels(trees)
 
 This is everything so far on basic descriptive statistics. Of course, there are more built-in functions out there which I might not have discussed. It is always wise to explore those further.
 
-# Hypothesis Testing and Statistical Tests
+# Hypothesis Testing: The Basis to all Statistical Tests
 
 A hypothesis that states something about a population is true or not. If a hypothesis is not true, there should be an alternative hypothesis. Therefore through hypothesis testing, we attempt to either accept one hypothesis while rejecting the other. We normally call the two hypotheses as the null hypothesis and the alternative hypothesis. This is done by incorporating statistical tests that can help aid in forming such conclusion. Of course, there is a chance that we do not arrive at the correct conclusion, such as when one rejects the null hypothesis given the null hypothesis is true, or accepting the null hypothesis when the null hypothesis is false. This is called the type I error and type II error respectively. A type I error is considered to be more serious than a type II error, hence hypothesis testing is based on trying to limit the probability of making a type I error to some level called the significance level ($\alpha$).
 
@@ -307,14 +307,15 @@ $$
 
 With the explanation above in mind, a small p-value therefore tells us such that the test statistics we observed, and it's tails is very extreme and unlikely to occur under the null hypothesis. 
 
-If the null hypothesis were to be true, the probability of the observed test statistic and it's extremes occuring under the null hypothesis should be fairly large. The fact that the probability of the observed test statistic and it's extremes occuring is very rare on the distribution under the null, should allow us to question whether the null is correct. This is equivalent to saying that even though the null had predicted your observed test statistic to be very unlikely occurence, you still observed it through your dataset, suggesting $H_0$ might not be the best explanation for the data. 
+If the null hypothesis were to be true, the probability of the observed test statistic and it's extremes occuring under the null hypothesis should be fairly large. The fact that the probability of the observed test statistic and it's extremes occuring is very rare on the distribution under the null, should allow us to question whether the null is correct. This is equivalent to saying that even though the null had predicted your observed test statistic to be an unlikely occurence, yet you still observed it through your dataset, suggesting $H_0$ might not be the best explanation for the data. 
 
-Hence, a small probability value is seen as "evidence" to reject the null hypothesis. "Sufficient evidence" meaning to say that it is not $100%$ true that the null hypothesis is false, it is only that we do not have sufficient evidence (based on observed data) to accept the null hypothesis. 
+Hence, a small probability value is seen as "evidence" to reject the null hypothesis. "Evidence" does not tell us $100%$ that the null hypothesis is false, simply that the evidence we received (based on observed data) shows that we should reject the null hypothesis. 
 
-Linking this to the significance level, we can look at this as the threshold of how large of a p-value or in other words, how extreme can an observation be in order to consider that it does not belong to the distribution. In most literature, a 5% significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
+Linking this to the significance level, we can look at this as the threshold of how large of a p-value or in other words, how extreme can an observation be in order to consider that it does not belong to the distribution under the null. In most literature, a 5% significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
 
-# Types of tests
+# Types of statistical tests
 
+There are sev
 
 # The Maximum Likelihood Concept
 
