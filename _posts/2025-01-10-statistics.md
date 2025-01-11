@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/stat.jpg"
 permalink: /posts/statistics/
-published: true
+published: false
 draft: false
 tags: [post, statistics]
 ---
@@ -311,11 +311,21 @@ If the null hypothesis were to be true, the probability of the observed test sta
 
 Hence, a small probability value is seen as "evidence" to reject the null hypothesis. "Evidence" does not tell us $100%$ that the null hypothesis is false, simply that the evidence we received (based on observed data) shows that we should reject the null hypothesis. 
 
-So the question now is to what small probability will be seen as enough to reject the null hypothesis? Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
+So the question now is to what small probability will be seen as enough to reject the null hypothesis? Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. The significance level also acts as a barrier for the type I error. A more lower significance level (typically applied when deciding critical decisions) means that we are much more stricter in avoiding rejection of the null hypothesis when the null hypothesis is true.
+
 
 # Types of statistical tests
 
-There are several common statistical tests out there. I will attempt to elaborate 
+There are several common statistical tests out there. I will attempt to elaborate some of the important ones.
+
+## Normality Tests
+
+## T-Tests
+
+## Tests for the mean
+
+## Tests for variance (ANOVA)
+
 
 # The Maximum Likelihood Concept
 
