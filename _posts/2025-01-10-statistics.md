@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/stat.jpg"
 permalink: /posts/statistics/
-published: false
+published: true
 draft: false
 tags: [post, statistics]
 ---
@@ -320,7 +320,7 @@ There are several common statistical tests out there. I will attempt to elaborat
 
 ## Normality Tests
 
-Tests are normality are very common on statistical literature. This is necessary because conducting t-tests and variance tests (explained below) will require that the data in question is normally distributed in order to produce accurate statistical inferences. Common causes of un-normality can be when data is skewed heavy to one side, or when there are many outliers outside typical ranges in the data. Testing for normality can be done graphically or analytically.
+Tests are normality are very common on statistical literature. This is necessary because conducting t-tests and variance tests (explained below) will require that the data in question is normally distributed in order to produce accurate statistical inferences. Common causes of un-normality can be when data is skewed heavy to one side, or when there are many outliers outside typical ranges in the data. Testing for normality can be done graphically or analytically. Each method can yield different conclusions on the normality.
 
 ### Testing Normality Graphically
 
@@ -359,11 +359,100 @@ The deciding factor here to see whether such variable is normally distributed, i
 
 <img src="https://actuary492.github.io/assets/images/qqp.jpeg" alt="description" style="width: 100%; height: 60%;">
 
-We can see that Height is clearly normally distributed, while there can be reasonable view to suggest that Diameter and Volume is also normally distributed, although we see couple of outliers in the quantiles of these variables compared to the theoretical quantiles.
+We can see by this method, we have strong evidence to suggest Height normally distributed as it's sample quantiles lie very close to the theoretical quantiles, while there can be reasonable view to put into doubt whether Diameter and Volume are also normally distributed, as we see couple of outliers in the quantiles of these variables compared to the theoretical quantiles.
 
 ### Testing Normality Analytically
 
-There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (usually done when observations are large) and the Shapiro-Wilk Test (normally used when observations are small). 
+There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (usually done when observations are large) and the Shapiro-Wilk Test (normally used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. 
+
+```r
+#Jarque Bera Test
+library(tseries)
+jarque.bera.test(trees$Height); jarque.bera.test(trees$Diameter); jarque.bera.test(trees$Volume)
+
+
+	Jarque Bera Test
+
+data:  trees$Height
+X-squared = 1.1443, df = 2, p-value = 0.5643
+
+
+	Jarque Bera Test
+
+data:  trees$Diameter
+X-squared = 1.8302, df = 2, p-value = 0.4005
+
+
+	Jarque Bera Test
+
+data:  trees$Volume
+X-squared = 6.1336, df = 2, p-value = 0.04657
+
+
+#Using significance level of 5%, there is evidence to suggest Height & Diameter are normally distributed, 
+#while there is no evidence suggesting Diameter is normally distributed.
+
+#Shapiro Test
+shapiro.test(trees$Height); shapiro.test(trees$Diameter); shapiro.test(trees$Volume)
+
+	Shapiro-Wilk normality test
+
+data:  trees$Height
+W = 0.96545, p-value = 0.4034
+
+
+	Shapiro-Wilk normality test
+
+data:  trees$Diameter
+W = 0.94117, p-value = 0.08893
+
+
+	Shapiro-Wilk normality test
+
+data:  trees$Volume
+W = 0.88757, p-value = 0.003579
+
+#Using significance level of 5%, it has same conclusion as the Jarque-Bera Test
+
+#Anderson Darling Test
+ad.test(trees$Height); ad.test(trees$Diameter); ad.test(trees$Volume)
+
+	Anderson-Darling normality test
+
+data:  trees$Height
+A = 0.35926, p-value = 0.4282
+
+
+	Anderson-Darling normality test
+
+data:  trees$Diameter
+A = 0.7455, p-value = 0.04668
+
+
+	Anderson-Darling normality test
+
+data:  trees$Volume
+A = 1.2916, p-value = 0.001944
+
+
+#Using significance level 5%, there is evidence to suggest Height is normally distributed, 
+#while there is no evidence to suggest Diameter and Volume is normally distributed
+```
+
+The conclusion for the normality of Height from these tests agree with it's graphical normality analysis. On the other hand, we see that Diameter was suggested to be normal in the Jarque-Bera test, but not in the Anderson-Darling Test and Shapiro-Wilk test, while graphical tests of the QQ-Plot showed that Diameter might possibly not be normal. Again, it boils down to checking back at assumptions of the tests we use and see whether it fits the problem one needs to solve.
+
+## Testing whether some variable fits some distribution
+
+We should of course make again the distinction between continuous and discrete variables and distirbutions. For continuous variables and distributions, the Kolmogorov-Smirnov test is commonly used, while Chi-square tests are used for discrete variables and distributions.
+
+```r
+# Testing if Height is normally distributed as N(mean(trees$Height), var(trees$Height))
+ks.test(trees$Height,"pnorm", mean(trees$Height), var(trees$Height))
+
+# Low p-value tells us that normality of Height is rejected.
+
+
+```
 
 
 ## T-Tests
