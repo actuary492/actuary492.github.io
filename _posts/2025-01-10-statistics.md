@@ -127,9 +127,7 @@ cdf_val <- pnorm(x_val, 0, 1) #Returns values of cdfs for every x value (realisa
 plot(x_val, cdf_val, type="l")
 abline(h=1, lty=3); abline(h=0, lty=3) #Visual barrier to tell us that CDF graph lies between 0 and 1 
 ```
-<img src="https://actuary492.github.io/assets/images/pdf.jpeg" alt="description" style="width: 80%; height: 80%;">
-
-<img src="https://actuary492.github.io/assets/images/cdf.jpeg" alt="description" style="width: 80%; height: 80%;">
+<img src="https://actuary492.github.io/assets/images/cdfpdf.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 
 ## Multivariate Distributions and Some Useful Commands in R
