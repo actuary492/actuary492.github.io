@@ -224,10 +224,14 @@ contour(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", main="Bivariate CDF Contou
 <img src="https://actuary492.github.io/assets/images/bivpdf.jpeg" alt="description" style="width: 100%; height: 80%;">
 <img src="https://actuary492.github.io/assets/images/bivcdf.jpeg" alt="description" style="width: 100%; height: 80%;">
 
+We should note that contour plots are esentially vertical slices of the perspective plots.
+
 Due to limitations in R we are only allowed to graph at best a 3-dimensional plot. Thus if one is presented with a tri-variate distribution (three random variables) or further, then one only has the capability to plot different bivariate combinations of the trivariate (or multivariate) distribution. It also logical that a larger dimensional graph would not be handy either as it would be hard to interpret. Nevertheless, this will be still be useful to us. Why? Through pairwise plots of the three (or multiple) variables, we can potentially identify dependencies of these variables while marginalising the others. 
 
 
 # Descriptive Statistics
+
+Descriptive statistics as we will see below can be very useful to show distributions of single variables and the pairwise descriptive statistics and visualisations of multiple variables.
 
 ## summary() Function
 
@@ -250,9 +254,9 @@ summary(trees)
 
 The summary gives us important statistics such as the minimum and maximum values of the variable in the datasets, and important quantiles.
 
-To find the most common descriptive statistics of mean and variance in R, we can use mean() and var().
+To find the most common descriptive statistics of mean, variance, correlation in R, we can use mean(), var(), and cor().
 
-## Plots 
+## Scatter Plots and Pairwise Plots
 
 There are also functions that can help visualise distributions of the data. 
 
