@@ -295,13 +295,17 @@ A hypothesis that states something about a population is true or not. If a hypot
 
 In elementary statistics classes, you might have learned hypothesis testing by first determining some significance level, then constructing some rejection region based on that significance level that can reject the null hypothesis, before calculating some test statistic based on observed data which we check lies in the rejection region or not. If the test statistic lies in the rejection region, we reject the null, otherwise, we accept the null. However, most built in hypothesis testing functions in statistical softwares do not show rejection regions. Rather, they produce quick ouputs of some test-statistic with it's associated p-value which we can directly compare to some significance level to conclude the hypothesis test. It is not to say that knowing how to find rejection regions is unimportant, but I will only be focusing on the p-value in this article due to it's popular use in softwares. The reader can do self-study on how rejection regions are constructed. 
 
-The p-value tells us the probability of obtaining something more extreme than what is observed (in the data we use for hypothesis testing), given that the null hypothesis is true. Essentially, the p-value can be called as the probability of a type I error.
+The p-value tells us the probability of obtaining something more extreme (and /or equal) than what is observed (in the data we use for hypothesis testing), given that the null hypothesis is true. Determining which extreme it is ($>=$ or $<=$) requires that we understand the alternative hypothesis. Essentially, the p-value can be called as the probability of a type I error.
 
-With the explanation above in mind, the p-value therefore illustrates how extreme the observed value of the test statistic is under the condition that the null hypothesis is true. A small p-value therefore tells us such observation is very unlikely under the null hypothesis, which then can tell us the null hypothesis is not sufficient to explain the observation. Hence, a small probability value is seen as "sufficient evidence" reject the null hypothesis. "Sufficient evidence" meaning to say that it is not 100% true that the null hypothesis is false, it is only that we do not have sufficient evidence (based on observed data) to accept the null hypothesis. 
+$$
+\text{p-value} = P[Test statistic >= x | H_0 true] \text{or} P[Test statistic <= x | H_0 true]
+$$
 
-Linking this to the significance level, we can say that this determines how small can the p-value reasonably be to reject the null hypothesis. In most literature, a 5% significance level is deemed enough. 
+With the explanation above in mind, the p-value therefore illustrates how extreme the observed value of the test statistic is under the condition that the null hypothesis is true which can serve as evidence against the null hypothesis. A small p-value therefore tells us such observation is very unlikely under the null hypothesis, which then can serve as evidence to tell us that the null hypothesis is not sufficient to explain the observation. Hence, a small probability value is seen as "sufficient evidence" reject the null hypothesis. "Sufficient evidence" meaning to say that it is not 100% true that the null hypothesis is false, it is only that we do not have sufficient evidence (based on observed data) to accept the null hypothesis. 
 
-# Types of tests in Statistics
+Linking this to the significance level, we can say that this determines how small can the p-value reasonably be to reject the null hypothesis. In most literature, a 5% significance level is deemed enough to draw a conclusion. 
+
+# Types of tests
 
 
 # The Maximum Likelihood Concept
