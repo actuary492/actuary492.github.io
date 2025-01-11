@@ -57,17 +57,20 @@ In Rstudio, the function to find the density function is d<<distribution code>>.
 # Find probability of a realization of 8 in a Poisson distribution with lambda 5
 dpois(8, lambda=5)
 [1] 0.06527804
+
+#To visualise the pdf of the Poisson distribution of lambda 5, we can do as follows:
+
 ```
  
 ## Cumulative Distribution Function (cdf)
 
-The cumulative distribution function is the function that gives us the probability mass of a random variable $X$ being less than some realization $x$, $X<x$. In other words, we can see this probability as the percentage of realisations that lie below some certain realisation x.
+The cumulative distribution function is the function that gives us the probability mass of a random variable $X$ being less than some realization $x$, $X<x$. 
 
 $$
 P[X < x] = cdf(x)
 $$
 
-In Rstudio, the function to find the density function is d<<distribution code>>. It can be pnorm(), ppois(), et cetera.
+In Rstudio, the function to find the density function is p<<distribution code>>. It can be pnorm(), ppois(), et cetera.
 
 ```r
 # Find probability of that a realization is less than 8 in a Poisson distribution with lambda 5
@@ -76,7 +79,7 @@ ppois(8, lambda=5)
 ```
 
 ## Quantile Function
-The quantile function on the other hand is the inverse of the cdf function. It basically gives us the realisation as threshold for which a given percentage of realisations falls below this threshold. The percentage is known as the quantile of the distribution.
+The quantile function on the other hand is the inverse of the cdf function. It basically finds the realisation as a threshold for which a given percentage/quantile (p, which we set) of realisations falls below it.
 
 $$
 \text{Quantile Function} = \text{cdf}^{-1}(x)
@@ -101,6 +104,34 @@ rpois(n=5, lambda=5)
 [1] 5 4 4 6 2 3 4 4 5 4
 ```
 
+## Visualising the Univariate pdf and cdf 
+
+Visualising graphs of the pdf and cdf are equally important. They allow us to see how the probability function develops as the realisations changes.
+
+```r
+#First, we need to generate realisations of a Normal(0,1) distribution
+set.seed(100)
+gen_norm <- rnorm(1000, 0, 1)
+
+#We make use of our realisations to findthe range of x values that we can generate to build the pdf and cdf graphs #of Normal(0,1) using the histogram function, that way we ensure a accurate pdf and cdf graph (to the tails of the #distribution) is shown.
+hist(gen_norm) 
+
+#We see that the realisations of a Normal distribution therefore lies between -3 and 3. These can be used
+#to construct the sequence of x-values to use for the pdf and cdf graphing. I am not going to show the picture. Reader can confirm by using the code by oneself.
+
+#Start coding inputs for the pdf graph
+x_val <- seq(-3,3, length.out=50) #Create x-values sequence to input into the pdf function
+pdf_val <- dnorm(x_val, 0, 1) #Returns values of pdfs for every x value (realisation) input
+plot(x_val, pdf_val, type="l")
+cdf_val <- pnorm(x_val, 0, 1) #Returns values of cdfs for every x value (realisation) input
+plot(x_val, cdf_val, type="l")
+abline(h=1, lty=3); abline(h=0, lty=3) #Visual barrier to tell us that CDF graph lies between 0 and 1 
+```
+<img src="https://actuary492.github.io/assets/images/pdf.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+<img src="https://actuary492.github.io/assets/images/cdf.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+
 ## Multivariate Distributions and Some Useful Commands in R
 
 The concepts that we dealt above was in the univariate case, which means we are only dealing with one random variable. However, we should know that in reality it is not as simple as that. Take for instance in risk management, we expect to deal with multiple random individual claims in a portfolio, that can be $X_1$, $X_2$ up to $X_n$ where each belongs to some distribution. This requires we know joint distribution of all those random variables to be able to calculate metrics such as the pdf, cdf, quantiles related to these random variables.
@@ -109,23 +140,23 @@ Let us take a multivariate normal distribution as an example.
 
 We need to note some changes to elements of the multivariate normal distribution versus the univariate normal distribution. A clear thing is while we dealt with only single values of mean and variance to describe the normal distribution in the univariate model. However, we now deal with vector of means and a variance-covariance matrix to describe distribution in the multivariate model. This should be logical as we assume every random variable possesses it's own mean, hence the vector of means. We also assume by default that there is correlation between these random variables, and these are used to calculate the variance and covariances that belongs in the variance-covariance matrix. Unless stated otherwise where there is no correlation between variables, covariances between random variables are esentially zero leaving us a diagonal variance matrix only consisting of variances of every random variable on the diagonals.
 
-To visualise, we compare:
+To help visualise:
 
-Univariate Normal Distribution pdf with only one mean and variance.
+Univariate Normal Distribution pdf that requires only one mean ($\mu$) and one variance ($\sigma^2$) with a single number input $x$.
 
 $$
 f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 $$
 
 
-Multivariate (n) Normal Distribution pdf with the mean vector (bolded $\mu$) and variance-covariance (bolded $\Sigma$) matrix.
+Multivariate (n) Normal Distribution pdf which requires multiple means stored as a vector (bolded $\mu$) and multiple variances and covariances stored as a variance-covariance (bolded $\Sigma$) matrix with potentially vector inputs of $x_1$, $x_2$ until $x_n$ (bolded $x$).
 
 $$
 f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
 $$
 
 
-In order to calculate the bivariate normal pdf (as a case of the multivariate distribution) in R, we can use the built in function dmnorm(). In other words we aim to find $P[X = 1 , Y = 1]$
+To illustrate how to use the built-in multivariate function in R, I attempt calculate the bivariate normal pdf (as a case of the multivariate distribution) in R, using the function dmnorm(). In other words we aim to find $P[X = 1 , Y = 1]$.
 
 ```r
 # First, we construct the mean vector and variance-covariance matrix of the bivariate normal distribution
@@ -135,19 +166,27 @@ covXY<-corXY*(varX*varY)^0.5
 covar_matx<-matrix(c(varX,covXY,covXY,varY),2,2)
 
 #Now, we want to find the probability of A=1 and B=1
-input_vector <- c(1,1)
-dmnorm(input_vector, mean_vecx, covar_matx)
+input_vector <- c(1,1) #Inputs of realisations a=1 and b=1 for the pdf 
+dmnorm(input_vector, mean_vecx, covar_matx) #Finds the pdf of P[X=1, Y=1]
 [1] 0.0111859
 ```
 
-We can also find the cdf of multivariate distributions using pmnorm(), which we can see as the joint probability that $X$ lies below some realisation $x$ and $Y$ lies below some realisation $y$, that is $P[X<x , Y<y]$ . We can generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution by columns. One can try to practice by finding pdf's and cdf's of higher variate distributions, for instance of 3 random variables.
+We can also find the cdf of multivariate distributions using pmnorm(), which we can see as the joint probability that $X$ lies below some realisation $x$ and $Y$ lies below some realisation $y$, that is $P[X<x , Y<y]$. We can also generate realisations of the bivariate distribution using rmnorm(). This command will generate some number of realisations of every random variable in the multivariate distribution by columns. One can try to practice by finding pdf's and cdf's of higher variate distributions, for instance of 3 random variables.
+
+```r
+#Find the cdf of a bivariate normal distribution with same input, that is P[X<1. Y<1]
+pmnorm(input_vector, mean_vecx, covar_matx)
+#Set number of simulations and set.seed() to ensure you produce same results
+set.seed(110); number_sims <- 15
+rnorm(number_sims, mean_vecx, covar_matx)
+```
 
 
 # Descriptive Statistics
 
 ## summary() Function
 
-We can use the summary() function in R to look at important descriptive statistics. This function produces a list of important descriptive statistics that can inform the user on how the dataset is distributed. Let us take a summary of the $\text{Trees}$ dataset R.
+We can use the summary() function in R to look at important descriptive statistics. This function produces a list of important descriptive statistics that can inform the user on how the dataset is distributed. Let us take a summary of the $\text{Trees}$ base dataset in R.
 
 ```r
 library(datasets) #install.packages("datasets") if not yet installed
@@ -172,32 +211,34 @@ To find the most common descriptive statistics of mean and variance in R, we can
 
 There are also functions that can help visualise distributions of the data. 
 
-Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a extremely positive correlation between the variable Diameter and Volume simply by looking at the plots without having to know the precise correlation coefficient.
+Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a extremely positive correlation between the variable Diameter and Volume simply by looking at the plots below without having to know the precise correlation coefficient.
 
 ```r
+#Pairwise scatter plots of all variables in the trees data
 plot(trees)
-
 ```
 <img src="https://actuary492.github.io/assets/images/scat.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 Another useful function is the histogram. This allows us to see the spread of a variable. We can use hist(). Let us find the histogram of the variable Diameter in the trees dataset.
 
 ```r
-hist(trees$Diameter)
+# The histogram shows spread using frequency or probabilities (when freq=FALSE added)
+hist(trees$Diameter, freq=FALSE) 
 ```
 <img src="https://actuary492.github.io/assets/images/hit.jpeg" alt="description" style="width: 80%; height: 80%;">
 
-The most informative built-in function for descriptive statistics is the pairs.panels() data. The built-in function creates pairwise plots of regression lines, histogram and correlation coefficients of variables in the data.
+The most informative built-in function for descriptive statistics is the pairs.panels() data. The built-in function creates pairwise plots of regression lines, histogram and correlation coefficients of variables in the data that shows the relationship between variables in a data which can be useful.
 
 ```r
-library(psych) #install psych if not yet done
+# Pairwise plots shows distribution of dataset by displaying numerous descriptive statistics visualisations
 pairs.panels(trees)
 ```
 <img src="https://actuary492.github.io/assets/images/panel.jpeg" alt="description" style="width: 80%; height: 80%;">
 
-This is everything so far on descriptive statistics. Of course, there are more built-in functions out there which I might not have discussed. It is always wise to explore those further.
+This is everything so far on basic descriptive statistics. Of course, there are more built-in functions out there which I might not have discussed. It is always wise to explore those further.q
 
 # Statistical Tests
+
 
 # The Maximum Likelihood Concept
 
