@@ -104,13 +104,14 @@ rpois(n=5, lambda=5)
 [1] 5 4 4 6 2 3 4 4 5 4
 ```
 
-## Visualising the Univariate pdf and cdf 
+## Visualising the Univariate pdf and cdf of Continuous and Discrete Functions
 
 Visualising graphs of the pdf and cdf are equally important. They allow us to see how the probability function develops as the realisations changes.
 
 ```r
-#First, we need to generate realisations of a Normal(0,1) distribution
+#First, we need to generate realisations (1000 of them) of a Normal(0,1) distribution (Continuous)
 set.seed(100)
+# Generating more realisations (1000) will give a more accurate x-range to work with later on.
 gen_norm <- rnorm(1000, 0, 1)
 
 #We make use of our realisations to findthe range of x values that we can generate to build the pdf and cdf graphs #of Normal(0,1) using the histogram function, that way we ensure a accurate pdf and cdf graph (to the tails of the #distribution) is shown.
@@ -128,6 +129,13 @@ plot(x_val, cdf_val, type="l")
 abline(h=1, lty=3); abline(h=0, lty=3) #Visual barrier to tell us that CDF graph lies between 0 and 1 
 ```
 <img src="https://actuary492.github.io/assets/images/cdfpdf.jpeg" alt="description" style="width: 100%; height: 80%;">
+
+We can see for instance through the pdf function, which realisation holds the most probability mass in the $Normal(0,1)$ distribution or how the tails of the distribution look like. On the other hand, the cdf function allows to find important quantiles of the distribution. 
+
+Note that I have graphed a continuous distribution above. If the distribution is discrete, then the pdf and cdf's functions cannot be presented by straight line. In the case of the cdf of Poisson, the graph would look like a step function. In the case of Poisson pdf, the graph would look more like a histogram. Making these plots can be done by adding the argument of $type="s"$ and $type="h"$ in the $plot()$ function of the cdf and pdf respectively.Take the visualisation of the Poisson(5) pdf and cdf. Since the code is rather repetitive, I will directly show the graphs while the code will still be available in the R-file itself.
+
+
+<img src="https://actuary492.github.io/assets/images/cdfpdfpoi.jpeg" alt="description" style="width: 100%; height: 80%;">
 
 
 ## Multivariate Distributions and Some Useful Commands in R
