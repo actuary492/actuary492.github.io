@@ -155,7 +155,7 @@ f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\r
 $$
 
 
-Multivariate (n) Normal Distribution pdf which requires multiple means stored as a vector (bolded $\mu$) and multiple variances and covariances stored as a variance-covariance (bolded $\Sigma$) matrix with potentially vector inputs of $x_1$, $x_2$ until $x_n$ (bolded $x$).
+Multivariate (n) Normal Distribution pdf which requires multiple means stored as a vector (bolded $\mu$) and multiple variances and covariances stored as a variance-covariance matrix (bolded $\Sigma$) with potentially multiple inputs of $x_1$, $x_2$ until $x_n$ as a vector (bolded $x$).
 
 $$
 f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\left[-\frac{1}{2} (\mathbf{x} - \boldsymbol{\mu})' \boldsymbol{\Sigma}^{-1} (\mathbf{x} - \boldsymbol{\mu})\right]
@@ -184,8 +184,45 @@ We can also find the cdf of multivariate distributions using pmnorm(), which we 
 pmnorm(input_vector, mean_vecx, covar_matx)
 #Set number of simulations and set.seed() to ensure you produce same results
 set.seed(110); number_sims <- 15
-rnorm(number_sims, mean_vecx, covar_matx)
+rmnorm(number_sims, mean_vecx, covar_matx)
 ```
+
+## Creating pdf and cdf graphs of the bivariate distribution (as a sample of the multivariate distribution)
+
+Knowing how to graph 
+
+```r
+# Create pdf and cdf graphs of bivariate normal of the same parameters above
+number_sims_new <- 1000
+gen_biv <- rmnorm(number_sims_new, mean_vecx, covar_matx)
+hist(gen_biv[,1], main="Spread of Random Variable X"); hist(gen_biv[,2],main="Spread of Random Variable Y")
+
+#We see that for X, realisations lie between -4 and 8, while for Y, realisations lie between -5 and 20.
+
+x_biv <- seq(-4, 8, 0.5); y_biv <- seq(-5, 20, 0.5)
+
+#Create pdf function that allows us to input x and y realisations into the multivariate pdf 
+
+pdf_biv <- function(x,y){dmnorm(cbind(x,y), mean_vecx, covar_matx)}
+cdf_biv <- function(x,y){pmnorm(cbind(x,y), mean_vecx, covar_matx)}
+
+# Now, we need to find values of the pdf for every different possible combinations of the x and y
+# The function outer() does the trick for us. 
+
+pdf_valbiv <- outer(x_biv, y_biv, pdf_biv)
+cdf_valbiv <- outer(x_biv, y_biv, cdf_biv)
+
+# The pdf we plot now is essentially a three dimensional plot, which we can display either 3-dimensionally by 
+# a perspective plot persp() or a 2-dimensional contour plot
+par(mfrow=c(1,2))
+persp(x_biv, y_biv, pdf_valbiv, xlab="x", ylab="y", zlab="Bivariate PDF", main="Bivariate PDF Perspective plot")
+contour(x_biv, y_biv, pdf_valbiv, xlab="x", ylab="y", main="Bivariate PDF Contour plot")
+par(mfrow=c(1,2))
+persp(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", zlab="Bivariate CDF", main="Bivariate CDF Perspective plot")
+contour(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", main="Bivariate CDF Contour plot")
+```
+<img src="https://actuary492.github.io/assets/images/bivpdf.jpeg" alt="description" style="width: 100%; height: 80%;">
+<img src="https://actuary492.github.io/assets/images/bivcdf.jpeg" alt="description" style="width: 100%; height: 80%;">
 
 
 # Descriptive Statistics
