@@ -357,7 +357,7 @@ qqnorm(trees$Volume, main="QQ Plot Volume"); qqline(trees$Volume)
 
 The deciding factor here to see whether such variable is normally distributed, is to see whether quantile points from the sample coincides with the theoretical quantile line. If quantile points from the data is close to the theoretical line, then it is enough evidence to suggest that the variable is normally distributed. 
 
-<img src="https://actuary492.github.io/assets/images/qqp.jpeg" alt="description" style="width: 80%; height: 80%;">
+<img src="https://actuary492.github.io/assets/images/qqp.jpeg" alt="description" style="width: 100%; height: 60%;">
 
 We can see that Height is clearly normally distributed, while there can be reasonable view to suggest that Diameter and Volume is also normally distributed, although we see couple of outliers in the quantiles of these variables compared to the theoretical quantiles.
 
