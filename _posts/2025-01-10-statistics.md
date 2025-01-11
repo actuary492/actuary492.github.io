@@ -144,7 +144,7 @@ The concepts that we dealt above was in the univariate case, which means we are 
 
 Let us take a multivariate normal distribution as an example.
 
-We need to note some changes to elements of the multivariate normal distribution versus the univariate normal distribution. A clear thing is while we dealt with only single values of mean and variance to describe the normal distribution in the univariate model. However, we now deal with vector of means and a variance-covariance matrix to describe distribution in the multivariate model. This should be logical as we assume every random variable possesses it's own mean, hence the vector of means. We also assume by default that there is correlation between these random variables, and these are used to calculate the variance and covariances that belongs in the variance-covariance matrix. Unless stated otherwise where there is no correlation between variables, covariances between random variables are esentially zero leaving us a diagonal variance matrix only consisting of variances of every random variable on the diagonals.
+We need to note some changes to elements of the multivariate normal distribution versus the univariate normal distribution. A clear thing is while we dealt with only single values of mean and variance to describe the normal distribution in the univariate model. However, we now deal with vector of means and a variance-covariance matrix to describe distribution in the multivariate model. This should be logical as we assume every random variable possesses it's own mean, hence the vector of means. We also assume by default that there is correlation between these random variables, and these are used to calculate the variance and covariances between variables that belongs in the variance-covariance matrix. Unless stated otherwise where there is no correlation between variables, covariances between random variables are esentially zero leaving us a diagonal variance matrix only consisting of variances of every random variable on the diagonals.
 
 To help visualise:
 
@@ -224,7 +224,7 @@ contour(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", main="Bivariate CDF Contou
 <img src="https://actuary492.github.io/assets/images/bivpdf.jpeg" alt="description" style="width: 100%; height: 80%;">
 <img src="https://actuary492.github.io/assets/images/bivcdf.jpeg" alt="description" style="width: 100%; height: 80%;">
 
-We should note that contour plots are esentially vertical slices of the perspective plots.
+We should note that contour plots are esentially horizontal slices of the perspective plots.
 
 Due to limitations in R we are only allowed to graph at best a 3-dimensional plot. Thus if one is presented with a tri-variate distribution (three random variables) or further, then one only has the capability to plot different bivariate combinations of the trivariate (or multivariate) distribution. It also logical that a larger dimensional graph would not be handy either as it would be hard to interpret. Nevertheless, this will be still be useful to us. Why? Through pairwise plots of the three (or multiple) variables, we can potentially identify dependencies of these variables while marginalising the others. 
 
@@ -284,9 +284,24 @@ pairs.panels(trees)
 ```
 <img src="https://actuary492.github.io/assets/images/panel.jpeg" alt="description" style="width: 80%; height: 80%;">
 
-This is everything so far on basic descriptive statistics. Of course, there are more built-in functions out there which I might not have discussed. It is always wise to explore those further.q
+This is everything so far on basic descriptive statistics. Of course, there are more built-in functions out there which I might not have discussed. It is always wise to explore those further.
 
-# Statistical Tests
+# Hypothesis Testing and Statistical Tests
+
+A hypothesis that states something about a population is true or not. If a hypothesis is not true, there should be an alternative hypothesis. Therefore through hypothesis testing, we attempt to either accept one hypothesis while rejecting the other. We normally call the two hypotheses as the null hypothesis and the alternative hypothesis. This is done by incorporating statistical tests that can help aid in forming such conclusion. Of course, there is a chance that we do not arrive at the correct conclusion, such as when one rejects the null hypothesis given the null hypothesis is true, or accepting the null hypothesis when the null hypothesis is false. This is called the type I error and type II error respectively. A type I error is considered to be more serious than a type II error, hence hypothesis testing is based on trying to limit the probability of making a type I error to some level called the significance level ($\alpha$).
+
+
+## p-value as a Statistical Concept for Hypothesis Testing 
+
+In elementary statistics classes, you might have learned hypothesis testing by first determining some significance level, then constructing some rejection region based on that significance level that can reject the null hypothesis, before calculating some test statistic based on observed data which we check lies in the rejection region or not. If the test statistic lies in the rejection region, we reject the null, otherwise, we accept the null. However, most built in hypothesis testing functions in statistical softwares do not show rejection regions. Rather, they produce quick ouputs of some test-statistic with it's associated p-value which we can directly compare to some significance level to conclude the hypothesis test. It is not to say that knowing how to find rejection regions is unimportant, but I will only be focusing on the p-value in this article due to it's popular use in softwares. The reader can do self-study on how rejection regions are constructed. 
+
+The p-value tells us the probability of obtaining something more extreme than what is observed (in the data we use for hypothesis testing), given that the null hypothesis is true. Essentially, the p-value can be called as the probability of a type I error.
+
+With the explanation above in mind, the p-value therefore illustrates how extreme the observed value of the test statistic is under the condition that the null hypothesis is true. A small p-value therefore tells us such observation is very unlikely under the null hypothesis, which then can tell us the null hypothesis is not sufficient to explain the observation. Hence, a small probability value is seen as "sufficient evidence" reject the null hypothesis. "Sufficient evidence" meaning to say that it is not 100% true that the null hypothesis is false, it is only that we do not have sufficient evidence (based on observed data) to accept the null hypothesis. 
+
+Linking this to the significance level, we can say that this determines how small can the p-value reasonably be to reject the null hypothesis. In most literature, a 5% significance level is deemed enough. 
+
+# Types of tests in Statistics
 
 
 # The Maximum Likelihood Concept
