@@ -295,7 +295,7 @@ A hypothesis that states something about a population is true or not. If a hypot
 
 In elementary statistics classes, you might have learned hypothesis testing by first determining some significance level, then constructing some rejection region based on that significance level that can reject the null hypothesis, before calculating some test statistic based on observed data which we check lies in the rejection region or not. If the test statistic lies in the rejection region, we reject the null, otherwise, we accept the null. However, most built-in hypothesis testing functions in statistical softwares do not show rejection regions. Rather, they produce quick ouputs of some test-statistic with it's associated p-value which we can directly compare to some significance level to conclude the hypothesis test. It is not to say that knowing how to find rejection regions is unimportant, but I will only be focusing on the p-value in this article due to it's popular use in softwares. The reader can do self-study on how rejection regions are constructed. 
 
-The p-value tells us the probability of obtaining a test statistic more extreme (and/or equal) than what is observed (from the data we use for hypothesis testing), given that the null hypothesis is true and this serves as evidence against the null hypothesis. Determining which extreme tail it is ($\geq$ or $\leq$) requires that we understand the alternative hypothesis. If the alternative hypothesis deems that a population mean is lower than some value, in order to reject $H_0$, then we need to show probability of the observing an even lower sample mean than on our observed data given the null hypothesis to help with "finding" the evidence against the null.
+The p-value tells us the probability of obtaining a test statistic more extreme (and/or equal) than what is observed (from the data we use for hypothesis testing), given that the null hypothesis is true and this serves as evidence against the null hypothesis. 
 
 $$
 \text{p-value} = P[Test statistic \geq x | H_0 true]
@@ -305,9 +305,11 @@ $$
 \text{p-value} = P[Test statistic \leq x | H_0 true]
 $$
 
-With the explanation above in mind, a small p-value therefore tells us such that the test statistics we observed, and it's tails is very extreme and unlikely to occur under the null hypothesis. 
+Determining which extreme tail it is ($\geq$ or $\leq$) requires that we understand the alternative hypothesis. If the alternative hypothesis deems that a population mean is lower than some value, in order to reject $H_0$, then we need to show probability of the observing an even lower sample mean than on our observed data given the null hypothesis to help with "finding" the evidence against the null.
 
-If the null hypothesis were to be true, the probability of the observed test statistic and it's extremes occuring under the null hypothesis should be fairly large. The fact that the probability of the observed test statistic and it's extremes occuring is very rare on the distribution under the null, should allow us to question whether the null is correct. This is equivalent to saying that even though the null had predicted your observed test statistic to be an unlikely occurence, yet you still observed it through your dataset, suggesting $H_0$ might not be the best explanation for the data. 
+With the explanation above in mind, a small p-value therefore tells us such that the probability of observing an equal sample test statistic or it's extremes is very unlikely under the null hypothesis. 
+
+If the null hypothesis were to be true, the probability of the observed test statistic and it's extremes occuring under the null hypothesis should be fairly large. The fact that the probability of the observed test statistic and it's extremes occuring is very rare on the distribution under the null, should allow us to question whether the null is correct. This is equivalent to saying that even though the null had predicted your observed test statistic and it's extremes to be an unlikely occurence, yet you still observed it through your dataset, suggesting $H_0$ might not be the best explanation for the data. 
 
 Hence, a small probability value is seen as "evidence" to reject the null hypothesis. "Evidence" does not tell us $100%$ that the null hypothesis is false, simply that the evidence we received (based on observed data) shows that we should reject the null hypothesis. 
 
@@ -359,7 +361,7 @@ The deciding factor here to see whether such variable is normally distributed, i
 
 <img src="https://actuary492.github.io/assets/images/qqp.jpeg" alt="description" style="width: 100%; height: 60%;">
 
-We can see by this method, we have strong evidence to suggest Height normally distributed as it's sample quantiles lie very close to the theoretical quantiles, while there can be reasonable view to put into doubt whether Diameter and Volume are also normally distributed, as we see couple of outliers in the quantiles of these variables compared to the theoretical quantiles.
+We can see by this method, we have strong evidence to suggest Height normally distributed as it's sample quantiles lie very close to the theoretical quantiles, while there can be reasonable view to put into doubt whether Diameter and Volume are also normally distributed, as we see couple of deviations in the quantiles of these variables compared to the theoretical quantiles.
 
 ### Testing Normality Analytically
 
@@ -439,7 +441,7 @@ A = 1.2916, p-value = 0.001944
 #while there is no evidence to suggest Diameter and Volume is normally distributed
 ```
 
-The conclusion for the normality of Height from these tests agree with it's graphical normality analysis. On the other hand, we see that Diameter was suggested to be normal in the Jarque-Bera test, but not in the Anderson-Darling Test and Shapiro-Wilk test, while graphical tests of the QQ-Plot showed that Diameter might possibly not be normal. Again, it boils down to checking back at assumptions of the tests we use and see whether it fits the problem one needs to solve.
+The conclusion for the normality of Height from these tests agree with it's graphical normality analysis. On the other hand, we see that Diameter was suggested to be normal in the Jarque-Bera test, but not in the Anderson-Darling Test and Shapiro-Wilk test, while graphical tests of the QQ-Plot showed that Diameter might possibly not be normal. Again, it boils down to checking whether the dataset we use fits the assumptions of the normality test.
 
 ## Testing whether some variable fits some distribution
 
