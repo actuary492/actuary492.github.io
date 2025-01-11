@@ -299,6 +299,8 @@ The p-value tells us the probability of obtaining something more extreme (and /o
 
 $$
 \text{p-value} = P[Test statistic \geq x | H_0 true]
+$$
+$$
 \text{p-value} = P[Test statistic \leq x | H_0 true]
 $$
 
