@@ -189,7 +189,7 @@ rmnorm(number_sims, mean_vecx, covar_matx)
 
 ## Creating pdf and cdf graphs of the bivariate distribution (as a sample of the multivariate distribution)
 
-Knowing how to graph 
+It is equally important to know how to graph the bivariate pdf and cdf. The purpose of illustrations remain the same as in the univariate case, to understand important data points that give the most probability mass and to identify important quantiles of the distribution. Below is the code to do so.
 
 ```r
 # Create pdf and cdf graphs of bivariate normal of the same parameters above
@@ -223,6 +223,8 @@ contour(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", main="Bivariate CDF Contou
 ```
 <img src="https://actuary492.github.io/assets/images/bivpdf.jpeg" alt="description" style="width: 100%; height: 80%;">
 <img src="https://actuary492.github.io/assets/images/bivcdf.jpeg" alt="description" style="width: 100%; height: 80%;">
+
+Due to limitations in R we are only allowed to graph at best a 3-dimensional plot. Thus if one is presented with a tri-variate distribution (three random variables) or further, then one only has the capability to plot different bivariate combinations of the trivariate (or multivariate) distribution. It also logical that a larger dimensional graph would not be handy either as it would be hard to interpret. Nevertheless, this will be still be useful to us. Why? Through pairwise plots of the three (or multiple) variables, we can potentially identify dependencies of these variables while marginalising the others. 
 
 
 # Descriptive Statistics
