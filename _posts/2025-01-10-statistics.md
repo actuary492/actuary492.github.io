@@ -300,6 +300,7 @@ The p-value tells us the probability of obtaining a test statistic more extreme 
 $$
 \text{p-value} = P[Test statistic \geq x | H_0 true]
 $$
+
 $$
 \text{p-value} = P[Test statistic \leq x | H_0 true]
 $$
@@ -310,7 +311,7 @@ If the null hypothesis were to be true, the probability of the observed test sta
 
 Hence, a small probability value is seen as "evidence" to reject the null hypothesis. "Sufficient evidence" meaning to say that it is not $100%$ true that the null hypothesis is false, it is only that we do not have sufficient evidence (based on observed data) to accept the null hypothesis. 
 
-Linking this to the significance level, we can say that this determines the threshold of how large of a p-value can we set to reject the null hypothesis. In most literature, a 5% significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining a more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
+Linking this to the significance level, we can look at this as the threshold of how large of a p-value or in other words, how extreme can an observation be in order to consider that it does not belong to the distribution. In most literature, a 5% significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
 
 # Types of tests
 
