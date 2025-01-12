@@ -386,7 +386,7 @@ We can see by this method, we have strong evidence to suggest Height normally di
 
 ### Testing Normality Analytically
 
-There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (used when observations are large), the Shapiro-Wilk and Anderson-Darling Test (used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. 
+There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (used when observations are large), the Shapiro-Wilk and Anderson-Darling Test (used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. I will show whether the variables in the $\text{Trees}$ dataset are distributed normally via the R-code below:
 
 ```r
 #Jarque Bera Test
@@ -522,7 +522,7 @@ In ks.test.default(trees$Volume, "pnorm", mean(trees$Volume), var(trees$Volume))
   ties should not be present for the one-sample Kolmogorov-Smirnov test
 ```
 
-This tells us that there are potentially repeating values in these variables, which invalidate assumptions of the Kolmogorov-Smirnov test that requires variables to be strictly continuous. Do we want to accept these results when we clearly know the dataset has violated assumptions of the test? It ultimately depends on the situation one faces.
+This tells us that there are potentially repeating values in these variables, which invalidate assumptions of the Kolmogorov-Smirnov test that requires variables to be strictly continuous. Do we want to accept these results when we clearly know the dataset has violated assumptions of the test? It ultimately depends on the circumstances of one's research.
 
 ## T-Tests
 
