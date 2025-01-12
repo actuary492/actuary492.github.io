@@ -654,5 +654,8 @@ There are also more types of t-tests out there, one being paired t-tests which t
 
 # Concept of Maximum Likelihood
 
+The final topic of this article is on maximum likelihood. In this concept, we aim to find an estimator which can maximize the probability of something happening. Maximum likelihood essentially helps us to model parameters that best explains our observed data. 
+
+The problem set that we encounter with maximum likelihood is visualised as follows:
 
 
