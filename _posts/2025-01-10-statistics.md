@@ -385,7 +385,7 @@ We can see by this method, we have strong evidence to suggest Height normally di
 
 ### Testing Normality Analytically
 
-There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (usually done when observations are large) and the Shapiro-Wilk Test (normally used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. 
+There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (usually done when observations are large), the Shapiro-Wilk and Anderson-Darling Test (normally used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. 
 
 ```r
 #Jarque Bera Test
@@ -461,7 +461,7 @@ A = 1.2916, p-value = 0.001944
 #while there is no evidence to suggest Diameter and Volume is normally distributed
 ```
 
-The conclusion for the normality of Height from these tests agree with it's graphical normality analysis. On the other hand, we see that Diameter was suggested to be normal in the Jarque-Bera test, but not in the Anderson-Darling Test and Shapiro-Wilk test, while graphical tests of the QQ-Plot showed that Diameter might possibly not be normal. Again, it boils down to checking whether the dataset we use fits the assumptions of the normality test.
+The conclusion for the normality of Height from these tests agree with it's graphical normality analysis. On the other hand, we see that Diameter was suggested to be normal in the Jarque-Bera test, but not in the Anderson-Darling Test and Shapiro-Wilk test, while graphical tests of the QQ-Plot showed that Diameter might possibly not be normal. Again, it boils down to checking whether the dataset we use fits the assumptions of the normality test and the reader is therefore encouraged to read more into the theory behind these different normality tests.
 
 ## Testing whether some variable fits some distribution
 
@@ -469,9 +469,31 @@ We should of course make again the distinction between continuous and discrete v
 
 ```r
 # Kolmogorov-Smirnov Test 1: Testing if Height is normally distributed as N(mean(trees$Height), var(trees$Height))
-ks.test(trees$Height,"pnorm", mean(trees$Height), var(trees$Height))
 
-# Low p-value tells us that normality of Height is rejected.
+ks.test(trees$Height,"pnorm", mean(trees$Height), var(trees$Height))
+ks.test(trees$Diameter,"pnorm",mean(trees$Diameter),var(trees$Diameter))
+ks.test(trees$Volume,"pnorm",mean(trees$Volume),var(trees$Volume))
+
+	Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  trees$Height
+D = 0.39322, p-value = 0.0001373
+alternative hypothesis: two-sided
+
+	Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  trees$Diameter
+D = 0.30766, p-value = 0.005653
+alternative hypothesis: two-sided
+
+	Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  trees$Volume
+D = 0.47054, p-value = 2.184e-06
+alternative hypothesis: two-sided
+
+# Low p-value tells us that normality of Height, Diameter and Volume is rejected.
+# But we note of the error message when we execute these commands above (to be explained)
 
 # Kolmogorov-Smirnov Test 2: Testing if Gamma(1,5) is equivalent to Exp(5)
 
@@ -486,9 +508,18 @@ data:  rgamma(1000, 1, 5) and rexp(1000, 5)
 D = 0.032, p-value = 0.6852
 alternative hypothesis: two-sided
 
-# The p-value of 0.6852 tells us there is evidence that both of them are of the same distribution
+# The p-value tells us there is evidence that both of them are of the same distribution, aligning with theory.
 
 ```
+When we execute the ks.test() for variables of the $\text{Trees}$ dataset to check for their normality, we see an error message as follows:
+
+```r
+Warning message:
+In ks.test.default(trees$Volume, "pnorm", mean(trees$Volume), var(trees$Volume)) :
+  ties should not be present for the one-sample Kolmogorov-Smirnov test
+```
+
+This tells us that there are potentially repeating values in these variables, which invalidate assumptions of the Kolmogorov-Smirnov test that requires variables to be strictly continuous. Do we want to accept these results when we clearly know the dataset has violated assumptions of the test? It ultimately depends on the situation one faces.
 
 ## T-Tests
 
