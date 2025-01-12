@@ -325,15 +325,15 @@ Below I present two differing arguments to why we can use or not use this low p-
 
 This argument is broken by explaning the essence of hypothesis testing, which tells us that it is more "probabilistically" reasonable to believe that the null hypothesis is wrong than to believe that we have observed something extreme and improbable, hence it's usage of a low p-value as evidence against the null.
 
-"Evidence" does not tell us that the null hypothesis is $100%$ false, simply that the evidence we received (based on observed data) shows that it does not reasonably fit the null hypothesis. 
+"Evidence" does not tell us that the null hypothesis is $100$ percent false, simply that the evidence we received (based on observed data) shows that it does not reasonably fit the null hypothesis. 
 
 ### Linking the p-value to the significance level
 
-So the question now is to what small probability will be seen as enough to reject the null hypothesis? 
+So the question now is what is a maximum p-value that can be seen as enough to reject the null hypothesis? 
 
-Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
+Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the p-value of obtaining an equal or more extreme test statistic than observed is less than 5%, then we say we have sufficient evidence to reject the null hypothesis. 
 
-The significance level also acts as a barrier for the type I error. A more lower significance level (typically applied when deciding critical decisions) means that we are much more stricter in avoiding a type I error (rejection of the null hypothesis when the null hypothesis is true i.e. false positives), however there is also a trade-off that we are more likely to not reject the null and potentially miss out on detecting true effects.
+The significance level also acts as a barrier for the type I error. A more lower significance level (typically applied when deciding critical decisions) means that we are much more stricter in avoiding a type I error (rejection of the null hypothesis when the null hypothesis is true i.e. false positives), however there is also a trade-off that such low significance levels makes it more likely that null is not rejected and potentially miss out on detecting true effects.
 
 
 # Types of statistical tests
