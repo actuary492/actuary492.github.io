@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Present Value in Actuarial Science"
+title: "Present Value"
 date: 2024-12-18
 excerpt: "We will explore the present value and it's applications in Actuarial Science using R"
 author: Nicholas Wijaya
