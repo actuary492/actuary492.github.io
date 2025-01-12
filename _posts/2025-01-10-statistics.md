@@ -746,7 +746,7 @@ In this article, we have learned about all the basics of statistics necessary fo
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
 # R-Script Download
-The R-Script can be downloaded from the assets directory in my GitHub repository. The file is named Statistics_Rcode_Actuary492.R
+The R-Script can be downloaded from the assets directory in my GitHub repository. The file is under the folder "codes", named Statistics_Rcode_Actuary492.R
 
 
 
