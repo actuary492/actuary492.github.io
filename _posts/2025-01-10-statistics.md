@@ -564,7 +564,7 @@ $$
 Which uses the t-statistic that follows the t-distribution of $n_1+n_2-1$ degrees of freedom, where $n_1$ is the number of observations for the first sample, $n_2$ is the number of observations for the second sample, and the $\hat{\sigma}^2$ being the pooled sample variance.
 
 $$
-\text{t statistic} = \frac{x_2 - x_1}{\hat{\sigma} \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} \sim t_{n_1+n_2-1),  \quad \hat{\sigma}^2 = \frac{(n_1 - 1)\hat{\sigma}_1^2 + (n_2 - 1)\hat{\sigma}_2^2}{n_1 + n_2 - 2}
+\text{t statistic} = \frac{x_2 - x_1}{\hat{\sigma} \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} \sim t_{n_1+n_2-1},  \quad \hat{\sigma}^2 = \frac{(n_1 - 1)\hat{\sigma}_1^2 + (n_2 - 1)\hat{\sigma}_2^2}{n_1 + n_2 - 2}
 $$
 
 
