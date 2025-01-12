@@ -342,7 +342,9 @@ There are several common statistical tests out there. I will attempt to elaborat
 
 ## Normality Tests
 
-Tests are normality are very common on statistical literature. This is necessary because conducting t-tests and variance tests (explained below) will require that the data in question is normally distributed in order to produce accurate statistical inferences. Common causes of un-normality can be when data is skewed heavy to one side, or when there are many outliers outside typical ranges in the data. Testing for normality can be done graphically or analytically. Each method can yield different conclusions on the normality.
+Tests are normality are very common on statistical literature. This is necessary because conducting t-tests and variance tests (explained below) will require assumption that the data in question is normally distributed in order to produce accurate statistical inferences. 
+
+Common causes of non-normality can be when data is skewed heavy to one side, or when there are many outliers outside typical ranges in the data. Testing for normality can be done graphically or analytically. Each method can yield different conclusions on the normality.
 
 ### Testing Normality Graphically
 
@@ -385,11 +387,13 @@ We can see by this method, we have strong evidence to suggest Height normally di
 
 ### Testing Normality Analytically
 
-There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (usually done when observations are large), the Shapiro-Wilk and Anderson-Darling Test (normally used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. 
+There are various analytical tests for normality. They are to be found in the package $\text{nortest}$ in R. Some examples are the Jarque-Bera Test (used when observations are large), the Shapiro-Wilk and Anderson-Darling Test (used when observations are small). Here we assume that the null hypothesis states a variable is normally distributed, while the alternative is that it is not normally distributed. 
 
 ```r
 #Jarque Bera Test
+library(nortest)
 library(tseries)
+
 jarque.bera.test(trees$Height); jarque.bera.test(trees$Diameter); jarque.bera.test(trees$Volume)
 
 
@@ -523,9 +527,16 @@ This tells us that there are potentially repeating values in these variables, wh
 
 ## T-Tests
 
-T-tests are a very common in statistics and they aim to measure whether some parameter has an effect or not to some response. It makes use of comparing whether there is a significant difference of means between two variables to conclude if some parameter does indeed have an effect or not. 
+T-tests are very common in statistics. The general framework of the t-test is to test $H_0: \theta = 0$ against $H_a: \theta \neq 0$, whether some parameter $\theta$ has an effect or not. 
 
-## Tests for the mean
+$$
+t\text{-value} := \frac{\hat{\theta}}{\text{s.e.}(\hat{\theta})}
+$$
+
+
+
+
+### Tests for the mean
 
 ## Tests for variance (ANOVA)
 
