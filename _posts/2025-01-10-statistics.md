@@ -527,16 +527,27 @@ This tells us that there are potentially repeating values in these variables, wh
 
 ## T-Tests
 
-T-tests are very common in statistics. The general framework of the t-test is to test $H_0: \theta = 0$ against $H_a: \theta \neq 0$, whether some parameter $\theta$ has an effect or not. 
+T-tests are very common in statistics. The general framework of the t-test is to test $\text{H_0} : \theta = 0$ against $\text{H_a} : \theta \neq 0$, tests for the presence of some non-zero estimator $\theta$ using the t-distribution.
 
 $$
-t\text{-value} := \frac{\hat{\theta}}{\text{s.e.}(\hat{\theta})}
+t\text{-value} := \frac{\hat{\theta}}{\text{s.e.}(\hat{\theta})} = \frac{\text{Signal}}{\text{Noise}}
 $$
 
+We can also interpret the t-statistic as the $\text{signal-noise ratio}$. The signal being the "strength" of the observed estimator, while the noise is the standard deviation (spread) of the observed estimate. The stronger the signal with very low variability, the higher the t-value which serves evidence that the estimator has a non-zero effect. If the signal is weak (low value), with a high variability, the lower the t-value which serves as evidence the estimator has zero effect.
 
+### Tests for the mean (one-sample and two sample)
 
+Testing for one-sample mean involves this hypothesis test: 
 
-### Tests for the mean
+$$
+$\text{H_0} : \mu = \mu_0$ against $\text{H_a} : \mu \neq \mu_0$
+$$
+
+Which uses the t-statistic that follows the t-distribution of n-1 degrees of freedom, where n is the number of observations of the sample.
+
+$$
+t = \frac{\bar{x} - \mu_0}{\hat{\sigma} / \sqrt{n}} ~ t_n-1, \quad \text{where} \quad \hat{\sigma}^2 = \frac{S_{xx}}{n - 1}
+$$
 
 ## Tests for variance (ANOVA)
 
