@@ -529,7 +529,7 @@ This tells us that there are potentially repeating values in these variables, wh
 T-tests are very common in statistics. The general framework of the t-test tests for the presence of some non-zero estimator $\theta$ using the t-distribution, using this hypothesis
 
 $$
-H_0 : \theta = 0 | H_a : \theta \neq 0
+H_0 : \theta = 0 \quad \text{vs} H_a : \theta \neq 0
 $$
 
 with the t-statistic as follows: 
@@ -545,7 +545,7 @@ We can also interpret the t-statistic as the $\text{signal-noise ratio}$. The si
 The *one-sample mean test* involves this hypothesis test: 
 
 $$
-H_0 : \mu = \mu_0 | H_a : \mu \neq \mu_0
+H_0 : \mu = \mu_0 \quad \text{vs} H_a : \mu \neq \mu_0
 $$
 
 Which uses the t-statistic that follows the t-distribution of n-1 degrees of freedom, where n is the number of observations of the sample.
@@ -557,7 +557,7 @@ $$
 The *two-sample mean test* involves this hypothesis test:
 
 $$
-H_0 : \mu_1 = \mu_2 | H_a : \mu_1 \neq \mu_2
+H_0 : \mu_1 = \mu_2 \quad \text{vs} H_a : \mu_1 \neq \mu_2
 $$
 
 Which uses the t-statistic that follows the t-distribution of $n_1+n_2-1$ degrees of freedom, where $n_1$ is the number of observations for the first sample, $n_2$ is the number of observations for the second sample, and the $\hat{\sigma}^2$ being the pooled sample variance.
@@ -621,7 +621,7 @@ The test for equal variances is important: one example being it is necessary to 
 This involves the hypothesis test of:
 
 $$
-H_0 : \frac{\sigma_1}{sigma_2} = 1 | H_a : \frac{\sigma_1}{sigma_2} \neq 1
+H_0 : \frac{\sigma_1}{sigma_2} = 1 \quad \text{vs} H_a : \frac{\sigma_1}{sigma_2} \neq 1
 $$
 
 That uses the the F-statistic that follows the F-distribution with $n_1 - 1$ and $n_2 - 1$ degrees of freedom:
