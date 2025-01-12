@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/stat.jpg"
 permalink: /posts/statistics/
-published: false
+published: true
 draft: false
 tags: [post, statistics]
 ---
@@ -24,7 +24,7 @@ tags: [post, statistics]
   }
 </style>
 
->*Statistics is the forefront of science. It helps people of different fields make informed decisions. It is also the same in risk management. Statistics can help companies quantify the probability of going insolvent. Statistics plays a big part in informing the likelihood of some amount of claims being made. Shortly speaking, statistics is the foundation for almost all concepts in risk management. Therefore, I am dedicating this post to re-exploring the basic statistical concepts to refresh your memory.*
+>*Statistics lies at the heart of decision-making across various fields of science and business. In risk management, it plays a pivotal role in helping companies quantify uncertainties, such as the probability of insolvency or the likelihood and magnitude of claims. By providing a framework to model and analyze risk, statistics forms the backbone of actuarial science and informs nearly all aspects of effective risk management. In this post, we revisit fundamental statistical concepts to refresh your understanding and highlight their importance in managing and mitigating risk.*
 
 # Distributions in Statistics
 
@@ -567,9 +567,93 @@ $$
 \text{t statistic} = \frac{x_2 - x_1}{\hat{\sigma} \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} \sim t_{n_1+n_2-1},  \quad \hat{\sigma}^2 = \frac{(n_1 - 1)\hat{\sigma}_1^2 + (n_2 - 1)\hat{\sigma}_2^2}{n_1 + n_2 - 2}
 $$
 
+To conduct t-tests in R, look at the following code:
 
-## Tests for variance (ANOVA)
+```r
+# T- tests for one-sample
+xt_test <- rnorm(1000, mean=3) #generate normal distribution of N(3,1)
+t.test(xt_test, mu=0)
+
+	One Sample t-test
+
+data:  xt_test
+t = 98.663, df = 999, p-value < 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 2.961975 3.082190
+sample estimates:
+mean of x 
+ 3.022083 
+
+# The p-value is smaller than 5%, giving us evidence to reject the null which states that mu of x is 0.
+# This should be logical because our sample was generated as a N(3,1) distribution.
+
+# T- tests for two-samples
+yt_test <- rnorm(1000, mean=0) #generate normal distribution N(0,1)
+t.test(xt_test, yt_test, var.equal=TRUE)
+
+Two Sample t-test
+
+data:  xt_test and yt_test
+t = 67.993, df = 1998, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 2.903926 3.076419
+sample estimates:
+ mean of x  mean of y 
+3.02208272 0.03190988 
+
+# The small p-value tells us that there is reasonable evidence to show that there is indeed a difference mean between x and y, which should be the case because we generated x and y out of Normal distributions that have different means.
+
+```
+
+Some remarks: t.test() does two-tailed tests by default, if one wishes to conduct a left or right tailed
+test they can input in the "alternative" argument "greater" or "less". Adding the argument var.equal=TRUE
+is allowed in this case as I have generated x and y from a normal distribution that has the same variance.
+Therefore, the t.test() here is executed by calculating the t-statistic by using the pooled sample variance that relies on the assumption that sample variances are equal. If we leave this var.equal argument out or set it to FALSE, the t.stat() function will calculate the Welch's t-statistic that accounts for unequal sample variances. 
+
+To give a more practical outlook on the t-tests, imagine if a insurance company wants to expand its operations to another country. To do so, they need to know whether the means of claims per year in their current country is significantly different to the other country. The two-sample t-test is needed in this case.
 
 
-# The Maximum Likelihood Concept
+## Tests for equal variance
+
+The test for equal variances is important: one example being it is necessary to ensure equal variance between two variables before we are able to conduct two-sample mean test between these two variables. It can also be useful in the ANOVA analysis.
+
+This involves the hypothesis test of:
+
+$$
+H_0 : \frac{\sigma_1}{sigma_2} = 1 | H_a : \frac{\sigma_1}{sigma_2} \neq 1
+$$
+
+That uses the the F-statistic that follows the F-distribution with $n_1 - 1$ and $n_2 - 1$ degrees of freedom:
+
+$$
+F = \frac{\hat{\sigma}_1^2}{\hat{\sigma}_2^2} \sim F_{n1-1, n2-2}
+$$
+
+To conduct this test in R:
+
+```r
+var.test(xt_test, yt_test)
+
+data:  xt_test and yt_test
+F = 0.94218, num df = 999, denom df = 999, p-value = 0.3467
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.8322262 1.0666604
+sample estimates:
+ratio of variances 
+         0.9421798 
+
+# As expected, a fairly large p-value suggests that x and y do indeed have the same variance, as we have generated both from a Normal distribution with the same variance.
+```
+
+## Small remarks on statistical tests
+
+There are also more types of t-tests out there, one being paired t-tests which the reader can further explore. Additionally, I want to emphasise again on being able to understand assumptions associated with certain tests. This is vital to ensure that we use the test where assumptions fit our data in order to get accurate inferences.
+
+
+# Concept of Maximum Likelihood
+
+
 
