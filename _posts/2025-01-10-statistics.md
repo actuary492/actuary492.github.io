@@ -24,7 +24,7 @@ tags: [post, statistics]
   }
 </style>
 
->*Statistics lies at the heart of decision-making across various fields of science and business. In risk management, it plays a pivotal role in helping companies quantify uncertainties, such as the probability of insolvency or the likelihood and magnitude of claims. By providing a framework to model and analyze risk, statistics forms the backbone of actuarial science and informs nearly all aspects of effective risk management. In this post, we revisit fundamental statistical concepts to refresh your understanding and highlight their importance in managing and mitigating risk.*
+>*Statistics lies at the heart of decision-making across various fields of science and business. In risk management, it plays a pivotal role in helping companies quantify uncertainties, such as the probability of insolvency or the likelihood and magnitude of claims. By providing a framework to model and analyze risk, statistics forms the backbone of actuarial science and informs nearly all aspects of effective risk management. In this post, we revisit fundamental statistical concepts to refresh your understanding and highlight their importance.*
 
 # Distributions in Statistics
 
