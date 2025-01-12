@@ -734,13 +734,19 @@ $$
 2 \ell(\text{Full}) - 2 \ell(\text{Part}) \sim \chi^2_p2
 $$
 
-$\text{Full}$ is the log-likelihood of the model inclusive of all parameters, $\text{Part}$ is the log-likelihood of the model only using $\theta_1$. $p_2$ is the number of parameters we suspect to be unnecessary.
+$\text{Full}$ is the log-likelihood of the model inclusive of all parameters, $\text{Part}$ is the log-likelihood of the model only using $\theta_1$. $p_2$ is the number of parameters we suspect to be unnecessary. 
+
+This concept of testing will come back quite often in regression analysis. Often times, we need to decide which model best explains our data where in some cases a single parameter can be a decider to the best model and this is commonly used to decide.
 
 # Conclusion
 
-# References
+In this article, we have learned about all the basics of statistics necessary for actuaries. We explored basic probability functions, descriptive statistics, hypothesis testing and the maximum likelihood concept along with executing them in R. I hope this article has helped refresh your memory. Until the next one.
 
-# R Script Download
+# References
+McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
+
+# R-Script Download
+The R-Script, along with the dataset, can be downloaded from the assets directory in my GitHub repository. The file is named Statistics_Rcode_Actuary492.R
 
 
 
