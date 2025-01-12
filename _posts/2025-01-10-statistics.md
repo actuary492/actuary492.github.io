@@ -731,7 +731,7 @@ $$
 with the LRT Test statistic as follows:
 
 $$
-2 \ell(\text{Full}) - 2 \ell(\text{Part}) \sim \chi^2_p2
+2 \ell(\text{Full}) - 2 \ell(\text{Part}) \sim \chi^2_{p2}
 $$
 
 $\text{Full}$ is the log-likelihood of the model inclusive of all parameters, $\text{Part}$ is the log-likelihood of the model only using $\theta_1$. $p_2$ is the number of parameters we suspect to be unnecessary. 
