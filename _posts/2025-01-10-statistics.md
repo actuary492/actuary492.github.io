@@ -530,7 +530,7 @@ This tells us that there are potentially repeating values in these variables, wh
 T-tests are very common in statistics. The general framework of the t-test tests for the presence of some non-zero estimator $\theta$ using the t-distribution, using this hypothesis
 
 $$
-H_0: \theta = 0$ \text{against} H_a : \theta \neq 0
+H_0: \theta = 0$ | H_a : \theta \neq 0
 $$
 
 with the t-statistic as follows: 
@@ -546,7 +546,7 @@ We can also interpret the t-statistic as the $\text{signal-noise ratio}$. The si
 Testing for one-sample mean involves this hypothesis test: 
 
 $$
-H_0 : \mu = \mu_0 \text{against} H_a : \mu \neq \mu_0
+H_0 : \mu = \mu_0 | H_a : \mu \neq \mu_0
 $$
 
 Which uses the t-statistic that follows the t-distribution of n-1 degrees of freedom, where n is the number of observations of the sample.
