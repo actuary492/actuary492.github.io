@@ -530,7 +530,7 @@ This tells us that there are potentially repeating values in these variables, wh
 T-tests are very common in statistics. The general framework of the t-test tests for the presence of some non-zero estimator $\theta$ using the t-distribution, using this hypothesis
 
 $$
-H_0: \theta = 0$ | H_a : \theta \neq 0
+H_0 : \theta = 0 | H_a : \theta \neq 0
 $$
 
 with the t-statistic as follows: 
