@@ -652,10 +652,97 @@ ratio of variances
 There are also more types of t-tests out there, one being paired t-tests which the reader can further explore. Additionally, I want to emphasise again on being able to understand assumptions associated with certain tests. This is vital to ensure that we use the test where assumptions fit our data in order to get accurate inferences.
 
 
-# Concept of Maximum Likelihood
+# Maximum Likelihood
+
+## Concept of Maximum Likelihood
 
 The final topic of this article is on maximum likelihood. In this concept, we aim to find an estimator which can maximize the probability of something happening. Maximum likelihood essentially helps us to model parameters that best explains our observed data. 
 
-The problem set that we encounter with maximum likelihood is visualised as follows:
+But first, what is a likelihood function? It is the pdf of some random variable Y expressed in terms of it's parameters.
+
+L(\theta) = f(Y; \theta), \quad \theta \in \Theta
+
+If we have a collection of *independent* random variables from $Y_1$ to $Y=n$, then the joint pdf becomes:
+
+L(\theta) = \prod_{i=1}^{n} f(y_i; \theta), \quad \theta \in \Theta
+
+With these in mind, the problem set we need to solve in order to find the $\theta$ that maximizes the likelihood/log-likelihood is as follows:
+
+\hat{\theta} = \arg \max_{\theta \in \Theta} L(\theta) = \arg \max_{\theta \in \Theta} \log L(\theta)
+
+Normally, the log-likelihood is solved instead of the likelihood due to numerical convenience as the product in the likelihood function becomes a summation instead.
+
+To show how one can conduct maximum likelihood estimation in R, we can look at the code below. Assume that we are working with some random variable Y that is exponentially distributed, and we want to find the parameter $\theta$ that can best describe the data belonging to random variable Y. Here, we make use of the function optimize() in R.
+
+```r
+# Construct data set of realisations of random variable Y
+y <- c(225, 171, 198, 189, 189, 135, 162, 135, 117, 162)
+
+# We believe that our observations is best explained by a Exponenttial distribution, but we need to find the parameter for the Exponential distribution
+
+# Construct the likelihood function of the random variable Y
+L <- function(theta){Y = prod(exp(-y/theta)/theta) ; Y}
+
+# Find the parameter of the Exponential Distribution that best explains the data (maximizes the likelihood)
+a=optimize(L, c(1,500), maximum = TRUE)
+a$maximum
+[1] 168.3
+
+mean(y)
+[1] 168.3
+
+```
+
+Via analytical solving, we should know that the optimization for the log-likelihood of the exponential pdf should lead to us getting the mean of y as the theta that can maximize the log-likelihood.
+
+Another function that we can use built-in function fitdistr() in the package MASS that also directly finds the parameters of the distribution that best explains the dataset y by maximizing the log-likelihood, without having to create the function manually as we did in above.
+
+```r
+# Generate realisations of y from an Exponential(5) distribution
+
+y_fit <- rexp(1000, 5)
+
+# We want to find the parameter that fits the realisations. Through the code above, we expect the rate of the exponential to be close to 5.
+
+fit <- fitdistr(y_fit, "exponential")
+
+fit$est
+
+rate 
+4.991422
+
+# Rate is indeed close to 5
+```
+
+## Likelihood Ratio Testing Using Maximum Likelihood
+
+The likelihood ratio test is very useful to test nested models. It uses a penalty term in the chi squared distribution when unecessary parameters are added in the model. 
+
+The LRT test statistic essentially finds the difference in log-likelihoods between the full model and the nested model and checks whether this difference is significant or not. If it is, there is evidence to deem that the additional parameter is necessary. If the difference is not significant, then there is evidence the additional parameter is not needed.
+
+Assume we have a set of parameters that we believe can potentially explain the model: $(\theta_1, \theta_2)$. We want to see whether $theta_1$ is enough to explain the model, or if both parameters $\theta_1$ and $\theta_2$ are needed.
+
+The hypothesis test for the above problem is:
+
+$$
+H_0 : \theta_2 = 0 \quad \text{vs} \quad H_1 : \theta_2 \neq 0
+$$
+
+with the LRT Test statistic as follows:
+
+$$
+2 \ell(\text{Full}) - 2 \ell(\text{Part}) \sim \chi^2_p2
+$$
+
+Where $\text{Full}$ is the log-likelihood of the model inclusive of all parameters, $\text{Part}$ is the log-likelihood of the model only using $\theta_1$. $p_2$ is the number of parameters we suspect to be unnecessary.
+
+
+```
+
+
+
+
+
+
 
 
