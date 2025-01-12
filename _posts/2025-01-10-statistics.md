@@ -187,7 +187,7 @@ set.seed(110); number_sims <- 15
 rmnorm(number_sims, mean_vecx, covar_matx)
 ```
 
-## Creating pdf and cdf graphs of the bivariate distribution (as a sample of the multivariate distribution)
+## Creating pdf and cdf graphs of the bivariate normal distribution (as a case of the multivariate distribution)
 
 It is equally important to know how to graph the bivariate pdf and cdf. The purpose of illustrations remain the same as in the univariate case, to understand important data points that give the most probability mass and to identify important quantiles of the distribution. Below is the code to do so.
 
