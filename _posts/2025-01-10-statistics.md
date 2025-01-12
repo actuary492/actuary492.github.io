@@ -132,7 +132,7 @@ abline(h=1, lty=3); abline(h=0, lty=3) #Visual barrier to tell us that CDF graph
 
 We can see for instance through the pdf function, which realisation holds the most probability mass in the $Normal(0,1)$ distribution or how the tails of the distribution look like. On the other hand, the cdf function allows to find important quantiles of the distribution. 
 
-Note that I have graphed a continuous distribution above. If the distribution is discrete, then the pdf and cdf's functions cannot be presented by straight line. In the case of the cdf of Poisson, the graph would look like a step function. In the case of Poisson pdf, the graph would look more like a histogram. Making these plots can be done by adding the argument of $type="s"$ and $type="h"$ in the $plot()$ function of the cdf and pdf respectively.Take the visualisation of the Poisson(5) pdf and cdf. Since the code is rather repetitive, I will directly show the graphs while the code will still be available in the R-file itself.
+Note that I have graphed a continuous distribution above. If the distribution is discrete, then the pdf and cdf's functions cannot be presented by straight line. In the case of the cdf of Poisson, the graph would look like a step function. In the case of Poisson pdf, the graph would look more like a histogram. Making these plots can be done by adding the argument of $type="s"$ and $type="h"$ in the $plot()$ function of the cdf and pdf respectively. I will show the visualisation of the Poisson(5) pdf and cdf. Since the code is rather repetitive, I will directly show the graphs while the code will still be available in the R-file itself.
 
 
 <img src="https://actuary492.github.io/assets/images/cdfpdfpoi.jpeg" alt="description" style="width: 100%; height: 80%;">
@@ -142,9 +142,9 @@ Note that I have graphed a continuous distribution above. If the distribution is
 
 The concepts that we dealt above was in the univariate case, which means we are only dealing with one random variable. However, we should know that in reality it is not as simple as that. Take for instance in risk management, we expect to deal with multiple random individual claims in a portfolio, that can be $X_1$, $X_2$ up to $X_n$ where each belongs to some distribution. This requires we know joint distribution of all those random variables to be able to calculate metrics such as the pdf, cdf, quantiles related to these random variables.
 
-Let us take a multivariate normal distribution as an example.
+Let us take a multivariate normal distribution as an example and compare it to its univariate counterpart to see the differences.
 
-We need to note some changes to elements of the multivariate normal distribution versus the univariate normal distribution. A clear thing is while we dealt with only single values of mean and variance to describe the normal distribution in the univariate model. However, we now deal with vector of means and a variance-covariance matrix to describe distribution in the multivariate model. This should be logical as we assume every random variable possesses it's own mean, hence the vector of means. We also assume by default that there is correlation between these random variables, and these are used to calculate the variance and covariances between variables that belongs in the variance-covariance matrix. Unless stated otherwise where there is no correlation between variables, covariances between random variables are esentially zero leaving us a diagonal variance matrix only consisting of variances of every random variable on the diagonals.
+We need to note some changes to elements of the multivariate normal distribution versus the univariate normal distribution. While we dealt with only single values of mean and variance to describe the normal distribution in the univariate model. However, we now deal with vector of means and a variance-covariance matrix to describe distribution in the multivariate model. This should be logical as we assume every random variable possesses it's own mean, hence the vector of means. We also assume by default that there is correlation between these random variables, and these are used to calculate the variance and covariances between variables that belongs in the variance-covariance matrix. Unless stated otherwise where there is no correlation between variables, covariances between random variables are esentially zero leaving us a diagonal variance matrix only consisting of variances of every random variable on the diagonals.
 
 To help visualise:
 
@@ -162,7 +162,7 @@ f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2} (\det \boldsymbol{\Sigma})^{0.5}} \exp\lef
 $$
 
 
-To illustrate how to use the built-in multivariate function in R, I attempt calculate the bivariate normal pdf (as a case of the multivariate distribution) in R, using the function dmnorm(). In other words we aim to find $P[X = 1 , Y = 1]$.
+To illustrate how to use the built-in multivariate function in R, I attempt calculate the bivariate normal pdf (as a case of the multivariate distribution) in R for the realisations $X=1$ and $Y=1$, using the function dmnorm(). In other words we aim to find $P[X = 1 , Y = 1]$.
 
 ```r
 # First, we construct the mean vector and variance-covariance matrix of the bivariate normal distribution
@@ -171,8 +171,8 @@ varX<-4; varY<-16; corXY<-0.1
 covXY<-corXY*(varX*varY)^0.5
 covar_matx<-matrix(c(varX,covXY,covXY,varY),2,2)
 
-#Now, we want to find the probability of A=1 and B=1
-input_vector <- c(1,1) #Inputs of realisations a=1 and b=1 for the pdf 
+#Now, we want to find the probability of X=1 and Y=1
+input_vector <- c(1,1) #Inputs of realisations x=1 and y=1 for the pdf 
 dmnorm(input_vector, mean_vecx, covar_matx) #Finds the pdf of P[X=1, Y=1]
 [1] 0.0111859
 ```
@@ -226,7 +226,9 @@ contour(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", main="Bivariate CDF Contou
 
 We should note that contour plots are esentially horizontal slices of the perspective plots.
 
-Due to limitations in R we are only allowed to graph at best a 3-dimensional plot. Thus if one is presented with a tri-variate distribution (three random variables) or further, then one only has the capability to plot different bivariate combinations of the trivariate (or multivariate) distribution. It also logical that a larger dimensional graph would not be handy either as it would be hard to interpret. Nevertheless, this will be still be useful to us. Why? Through pairwise plots of the three (or multiple) variables, we can potentially identify dependencies of these variables while marginalising the others. 
+One might ask whether it is possible to plot all dimensions of a multivariate probability function. Unfortunately, are only allowed to graph at best a 3-dimensional plot in R. It also logical that a larger dimensional graph would not be handy either as it would be hard to interpret. Thus if one is presented with a tri-variate distribution (three random variables) or further, then one only has the capability to plot different bivariate combinations of the trivariate (or multivariate) distribution. Nevertheless, this will be still be useful to us. Through pairwise plots of the three (or multiple) variables, we can potentially identify dependencies of these variables while marginalising the others. 
+
+There are more R-packages that contain built-in functions for different multivariate distributions. The reader is encouraged to explore these further.
 
 
 # Descriptive Statistics
@@ -260,7 +262,7 @@ To find the most common descriptive statistics of mean, variance, correlation in
 
 There are also functions that can help visualise distributions of the data. 
 
-Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a extremely positive correlation between the variable Diameter and Volume simply by looking at the plots below without having to know the precise correlation coefficient.
+Take for instance the built-in functions of plot() which gives us the scatter plot between Diameter, Height and Volume. Via this scatterplot we will be able to deduce important relationships of variables. For instance, we can see that there is a fairly high positive correlation between the variable Diameter and Volume simply by looking at the plots below without having to know the precise correlation coefficient.
 
 ```r
 #Pairwise scatter plots of all variables in the trees data
@@ -288,12 +290,16 @@ This is everything so far on basic descriptive statistics. Of course, there are 
 
 # Hypothesis Testing: The Basis to all Statistical Tests
 
-A hypothesis that states something about a population is true or not. If a hypothesis is not true, there should be an alternative hypothesis. Therefore through hypothesis testing, we attempt to either accept one hypothesis while rejecting the other. We normally call the two hypotheses as the null hypothesis and the alternative hypothesis. This is done by incorporating statistical tests that can help aid in forming such conclusion. Of course, there is a chance that we do not arrive at the correct conclusion, such as when one rejects the null hypothesis given the null hypothesis is true, or accepting the null hypothesis when the null hypothesis is false. This is called the type I error and type II error respectively. A $\text{type I error}$ is considered to be more serious than a $\text{type II error}$, hence hypothesis testing is based on trying to limit the probability of making a type I error to some level called the significance level ($\alpha$).
+A hypothesis that states something about a population is true or not. If a hypothesis is not true, there should be an alternative hypothesis. Therefore through hypothesis testing, we attempt to either accept one hypothesis while rejecting the other. We normally call the two hypotheses as the null hypothesis and the alternative hypothesis. 
+
+This is done by incorporating statistical tests that can help aid in forming such conclusion. Of course, there is a chance that we do not arrive at the correct conclusion, such as when one rejects the null hypothesis given the null hypothesis is true, or accepting the null hypothesis when the null hypothesis is false. This is called the type I error and type II error respectively. A $\text{type I error}$ is considered to be more serious than a $\text{type II error}$, hence statistical testing is based on trying to limit the probability of making a type I error to some level called the significance level ($\alpha$).
 
 
-## p-value as a Statistical Concept for Hypothesis Testing 
+## p-value as a Statistical Concept for Statistical Testing 
 
-In elementary statistics classes, you might have learned hypothesis testing by first determining some significance level, then constructing some rejection region based on that significance level that can reject the null hypothesis, before calculating some test statistic based on observed data which we check lies in the rejection region or not. If the test statistic lies in the rejection region, we reject the null, otherwise, we accept the null. However, most built-in hypothesis testing functions in statistical softwares do not show rejection regions. Rather, they produce quick ouputs of some test-statistic with it's associated p-value which we can directly compare to some significance level to conclude the hypothesis test. It is not to say that knowing how to find rejection regions is unimportant, but I will only be focusing on the p-value in this article due to it's popular use in softwares. The reader can do self-study on how rejection regions are constructed. 
+In elementary statistics classes, you might have learned statistical testing by first determining some significance level, then constructing some rejection region based on that significance level that can reject the null hypothesis, before calculating some test statistic based on observed data which we check lies in the rejection region or not. If the test statistic lies in the rejection region, we reject the null, otherwise, we accept the null. 
+
+However, most built-in hypothesis testing functions in statistical softwares do not show rejection regions. Rather, they produce quick ouputs of some test-statistic with it's associated p-value which we can directly compare to some significance level to conclude the hypothesis test. It is not to say that knowing how to find rejection regions is unimportant, but I will only be focusing on the p-value in this article due to it's popular use in softwares. The reader can do self-study on how rejection regions are constructed. 
 
 The p-value tells us the probability of obtaining a test statistic more extreme (and/or equal) than what is observed (from the data we use for hypothesis testing), given that the null hypothesis is true and this serves as evidence against the null hypothesis. 
 
@@ -307,13 +313,27 @@ $$
 
 Determining which extreme tail it is ($\geq$ or $\leq$) requires that we understand the alternative hypothesis. If the alternative hypothesis deems that a population mean is lower than some value, in order to reject $H_0$, then we need to show probability of the observing an even lower sample mean than on our observed data given the null hypothesis to help with "finding" the evidence against the null.
 
-With the explanation above in mind, a small p-value therefore tells us such that the probability of observing an equal sample test statistic or it's extremes is very unlikely under the null hypothesis. 
 
-If the null hypothesis were to be true, the probability of the observed test statistic and it's extremes occuring under the null hypothesis should be fairly large. The fact that the probability of the observed test statistic and it's extremes occuring is very rare on the distribution under the null, should allow us to question whether the null is correct. This is equivalent to saying that even though the null had predicted your observed test statistic and it's extremes to be an unlikely occurence, yet you still observed it through your dataset, suggesting $H_0$ might not be the best explanation for the data. 
+### Interpreting the p-value
 
-Hence, a small probability value is seen as "evidence" to reject the null hypothesis. "Evidence" does not tell us $100%$ that the null hypothesis is false, simply that the evidence we received (based on observed data) shows that we should reject the null hypothesis. 
+The p-value can be seen as evidence to reject the null hypothesis. Looking at it's composition, it esentially attempts to find whether the test statistic based on your observation (and it's extremes) is likely under the null hypothesis. In practice, the lower the p-value, the more credible the evidence is to reject the null. But one can wonder, how does a low p-value serve as evidence? 
 
-So the question now is to what small probability will be seen as enough to reject the null hypothesis? Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. The significance level also acts as a barrier for the type I error. A more lower significance level (typically applied when deciding critical decisions) means that we are much more stricter in avoiding rejection of the null hypothesis when the null hypothesis is true.
+Below I present two differing arguments to why we can use or not use this low p-value to conclude hypothesis testing.
+
+- Can this directly considered evidence against the null? A small p-value could mean that our observations still fit the distribution under the null. It could simply be coincidence that we drew extreme observations under the null distribution for the test, but it does not necessarily mean that the null doesn't explain the observations.
+- On the other hand, if our test observation is extreme, then it can also be evidence that perhaps the observations is not best explained by the null. If the null were true, we expect our observed test statistic to fall in the high probability region of the null distribution (close to the mean).
+
+This argument is broken by explaning the essence of hypothesis testing, which tells us that it is more "probabilistically" reasonable to believe that the null hypothesis is wrong than to believe that we have observed something extreme and improbable, hence it's usage of a low p-value as evidence against the null.
+
+"Evidence" does not tell us that the null hypothesis is $100%$ false, simply that the evidence we received (based on observed data) shows that it does not reasonably fit the null hypothesis. 
+
+### Linking the p-value to the significance level
+
+So the question now is to what small probability will be seen as enough to reject the null hypothesis? 
+
+Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the probability of obtaining an equal or more extreme test statistic than observed is less than 5%, then we have sufficient evidence to reject the null hypothesis. 
+
+The significance level also acts as a barrier for the type I error. A more lower significance level (typically applied when deciding critical decisions) means that we are much more stricter in avoiding a type I error (rejection of the null hypothesis when the null hypothesis is true i.e. false positives), however there is also a trade-off that we are more likely to not reject the null and potentially miss out on detecting true effects.
 
 
 # Types of statistical tests
