@@ -226,7 +226,7 @@ contour(x_biv, y_biv, cdf_valbiv, xlab="x", ylab="y", main="Bivariate CDF Contou
 
 We should note that contour plots are esentially horizontal slices of the perspective plots.
 
-One might ask whether it is possible to plot all dimensions of a multivariate probability function. Unfortunately, are only allowed to graph at best a 3-dimensional plot in R. It also logical that a larger dimensional graph would not be handy either as it would be hard to interpret. Thus if one is presented with a tri-variate distribution (three random variables) or further, then one only has the capability to plot different bivariate combinations of the trivariate (or multivariate) distribution. Nevertheless, this will be still be useful to us. Through pairwise plots of the three (or multiple) variables, we can potentially identify dependencies of these variables while marginalising the others. 
+One might ask whether it is possible to plot all dimensions of a multivariate probability function. Unfortunately, a larger dimensional graph (say n+1 dimensions) would not be handy as it would be hard to interpret. Thus, most people use at most 3 dimensional graphs to illustrate relatonships of bivariates. If one is presented with a tri-variate distribution (three random variables) or further, then it is best to plot different bivariate combinations of the trivariate (or multivariate) distribution. This is still useful to us as pairwise plots of the three (or multiple) variables can allow us to potentially identify dependencies of these variables while marginalising the others. 
 
 There are more R-packages that contain built-in functions for different multivariate distributions. The reader is encouraged to explore these further.
 
@@ -465,19 +465,34 @@ The conclusion for the normality of Height from these tests agree with it's grap
 
 ## Testing whether some variable fits some distribution
 
-We should of course make again the distinction between continuous and discrete variables and distirbutions. For continuous variables and distributions, the Kolmogorov-Smirnov test is commonly used, while Chi-square tests are used for discrete variables and distributions.
+We should of course make again the distinction between continuous and discrete variables and distirbutions. For continuous variables and distributions, the Kolmogorov-Smirnov test is commonly used, while Chi-square tests are used for discrete variables and distributions. The reader is encouraged to explore the theory of these tests. I will show below how this is used in R.
 
 ```r
-# Testing if Height is normally distributed as N(mean(trees$Height), var(trees$Height))
+# Kolmogorov-Smirnov Test 1: Testing if Height is normally distributed as N(mean(trees$Height), var(trees$Height))
 ks.test(trees$Height,"pnorm", mean(trees$Height), var(trees$Height))
 
 # Low p-value tells us that normality of Height is rejected.
 
+# Kolmogorov-Smirnov Test 2: Testing if Gamma(1,5) is equivalent to Exp(5)
+
+#In theory, these should be equal, what about by test?
+
+set.seed(100)
+ks.test(rgamma(1000, 1, 5), rexp(1000, 5))
+
+	Asymptotic two-sample Kolmogorov-Smirnov test
+
+data:  rgamma(1000, 1, 5) and rexp(1000, 5)
+D = 0.032, p-value = 0.6852
+alternative hypothesis: two-sided
+
+# The p-value of 0.6852 tells us there is evidence that both of them are of the same distribution
 
 ```
 
-
 ## T-Tests
+
+T-tests are a very common in statistics and they aim to measure whether some parameter has an effect or not to some response. It makes use of comparing whether there is a significant difference of means between two variables to conclude if some parameter does indeed have an effect or not. 
 
 ## Tests for the mean
 
