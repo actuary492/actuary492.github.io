@@ -373,7 +373,6 @@ Another method is to use the Normal QQ-Plot. The qqnorm() function plots the poi
 ```r
 #Using QQ-plot
 par(mfrow=c(1,3))
-#The function qqnorm() produces the 
 qqnorm(trees$Height, main="QQ Plot Height"); qqline(trees$Height)
 qqnorm(trees$Diameter, main="QQ Plot Diameter"); qqline(trees$Diameter)
 qqnorm(trees$Volume, main="QQ Plot Volume"); qqline(trees$Volume)
