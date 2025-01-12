@@ -540,13 +540,13 @@ We can also interpret the t-statistic as the $\text{signal-noise ratio}$. The si
 Testing for one-sample mean involves this hypothesis test: 
 
 $$
-$\text{H_0} : \mu = \mu_0$ against $\text{H_a} : \mu \neq \mu_0$
+\text{H_0} : \mu = \mu_0$ against $\text{H_a} : \mu \neq \mu_0
 $$
 
 Which uses the t-statistic that follows the t-distribution of n-1 degrees of freedom, where n is the number of observations of the sample.
 
 $$
-t = \frac{\bar{x} - \mu_0}{\hat{\sigma} / \sqrt{n}} ~ t_n-1, \quad \text{where} \quad \hat{\sigma}^2 = \frac{S_{xx}}{n - 1}
+t = \frac{\bar{x} - \mu_0}{\hat{\sigma} / \sqrt{n}} \sim t_{n-1}, \quad \text{where} \quad \hat{\sigma}^2 = \frac{S_{xx}}{n - 1}
 $$
 
 ## Tests for variance (ANOVA)
