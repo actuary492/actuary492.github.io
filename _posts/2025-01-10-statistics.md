@@ -543,7 +543,7 @@ We can also interpret the t-statistic as the $\text{signal-noise ratio}$. The si
 
 ### Tests for the mean (one-sample and two sample)
 
-Testing for one-sample mean involves this hypothesis test: 
+The one-sample mean test involves this hypothesis test: 
 
 $$
 H_0 : \mu = \mu_0 | H_a : \mu \neq \mu_0
@@ -552,8 +552,21 @@ $$
 Which uses the t-statistic that follows the t-distribution of n-1 degrees of freedom, where n is the number of observations of the sample.
 
 $$
-\text{t statistic} = \frac{\bar{x} - \mu_0}{\hat{\sigma} / \sqrt{n}} \sim t_{n-1}, \quad \text{where} \quad \hat{\sigma}^2 = \frac{S_{xx}}{n - 1}
+\text{t statistic} = \frac{\bar{x} - \mu_0}{\hat{\sigma} / \sqrt{n}} \sim t_{n-1}, \quad \hat{\sigma}^2 = \frac{S_{xx}}{n - 1}
 $$
+
+The two-sample mean test involves this hypothesis test:
+
+$$
+H_0 : \mu_1 = \mu_2 | H_a : \mu_1 \neq \mu_2
+$$
+
+Which uses the t-statistic that follows the t-distribution of $n_1+n_2-1$ degrees of freedom, where $n_1$ is the number of observations for the first sample, $n_2$ is the number of observations for the second sample, and the $ hat{\sigma}^2$ being the pooled sample variance.
+
+$$
+t = \frac{x_2 - x_1}{\hat{\sigma} \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}},  \quad \hat{\sigma}^2 = \frac{(n_1 - 1)\hat{\sigma}_1^2 + (n_2 - 1)\hat{\sigma}_2^2}{n_1 + n_2 - 2}
+$$
+
 
 ## Tests for variance (ANOVA)
 
