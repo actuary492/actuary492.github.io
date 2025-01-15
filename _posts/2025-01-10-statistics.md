@@ -664,7 +664,7 @@ $$
 L(\theta) = f(Y; \theta), \quad \theta \in \Theta
 $$
 
-If we have a collection of *independent* random variables from $Y_1$ to $Y=n$, then the joint pdf becomes:
+If we have a collection of *independent* random variables from $Y_1$ to $Y_n$, then the joint pdf becomes:
 
 $$
 L(\theta) = \prod_{i=1}^{n} f(y_i; \theta), \quad \theta \in \Theta
