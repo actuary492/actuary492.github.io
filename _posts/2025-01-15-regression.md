@@ -179,11 +179,17 @@ $$
 I will expand $cov(x_i, y_i)$ and $cov(x_i,x_i)$ to show the equality above holds true:
 
 $$
-cov(x_i, y_i) = \sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i - \bar{y_i})  = \sum_{i=1}^{n} x_i y_i - \bar{y_i} x_i - \bar{x_i} y_i + \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - \bar{y_i} \sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} y_i + \sum_{i=1}^{n} \bar{x_i} \bar{y_i}
+cov(x_i, y_i) = \sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i - \bar{y_i})  = \sum_{i=1}^{n} x_i y_i - \bar{y_i} x_i - \bar{x_i} y_i + \bar{x_i} \bar{y_i}
 $$
 
 $$
+\sum_{i=1}^{n} x_i y_i - \bar{y_i} \sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} y_i + \sum_{i=1}^{n} \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - \bar{y_i} \sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} y_i + n \bar{x_i} \bar{y_i}
+$$
 
+Using, yet again, $\sum_{i=1}^{n} a_i = n*\frac{1}{n} \sum_{i=1}^{n} a_i = n \bar{a_i}$ 
+
+$$
+\sum_{i=1}^{n} x_i y_i - \bar{y_i} n \bar{x_i} - \bar{x_i} n \bar{y_i} + n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - n \bar{y_i} \bar{x_i} - n \bar{x_i} \bar{y_i} + n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - 2n \bar{x_i} \bar{y_i} + n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - n \bar{x_i} \bar{y_i}
 $$
 
 
