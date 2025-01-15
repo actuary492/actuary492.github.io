@@ -52,7 +52,7 @@ $$
 
 ## Assumptions of the Linear Regression Model
 
-An important assumption in this model is that the errors are conditionally normally distributed $e|X=x$ with mean 0 and finite constant variance $\sigma^2$, $e|X=x \sim N(0, \sigma^2)$. Why conditional on X=x? Fixed $x_i$'s are assumed in order to generate predictions $\hat{y_i}$ used to calculate errors. Random error realisations are therefore dependent on fixed $x_i$.
+An important assumption in this model is that the errors are conditionally normally distributed $e|X=x$ with mean 0 and finite constant variance $\sigma^2$, $e|X=x \sim N(0, \sigma^2)$. Why conditional on $X=x$? Fixed $x_i$'s are assumed in order to generate predictions $\hat{y_i}$ used to calculate errors. Random error realisations therefore require fixed $x_i$.
 
 This means that the average of errors shall be zero meaning the model shall not over-or-underpredict $y_i$. The constant variance tells us that spread of errors must remain the same across all values of the predictor $x_i$. If the spread of errors is different for different fixed $x_i$, it tells us that the model predictions are reliable for some values of $x_i$ than the others, which can invalidate conclusions from the model.
 
