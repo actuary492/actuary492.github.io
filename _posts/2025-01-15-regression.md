@@ -118,9 +118,14 @@ $$
 Using the relationship $\sum_{i=1}^{n} a_i = n*\frac{1}{n} \sum_{i=1}^{n} a_i = n \bar{a_i}$ 
  
 $$
-n*\bar{y_i} - n\alpha - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \alpha - \beta \bar{x_i}) = 0 \rightarrow \bar{y_i} - \alpha - \beta \bar{x_i}) = 0 
+n*\bar{y_i} - n\alpha - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \alpha - \beta \bar{x_i}) = 0 \rightarrow \bar{y_i} - \alpha - \beta \bar{x_i} = 0 
 $$
 
+Moving $\alpha$ to other side we get the estimate:
+
+$$
+\alpha = \bar{y_i} - \beta \bar{x_i}
+$$
 
 
 
