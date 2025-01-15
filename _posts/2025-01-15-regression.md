@@ -96,35 +96,35 @@ In other words, the $\alpha$ and $\beta$ is calculated such that it produces the
 Let me take you through how you can derive $\alpha$ and $\beta$.
 
 $$
-\min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)^2
+\min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)^2
 $$
 
 Deriving $\alpha$ by minimization:
 
 $$
-\frac{d}{d_\alpha} \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)^2 = 0
+\frac{d}{d_\alpha} \sum_{i=1}^{n} (y_i - \hat{\alpha}  - \hat{\beta} x_i)^2 = 0
 $$
 
 $$
-\sum_{i=1}^{n} 2*(y_i - \alpha - \beta x_i)*(-1) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \alpha - \beta x_i) = 0
+\sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i)*(-1) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i) = 0
 $$
 
 We split the summation into own terms:
 
 $$
-\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \alpha - \sum_{i=1}^{n} \beta x_i = 0 \rightarrow \sum_{i=1}^{n} y_i - n\alpha - \beta \sum_{i=1}^{n} x_i = 0
+\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \hat{\alpha} - \sum_{i=1}^{n} \hat{\beta} x_i = 0 \rightarrow \sum_{i=1}^{n} y_i - n\hat{\alpha} - \hat{\beta} \sum_{i=1}^{n} x_i = 0
 $$
 
 Using the relationship $\sum_{i=1}^{n} a_i = n*\frac{1}{n} \sum_{i=1}^{n} a_i = n \bar{a_i}$ 
  
 $$
-n*\bar{y_i} - n\alpha - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \alpha - \beta \bar{x_i}) = 0 \rightarrow \bar{y_i} - \alpha - \beta \bar{x_i} = 0 
+n*\bar{y_i} - n\hat{\alpha} - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \hat{\alpha} - \hat{\beta} \bar{x_i}) = 0 \rightarrow \bar{y_i} - \hat{\alpha} - \hat{\beta} \bar{x_i} = 0 
 $$
 
 Moving $\alpha$ to other side we get the estimate:
 
 $$
-\alpha = \bar{y_i} - \beta \bar{x_i}
+\hat{\alpha} = \bar{y_i} - \hat{\beta} \bar{x_i}
 $$
 
 
