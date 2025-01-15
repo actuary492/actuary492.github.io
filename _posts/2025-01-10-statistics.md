@@ -660,15 +660,21 @@ The final topic of this article is on maximum likelihood. In this concept, we ai
 
 But first, what is a likelihood function? It is the pdf of some random variable Y expressed in terms of it's parameters.
 
+$$
 L(\theta) = f(Y; \theta), \quad \theta \in \Theta
+$$
 
 If we have a collection of *independent* random variables from $Y_1$ to $Y=n$, then the joint pdf becomes:
 
+$$
 L(\theta) = \prod_{i=1}^{n} f(y_i; \theta), \quad \theta \in \Theta
+$$
 
 With these in mind, the problem set we need to solve in order to find the $\theta$ that maximizes the likelihood/log-likelihood is as follows:
 
+$$
 \hat{\theta} = \arg \max_{\theta \in \Theta} L(\theta) = \arg \max_{\theta \in \Theta} \log L(\theta)
+$$
 
 Normally, the log-likelihood is solved instead of the likelihood due to numerical convenience as the product in the likelihood function becomes a summation instead.
 
