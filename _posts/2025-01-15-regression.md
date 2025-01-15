@@ -41,10 +41,6 @@ where $f()$ is essentially some objective function that can be linear, polynomia
 Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
 
 $$
-e_i = y_i - \hat{y_i} = y_i - \hat{\alpha} - \hat{\beta} x_i
-$$
-
-$$
 y_i = \alpha + \beta x_i + e_i
 $$
 
@@ -53,6 +49,11 @@ The $\alpha$ and $\beta$ are estimates to be calculated in order to complete the
 $$
 \hat{y_i} = \hat{\alpha} + \hat{\beta} x_i
 $$
+
+$$
+e_i = y_i - \hat{y_i} = y_i - \hat{\alpha} - \hat{\beta} x_i
+$$
+
 
 ## Assumptions of the Linear Regression Model
 
