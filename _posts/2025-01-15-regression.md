@@ -176,7 +176,7 @@ $$
 \hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - \bar{y_i} n \bar{x_i}}{\sum_{i=1}^{n} x_i - \bar{x_i} n \bar{x_i}} \rightarrow \hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} }{\sum_{i=1}^{n} x_i - n \bar{x_i} \bar{x_i}} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
 $$
 
-I will expand $cov(x_i, y_i)$ and $cov(x_i,x_i)$ to show the equality above holds true:
+I will first expand the numerator to show that fraction above holds true:
 
 $$
 cov(x_i, y_i) = \sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i - \bar{y_i})  = \sum_{i=1}^{n} x_i y_i - \bar{y_i} x_i - \bar{x_i} y_i + \bar{x_i} \bar{y_i}
@@ -192,7 +192,7 @@ $$
 \sum_{i=1}^{n} x_i y_i - \bar{y_i} n \bar{x_i} - \bar{x_i} n \bar{y_i} + n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - n \bar{y_i} \bar{x_i} - n \bar{x_i} \bar{y_i} + n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - 2n \bar{x_i} \bar{y_i} + n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - n \bar{x_i} \bar{y_i}
 $$
 
-
+We have proven the equality of the numerator. With the same method above, one can also prove the denominator $cov(x_i,x_i)$ holds true, and so does the equality for the fraction concerning \hat{\beta}. As the formula is repetitive, I will skip it and let the reader try it out themselves.
 
 
 
