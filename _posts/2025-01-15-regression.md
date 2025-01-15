@@ -99,6 +99,20 @@ $$
 \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)^2
 $$
 
+Deriving $\alpha$ by minimization:
+
+$$
+\frac{d}{d_\alpha} \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)^2 = 0
+$$
+
+$$
+\sum_{i=1}^{n} 2*(y_i - \alpha - \beta x_i)*(-1) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \alpha - \beta x_i) = 0
+$$
+
+$$
+\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} alpha - \sum_{i=1}^{n} \beta x_i = \sum_{i=1}^{n} y_i - n\alpha - \beta \sum_{i=1}^{n} x_i
+$$
+
 
 
 
