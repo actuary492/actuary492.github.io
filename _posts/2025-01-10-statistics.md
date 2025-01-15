@@ -746,7 +746,7 @@ This concept of testing will come back quite often in regression analysis. Often
 
 # Conclusion
 
-In this article, we have learned about all the basics of statistics necessary for actuaries. We explored basic probability functions, descriptive statistics, hypothesis testing and the maximum likelihood concept along with executing them in R. I hope this article has helped refresh your memory. Until the next one.
+In this article, we have learned about all the basics of statistics necessary for actuaries. We explored basic probability functions, descriptive statistics, hypothesis testing and the maximum likelihood concept along with how to execute them in R. I hope this article has helped refresh your memory. Until the next one.
 
 # References
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
