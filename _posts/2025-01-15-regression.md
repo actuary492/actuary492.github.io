@@ -24,7 +24,7 @@ tags: [post, regression]
   }
 </style>
 
->*Regression lies at the heart of science. This concept is useful when we aim to investigate whether some predictor variable has an effect to some response variable and potentially quantify it's effect. In risk management modelling, think for instance investigating whether age, location or number of claims in a previous period of the individual may have an effect on the claims in the current period. Having an overview of all possible factors that can influence claims is important to get an overview of where one's risk is precisely coming from. In fact, this analysis does require a variation of the regression method than the one we will be discussing in this article. Here, I will only explain linear regression, and further articles shall follow on the different types of regression models.*
+>*Regression lies at the heart of science. This concept is useful when we aim to investigate whether some predictor variable has an effect to some response variable and potentially quantify it's effect. In risk management modelling, think for instance investigating whether age, location or number of claims in a previous period of the individual may have an effect on the claims in the current period. Having an overview of all possible factors that can influence claims is important to get an overview of where one's risk is precisely coming from. In fact, this analysis does require a variation of the regression method than the one we will be discussing in this article. Here, I will only explain the basic concept of linear regression, and further articles shall follow on the different types of regression models.*
 
 # Regression
 
@@ -81,7 +81,17 @@ y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)
 $$
 
 
-## Finding $\beta$ through calculations
+## Finding $\alpha$ and $\beta$ through calculations
+
+Finding $\alpha$ and $\beta$ is done through the condition that these coefficients can arrive at a model can minimize the sum of squared residual errors. We have learned what the error is previously.
+
+$$
+\min_{\alpha, \beta} \sum_{i}{n} e_i^2 = \min_{\alpha, \beta} \sum_{i}{n} (y_i - \hat{y_i})^2
+$$
+
+
+
+
 
 
 ## Quantifying accuracy of $\beta$
