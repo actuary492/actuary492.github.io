@@ -146,7 +146,13 @@ $$
 Plugging in \hat{\alpha} into the last equation above:
 
 $$
-\sum_{i=1}^{n} y_i x_i - (\bar{y_i} - \hat{\beta} \bar{x_i} \sum_{i=1}^{n} x_i  - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+\sum_{i=1}^{n} y_i x_i - (\bar{y_i} - \hat{\beta} \bar{x_i}) \sum_{i=1}^{n} x_i  - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+$$
+
+Expanding equation further:
+
+$$
+\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i - \hat{\beta} \sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i - \hat{\beta} \sum_{i=1}^{n} x_i = 0 
 $$
 
 
