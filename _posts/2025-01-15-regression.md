@@ -96,7 +96,7 @@ In other words, the $\alpha$ and $\beta$ is calculated such that it produces the
 Let me take you through how you can derive $\alpha$ and $\beta$.
 
 $$
-\min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)^2
+\min_{\hat{\alpha|, \hat{\beta}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)^2
 $$
 
 Deriving $\alpha$ by minimization:
