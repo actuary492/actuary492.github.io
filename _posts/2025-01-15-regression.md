@@ -86,8 +86,13 @@ $$
 Finding $\alpha$ and $\beta$ is done through the condition that these coefficients can arrive at a model can minimize the sum of squared residual errors. We have learned what the error is previously.
 
 $$
-\min_{\alpha, \beta} \sum_{i}^{n} e_i^2 = \min_{\alpha, \beta} \sum_{i}^{n} (y_i - \hat{y_i})^2
+\min_{\alpha, \beta} \sum_{i=1}^{n} e_i^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
 $$
+
+In other words, the $\alpha$ and $\beta$ is calculated such that it produces the regression line that minimizes the distance between observations of $x_i$ to the regression line. Visualised, it looks as such:
+
+<img src="https://actuary492.github.io/assets/images/ssr.jpeg" alt="description" style="width: 80%; height: 80%;">
+
 
 
 
