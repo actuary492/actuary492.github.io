@@ -137,6 +137,19 @@ $$
 \sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i) * (-x_i) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0
 $$
 
+Splitting summation in individual terms:
+
+$$
+\sum_{i=1}^{n} y_i x_i - \sum_{i=1}^{n} \hat{\alpha} x_i  - \sum_{i=1}^{n} \hat{\beta} x_i x_i = 0 \rightarrow \sum_{i=1}^{n} y_i x_i - \hat{\alpha} \sum_{i=1}^{n} x_i  - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+$$
+
+Plugging in \hat{\alpha} into the last equation above:
+
+$$
+\sum_{i=1}^{n} y_i x_i - (\bar{y_i} - \hat{\beta} \bar{x_i} \sum_{i=1}^{n} x_i  - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+$$
+
+
 
 
 
