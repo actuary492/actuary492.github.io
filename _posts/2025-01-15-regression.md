@@ -71,7 +71,6 @@ Var[y_i|x_i] = Var[\alpha + \beta x_i + e_i|x_i]
              = Var[e_i|x_i] = \sigma^2
 
 y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)
-
 $$
 
 
