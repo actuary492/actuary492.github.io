@@ -86,7 +86,7 @@ $$
 Finding $\alpha$ and $\beta$ is done through the condition that these coefficients can arrive at a model can minimize the sum of squared residual errors. We have learned what the error is previously.
 
 $$
-\min_{\alpha, \beta} \sum_{i}{n} e_i^2 = \min_{\alpha, \beta} \sum_{i}{n} (y_i - \hat{y_i})^2
+\min_{\alpha, \beta} \sum_{i}^{n} e_i^2 = \min_{\alpha, \beta} \sum_{i}^{n} (y_i - \hat{y_i})^2
 $$
 
 
