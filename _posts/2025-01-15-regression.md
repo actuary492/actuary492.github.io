@@ -176,6 +176,10 @@ $$
 \hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - \bar{y_i} n \bar{x_i}}{\sum_{i=1}^{n} x_i - \bar{x_i} n \bar{x_i}} \rightarrow \hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} }{\sum_{i=1}^{n} x_i - n \bar{x_i} \bar{x_i}} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
 $$
 
+$$
+\hat{\beta} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
+$$
+
 I will first expand the numerator to show that fraction above holds true:
 
 $$
