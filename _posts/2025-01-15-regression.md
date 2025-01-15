@@ -34,27 +34,31 @@ $$
 Y = f(X_1, X_2, ... , X_p) + error
 $$
 
-where $f()$ is essentially some objective function that can be linear, polynomial containing predictor variables $(X_1, ... , X_p)$ that attempts to explain the response variable $Y$ and predict potential reponses $\hat{Y}$. In this article, we will be only focusing on linear regression, where the regression model shall only contain predictor variables of at most to the power of $1$.
+where $f()$ is essentially some objective function that can be linear, polynomial containing predictor variables $(X_1, ... , X_p)$ that attempts to model (explain) the response variable $Y$ and predict potential reponses $\hat{Y}$. In this article, we will be only focusing on linear regression, where the regression model shall only contain predictor variables of at most to the power of $1$.
 
 # Linear Regression Model
 
-Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $x_i$ and $y_i$ as follows:
+Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
 
 $$
 y_i = \alpha + \beta x_i + e_i
 $$
 
-The \alpha and \beta are estimates to be calculated in order to complete the model. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimates $\alpha$ and $\beta$. 
+The $\alpha$ and $\beta$ are estimates to be calculated in order to complete the model. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimates $\hat{\alpha}$ and $\hat"{\beta}$ and fixed $x_i$ observations. 
+
+$$
+\hat{y_i) = \hat{\alpha} + \hat{\beta} x_i
+$$
 
 ## Assumptions of the Linear Regression Model
 
-An important assumption in this model is that the errors are conditionally normally distributed $e|X=x$ with mean 0 and finite constant variance $\sigma^2$, $e|X=x \sim N(0, \sigma^2). 
+An important assumption in this model is that the errors are conditionally normally distributed $e|X=x$ with mean 0 and finite constant variance $\sigma^2$, $e|X=x \sim N(0, \sigma^2). Why conditional on X=x? Fixed $x_i$'s are assumed in order to generate predictions $\hat{y_i}$ used to calculate errors. Random error realisations are therefore dependent on fixed $x_i$.
 
 This means that the average of errors shall be zero meaning the model shall not over-or-underpredict $y_i$. The constant variance tells us that spread of errors must remain the same across all values of the predictor $x_i$. If the spread of errors is different for different fixed $x_i$, it tells us that the model predictions are reliable for some values of $x_i$ than the others, which can invalidate conclusions from the model.
 
-As $y_i$ is directly dependent on the errors, it means that we need to know for this linear regression model is that the response $y_i$ must strictly be a continuous variable in order to satisfy the continuous nature of the normally-distributed errors and make sense of the linear regression model (remember normal distribution is continuous distribution). 
+As $y_i$ is directly dependent on the errors ($\text{errors} = $y_i$ - $\hat{y_i}$, it means that we need to know for this linear regression model is that the response $y_i$ must strictly be a continuous variable in order to satisfy the continuous nature of the normally-distributed errors and make sense of the linear regression model (remember normal distribution is a continuous distribution). 
 
-The predictor $x_i$ can be discrete or continuous, because of it's deterministic (fixed) nature in this model
+However, $x_i$ can be discrete or continuous. There are no particular assumptions made on $x_i$ in the model because the aim of the , thus as long there is a linear relation between $y_i$ and $x_i$ that can be explained through the coefficients $\alpha$ and $beta$, the linear regression model shall hold regardless of the nature of the variable $x_i$. 
 
 
 ## Finding $\beta$ through calculations
