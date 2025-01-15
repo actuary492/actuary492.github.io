@@ -110,7 +110,7 @@ $$
 $$
 
 $$
-\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} alpha - \sum_{i=1}^{n} \beta x_i = \sum_{i=1}^{n} y_i - n\alpha - \beta \sum_{i=1}^{n} x_i
+\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \alpha - \sum_{i=1}^{n} \beta x_i = \sum_{i=1}^{n} y_i - n\alpha - \beta \sum_{i=1}^{n} x_i
 $$
 
 
