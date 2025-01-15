@@ -178,7 +178,13 @@ $$
 
 I will expand $cov(x_i, y_i)$ and $cov(x_i,x_i)$ to show the equality above holds true:
 
+$$
+cov(x_i, y_i) = \sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i - \bar{y_i})  = \sum_{i=1}^{n} x_i y_i - \bar{y_i} x_i - \bar{x_i} y_i + \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} x_i y_i - \bar{y_i} \sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} y_i + \sum_{i=1}^{n} \bar{x_i} \bar{y_i}
+$$
 
+$$
+
+$$
 
 
 
