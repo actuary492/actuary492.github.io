@@ -127,6 +127,17 @@ $$
 \hat{\alpha} = \bar{y_i} - \hat{\beta} \bar{x_i}
 $$
 
+Now, deriving $\hat{\beta}$:
+
+$$
+\frac{d}{d_\beta} \sum_{i=1}^{n} (y_i - \hat{\alpha}  - \hat{\beta} x_i)^2 = 0
+$$
+
+$$
+\sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0
+$$
+
+
 
 
 
