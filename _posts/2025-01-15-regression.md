@@ -44,7 +44,7 @@ $$
 y_i = \alpha + \beta x_i + e_i
 $$
 
-The $\alpha$ and $\beta$ are estimates to be calculated in order to complete the model. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimates $\hat{\alpha}$ and $\hat{\beta}$ and fixed $x_i$ observations. 
+The $\alpha$ and $\beta$ are estimates to be calculated in order to complete the model. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimates $\hat{\alpha}$ and $\hat{\beta}$ and the given fixed $x_i$ observations. 
 
 $$
 \hat{y_i} = \hat{\alpha} + \hat{\beta} x_i
@@ -58,7 +58,21 @@ This means that the average of errors shall be zero meaning the model shall not 
 
 As $y_i$ is directly dependent on the errors ($\text{errors} = $y_i$ - $\hat{y_i}$, it means that we need to know for this linear regression model is that the response $y_i$ must strictly be a continuous variable in order to satisfy the continuous nature of the normally-distributed errors and make sense of the linear regression model (remember normal distribution is a continuous distribution). 
 
-However, $x_i$ can be discrete or continuous. There are no particular assumptions made on $x_i$ in the model because the aim of the , thus as long there is a linear relation between $y_i$ and $x_i$ that can be explained through the coefficients $\alpha$ and $beta$, the linear regression model shall hold regardless of the nature of the variable $x_i$. 
+However, $x_i$ can be discrete or continuous because the model is conditional on $x_i$ being fixed. As long as one can show $y_i$ can vary through $x_i$, the model shall hold regardless whether $x_i$ is discrete or continuous.
+
+With these assumptions in mind, we can also find the distribution of $y_i$ that we should know assumed to directly follow the normal distribution through it's errors:
+
+$$
+E[y_i|x_i] = E[\alpha + \beta x_i + e_i|x_i] 
+           = \alpha + \beta x_i + E[e_i|x_i] 
+           = \alpha + \beta x_i + 0 = \alpha + \beta x_i 
+
+Var[y_i|x_i] = Var[\alpha + \beta x_i + e_i|x_i] 
+             = Var[e_i|x_i] = \sigma^2
+
+y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)
+
+$$
 
 
 ## Finding $\beta$ through calculations
