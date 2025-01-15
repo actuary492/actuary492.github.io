@@ -44,7 +44,7 @@ $$
 y_i = \alpha + \beta x_i + e_i
 $$
 
-The $\alpha$ and $\beta$ are estimates to be calculated in order to complete the model. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimates $\hat{\alpha}$ and $\hat{\beta}$ and the given fixed $x_i$ observations. 
+The $\alpha$ and $\beta$ are coefficients to be calculated in order to fit the model. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimated coefficients $\hat{\alpha}$ and $\hat{\beta}$ and the given fixed $x_i$ observations. 
 
 $$
 \hat{y_i} = \hat{\alpha} + \hat{\beta} x_i
