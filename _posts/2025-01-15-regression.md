@@ -134,8 +134,10 @@ $$
 $$
 
 $$
-\sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0
+\sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i) * (x_i) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0
 $$
+
+
 
 
 
