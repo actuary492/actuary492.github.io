@@ -93,6 +93,8 @@ In other words, the $\alpha$ and $\beta$ is calculated such that it produces the
 
 <img src="https://actuary492.github.io/assets/images/ssr.jpeg" alt="description" style="width: 80%; height: 80%;">
 
+We want the coefficients such that distance (error) is minimalised.
+
 
 
 
