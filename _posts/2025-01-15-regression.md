@@ -30,9 +30,9 @@ tags: [post, regression]
 
 The regression model theory is expressed as follows:
 
-$
+$$
 Y = f(X_1, X_2, ... , X_p) + error
-$
+$$
 
 where $f()$ is essentially some objective function that can be linear, polynomial containing predictor variables $(X_1, ... , X_p)$ that attempts to explain the response variable $Y$ and predict potential reponses $\hat{Y}$. In this article, we will be only focusing on linear regression, where the regression model shall only contain predictor variables of at most to the power of $1$.
 
