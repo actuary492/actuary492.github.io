@@ -115,10 +115,10 @@ $$
 \sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \alpha - \sum_{i=1}^{n} \beta x_i = 0 \rightarrow \sum_{i=1}^{n} y_i - n\alpha - \beta \sum_{i=1}^{n} x_i = 0
 $$
 
-Using the relationship $\sum_{i=1}^{n} x_i = n \frac{1}{n} \sum_{i=1}^{n} x_i = n \bar{x_i}$ 
+Using the relationship $\sum_{i=1}^{n} a_i = n*\frac{1}{n} \sum_{i=1}^{n} a_i = n \bar{a_i}$ 
  
 $$
-
+n*\bar{y_i} - n\alpha - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \alpha - \beta \bar{x_i}) = 0 \rightarrow \bar{y_i} - \alpha - \beta \bar{x_i}) = 0 
 $$
 
 
