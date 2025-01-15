@@ -686,7 +686,7 @@ y <- c(225, 171, 198, 189, 189, 135, 162, 135, 117, 162)
 
 # We believe that our observations is best explained by a Exponenttial distribution, but we need to find the parameter for the Exponential distribution
 
-# Construct the likelihood function of the random variable Y
+# Construct the likelihood function of the random variable Y, with parameter theta 
 L <- function(theta){Y = prod(exp(-y/theta)/theta) ; Y}
 
 # Find the parameter of the Exponential Distribution that best explains the data (maximizes the likelihood)
