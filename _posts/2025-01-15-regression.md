@@ -63,10 +63,8 @@ However, $x_i$ can be discrete or continuous because the model is conditional on
 With these assumptions in mind, we can also find the distribution of $y_i$ that we should know assumed to directly follow the normal distribution through it's errors:
 
 $$
-E[y_i|x_i] = E[\alpha + \beta x_i + e_i|x_i] 
-           = \alpha + \beta x_i + E[e_i|x_i] 
+E[y_i|x_i] = E[\alpha + \beta x_i + e_i|x_i] = \alpha + \beta x_i + E[e_i|x_i] 
            = \alpha + \beta x_i + 0 = \alpha + \beta x_i 
-
 $$
 
 $$
