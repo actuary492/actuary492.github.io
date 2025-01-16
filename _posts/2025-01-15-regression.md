@@ -331,7 +331,7 @@ $$
 \hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}})
 $$
 
-What this tells us is that the estimated beta (\hat{\beta}) is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
+What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
 
 
 # Multiple Linear Regression
