@@ -285,7 +285,7 @@ We have shown that $E[\hat{\beta}] = \beta$.
 
 ### Variance of $\hat{\beta}$:
 
-Now, on to the variance of $\hat{\beta}:
+Now, on to the variance of $\hat{\beta}$:
 
 $$
 Var[\hat{\beta} | x_i ] = Var[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
@@ -305,7 +305,7 @@ $$
 \frac{1}{S_{xx}^2} \sum_{i=1}^{n} Var[(x_i - \bar{x_i})*(y_i)|x_i]
 $$
 
-We can take the term $(x_i - \bar{x_i})$ out of the $Var[]$ as it is fixed. 
+We can take the term $(x_i - \bar{x_i})$ out of the $Var[\cdot]$ as it is fixed. 
 
 $$
 \frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 Var[(y_i)|x_i]
