@@ -235,18 +235,18 @@ $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(y_i)| x_i]
 $$
 
-Plugging in $y_i = \alpha + \beta x_i$ into the equation above and expanding:
+Plugging in $y_i = \alpha + \beta x_i + e_i$ into the equation above and expanding:
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha + \beta x_i)| x_i]
-$$
-
-$$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})* \alpha + (x_i - \bar{x_i}) \beta x_i| x_i]
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha + \beta x_i + e_i)| x_i]
 $$
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i]
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})* \alpha + (x_i - \bar{x_i}) \beta x_i + (x_i - \bar{x_i})  e_i | x_i]
+$$
+
+$$
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i]
 $$
 
 Move the constants $\alpha$ and $\beta$ to the front and we see that we can remove $E[]$ as $x_i$'s are constants:
@@ -316,8 +316,12 @@ $$
 $\sigma^2$ is constant, we can bring it out the summation:
 
 $$
-\frac{1}{S_{xx}^2} \sigma^2 \sum_{i=1}^{n} (x_i - \bar{x_i})^2 = \frac{1}{S_{xx}^2} \sigma^2 Var(x_i) = \frac{1}{S_{xx}^2} \sigma^2 S_{xx}
+\frac{1}{S_{xx}^2} \sigma^2 \sum_{i=1}^{n} (x_i - \bar{x_i})^2 = \frac{1}{S_{xx}^2} \sigma^2 Var(x_i) = \frac{1}{S_{xx}^2} \sigma^2 S_{xx} = \frac{\sigma^2}{S_{xx}}
 $$
+
+We have therefore proven the variance of $\hat{\beta}$.
+
+##
 
 
 ## Violation of Assumptions in Linear Regression
