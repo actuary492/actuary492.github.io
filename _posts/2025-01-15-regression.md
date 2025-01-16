@@ -294,7 +294,7 @@ Var[\hat{\beta} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i\bar{x_i}}{S_{xx
 $$
 
 $$
-\frac{1}{S_{xx}^2} Var[\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)] = \frac{1}{S_{xx}^2} \sum_{i=1}^{n} Var[(x_i - \bar{x_i})*(y_i)]
+\frac{1}{S_{xx}} Var[\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)] = \frac{1}{S_{xx}} \sum_{i=1}^{n} Var[(x_i - \bar{x_i})*(y_i)]
 $$
 
 
