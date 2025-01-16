@@ -272,7 +272,7 @@ $$
 Thus becoming:
 
 $$
-\frac{1}{S_{xx}} (0 + \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta \sum_{i=1}^{n} (x_i - \bar{x_i}) x_i)
+\frac{1}{S_{xx}} (0 + \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta \sum_{i=1}^{n} (x_i - \bar{x_i}) x_i
 $$
 
 We should also note that using expansion of $cov(x_i,x_i)$ similar to the one I did on $cov(x_i, y_i)$, that $cov(x_i, x_i) = \sum_{i=1}^{n} x_i x_i - n \bar{x_i} \bar{x_i} = \sum_{i=1}^{n} x_i x_i - \bar{x_i} x_i$. Hence we know the outer term is essentially the $Var(x_i)$ or $S_{xx}$. We therefore arrive at the final: 
