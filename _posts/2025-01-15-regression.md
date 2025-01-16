@@ -290,7 +290,7 @@ $$
 Substitute again $cov(x_i,y_i)$ by $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$ and $cov(x_i, x_i)$ by $S_{xx}$.
 
 $$
-Var[\hat{\beta} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i}{S_{xx}}|x_i]
+Var[\hat{\beta} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i\bar{x_i}{S_{xx}}|x_i]
 $$
 
 
