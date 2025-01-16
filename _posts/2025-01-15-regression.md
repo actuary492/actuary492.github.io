@@ -63,7 +63,7 @@ $$
 e_i|x_i \sim N(0, \sigma^2)
 $$
 
-This means that the average of errors shall be zero meaning the model shall not over-or-underpredict $y_i$. The constant variance tells us that spread of errors must remain the same across all values of the predictor $x_i$. If the spread of errors is different for different fixed $x_i$, it tells us that the model predictions are reliable for some values of $x_i$ than the others, which can invalidate conclusions from the model.
+This means that the average of errors shall be zero meaning the model shall not over-or-underpredict $y_i$. The constant variance tells us that spread of errors must remain the same across all values of the predictor $x_i$. If the spread of errors is different for different fixed $x_i$, it tells us that the model predictions are reliable for some values of $x_i$ than the others, which can invalidate conclusions from the model. This also means that error terms must not be correlated in any way, hence the constant variance.
 
 As $y_i$ is directly dependent on the errors ($\text{errors} = $y_i$ - $\hat{y_i}$, it means that we need to know for this linear regression model is that the response $y_i$ must strictly be a continuous variable in order to satisfy the continuous nature of the normally-distributed errors and make sense of the linear regression model (remember normal distribution is a continuous distribution). 
 
@@ -97,6 +97,12 @@ $$
 In other words, the $\alpha$ and $\beta$ is calculated such that it produces the regression line (consisting of paired observations of predicted $\hat{y_i}$ values and $x_i$) that minimizes the distance between observations of $x_i$ to the regression line. Visualised, it looks as such:
 
 <img src="https://actuary492.github.io/assets/images/ssr.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+The values of $\hat{\alpha}$ and $\hat{\beta}$ is as follows.
+
+$$
+\hat{\alpha} = \bar{y_i} - \hat{\beta} \bar{x_i} \quad \hat{\beta} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
+$$
 
 Let me take you through how you can derive $\alpha$ and $\beta$.
 
@@ -200,6 +206,22 @@ We have proven the equality of the numerator. With the same method above, one ca
 
 
 ## Quantifying accuracy of $\beta$
+
+This is always a must in any regression model to check for the accuracy of $\hat{\beta}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (signal-noise ratio) which I talked about in the previous post "Statistics".
+
+To find these measures, the mean and variance of the $\hat{\beta}$ is required. It is as follows
+
+$$
+E[\hat{\beta} | x_i ] = \beta \quad Var[\hat{\beta} | x_i ] = \frac{\sigma^2}{Var(x_i)}
+$$
+
+Let us derive the values above, starting with the mean of the $\hat{\beta}$:
+
+$$
+E[\hat{\beta} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
+$$
+
+Remember that cov
 
 
 ## Violation of Assumptions in Linear Regression
