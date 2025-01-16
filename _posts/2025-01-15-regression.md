@@ -217,7 +217,7 @@ $$
 
 Let us derive the values above.
 
-### Mean of $\hat{\beta}$
+### Mean of $\hat{\beta}$:
 
 $$
 E[\hat{\beta} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
