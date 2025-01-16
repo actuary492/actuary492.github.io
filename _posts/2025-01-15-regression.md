@@ -36,9 +36,9 @@ $$
 
 where $f()$ is essentially some objective function that can be linear, polynomial containing predictor variables $(X_1, ... , X_p)$ that attempts to model (explain) the response variable $Y$ and predict potential reponses $\hat{Y}$. In this article, we will be only focusing on linear regression, where the regression model shall only contain predictor variables of at most to the power of $1$.
 
-# Linear Regression Model
+# Simple Linear Regression Model
 
-Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
+The simple linear regression model simply attempts to find the effect of one predictor $x_i$ on the response $y_i$. We also have the case when multiple predictors are involved (multiple linear regression model) however in this section I am going to focus on the simple linear regression. Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
 
 $$
 y_i = \alpha + \beta x_i + e_i
@@ -55,7 +55,7 @@ e_i = y_i - \hat{y_i} = y_i - \hat{\alpha} - \hat{\beta} x_i
 $$
 
 
-## Assumptions of the Linear Regression Model
+## Assumptions of the Simple Linear Regression Model
 
 An important assumption in this model is that the errors are conditionally normally distributed $e_i|x_i$ with mean 0 and finite constant variance $\sigma^2$. Why conditional on $X=x$? Fixed $x_i$'s are assumed in order to generate predictions $\hat{y_i}$ used to calculate errors. Random error realisations therefore require fixed $x_i$.
 
@@ -325,23 +325,28 @@ $$
 
 We have therefore proven the variance of $\hat{\beta}$.
 
-##
+But one thing still is unsolved. What type of distribution does $\hat{\beta}$ follow? That should be quite obvious by itself. As $\hat{\beta}$ is essentially linear combinations of the variable $y_i$, and since we know that $y_i$ is normally distributed (conditional on fixed $x_i$), $\hat{\beta}$ should follow the same distribution. 
 
+$$
+\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}})
+$$
 
-## Violation of Assumptions in Linear Regression
+What this tells us is that the estimated beta (\hat{\beta}) is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
 
 
 # Multiple Linear Regression
 
-
-## Choosing the best model in Multiple Linear Regression by use of Statistical Tests
-
-### Types of Selection Tests
-
-### Commands in R to Select Models
-
+# Violation of Assumptions in (Simple and Multiple) Linear Regression
 
 # Dummy and Categorical Variables
+
+# Choosing the best model in Multiple Linear Regression by use of Statistical Tests
+
+## Types of Selection Tests
+
+## Commands in R to Select Models
+
+
 
 
 
