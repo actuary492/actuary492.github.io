@@ -249,10 +249,10 @@ $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i]
 $$
 
-Move the constants $\alpha$ and $\beta$ to the front and we see that we can remove $E[]$ as $x_i$'s are constants:
+Move the constants $\alpha$ and $\beta$ to the front and we see that we can move all terms of $x_i$'s out of the expectation as they are constants. We should also note that $E[e_i|x_i]=0$ based on error assumptions of the model :
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i]  = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i + (x_i - \bar{x_i}) E[e_i|x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i
 $$
 
 $$
