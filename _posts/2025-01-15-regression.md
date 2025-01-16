@@ -294,13 +294,30 @@ Var[\hat{\beta} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i\bar{x_i}}{S_{xx
 $$
 
 $$
-\frac{1}{S_{xx}^2} Var[\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)]
+\frac{1}{S_{xx}^2} Var[\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)|x_i]
 $$
 
 $$
-\frac{1}{S_{xx}^2} \sum_{i=1}^{n} Var[(x_i - \bar{x_i})*(y_i)]
+\frac{1}{S_{xx}^2} \sum_{i=1}^{n} Var[(x_i - \bar{x_i})*(y_i)|x_i]
 $$
 
+We can take the term $(x_i - \bar{x_i})$ out of the $Var[]$ as it is fixed. 
+
+$$
+\frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 Var[(y_i)|x_i]
+$$
+
+We know that $\sum_{i=1}^{n} (x_i - \bar{x_i})^2$ is the variance of $x_i$ which we have denoted as $S_{xx}$. We also know that $Var[y_i|x_i]$ from the distribution of $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that it is $\sigma^2$.
+
+$$
+\frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 \sigma^2
+$$
+
+$\sigma^2$ is constant, we can bring it out the summation:
+
+$$
+\frac{1}{S_{xx}^2} \sigma^2 \sum_{i=1}^{n} (x_i - \bar{x_i})^2 = \frac{1}{S_{xx}^2} \sigma^2 Var(x_i) = \frac{1}{S_{xx}^2} \sigma^2 S_{xx}
+$$
 
 
 ## Violation of Assumptions in Linear Regression
