@@ -215,7 +215,9 @@ $$
 E[\hat{\beta} | x_i ] = \beta \quad Var[\hat{\beta} | x_i ] = \frac{\sigma^2}{Var(x_i)}
 $$
 
-Let us derive the values above, starting with the mean of the $\hat{\beta}$ given fixed $x_i$:
+Let us derive the values above.
+
+### Mean of \hat{\beta}
 
 $$
 E[\hat{\beta} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
@@ -247,13 +249,49 @@ $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i]
 $$
 
-Move the constants $\alpha$ and $\beta$ to the front:
+Move the constants $\alpha$ and $\beta$ to the front and we see that we can remove $E[]$ as $x_i$'s are constants:
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i
 $$
 
-We see that 
+$$
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i
+$$
+
+We should see that one of terms $\sum_{i=1}^{n} (x_i - \bar{x_i})$ should cancel out:
+
+$$
+\sum_{i=1}^{n} (x_i - \bar{x_i}) = \sum_{i=1}^{n} x_i -  \sum_{i=1}^{n} \bar{x_i}) = n \bar{x_i} - n \bar{x_i} = 0
+$$
+
+Thus becoming:
+
+$$
+\frac{1}{S_{xx}} (0 + \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta \sum_{i=1}^{n} (x_i - \bar{x_i}) x_i)
+$$
+
+We should also note that using expansion of $cov(x_i,x_i)$ similar to the one I did on $cov(x_i, y_i)$, that $cov(x_i, x_i) = \sum_{i=1}^{n} x_i x_i - n \bar{x_i} \bar{x_i} = \sum_{i=1}^{n} x_i x_i - \bar{x_i} x_i$. Hence we know the outer term is essentially the $Var(x_i)$ or $S_{xx}$. We therefore arrive at the final: 
+
+$$
+\frac{1}{S_{xx}} \beta \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta {S_{xx}} = \beta
+$$
+
+We have shown that $E[\hat{\beta}] = \beta$.
+
+### Variance of \hat{\beta}
+
+Now, on to the variance of $\hat{\beta}:
+
+$$
+Var[\hat{\beta} | x_i ] = Var[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
+$$
+
+Substitute again $cov(x_i,y_i)$ by $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$ and $cov(x_i, x_i)$ by $S_{xx}$.
+
+$$
+Var[\hat{\beta} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i {S_{xx}}|x_i]
+$$
 
 
 ## Violation of Assumptions in Linear Regression
