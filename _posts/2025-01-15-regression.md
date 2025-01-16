@@ -215,16 +215,28 @@ $$
 E[\hat{\beta} | x_i ] = \beta \quad Var[\hat{\beta} | x_i ] = \frac{\sigma^2}{Var(x_i)}
 $$
 
-Let us derive the values above, starting with the mean of the $\hat{\beta}$:
+Let us derive the values above, starting with the mean of the $\hat{\beta}$ given fixed $x_i$:
 
 $$
 E[\hat{\beta} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
 $$
 
-Remember that $cov(x_i, y_i)$ can be expressed as $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$.  I will express $cov(x_i, x_i)$ now as $S_xx$ for simplicity. We substitute this into the equation above:
+Remember that $cov(x_i, y_i)$ can be expressed as $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$.  I will express $cov(x_i, x_i)$ now as $S_{xx}$ for simplicity. We substitute this into the equation above:
 
 $$
-E[\frac{\sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}}{S_xx}] = E[\frac{\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)}{S_xx}]
+E[\frac{\sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}}{S_{xx}}| x_i] = E[\frac{\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)| x_i}{S_{xx}}]
+$$
+
+We bring out $S_{xx}$ as it is fixed, along with the summation out of the expectation:
+
+$$
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(y_i)| x_i]
+$$
+
+Plugging in $y_i = \alpha + \beta x_i$ into the equation above and expanding:
+
+$$
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha + \beta x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha) + (x_i - \bar{x_i}) \beta x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i]
 $$
 
 
