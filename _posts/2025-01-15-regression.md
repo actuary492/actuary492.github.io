@@ -221,7 +221,11 @@ $$
 E[\hat{\beta} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
 $$
 
-Remember that cov
+Remember that $cov(x_i, y_i)$ can be expressed as $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$.  I will express $cov(x_i, x_i)$ now as $S_xx$ for simplicity. We substitute this into the equation above:
+
+$$
+E[\frac{\sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}}{S_xx}] = E[\frac{\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)}{S_xx}]
+$$
 
 
 ## Violation of Assumptions in Linear Regression
