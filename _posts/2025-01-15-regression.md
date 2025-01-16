@@ -69,7 +69,7 @@ As $y_i$ is directly dependent on the errors ($\text{errors} = $y_i$ - $\hat{y_i
 
 However, $x_i$ can be discrete or continuous because the model is conditional on $x_i$ being fixed. As long as one can show $y_i$ can vary through $x_i$, the model shall hold regardless whether $x_i$ is discrete or continuous.
 
-With these assumptions in mind, we can also find the distribution of $y_i$ that we should know assumed to directly follow the normal distribution through it's errors:
+With these assumptions in mind, we can also find the distribution of $y_i$ that we should directly follow the normal distribution through it's errors:
 
 $$
 E[y_i|x_i] = E[\alpha + \beta x_i + e_i|x_i] = \alpha + \beta x_i + E[e_i|x_i] 
