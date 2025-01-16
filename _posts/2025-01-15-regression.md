@@ -236,7 +236,11 @@ $$
 Plugging in $y_i = \alpha + \beta x_i$ into the equation above and expanding:
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha + \beta x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha) + (x_i - \bar{x_i}) \beta x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i]
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha + \beta x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha) + (x_i - \bar{x_i}) \beta x_i)| x_i]
+$$
+
+$$
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i]
 $$
 
 
