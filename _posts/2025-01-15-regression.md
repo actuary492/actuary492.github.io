@@ -247,6 +247,14 @@ $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i]
 $$
 
+Move the constants $\alpha$ and $\beta$ to the front:
+
+$$
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i
+$$
+
+We see that 
+
 
 ## Violation of Assumptions in Linear Regression
 
