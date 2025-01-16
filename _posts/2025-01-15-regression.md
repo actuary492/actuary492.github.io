@@ -88,7 +88,7 @@ $$
 
 ## Finding $\alpha$ and $\beta$ through calculations
 
-Finding $\alpha$ and $\beta$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We have learned what the error is previously.
+Finding $\alpha$ and $\beta$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We know that error is the difference between the observed $y_i$ and the estimated y from the regression model $\hat{y_i}$.
 
 $$
 \min_{\alpha, \beta} \sum_{i=1}^{n} e_i^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
