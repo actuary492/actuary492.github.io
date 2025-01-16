@@ -207,7 +207,7 @@ We have proven the equality of the numerator. With the same method above, one ca
 
 ## Quantifying accuracy of $\beta$
 
-This is always a must in any regression model to check for the accuracy of $\hat{\beta}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (signal-noise ratio) which I talked about in the previous post "Statistics".
+This is always a must in any regression model to check for the accuracy of $\hat{\beta}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
 
 To find these measures, the mean and variance of the $\hat{\beta}$ is required. It is as follows
 
