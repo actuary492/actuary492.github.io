@@ -279,7 +279,7 @@ $$
 
 We have shown that $E[\hat{\beta}] = \beta$.
 
-### Variance of \hat{\beta}
+### Variance of $\hat{\beta}$:
 
 Now, on to the variance of $\hat{\beta}:
 
