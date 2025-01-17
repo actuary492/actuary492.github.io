@@ -341,7 +341,7 @@ What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the
 
 Knowing these important descriptive statistics, we can now calculate t-statistic from the information above. 
 
-However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$.
+However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n e_i^2$.
 
 This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is originally $\frac{RSS}{n}$, then adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$. This has to do with the degree freedoms of the $RSS$ term that is chi-squared (to be explained) that will be important in our calculations for the t-statistic.
 
@@ -372,23 +372,27 @@ $$
 Now, let us find the distribution of the estimated variance $s^2$
 
 $$
-s^2 = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2 \quad \text{where} \quad e_i|x_i \sim N(0, \sigma^2)
+s^2 = \frac{1}{n - 2} \sum_{i=1}^n e_i^2 \quad \text{where} \quad e_i|x_i \sim N(0, \sigma^2)
 $$
 
 Without changing the content of $s^2$, we can add the term $\sigma^2$ as follows:
 
 $$
-s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n \hat{e}_i^2
+s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n e_i^2
 $$
 
 $$
-\frac{\sigma^2}{n - 2} \sum_{i=1}^n \frac{\hat{e}_i^2}{\sigma^2}
+\frac{\sigma^2}{n - 2} \sum_{i=1}^n \frac{e_i^2}{\sigma^2}
 $$
 
 We know that $\frac{\hat{e}_i^2}{\sigma^2}$ is chisquared as follows:
 
 $$
-e_i|x_i \sim N(0, \sigma^2) \rightarrow \frac{e_i - 0}{\sqrt{\sigma^2}}
+e_i|x_i \sim N(0, \sigma^2) \rightarrow \frac{e_i - 0}{\sqrt{\sigma^2}} = \frac{e_i}{\sigma} \sim N(0,1)
+$$
+
+$$
+
 $$
 
 
