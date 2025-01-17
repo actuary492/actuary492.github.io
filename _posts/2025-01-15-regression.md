@@ -369,11 +369,7 @@ $$
 \hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow Z = \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}} | x_i \sim N(0,1)
 $$
 
-Now, let us find the distribution of the estimated variance $s^2$
-
-$$
-
-We know that $\frac{\hat{e}_i^2}{\sigma^2}$ is chisquared as follows:
+We move on to the $s^2$ that is $\frac{\hat{e}_i^2}{\sigma^2}$ is chi-squared, which we can find as follows:
 
 $$
 e_i|x_i \sim N(0, \sigma^2) \rightarrow \frac{e_i - 0}{\sqrt{\sigma^2}} = \frac{e_i}{\sigma}|x_i \sim N(0,1)
