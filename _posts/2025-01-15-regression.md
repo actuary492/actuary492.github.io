@@ -394,9 +394,22 @@ $$
 Squaring the standard normal distribution gives us the chi squared distribution with degree of freedom 1. We can prove this by transformation as well.
 
 $$
-\frac{e_i^2}{\sigma^2} \sim \chi(1)
+\frac{e_i^2}{\sigma^2} \sim \chi^2(1)
 $$
 
+In the term $s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n e_i^2$, we see that there is sum to the left of the term that is chi square distributed. The sum of chisquare distributed variables is still the chisquare distribution with the degree freedoms equal to the independent observations, in this case $n-2$.
+
+For an easier visualisation, we change the statistic to as follows:
+
+$$
+s^2 = \frac{\sigma^2}{n - 2} \chi^2(n-2)$
+$$
+
+Now, let us gather the terms to make the t-distribution:
+
+$$
+\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\frac{\sigma^2}{n - 2} \chi^2(n-2)}
+$$
 
 
 
