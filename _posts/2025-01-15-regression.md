@@ -372,18 +372,6 @@ $$
 Now, let us find the distribution of the estimated variance $s^2$
 
 $$
-s^2 = \frac{1}{n - 2} \sum_{i=1}^n e_i^2 \quad \text{where} \quad e_i|x_i \sim N(0, \sigma^2)
-$$
-
-Without changing the content of $s^2$, we can add the term $\sigma^2$ as follows:
-
-$$
-s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n e_i^2
-$$
-
-$$
-s^2 = \frac{\sigma^2}{n - 2} \sum_{i=1}^n \frac{e_i^2}{\sigma^2}
-$$
 
 We know that $\frac{\hat{e}_i^2}{\sigma^2}$ is chisquared as follows:
 
@@ -397,12 +385,16 @@ $$
 \frac{e_i^2}{\sigma^2} \sim \chi^2(1)
 $$
 
-In the term $s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n e_i^2$, we see that there is sum to the left of the term that is chi square distributed. The sum of chisquare distributed variables is still the chisquare distribution with the degree freedoms equal to the independent observations, in this case $n-2$.
-
-For an easier visualisation, we change the statistic to as follows:
+We need to remember that we are dealing with the sum of squared residuals, hence there is a summation to the left of the statistic above. The sum of chisquare distributed variables is still the chisquare distribution with the degree freedoms equal to the independent observations, in this case $n-2$.
 
 $$
-s^2 = \frac{\sigma^2}{n - 2} \chi^2(n-2)$
+\sum{i=1}^{n} \frac{e_i^2}{\sigma^2} \sim \chi^2(n-2)
+$$
+
+We can alter the equation above to as follows while remembering the formula of estimated sample variance $s^2 = \frac{1}{n - 2} \sum_{i=1}^n e_i^2$ :
+
+$$
+\sum{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2)
 $$
 
 Now, let us gather the terms to make the t-distribution:
