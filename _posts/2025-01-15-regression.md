@@ -378,9 +378,10 @@ $$
 Without changing the content of $s^2$, we can add the term $\sigma^2$ as follows:
 
 $$
-s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n \hat{e}_i^2$
+s^2 = \frac{\sigma^2}{n - 2} \cdot \frac{1}{\sigma^2} \sum_{i=1}^n \hat{e}_i^2 = \frac{\sigma^2}{n - 2} \sum_{i=1}^n \frac{\hat{e}_i^2}{\sigma^2}
 $$
 
+We know that 
 
 
 
