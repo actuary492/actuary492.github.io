@@ -412,7 +412,7 @@ $$
 
 ## Application of the t-statistic in Simple Linear Regression
 
-### T-tests for significance from zero
+### T-tests for significance of $\beta$ from zero
 
 The main use of the t-statistic in regression is to check for whether some estimated parameter is significantly different from zero, or in other words whether the predictor variable $x_i$ affects the response variable $y_i$.
 
@@ -430,7 +430,17 @@ $$
 
 The t-statistic which we normally see from regression outputs in R, conducts precisely this hypothesis testing above.
 
-We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ of regression results in R:
+### Constructing the $100(1-\alpha)$% confidence interval for $\beta$
+
+We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ of regression results in R. 
+
+This confidence interval is important because if the interval we calculated can contain $0$, i.e. ($-2 \leq \beta \leq 2) it could provide evidence that the $\beta$ we estimated might not be significant after all. 
+
+We need to understand what the confidence interval really is:
+
+- Misconception: A $100(1-\alpha)$% confidence interval means that there is a $95$% probability that the true $\beta$ will lie in this confidence interval. A big error and this is completely false.
+  
+- True definition: A $100(1-\alpha)$$ confidence interval his essentially means is that if we conduct the same regression analysis many times using different samples of $(y_i,x_i)$ and produce confidence intervals of the $\beta$, $100(1-\alpha)$% of these intervals will contain the true $\beta$. We should instead see the confidence interval as reflecting of the reliability of the regression.
 
 $$
 \beta \quad \epsilon \quad (\hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\beta}))
@@ -442,9 +452,6 @@ where
 - $\pm t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
 
 The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations to the left of this value instead, and this holds true due to the symmetry of the t-distribution.
-
-We see that 
-
 
 
 # Multiple Linear Regression
