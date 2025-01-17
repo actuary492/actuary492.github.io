@@ -621,7 +621,7 @@ The test for equal variances is important: one example being it is necessary to 
 This involves the hypothesis test of:
 
 $$
-H_0 : \frac{\sigma_1}{sigma_2} = 1 \quad \text{vs} \quad H_a : \frac{\sigma_1}{sigma_2} \neq 1
+H_0 : \frac{\sigma_1}{\sigma_2} = 1 \quad \text{vs} \quad H_a : \frac{\sigma_1}{\sigma_2} \neq 1
 $$
 
 That uses the the F-statistic that follows the F-distribution with $n_1 - 1$ and $n_2 - 1$ degrees of freedom:
