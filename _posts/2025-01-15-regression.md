@@ -394,14 +394,14 @@ $$
 We can alter the equation above to as follows while remembering the formula of estimated sample variance $s^2 = \frac{1}{n - 2} \sum_{i=1}^n e_i^2$ :
 
 $$
-\sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2) * \frac{\frac{1}{n-2}\sum_{i=1}^{n} e_i^2}{\sigma^2} = (n-2) * \frac{s^2}{\sigma^2}
+\sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2) * \frac{\frac{1}{n-2}\sum_{i=1}^{n} e_i^2}{\sigma^2} = (n-2) * \frac{s^2}{\sigma^2} \sim \chi^2(n-2)
 $$
 
 
 Now, arranging the standard normal and the chisquare statistics based on the structure $t = \frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}}$ :
 
 $$
-\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\sqrt{\frac{s^2}{\sigma^2}}} \sim 
+\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\sqrt{\frac{(n-2)\frac{s^2}{\sigma^2}}{n-2}}} \sim 
 $$
 
 We see that the $\sigma^2$ cancels each other out, becoming 
