@@ -366,9 +366,20 @@ We can replicate the form of the t-statistic using the distribution of $\hat{\be
 First, let us standardize the distribution of $\hat{\beta}$:
 
 $$
-\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}
+\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow Z = \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}} \sim N(0,1)
 $$
 
+Now, let us find the distribution of the estimated variance $s^2$
+
+$$
+s^2 = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2 \quad \text{where} \quad e_i|x_i \sim N(0, \sigma^2)
+$$
+
+Without changing the content of $s^2$, we can add the term $\sigma^2$ as follows:
+
+$$
+s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n \hat{e}_i^2$
+$$
 
 
 
