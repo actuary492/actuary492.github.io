@@ -435,8 +435,8 @@ $$
 $$
 
 where
-- $\beta^i$ is the estimated regression coefficient
-- $se(\beta^i)$ is the standard deviation of the estimated regression coefficient
+- $\hat{\beta}$ is the estimated regression coefficient
+- $se(\hat{\beta})$ is the standard deviation of the estimated regression coefficient
 - $t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
 
 The critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value (which gives us upper bound of confidence interval). Taking the negative of this critical region marks the value that contains the $\frac{\alpha}{2}$% of observations instead (lower bound confidence interval), and this is true due to the symmetry of the t-distribution.
