@@ -410,12 +410,42 @@ $$
 t = \frac{\hat{\beta} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
+## Application of the t-statistic in Simple Linear Regression
 
+The main use of the t-statistic in regression is to check for whether some estimated parameter is significantly different from zero. This t-statistic can be seen as a signal-noise ratio. 
 
+If we want to test for instance in the simple linear regression model whether $\beta$ is significantly different than zero or not, it is showed by the following hypothesis:
+
+$$
+H_O : \beta = 0 \quad \text{vs} \quad H_a: \beta \neq 0
+$$
+
+with t-statistic:
+
+$$
+t = \frac{\hat{\beta} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}}  = \frac{\hat{\beta} - 0}{\sqrt{\frac{s^2}{S_{xx}}}} = \frac{\hat{\beta}}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
+$$
+
+The t-statistic which we normally see from regression outputs in R, conducts precisely this hypothesis testing above.
+
+We can also use the t-statistic to find the two sided $100(1-\alpha)$% confidence interval as follows:
+
+$$
+\beta^i \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\beta^i)
+$$
+
+where
+- $\beta^i$ is the estimated regression coefficient
+- $se(\beta^i)$ is the standard deviation of the estimated regression coefficient
+- $t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $\alpha = 1-\frac{\alpha}{2}$
+
+The critical value here is essentially the 
 
 # Multiple Linear Regression
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
+
+# How to do Regression in R?
 
 # Dummy and Categorical Variables
 
