@@ -432,7 +432,7 @@ The t-statistic which we normally see from regression outputs in R, conducts pre
 
 We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ of regression results in R. 
 
-This confidence interval is important because if the interval we calculated can contain $0$, i.e. ($-2 \leq \beta \leq 2)$ it could provide evidence that the $\beta$ we estimated might not be significant after all. 
+This confidence interval is important because if the interval we calculated can contain $0$, i.e. ($-2 \leq \beta \leq 2)$ it could provide evidence that the $\beta$ we estimated might not be significantly different from zero. 
 
 We need to understand what the confidence interval really is:
 
