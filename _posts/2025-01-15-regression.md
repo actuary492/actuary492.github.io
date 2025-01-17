@@ -412,9 +412,11 @@ $$
 
 ## Application of the t-statistic in Simple Linear Regression
 
-The main use of the t-statistic in regression is to check for whether some estimated parameter is significantly different from zero. This t-statistic can be seen as a signal-noise ratio. 
+### T-tests for significance from zero
 
-If we want to test for instance in the simple linear regression model whether $\beta$ is significantly different than zero or not, it is showed by the following hypothesis:
+The main use of the t-statistic in regression is to check for whether some estimated parameter is significantly different from zero, or in other words whether the predictor variable $x_i$ affects the response variable $y_i$.
+
+Testing for the above requires the following hypothesis:
 
 $$
 H_O : \beta = 0 \quad \text{vs} \quad H_a: \beta \neq 0
@@ -428,7 +430,7 @@ $$
 
 The t-statistic which we normally see from regression outputs in R, conducts precisely this hypothesis testing above.
 
-We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ as follows:
+We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ of regression results in R:
 
 $$
 \beta \quad \epsilon \quad (\hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\beta}))
@@ -437,9 +439,11 @@ $$
 where
 - $\hat{\beta}$ is the estimated regression coefficient
 - $se(\hat{\beta})$ is the standard deviation of the estimated regression coefficient
-- $t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
+- $\pm t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
 
-The critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value (which gives us upper bound of confidence interval). Taking the negative of this critical region marks the value that contains the $\frac{\alpha}{2}$% of observations instead (lower bound confidence interval), and this is true due to the symmetry of the t-distribution.
+The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations instead, and this is true due to the symmetry of the t-distribution.
+
+We see that 
 
 
 
