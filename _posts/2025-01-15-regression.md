@@ -431,7 +431,7 @@ The t-statistic which we normally see from regression outputs in R, conducts pre
 We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ as follows:
 
 $$
-\beta \epsilon \hat{beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\beta^i)
+\beta \epsilon \hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\beta^i)
 $$
 
 where
