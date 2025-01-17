@@ -406,6 +406,8 @@ $$
 t = \frac{\hat{\beta} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
+We have successfully derived the t-statistic to test for accuracy of $\beta$.
+
 ## Application of the t-statistic in Simple Linear Regression
 
 ### T-tests for significance of $\beta$ from zero
