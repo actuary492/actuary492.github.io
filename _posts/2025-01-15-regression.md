@@ -440,7 +440,7 @@ We need to understand what the confidence interval really is:
 
 - Misconception: A $100(1-\alpha)$% confidence interval means that there is a $95$% probability that the true $\beta$ will lie in this confidence interval. A big error and this is completely false.
   
-- True definition: A $100(1-\alpha)$$ confidence interval his essentially means is that if we conduct the same regression analysis many times using different samples of $(y_i,x_i)$ and produce confidence intervals of the $\beta$, $100(1-\alpha)$% of these intervals will contain the true $\beta$. We should instead see the confidence interval as reflecting of the reliability of the regression.
+- True definition: A $100(1-\alpha)$% confidence interval his essentially means is that if we conduct the same regression analysis many times using different samples of $(y_i,x_i)$ and produce confidence intervals of the $\beta$, $100(1-\alpha)$% of these intervals will contain the true $\beta$. We should instead see the confidence interval as reflecting of the reliability of the regression.
 
 $$
 \beta \quad \epsilon \quad (\hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\beta}))
