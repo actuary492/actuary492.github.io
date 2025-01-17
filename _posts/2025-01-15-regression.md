@@ -38,7 +38,7 @@ where $f(\cdot)$ is essentially some objective function that can be linear, poly
 
 # Simple Linear Regression Model
 
-The simple linear regression model simply attempts to find the effect of one predictor $x_i$ on the response $y_i$. We also have the case when multiple predictors are involved (multiple linear regression model) however in this section I am going to focus on the simple linear regression. Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
+The simple linear regression model attempts to find the effect of ONE predictor $x_i$ on the response $y_i$. We also have the case when multiple predictors are involved (multiple linear regression model) however in this section I am going to focus on the simple linear regression. Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
 
 $$
 y_i = \alpha + \beta x_i + e_i
