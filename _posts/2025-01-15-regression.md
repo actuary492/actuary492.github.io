@@ -114,7 +114,7 @@ $$
 \min_{\hat{\alpha}, \hat{\beta}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)^2
 $$
 
-Deriving $\alpha$ by minimization:
+Deriving $hat{\alpha}$ by minimization:
 
 $$
 \frac{d}{d_\hat{\alpha}} \sum_{i=1}^{n} (y_i - \hat{\alpha}  - \hat{\beta} x_i)^2 = 0
