@@ -388,13 +388,13 @@ $$
 We need to remember that we are dealing with the sum of squared residuals, hence there is a summation to the left of the statistic above. The sum of chisquare distributed variables is still the chisquare distribution with the degree freedoms equal to the independent observations, in this case $n-2$.
 
 $$
-\sum{i=1}^{n} \frac{e_i^2}{\sigma^2} \sim \chi^2(n-2)
+\sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} \sim \chi^2(n-2)
 $$
 
 We can alter the equation above to as follows while remembering the formula of estimated sample variance $s^2 = \frac{1}{n - 2} \sum_{i=1}^n e_i^2$ :
 
 $$
-\sum{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2)
+\sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2)
 $$
 
 Now, let us gather the terms to make the t-distribution:
