@@ -366,7 +366,7 @@ We can replicate the form of the t-statistic using the distribution of $\hat{\be
 First, let us standardize the distribution of $\hat{\beta}$:
 
 $$
-\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow Z = \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}} \sim N(0,1)
+\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow Z = \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}} | x_i \sim N(0,1)
 $$
 
 Now, let us find the distribution of the estimated variance $s^2$
@@ -382,17 +382,19 @@ s^2 = \frac{\sigma^2}{n - 2} \frac{1}{\sigma^2} \sum_{i=1}^n e_i^2
 $$
 
 $$
-\frac{\sigma^2}{n - 2} \sum_{i=1}^n \frac{e_i^2}{\sigma^2}
+s^2 = \frac{\sigma^2}{n - 2} \sum_{i=1}^n \frac{e_i^2}{\sigma^2}
 $$
 
 We know that $\frac{\hat{e}_i^2}{\sigma^2}$ is chisquared as follows:
 
 $$
-e_i|x_i \sim N(0, \sigma^2) \rightarrow \frac{e_i - 0}{\sqrt{\sigma^2}} = \frac{e_i}{\sigma} \sim N(0,1)
+e_i|x_i \sim N(0, \sigma^2) \rightarrow \frac{e_i - 0}{\sqrt{\sigma^2}} = \frac{e_i}{\sigma}|x_i \sim N(0,1)
 $$
 
-$$
+Squaring the standard normal distribution gives us the chi squared distribution with degree of freedom 1. We can prove this by transformation as well.
 
+$$
+\frac{e_i^2}{\sigma^2} \sim \chi(1)
 $$
 
 
