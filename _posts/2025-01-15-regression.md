@@ -397,11 +397,14 @@ $$
 \sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2) * \frac{\frac{1}{n-2}\sum_{i=1}^{n} e_i^2}{\sigma^2} = (n-2) * \frac{s^2}{\sigma^2}
 $$
 
-Now, let us gather the terms to make the t-distribution:
+
+Now, arranging the standard normal and the chisquare statistics:
 
 $$
-\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\frac{\sigma^2}{n - 2} \chi^2(n-2)}
+\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\frac{s^2}{\sigma^2}}
 $$
+
+We see that 
 
 
 
