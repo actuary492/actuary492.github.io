@@ -439,7 +439,7 @@ where
 - $se(\beta^i)$ is the standard deviation of the estimated regression coefficient
 - $t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
 
-The critical value can be seen as the quantile function that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The reason for the split of significance level is to ensure symmetry in the confidence interval, such that the total probability region remains at
+The critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value (which gives us upper bound of confidence interval). Taking the negative of this critical region marks the value that contains the $\frac{\alpha}{2}$% of observations instead (lower bound confidence interval), and this is true due to the symmetry of the t-distribution.
 
 
 
