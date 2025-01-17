@@ -356,7 +356,7 @@ Let us go through step by step on how we arrive at the t-distribution from the $
 We first have to understand the chisquare distribution can be formed by the standard normal distribution and the chisquare distribution as follows:
 
 $$
-\frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}} \quad \text{where} \quad Z \sim N(0,1) \quad \text{and} \quad \text{k = degrees of freedom}
+t = \frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}} \sim t(k) \quad \text{where} \quad Z \sim N(0,1) \quad \text{and} \quad \text{k = degrees of freedom}
 $$
 
 
