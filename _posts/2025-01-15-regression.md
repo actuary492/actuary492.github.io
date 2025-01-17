@@ -337,7 +337,17 @@ $$
 
 What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
 
-Knowing this, we can now calculate t-statistic from the information above. However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$. This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is $\frac{RSS}{n}$, adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$.
+## Calculating the t-statistic to test for accuracy of $\hat{\beta}$
+
+Knowing this, we can now calculate t-statistic from the information above. However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$. 
+
+This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is originally $\frac{RSS}{n}$, then adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$.
+
+Why does having more parameters take up the degrees of freedom of the chisquare?
+- The degrees of freedom (dof) refer to the number of independent pieces of data we have to estimate a quantity.
+- In this simple regression model, the residuals are not completely independent. The predicted values $\hat{y_i}$ depend on estimated coefficients $\hat{\alpha]$ and $\hat{\beta}$.
+- The RSS ($e_i^2$) becomes restrained due to these estimates, therefore underestimating the variance.
+- The correction by subtracting the number of observations by number of parameters
 
 
 
