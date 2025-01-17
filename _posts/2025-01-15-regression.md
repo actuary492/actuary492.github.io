@@ -308,7 +308,7 @@ $$
 We can take the term $(x_i - \bar{x_i})$ out of the $Var[\cdot]$ as it is fixed. 
 
 $$
-\frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 Var[(y_i)|x_i]
+\frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 Var[y_i|x_i]
 $$
 
 We know that $\sum_{i=1}^{n} (x_i - \bar{x_i})^2$ is the variance of $x_i$ which we have denoted as $S_{xx}$. We also know that $Var[y_i|x_i]$ from the distribution of $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that it is $\sigma^2$.
