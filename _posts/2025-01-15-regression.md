@@ -398,10 +398,10 @@ $$
 $$
 
 
-Now, arranging the standard normal and the chisquare statistics:
+Now, arranging the standard normal and the chisquare statistics based on the structure $t = \frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}}$ :
 
 $$
-\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\frac{s^2}{\sigma^2}}
+\frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\sqrt{\frac{s^2}{\sigma^2}}}
 $$
 
 We see that 
