@@ -337,7 +337,7 @@ $$
 
 What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
 
-Knowing this, we can now calculate t-statistic from the information above. However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$. This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is $\frac{RSS}{n}$.
+Knowing this, we can now calculate t-statistic from the information above. However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$. This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is $\frac{RSS}{n}$, adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$.
 
 
 
