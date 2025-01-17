@@ -1,4 +1,4 @@
----
+8---
 layout: single
 title: "Statistics"
 date: 2025-01-10
@@ -627,7 +627,7 @@ $$
 That uses the the F-statistic that follows the F-distribution with $n_1 - 1$ and $n_2 - 1$ degrees of freedom:
 
 $$
-F = \frac{\hat{\sigma}_1^2}{\hat{\sigma}_2^2} \sim F_{n1-1, n2-2}
+F = \frac{\hat{\sigma}_1^2}{\hat{\sigma}_2^2} \sim F_{n_1-1, n_2-2}
 $$
 
 To conduct this test in R:
