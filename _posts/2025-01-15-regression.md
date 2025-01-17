@@ -428,18 +428,20 @@ $$
 
 The t-statistic which we normally see from regression outputs in R, conducts precisely this hypothesis testing above.
 
-We can also use the t-statistic to find the two sided $100(1-\alpha)$% confidence interval as follows:
+We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ as follows:
 
 $$
-\beta^i \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\beta^i)
+\beta \epsilon \hat{beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\beta^i)
 $$
 
 where
 - $\beta^i$ is the estimated regression coefficient
 - $se(\beta^i)$ is the standard deviation of the estimated regression coefficient
-- $t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $\alpha = 1-\frac{\alpha}{2}$
+- $t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
 
-The critical value here is essentially the 
+The critical value can be seen as the quantile function that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The reason for the split of significance level is to ensure symmetry in the confidence interval, such that the total probability region remains at
+
+
 
 # Multiple Linear Regression
 
