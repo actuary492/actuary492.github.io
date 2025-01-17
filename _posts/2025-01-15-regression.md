@@ -361,7 +361,7 @@ $$
 
 One can show this holds true by the transformation method, which I will not elaborate further here.
 
-We can replicate the form of the t-statistic using the distribution of $\hat{\beta}$ and the distribution of the estimated variance $s^2$.
+Let us approach how we can arrive at the t-distribution.
 
 First, let us standardize the distribution of $\hat{\beta}$:
 
