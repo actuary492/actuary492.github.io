@@ -407,7 +407,7 @@ $$
 We see that the $\sigma^2$ and $n-2$ cancels each other out, becoming:
 
 $$
-\frac{\hat{\beta} - \beta}{\sqrt{\frac{\s^2}{S_{xx}}}} \sim t(n-2)
+\frac{\hat{\beta} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
 
