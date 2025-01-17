@@ -442,6 +442,8 @@ We need to understand what the confidence interval really is:
   
 - True definition: A $100(1-\alpha)$% confidence interval his essentially means is that if we conduct the same regression analysis many times using different samples of $(y_i,x_i)$ and produce confidence intervals of the $\beta$, $100(1-\alpha)$% of these intervals will contain the true $\beta$. We should instead see the confidence interval as reflecting of the reliability of the regression.
 
+With this in mind, having $0$ in the interval essentially tells us that in $95$% of confidence intervals in repeated regressions can contain $\beta = 0$, hence how this can serve as proof that $\beta$ may not significantly differ from $0$.
+
 $$
 \beta \quad \epsilon \quad (\hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\beta}))
 $$
