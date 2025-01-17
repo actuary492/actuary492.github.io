@@ -394,7 +394,7 @@ $$
 We can alter the equation above to as follows while remembering the formula of estimated sample variance $s^2 = \frac{1}{n - 2} \sum_{i=1}^n e_i^2$ :
 
 $$
-\sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2)
+\sum_{i=1}^{n} \frac{e_i^2}{\sigma^2} = (n-2) * \frac{\frac{1}{n-2}\sum_{i=1}^{n} \frac{e_i^2}}{\sigma^2}
 $$
 
 Now, let us gather the terms to make the t-distribution:
