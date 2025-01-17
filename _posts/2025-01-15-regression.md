@@ -361,7 +361,7 @@ $$
 
 One can show this holds true by the transformation method, which I will not elaborate further here.
 
-Let us approach how we can arrive at the t-distribution.
+Let us approach how we can arrive at the t-statistic and distribution.
 
 First, let us standardize the distribution of $\hat{\beta}$:
 
