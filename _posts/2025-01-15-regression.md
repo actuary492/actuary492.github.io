@@ -339,16 +339,25 @@ What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the
 
 ## Calculating the t-statistic to test for accuracy of $\hat{\beta}$
 
-Knowing this, we can now calculate t-statistic from the information above. However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$.
+Knowing these important descriptive statistics, we can now calculate t-statistic from the information above. 
 
-This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is originally $\frac{RSS}{n}$, then adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$.
+However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n \hat{e}_i^2$.
 
-Why does having more parameters take up the degrees of freedom of the chisquare?
+This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is originally $\frac{RSS}{n}$, then adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$. This has to do with the degree freedoms of the $RSS$ term that is chi-squared (to be explained) that will be important in our calculations for the t-statistic.
+
+Why does having more parameters take up the degrees of freedom?
 - The degrees of freedom (dof) refer to the number of independent pieces of data we have to estimate a quantity.
 - Think of some simple case. You are given 5 observations, where 1 is unknown (5, 2, 3, 4, $X$). You are given that the sample mean as 5. That means the total of observations should be 25, meaning the unknown $X$ should be $25-(5+2+3+4)=11$. However, this observation which we calculated is not independent anymore. Due to the restriction given by the sample mean that sum of all observations must be 25, $X$ has no choice but to be 11. 
 - In this sense, the variation of the residuals in the simple linear regression model are not completely independent due to the potential restrictions on the individual SSR observations due to the estimated coefficients $\hat{\alpha}$ and $\hat{\beta}$.
 - This implies that the more parameters one has on the regression model, the more degrees of freedom one is going to lose due to the constraints of the estimated coefficients.
 
+Let us go through step by step on how we arrive at the t-distribution from the $\hat{\beta}$. 
+
+We first have to understand the chisquare distribution can be formed by the standard normal distribution and the chisquare distribution as follows:
+
+$$
+\frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}} \quad \text{where} \quad Z \sim N(0,1) \quad \text{and} \quad \text{k = degrees of freedom}
+$$
 
 
 
