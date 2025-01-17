@@ -359,6 +359,16 @@ $$
 t = \frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}} \sim t(k) \quad \text{where} \quad Z \sim N(0,1) \quad \text{and} \quad \text{k = degrees of freedom}
 $$
 
+One can show this holds true by the transformation method, which I will not elaborate further here.
+
+We can replicate the form of the t-statistic using the distribution of $\hat{\beta}$ and the distribution of the estimated variance $s^2$.
+
+First, let us standardize the distribution of $\hat{\beta}$:
+
+$$
+\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}
+$$
+
 
 
 
