@@ -404,10 +404,10 @@ $$
 \frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\sqrt{\frac{(n-2)\frac{s^2}{\sigma^2}}{n-2}}} \sim t(n-2)
 $$
 
-We see that the $\sigma^2$ cancels each other out, becoming:
+We see that the $\sigma^2$ and $n-2$ cancels each other out, becoming:
 
 $$
-
+\frac{\hat{\beta} - \beta}{\sqrt{\frac{\s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
 
