@@ -469,7 +469,7 @@ $$
 \hat{\beta_0} = \bar{y_i} - \hat{\beta_1} * 0 = \bar{y_i}
 $$
 
-In most cases unlike the coefficients attached to predictors, the intercept in this model is generally seen as less important as this structure tells us that $\hat_{\beta_1}$ is essentially irrelevant here no matter the value (as we calculate for y when all predictors are $0$). This means that $\hat_{\beta_0}$ has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
+In most cases unlike the coefficients attached to predictors, the intercept in this model is generally seen as less important as this structure tells us that $\hat{\beta_1}$ is essentially irrelevant here no matter the value (as we calculate for y when all predictors are $0$). This means that $\hat{\beta_0}$ has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
 
 This is the reason why finding the distribution of the intercept is rarely done. Nevertheless, we should also note that in some cases of regression models, the uncertainty of the intercept may be of big importance. For instance in risk management, the intercept can serve as a threshold, and could even ask the question on whether there are other hidden risks which was not captured by the model. In this case, finding measures such as the confidence interval of the intercept may give insights.
 
