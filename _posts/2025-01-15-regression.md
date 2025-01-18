@@ -601,7 +601,7 @@ $$
 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2\mathbf{X^T} \mathbf{Y}
 $$
 
-Expressing $\boldsymbol{\beta}$ in terms of the other factors, where we can change $\boldsymbol{\beta}$ into $\boldsymbol{\beta}$:
+Expressing $\boldsymbol{\beta}$ in terms of the other factors, where we can change $\boldsymbol{\beta}$ into $\boldsymbol{\hat{\beta}}$:
 
 $$
 \mathbf{\boldsymbol{\hat{\beta}}} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{Y}
@@ -630,10 +630,10 @@ $$
 \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1} =  \sigma^2 I (\mathbf{X^T}\boldsymbol{X})^{-1} = \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1}
 $$
 
-$\boldsymbol{\hat{\beta}$ is therefore normally distributed as such:
+$\boldsymbol{\hat{\beta}}$ is therefore normally distributed as such:
 
 $$
-\boldsymbol{\hat{\beta} \sim N(\boldsymbol{\beta}, \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1})
+\boldsymbol{\hat{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1})
 $$
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
