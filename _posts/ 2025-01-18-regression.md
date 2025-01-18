@@ -1107,7 +1107,7 @@ $$
 $$
 
 $$
-\frac{d}{d \boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y} = \mathbf{X}^T \mathbf{Y}
+\frac{d}{d \boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\mathbf{Y} = \mathbf{X}^T \mathbf{Y}
 $$
 
 $$
