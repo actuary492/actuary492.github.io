@@ -489,7 +489,7 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/linregmat.png" alt="description" style="width: 80%; height: 80%;">
 
-The same assumptions follow as in the simple linear regression model. Errors must be uncorrelated with each other and errors are conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I
+The same assumptions follow as in the simple linear regression model. Errors must be uncorrelated with each other and errors are conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I)$.
 
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
