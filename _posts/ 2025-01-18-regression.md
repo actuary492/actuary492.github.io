@@ -606,7 +606,7 @@ $$
 $$
 
 $$
-- 2\mathbf{X^T} \mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 0
+-2\mathbf{X^T}\mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 0
 $$
 
 $$
