@@ -526,7 +526,7 @@ $$
 where
 
 $$
-\boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}, \quad \boldsymbol{\beta}^T = \begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}
+\boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}, \quad \boldsymbol{\beta}^T = \begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix} \quad I = \text{k * k identity matrix}
 $$
 
 We see that if we differentiate simply $\beta$ with respect to $\beta$ or column vector on column vector, the results will be invalid. The reason for this lies on the logic of differentiation. 
@@ -537,7 +537,13 @@ $$
 
 Looking at the first way of differentiation, it would not make sense. There is no clear logic on what to differentiate for instance first term of the vector in the numerator $\beta_1$ with respect to. It can be to $\beta_2$ or even to $beta_k$. 
 
-In the second way of differentiation, we see the clear logic on what we should differentiate with respect to. By showing differentiation by row in numerator against column in denominator, we see that the first element of the transposed $\beta$ can be differentiated against the every element of the $\beta$ below which forms the first row of the identity matrix. The first element of the resulting row matrix is 1 while the rest is 0. The second element in the transposed $\beta$ can be differentiated in the same way to form second row of the identity matrix. The second element of the resulting row matrix will be 1 while the other elements will be 0. 
+In the second way of differentiation, we see the clear logic on what we should differentiate with respect to. 
+
+By showing differentiation by row in numerator against column in denominator, we see that the first element of the transposed $\beta$ can be differentiated against the every $k$ elements of the $\beta$ below which forms the first row of the identity matrix. The first element of the resulting row matrix is 1 while the rest $k-1$ elements is 0. 
+
+The second element in the transposed $\beta$ can be differentiated in the same way to form second row of the identity matrix. The second element of the resulting row matrix will be 1 while the other $k-1$ elements will be 0. 
+
+Continuing further we will produce $k$ rows that form the identity matrix of dimensions $k * k$.
 
 Continuining minimization of the $\boldsymbol{\beta}$:
 
@@ -545,23 +551,31 @@ $$
 \min_{\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
 $$
 
-We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one.
+We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one. We start with the second term up to the fourth term.
 
 $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}
 $$
 
-We see that differentiation $\boldsymbol{\beta}$ on $\boldsymbol{\beta}$ is invalid, thus we have to transpose the function of differentiation to make this vector differentiation valid. 
+We see that differentiation $\boldsymbol{\beta}$ on $\boldsymbol{\beta}$ is invalid, thus we have to transpose the objective function of differentiation to make this vector differentiation valid. 
 
 $$
 (\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta})^T = \boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y}
 $$
 
-Transposing the function above will not change the function. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains the same scalar.
+Transposing the objective function above will not change anything. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains the same scalar.
+
+$$
+\frac{d}{d\boldsymbol{\beta}} \boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\beta^T} }{d\boldsymbol{\beta}} \mathbf{X^T} \mathbf{Y} =  I\mathbf{X^T} \mathbf{Y}
+$$
+
+On to the third term:
 
 $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
 $$
+
+In the final term:
 
 $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
