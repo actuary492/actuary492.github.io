@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Linear Regression"
-date: 2025-01-10
+date: 2025-01-18
 excerpt: "We will explore concept of linear regression and how to use it in R"
 author: Nicholas Wijaya
 toc: true
@@ -1067,12 +1067,12 @@ One should know that changes above should hold true simply by checking matrix di
 Let us expand the terms.
 
 $$
-\min_{\hat{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
+\min_{\hat{\boldsymbol{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
 $$
 
 We can now differentiate with respect to beta. 
 
-However, there is an important concept we need to know when we differentiate with respect to a vector.
+However, we first have an intermezzo over differentiating with respect to vectors.
 
 $$
 \frac{\partial \boldsymbol{\beta}^T}{\partial \boldsymbol{\beta}} = \mathbf{I} \quad \text{and} \quad \frac{\partial \boldsymbol{\beta}}{\partial \boldsymbol{\beta}} \neq \mathbf{I}
@@ -1087,8 +1087,28 @@ $$
 We see that if we differentiate simply $\beta$ with respect to $\beta$ or column vector on column vector, the results will be invalid. The reason for this lies on the logic of differentiation. 
 
 $$
-\frac{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}}{}
+\frac{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}
 $$
+
+Looking at the first way of differentiation, it would not make sense. There is no clear logic on what to differentiate for instance first term of the vector in the numerator $\beta_1$ with respect to. It can be to $\beta_2$ or even to $beta_k$. 
+
+In the second way of differentiation, we see the clear logic on what we should differentiate with respect to. By showing differentiation by row in numerator against column in denominator, we see that the first element of the transposed $\beta$ can be differentiated against the every element of the $\beta$ below which forms the first row of the identity matrix. The first element of the resulting row matrix is 1 while the rest is 0. The second element in the transposed $\beta$ can be differentiated in the same way to form second row of the identity matrix. The second element of the resulting row matrix will be 1 while the other elements will be 0. 
+
+Continuining minimization of the $\boldsymbol{\beta}$:
+
+$$
+\min_{\hat{\boldsymbol{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
+$$
+
+We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$.
+
+$$
+\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d} - \frac{d\mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y}}{d\boldsymbol{\beta}} + \frac{d\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}}{d\boldsymbol{\beta}}
+$$
+
+
+
+
 
 
 
