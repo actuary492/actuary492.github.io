@@ -622,7 +622,7 @@ $$
 We can also expand this by replacing $\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}$
 
 $$
-\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} = \mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + \mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon}
+(\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon}
 $$
 
 We have derived the $\boldsymbol{\beta}$ for multiple regression model.
