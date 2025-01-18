@@ -622,7 +622,7 @@ $$
 We can also expand this by replacing $\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}$
 
 $$
-(\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon}
+(\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} = \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon}
 $$
 
 We have derived the $\boldsymbol{\beta}$ for multiple regression model.
@@ -630,7 +630,7 @@ We have derived the $\boldsymbol{\beta}$ for multiple regression model.
 We can also find the mean and variance of the $\boldsymbol{\beta}$ that can be useful to check for accuracy of beta.
 
 $$
-E[\boldsymbol{\beta} \mid X]
+E[\boldsymbol{\beta} \mid X] = E[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X]
 $$
 
 $$
