@@ -453,7 +453,7 @@ where
 
 The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations to the left of this value instead, and this holds true due to the symmetry of the t-distribution.
 
-## The (intercept) of $\hat{\beta_0}$ : what does it tell us exactly?
+## The (intercept) $\hat{\beta_0}$ : what does it tell us exactly?
 
 We can view the intercept as the base value or average values of the response variable $y_i$ when the predictor variable $x_i$ in the model is 0. 
 
