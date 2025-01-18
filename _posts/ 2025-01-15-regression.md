@@ -455,6 +455,24 @@ The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as th
 
 ## The (intercept) of $\hat{\beta_0}$ : what does it tell us exactly?
 
+We can view the intercept as the base value or average values of the response variable $y_i$ when the predictor variable $x_i$ in the model is 0. 
+
+From minimization the $\hat_{\beta_0}$ is:
+
+$$
+\hat_{\beta_0} = \bar_{y_i} - \hat_{\beta_1} \bar_{x_i}
+$$
+
+If all $x_i$ are 0, so is it's mean $\bar_{x_i}$. The intercept thus becomes average of all $y_i$ values
+
+$$
+\hat_{\beta_0} = \bar_{y_i} - \hat_{\beta_1} * 0 = \bar_{y_i}
+$$
+
+In most cases unlike the coefficients attached to predictors, this is generally seen as less important as it has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
+
+This is the reason why finding the distribution of the intercept is rarely done. 
+
 
 # Multiple Linear Regression
 
