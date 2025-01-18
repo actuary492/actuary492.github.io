@@ -1107,11 +1107,11 @@ $$
 $$
 
 $$
-\frac{d\boldsymbol{\beta^T}\mathbf{X^T}\mathbf{Y}}{d\boldsymbol{\beta}} 
+\frac{d \left( \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{Y} \right)}{d \boldsymbol{\beta}} = \mathbf{X}^T \mathbf{Y}
 $$
 
 $$
-\frac{d\boldsymbol{\beta^T}\mathbf{X^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}}
+\frac{d \left( \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta} \right)}{d \boldsymbol{\beta}} = 2 \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
 $$
 
 
