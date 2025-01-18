@@ -512,12 +512,17 @@ One should know that changes above should hold true simply by checking matrix di
 Let us expand the terms.
 
 $$
-\min_{\hat{\beta}} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\hat{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
 $$
 
+We can now differentiate with respect to beta. 
+
+However, there is one nuance when we differentiate with respect to a vector.
+
 $$
-\min_{\hat{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta^T}
+\frac{\partial \boldsymbol{\beta}^T}{\partial \boldsymbol{\beta}} = \mathbf{I}
 $$
+
 
 
 
