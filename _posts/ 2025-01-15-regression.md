@@ -520,6 +520,10 @@ We can now differentiate with respect to beta.
 However, there is one nuance when we differentiate with respect to a vector.
 
 $$
+\frac{\partial \boldsymbol{\beta}^T}{\partial \boldsymbol{\beta}} = \mathbf{I} \quad \frac{\partial \boldsymbol{\beta}}{\partial \boldsymbol{\beta}} \neq \mathbf{I}
+$$
+
+$$
 \frac{\partial \boldsymbol{\beta}^T}{\partial \boldsymbol{\beta}} = \mathbf{I}
 $$
 
