@@ -766,7 +766,7 @@ We have proven the equality of the numerator. With the same method above, one ca
 
 ## Quantifying accuracy of $\hat{\beta_1}$
 
-This is always a must in any regression model to check for the accuracy of $\hat{\beta_1}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
+This is always a must in any regression model to check for the accuracy of $\hat{\beta_1}$. This can be by means of plotting some $x$% confidence interval or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
 
 To find these measures, the mean and variance of the $\hat{\beta}$ is required. It is as follows
 
@@ -1084,7 +1084,11 @@ $$
 \boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}, \quad \boldsymbol{\beta}^T = \begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}
 $$
 
-We see that if we differentiate simply $\beta$ with respect to $\beta$ or column vector on column vector, the results will be invalid. The reason for this 
+We see that if we differentiate simply $\beta$ with respect to $\beta$ or column vector on column vector, the results will be invalid. The reason for this lies on the logic of differentiation. 
+
+$$
+\frac{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}}{}
+$$
 
 
 
