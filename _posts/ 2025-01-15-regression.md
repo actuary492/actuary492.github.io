@@ -327,9 +327,9 @@ $$
 \frac{1}{S_{xx}^2} \sigma^2 \sum_{i=1}^{n} (x_i - \bar{x_i})^2 = \frac{1}{S_{xx}^2} \sigma^2 Var(x_i) = \frac{1}{S_{xx}^2} \sigma^2 S_{xx} = \frac{\sigma^2}{S_{xx}}
 $$
 
-We have therefore proven the variance of $\hat{\beta}$.
+We have therefore proven the variance of $\hat{\beta_1}$.
 
-But one thing still is unsolved. What type of distribution does $\hat{\beta}$ follow? That should be quite obvious by itself. As $\hat{\beta}$ is essentially linear combinations of the variable $y_i$, and since we know that $y_i$ is normally distributed (conditional on fixed $x_i$), $\hat{\beta}$ should follow the same distribution. 
+But one thing still is unsolved. What type of distribution does $\hat{\beta_1}$ follow? That should be quite obvious by itself. As $\hat{\beta_1}$ is essentially linear combinations of the variable $y_i$, and since we know that $y_i$ is normally distributed (conditional on fixed $x_i$), $\hat{\beta_1}$ should follow the same distribution. 
 
 $$
 \hat{\beta_1}|x_i \sim N(\beta_1, \frac{\sigma^2}{S_{xx}})
