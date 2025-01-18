@@ -209,7 +209,7 @@ $$
 We have proven the equality of the numerator. With the same method above, one can also prove the denominator $cov(x_i,x_i)$ holds true, and so does the equality for the fraction concerning $\hat{\beta}$. As the formula is repetitive, I will skip it and let the reader try it out themselves.
 
 
-## Quantifying accuracy of $\beta$
+## Quantifying accuracy of $\hat{\beta_1}$
 
 This is always a must in any regression model to check for the accuracy of $\hat{\beta}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
 
