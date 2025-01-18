@@ -457,16 +457,16 @@ The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as th
 
 We can view the intercept as the base value or average values of the response variable $y_i$ when the predictor variable $x_i$ in the model is 0. 
 
-From minimization the $\hat_{\beta_0}$ is:
+From minimization the $\hat{\beta_0}$ is:
 
 $$
-\hat_{\beta_0} = \bar{y_i} - \hat_{\beta_1} \bar{x_i}
+\hat{\beta_0} = \bar{y_i} - \hat{\beta_1} \bar{x_i}
 $$
 
 If all $x_i$ are 0, so is it's mean $\bar{x_i}$. The intercept thus becomes average of all $y_i$ values
 
 $$
-\hat_{\beta_0} = \bar{y_i} - \hat_{\beta_1} * 0 = \bar{y_i}
+\hat{\beta_0} = \bar{y_i} - \hat{\beta_1} * 0 = \bar{y_i}
 $$
 
 In most cases unlike the coefficients attached to predictors, the intercept in this model is generally seen as less important as this structure tells us that $\hat_{\beta_1}$ is essentially irrelevant here no matter the value (as we calculate for y when all predictors are $0$). This means that $\hat_{\beta_0}$ has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
