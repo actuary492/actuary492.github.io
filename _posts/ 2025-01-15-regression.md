@@ -460,19 +460,18 @@ We can view the intercept as the base value or average values of the response va
 From minimization the $\hat_{\beta_0}$ is:
 
 $$
-\hat_{\beta_0} = \bar_{y_i} - \hat_{\beta_1} \bar_{x_i}
+\hat_{\beta_0} = \bar{y_i} - \hat_{\beta_1} \bar{x_i}
 $$
 
-If all $x_i$ are 0, so is it's mean $\bar_{x_i}$. The intercept thus becomes average of all $y_i$ values
+If all $x_i$ are 0, so is it's mean $\bar{x_i}$. The intercept thus becomes average of all $y_i$ values
 
 $$
-\hat_{\beta_0} = \bar_{y_i} - \hat_{\beta_1} * 0 = \bar_{y_i}
+\hat_{\beta_0} = \bar{y_i} - \hat_{\beta_1} * 0 = \bar{y_i}
 $$
 
-In most cases unlike the coefficients attached to predictors, this is generally seen as less important as it has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
+In most cases unlike the coefficients attached to predictors, the intercept in this model is generally seen as less important as this structure tells us that $\hat_{\beta_1}$ is essentially irrelevant here no matter the value (as we calculate for y when all predictors are $0$). This means that $\hat_{\beta_0}$ has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
 
-This is the reason why finding the distribution of the intercept is rarely done. 
-
+This is the reason why finding the distribution of the intercept is rarely done. Nevertheless, we should also note that in some cases of regression models, the uncertainty of the intercept may be of big importance. For instance in risk management, the intercept can serve as a threshold, and could even ask the question on whether there are other hidden risks which was not captured by the model. In this case, finding measures such as the confidence interval of the intercept may give insights.
 
 # Multiple Linear Regression
 
