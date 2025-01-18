@@ -532,7 +532,7 @@ $$
 We see that if we differentiate simply $\beta$ with respect to $\beta$ or column vector on column vector, the results will be invalid. The reason for this lies on the logic of differentiation. 
 
 $$
-\frac{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}
+\frac{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_k \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_k \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_k \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}
 $$
 
 Looking at the first way of differentiation, it would not make sense. There is no clear logic on what to differentiate for instance first term of the vector in the numerator $\beta_1$ with respect to. It can be to $\beta_2$ or even to $beta_k$. 
