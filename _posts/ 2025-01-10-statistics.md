@@ -292,7 +292,7 @@ This is everything so far on basic descriptive statistics. Of course, there are 
 
 A hypothesis that states something about a population is true or not. If a hypothesis is not true, there should be an alternative hypothesis. Therefore through hypothesis testing, we attempt to either accept one hypothesis while rejecting the other. We normally call the two hypotheses as the null hypothesis and the alternative hypothesis. 
 
-This is done by incorporating statistical tests that can help aid in forming such conclusion. Of course, there is a chance that we do not arrive at the correct conclusion, such as when one rejects the null hypothesis given the null hypothesis is true, or accepting the null hypothesis when the null hypothesis is false. This is called the type I error and type II error respectively. A $\text{type I error}$ is considered to be more serious than a $\text{type II error}$, hence statistical testing is based on trying to limit the probability of making a type I error to some level called the significance level ($\alpha$).
+This is done by incorporating statistical tests that can help aid in forming such conclusion. Of course, there is a chance that we do not arrive at the correct conclusion, such as when one rejects the null hypothesis given the null hypothesis is true, or accepting the null hypothesis when the null hypothesis is false. This is called the type I error and type II error respectively. A $\text{type I error}$ is considered to be more serious than a $\text{type II error}$, hence statistical testing is based on trying to limit the probability of making a $\text{type I error}$ to some level called the significance level ($\alpha$).
 
 
 ## p-value as a Statistical Concept for Statistical Testing 
@@ -304,14 +304,14 @@ However, most built-in hypothesis testing functions in statistical softwares do 
 The p-value tells us the probability of obtaining a test statistic more extreme (and/or equal) than what is observed (from the data we use for hypothesis testing), given that the null hypothesis is true and this serves as evidence against the null hypothesis. 
 
 $$
-\text{p-value} = P[Test statistic \geq x | H_0 true]
+\text{p-value} = P[\text{Test statistic} \geq x | \text{H_0 true}]
 $$
 
 $$
-\text{p-value} = P[Test statistic \leq x | H_0 true]
+\text{p-value} = P[\text{Test statistic} \leq x | \text{H_0 true}]
 $$
 
-Determining which extreme tail it is ($\geq$ or $\leq$) requires that we understand the alternative hypothesis. If the alternative hypothesis deems that a population mean is lower than some value, in order to reject $H_0$, then we need to show probability of the observing an even lower sample mean than on our observed data given the null hypothesis to help with "finding" the evidence against the null.
+Determining which extreme tail it is ($\geq$ or $\leq$) requires that we understand the alternative hypothesis. If the alternative hypothesis deems that a population mean is lower than some value, then in order to reject $H_0$, we need to show probability of the observing an even lower sample mean than on our observed data given the null hypothesis to help with "finding" the evidence against the null.
 
 
 ### Interpreting the p-value
@@ -331,7 +331,7 @@ This argument is broken by explaning the essence of hypothesis testing, which te
 
 So the question now is what is a maximum p-value that can be seen as enough to reject the null hypothesis? 
 
-Significance level comes into play here. In most literature, a $5%$ significance level is deemed enough to draw a conclusion. In other words, if the p-value of obtaining an equal or more extreme test statistic than observed is less than 5%, then we say we have sufficient evidence to reject the null hypothesis. 
+Significance level comes into play here. In most literature, a $5$% significance level is deemed enough to draw a conclusion. In other words, if the p-value of obtaining an equal or more extreme test statistic than observed is less than $5$%, then we say we have sufficient evidence to reject the null hypothesis. 
 
 The significance level also acts as a barrier for the type I error. A more lower significance level (typically applied when deciding critical decisions) means that we are much more stricter in avoiding a type I error (rejection of the null hypothesis when the null hypothesis is true i.e. false positives), however there is also a trade-off that such low significance levels makes it more likely that null is not rejected and potentially miss out on detecting true effects.
 
