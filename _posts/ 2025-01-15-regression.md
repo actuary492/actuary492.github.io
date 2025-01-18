@@ -489,7 +489,9 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/linregmat.png" alt="description" style="width: 80%; height: 80%;">
 
-Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector
+Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
+
+\min_{\hat{\beta}} \sum_{i=1}^{n} \epsilon^T \epsilon
 
 
 
