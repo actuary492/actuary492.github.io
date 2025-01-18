@@ -337,7 +337,7 @@ $$
 
 What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
 
-## Calculating the t-statistic to test for accuracy of $\hat{\beta}$
+## Calculating the t-statistic to test for accuracy of $\hat{\beta_1}$
 
 Knowing these important descriptive statistics, we can now calculate t-statistic from the information above. 
 
@@ -453,7 +453,7 @@ where
 
 The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations to the left of this value instead, and this holds true due to the symmetry of the t-distribution.
 
-## The $\hat_{\beta_0}$ (intercept): what does it tell us exactly?
+## The (intercept) of $\hat{\beta_0}$ : what does it tell us exactly?
 
 
 # Multiple Linear Regression
