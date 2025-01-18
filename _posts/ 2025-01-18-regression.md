@@ -1103,7 +1103,7 @@ $$
 We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one.
 
 $$
-\frac{d}{d\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} = 
+\frac{d}{d\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} = \frac{d}{d\boldsymbol{\beta}} (\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta})^T = \frac{d}{d\boldsymbol{\beta}} (\boldsymbol{\beta^T}\mathbf{X^T}\mathbf{Y}
 $$
 
 $$
