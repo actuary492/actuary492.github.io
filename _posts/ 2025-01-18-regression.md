@@ -575,7 +575,7 @@ $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
 $$
 
-We can directly calculate this as we are differentiating tranpose of $\boldsymbol{\beta}$ on $\boldsymbol{\beta}$. There is no need to apply the transpose to the objective function.
+We can directly calculate this as we are differentiating tranpose $\boldsymbol{\beta^T}$ on $\boldsymbol{\beta}$. There is no need to apply the transpose to the objective function.
 
 $$
 \frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}} \mathbf{X^T}\boldsymbol{Y} = I \mathbf{X^T}\boldsymbol{Y} = \mathbf{X^T}\boldsymbol{Y}
@@ -587,6 +587,13 @@ $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
 $$
 
+We also see that transpose is not necessary. We can directly arrive at the differentiation that is:
+
+$$
+\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2I\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
+$$
+
+The reason for the $2$ coming out is because we see that differentiation of the squared $\mathbf{\boldsymbol{\beta}$ will bring the power of $2$ into the front.
 
 
 
