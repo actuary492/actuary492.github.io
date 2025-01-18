@@ -634,7 +634,11 @@ E[\boldsymbol{\beta} \mid X] = E[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X
 $$
 
 $$
-Var[\boldsymbol{\beta} \mid X] = Var[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X] = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} Var[\boldsymbol{\epsilon} \mid X] \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1} = 
+Var[\boldsymbol{\beta} \mid X] = Var[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X] = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} Var[\boldsymbol{\epsilon} \mid X] \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1}
+$$
+
+$$
+\sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1} =  \sigma^2 I (\mathbf{X^T}\boldsymbol{X})^{-1} = \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1}
 $$
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
