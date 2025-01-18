@@ -1100,10 +1100,18 @@ $$
 \min_{\hat{\boldsymbol{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
 $$
 
-We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$.
+We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one.
 
 $$
-\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}} - \frac{d\mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y}}{d\boldsymbol{\beta}} + \frac{d\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}}{d\boldsymbol{\beta}}
+\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}}
+$$
+
+$$
+\frac{d\mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y}}{d\boldsymbol{\beta}} 
+$$
+
+$$
+\frac{d\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}}{d\boldsymbol{\beta}}
 $$
 
 
