@@ -529,6 +529,8 @@ $$
 \boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}, \quad \boldsymbol{\beta}^T = \begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}
 $$
 
+x
+
 
 
 
