@@ -114,7 +114,7 @@ $$
 \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{\beta_0} - \hat{\beta_1} x_i)^2
 $$
 
-Deriving $hat{\beta_0}$ by minimization:
+Deriving $\hat{\beta_0}$ by minimization:
 
 $$
 \frac{d}{d_\hat{\beta_0}} \sum_{i=1}^{n} (y_i - \hat{\beta_0}  - \hat{\beta_1} x_i)^2 = 0
@@ -136,7 +136,7 @@ $$
 n*\bar{y_i} - n\hat{\beta_0} - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \hat{\beta_0} - \hat{\beta_1} \bar{x_i}) = 0 \rightarrow \bar{y_i} - \hat{\beta_0} - \hat{\beta_1} \bar{x_i} = 0 
 $$
 
-Moving $\alpha$ to other side we get the estimate:
+Moving $\hat{\beta_0}$ to other side we get the estimate:
 
 $$
 \hat{\beta_0} = \bar{y_i} - \hat{\beta_1} \bar{x_i}
