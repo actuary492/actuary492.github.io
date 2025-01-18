@@ -722,7 +722,7 @@ rate
 
 ## Likelihood Ratio Testing Using Maximum Likelihood
 
-The likelihood ratio test is very useful to test nested models. It uses a penalty term in the chi squared distribution when unecessary parameters are added in the model. 
+The likelihood ratio test is very useful to test nested models (subset of models). It uses a penalty term in the chi squared distribution when unecessary parameters are added in the model. 
 
 The LRT test statistic essentially finds the difference in log-likelihoods between the full model and the nested model and checks whether this difference is significant or not. If it is, there is evidence to deem that the additional parameter is necessary. If the difference is not significant, then there is evidence the additional parameter is not needed.
 
