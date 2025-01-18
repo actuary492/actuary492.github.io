@@ -1107,11 +1107,11 @@ $$
 $$
 
 $$
-\frac{d\mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y}}{d\boldsymbol{\beta}} 
+\frac{d\boldsymbol{\beta^T}\mathbf{X^T}\mathbf{Y}}{d\boldsymbol{\beta}} 
 $$
 
 $$
-\frac{d\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}}{d\boldsymbol{\beta}}
+\frac{d\boldsymbol{\beta^T}\mathbf{X^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}}
 $$
 
 
