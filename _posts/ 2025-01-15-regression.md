@@ -492,7 +492,7 @@ $$
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
 $$
-\min_{\hat{\beta}} \sum_{i=1}^{n} \epsilon^T \epsilon
+\min_{\hat{\beta}} \epsilon^T \epsilon = \min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 
