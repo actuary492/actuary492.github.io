@@ -495,6 +495,32 @@ $$
 \min_{\hat{\beta}} \epsilon^T \epsilon = \min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
+Let us derive the $\boldsymbol{\beta}$ from the minimization problem:
+
+$$
+\min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+$$
+
+Let us shift the transpose inside, becoming as follows:
+
+$$
+\min_{\hat{\beta}} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+$$
+
+One should know that changes above should hold true simply by checking matrix dimensions.
+
+Let us expand the terms.
+
+$$
+\min_{\hat{\beta}} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+$$
+
+$$
+\min_{\hat{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta^T}
+$$
+
+
+
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
 
