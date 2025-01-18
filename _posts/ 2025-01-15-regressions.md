@@ -59,7 +59,7 @@ $$
 
 There are two important assumptions in this model:
 - Errors in the model are not correlated in any way with each other
-- Errors are conditionally normally distributed $e_i | x_i$ with mean 0 and finite constant variance $\sigma^2$.
+- Errors are conditionally normally distributed e_i|x_i with mean 0 and finite constant variance $\sigma^2$.
 
 Why conditional on $X=x$? Fixed $x_i$'s are assumed in order to generate predictions $\hat{y_i}$ used to calculate errors. Random error realisations therefore require fixed $x_i$.
 
