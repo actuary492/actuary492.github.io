@@ -89,7 +89,7 @@ In Rstudio, the function to find the quantile function is q<<distribution code>>
 
 ```r
 # Find the realisation (threshold) for which 70% of the observations of Poisson distribution of lambda 5 lie below this threshold.
-ppois(8, lambda=5)
+qpois(8, lambda=5)
 [1] 6
 ```
 
