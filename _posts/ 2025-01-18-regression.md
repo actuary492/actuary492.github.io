@@ -1103,15 +1103,15 @@ $$
 We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one.
 
 $$
-\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}}
+\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}} = 
 $$
 
 $$
-\frac{d \left( \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{Y} \right)}{d \boldsymbol{\beta}} = \mathbf{X}^T \mathbf{Y}
+\frac{d \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{Y}}{d \boldsymbol{\beta}} = \mathbf{X}^T \mathbf{Y}
 $$
 
 $$
-\frac{d \left( \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta} \right)}{d \boldsymbol{\beta}} = 2 \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
+\frac{d \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}}{d \boldsymbol{\beta}} = 2 \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
 $$
 
 
