@@ -423,14 +423,14 @@ $$
 with t-statistic:
 
 $$
-t = \frac{\hat{\beta_1} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}}  = \frac{\hat{\beta_1} - 0}{\sqrt{\frac{s^2}{S_{xx}}}} = \frac{\hat{\beta_1}}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
+t = \frac{\hat{\beta_1} - \beta_1}{\sqrt{\frac{s^2}{S_{xx}}}}  = \frac{\hat{\beta_1} - 0}{\sqrt{\frac{s^2}{S_{xx}}}} = \frac{\hat{\beta_1}}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
 The t-statistic which we normally see from regression outputs in R, conducts precisely this hypothesis testing above.
 
-### Constructing the $100(1-\alpha)$% confidence interval for $\beta$
+### Constructing the $100(1-\alpha)$% confidence interval for $\beta_1$
 
-We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ of regression results in R. 
+We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta_1$ of regression results in R. 
 
 This confidence interval is important because if the interval we calculated can contain $0$, i.e. ($-2 \leq \beta_1 \leq 2)$ it could provide evidence that the $\beta$ we estimated might not be significantly different from zero. 
 
