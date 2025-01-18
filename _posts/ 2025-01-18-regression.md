@@ -492,19 +492,19 @@ $$
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
 $$
-\min_{\beta} \epsilon^T \epsilon = \min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\boldsymbol{\beta}} \epsilon^T \epsilon = \min_{\boldsymbol{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 Let us derive the $\boldsymbol{\beta}$ from the minimization problem:
 
 $$
-\min_{\beta} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\boldsymbol{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 Let us shift the transpose inside, becoming as follows:
 
 $$
-\min_{\beta} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\boldsymbol{\beta}} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 One should know that changes above should hold true simply by checking matrix dimensions.
@@ -515,7 +515,7 @@ $$
 \min_{\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
 $$
 
-We can now differentiate with respect to beta. 
+We can now differentiate with respect to $\boldsymbol{\beta}$. 
 
 However, we first have an intermezzo over differentiating with respect to vectors.
 
@@ -553,35 +553,37 @@ $$
 
 We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one. We start with the second term up to the fourth term.
 
+Second term:
+
 $$
-\frac{d}{d\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}
+\frac{d}{d\boldsymbol{\beta}} -\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}
 $$
 
 We see that differentiation $\boldsymbol{\beta}$ on $\boldsymbol{\beta}$ is invalid, thus we have to transpose the objective function of differentiation to make this vector differentiation valid. 
 
 $$
-(\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta})^T = \boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y}
+-(\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta})^T = -\boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y}
 $$
 
 Transposing the objective function above will not change anything. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains the same scalar.
 
 $$
-\frac{d}{d\boldsymbol{\beta}} \boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\beta^T} }{d\boldsymbol{\beta}} \mathbf{X^T} \mathbf{Y} =  I\mathbf{X^T} \mathbf{Y} = \mathbf{X^T} \mathbf{Y}
+\frac{d}{d\boldsymbol{\beta}} -\boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\beta^T} }{d\boldsymbol{\beta}} -\mathbf{X^T} \mathbf{Y} =  -I\mathbf{X^T} \mathbf{Y} = -\mathbf{X^T} \mathbf{Y}
 $$
 
-On to the third term:
+Third term:
 
 $$
-\frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
+\frac{d}{d\boldsymbol{\beta}} - \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
 $$
 
 We can directly calculate this as we are differentiating tranpose $\boldsymbol{\beta^T}$ on $\boldsymbol{\beta}$. There is no need to apply the transpose to the objective function.
 
 $$
-\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}} \mathbf{X^T}\boldsymbol{Y} = I \mathbf{X^T}\boldsymbol{Y} = \mathbf{X^T}\boldsymbol{Y}
+\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}} -\mathbf{X^T}\boldsymbol{Y} = - I \mathbf{X^T}\boldsymbol{Y} = - \mathbf{X^T}\boldsymbol{Y}
 $$
 
-In the final term:
+Final term:
 
 $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
@@ -590,12 +592,30 @@ $$
 We also see that transpose is not necessary. We can directly arrive at the differentiation that is:
 
 $$
-\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2I\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
+\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2I\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
 $$
 
-The reason for the $2$ coming out is because we see that differentiation of the squared $\mathbf{\boldsymbol{\beta}$ will bring the power of $2$ into the front.
+The reason for the $2$ coming out is because we see that differentiation of the squared $\mathbf{\boldsymbol{\beta}}$ will bring the power of $2$ into the front.
 
+Combining the terms such that we satisfy the minimization procedure:
 
+$$
+-\mathbf{X^T} \mathbf{Y} -\mathbf{X^T} \mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 0
+$$
+
+$$
+- 2\mathbf{X^T} \mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 0
+$$
+
+$$
+2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2\mathbf{X^T} \mathbf{Y}
+$$
+
+Expressing $\boldsymbol{\beta}$ in terms of the other factors:
+
+$$
+\mathbf{\boldsymbol{\beta}} = (\mathbf{X^T}\boldsymbol{X})^-1 \mathbf{X^T} \mathbf{Y}
+$$
 
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
