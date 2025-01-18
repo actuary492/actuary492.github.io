@@ -41,17 +41,17 @@ where $f(\cdot)$ is essentially some objective function that can be linear, poly
 The simple linear regression model attempts to find the effect of ONE predictor $x_i$ on the response $y_i$. We also have the case when multiple predictors are involved (multiple linear regression model) however in this section I am going to focus on the simple linear regression. Assume that we have a dataset of pairs $(x_i, y_i)$ from $i = 1,2,..., p$. We can express the supposedly linear relationship between $y_i$ and $x_i$ as follows:
 
 $$
-y_i = \alpha + \beta x_i + e_i
+y_i = \beta_0 + \beta_1 x_i + e_i
 $$
 
 The $\alpha$ and $\beta$ are coefficients to be calculated in order to fit the model and to quantify the relationship between the predictor $x_i$ and response $y_i$. The error term $e_i$ is the difference between the observed $y_i$ and the estimated $\hat{y_i}$ using the estimated coefficients $\hat{\alpha}$ and $\hat{\beta}$ and the given fixed $x_i$ observations. 
 
 $$
-\hat{y_i} = \hat{\alpha} + \hat{\beta} x_i
+\hat{y_i} = \hat{\beta_0} + \hat{\beta_1} x_i
 $$
 
 $$
-e_i = y_i - \hat{y_i} = y_i - \hat{\alpha} - \hat{\beta} x_i
+e_i = y_i - \hat{y_i} = y_i - \hat{\beta_0} - \hat{\beta_1} x_i
 $$
 
 
@@ -76,118 +76,118 @@ However, $x_i$ can be discrete or continuous because the model is conditional on
 With these assumptions in mind, we can also find the distribution of $y_i$ that we should directly follow the normal distribution through it's errors:
 
 $$
-E[y_i|x_i] = E[\alpha + \beta x_i + e_i|x_i] = \alpha + \beta x_i + E[e_i|x_i] 
-           = \alpha + \beta x_i + 0 = \alpha + \beta x_i 
+E[y_i|x_i] = E[\beta_0 + \beta_1 x_i + e_i|x_i] = \beta_0 + \beta_1 x_i + E[e_i|x_i] 
+           = \beta_0 + \beta_1 x_i + 0 = \beta_0 + \beta_1 x_i 
 $$
 
 $$
-Var[y_i|x_i] = Var[\alpha + \beta x_i + e_i|x_i] 
+Var[y_i|x_i] = Var[\beta_0 + \beta_1 x_i + e_i|x_i] 
              = Var[e_i|x_i] = \sigma^2
 $$
 
 $$
-y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)
+y_i|x_i \sim N(\beta_0 + \beta_1 x_i , \sigma^2)
 $$
 
 
-## Finding $\alpha$ and $\beta$ through calculations
+## Finding $\beta_0$ and $\beta_1$ through calculations
 
-Finding $\alpha$ and $\beta$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We know that error is the difference between the observed y $y_i$ and the estimated y from the regression model $\hat{y_i}$.
+Finding $\beta_0$ and $\beta_1$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We know that error is the difference between the observed y $y_i$ and the estimated y from the regression model $\hat{y_i}$.
 
 $$
-\min_{\alpha, \beta} \sum_{i=1}^{n} e_i^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
+\min_{\beta_0, \beta_1} \sum_{i=1}^{n} e_i^2 = \min_{\beta_0, \beta_1} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
 $$
 
-In other words, the $\alpha$ and $\beta$ is calculated such that it produces the regression line (consisting of paired observations of predicted $\hat{y_i}$ values and $x_i$) that minimizes the distance between observations of $x_i$ to the regression line. Visualised, it looks as such:
+In other words, the $\beta_0$ and $\beta_1$ is calculated such that it produces the regression line (consisting of paired observations of predicted $\hat{y_i}$ values and $x_i$) that minimizes the distance between observations of $x_i$ to the regression line. Visualised, it looks as such:
 
 <img src="https://actuary492.github.io/assets/images/ssr.jpeg" alt="description" style="width: 80%; height: 80%;">
 
-The values of $\hat{\alpha}$ and $\hat{\beta}$ is as follows.
+The values of $\hat{\beta_0}$ and $\hat{\beta_1}$ is as follows.
 
 $$
-\hat{\alpha} = \bar{y_i} - \hat{\beta} \bar{x_i} \quad \hat{\beta} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
+\hat{\beta_0} = \bar{y_i} - \hat{\beta_1} \bar{x_i} \quad \hat{\beta_1} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
 $$
 
 Let me take you through how you can derive $\alpha$ and $\beta$.
 
 $$
-\min_{\hat{\alpha}, \hat{\beta}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\alpha, \beta} \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)^2
+\min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2 = \min_{\beta_0, \beta_1} \sum_{i=1}^{n} (y_i - \hat{\beta_0} - \hat{\beta_1} x_i)^2
 $$
 
-Deriving $hat{\alpha}$ by minimization:
+Deriving $hat{\beta_0}$ by minimization:
 
 $$
-\frac{d}{d_\hat{\alpha}} \sum_{i=1}^{n} (y_i - \hat{\alpha}  - \hat{\beta} x_i)^2 = 0
+\frac{d}{d_\hat{\beta_0}} \sum_{i=1}^{n} (y_i - \hat{\beta_0}  - \hat{\beta_1} x_i)^2 = 0
 $$
 
 $$
-\sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i)*(-1) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i) = 0
+\sum_{i=1}^{n} 2*(y_i - \hat{\beta_0} - \hat{\beta_1} x_i)*(-1) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\beta_0} - \hat{\beta_1} x_i) = 0
 $$
 
 We split the summation into own terms:
 
 $$
-\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \hat{\alpha} - \sum_{i=1}^{n} \hat{\beta} x_i = 0 \rightarrow \sum_{i=1}^{n} y_i - n\hat{\alpha} - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+\sum_{i=1}^{n} y_i - \sum_{i=1}^{n} \hat{\beta_0} - \sum_{i=1}^{n} \hat{\beta_1} x_i = 0 \rightarrow \sum_{i=1}^{n} y_i - n\hat{\beta_0} - \hat{\beta_1} \sum_{i=1}^{n} x_i = 0
 $$
 
 Using the relationship $\sum_{i=1}^{n} a_i = n*\frac{1}{n} \sum_{i=1}^{n} a_i = n \bar{a_i}$ 
  
 $$
-n*\bar{y_i} - n\hat{\alpha} - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \hat{\alpha} - \hat{\beta} \bar{x_i}) = 0 \rightarrow \bar{y_i} - \hat{\alpha} - \hat{\beta} \bar{x_i} = 0 
+n*\bar{y_i} - n\hat{\beta_0} - \beta n \bar{x_i} = 0 \rightarrow n*(\bar{y_i} - \hat{\beta_0} - \hat{\beta_1} \bar{x_i}) = 0 \rightarrow \bar{y_i} - \hat{\beta_0} - \hat{\beta_1} \bar{x_i} = 0 
 $$
 
 Moving $\alpha$ to other side we get the estimate:
 
 $$
-\hat{\alpha} = \bar{y_i} - \hat{\beta} \bar{x_i}
+\hat{\beta_0} = \bar{y_i} - \hat{\beta_1} \bar{x_i}
 $$
 
-Now, deriving $\hat{\beta}$:
+Now, deriving $\hat{\beta_1}$:
 
 $$
-\frac{d}{d_\hat{\beta}} \sum_{i=1}^{n} (y_i - \hat{\alpha}  - \hat{\beta} x_i)^2 = 0
+\frac{d}{d_\hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{\beta_0}  - \hat{\beta_1} x_i)^2 = 0
 $$
 
 $$
-\sum_{i=1}^{n} 2*(y_i - \hat{\alpha} - \hat{\beta} x_i) * (-x_i) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\alpha} - \hat{\beta} x_i)*(x_i) = 0
+\sum_{i=1}^{n} 2*(y_i - \hat{\beta_0} - \hat{\beta_1} x_i) * (-x_i) = 0 \rightarrow \sum_{i=1}^{n} (y_i - \hat{\beta_0} - \hat{\beta_1} x_i)*(x_i) = 0
 $$
 
 Splitting summation in individual terms:
 
 $$
-\sum_{i=1}^{n} y_i x_i - \sum_{i=1}^{n} \hat{\alpha} x_i  - \sum_{i=1}^{n} \hat{\beta} x_i x_i = 0 \rightarrow \sum_{i=1}^{n} y_i x_i - \hat{\alpha} \sum_{i=1}^{n} x_i  - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+\sum_{i=1}^{n} y_i x_i - \sum_{i=1}^{n} \hat{\beta_0} x_i  - \sum_{i=1}^{n} \hat{\beta_1} x_i x_i = 0 \rightarrow \sum_{i=1}^{n} y_i x_i - \hat{\beta_0} \sum_{i=1}^{n} x_i  - \hat{\beta_1} \sum_{i=1}^{n} x_i = 0
 $$
 
-Plugging in \hat{\alpha} into the last equation above:
+Plugging in \hat{\beta_0} into the last equation above:
 
 $$
-\sum_{i=1}^{n} y_i x_i - (\bar{y_i} - \hat{\beta} \bar{x_i}) \sum_{i=1}^{n} x_i  - \hat{\beta} \sum_{i=1}^{n} x_i = 0
+\sum_{i=1}^{n} y_i x_i - (\bar{y_i} - \hat{\beta_1} \bar{x_i}) \sum_{i=1}^{n} x_i  - \hat{\beta_1} \sum_{i=1}^{n} x_i = 0
 $$
 
 Expanding equation further:
 
 $$
-\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i + \hat{\beta} \bar{x_i} \sum_{i=1}^{n} x_i - \hat{\beta} \sum_{i=1}^{n} x_i = 0 
+\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i + \hat{\beta_1} \bar{x_i} \sum_{i=1}^{n} x_i - \hat{\beta_1} \sum_{i=1}^{n} x_i = 0 
 $$
 
 $$
-\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i - \hat{\beta}*(\sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i) = 0 
+\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i - \hat{\beta_1}*(\sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i) = 0 
 $$
 
-Moving $\hat{\beta}$ to other side, yields:
+Moving $\hat{\beta_1}$ to other side, yields:
 
 $$
-\hat{\beta}*(\sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i) = \sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i \rightarrow \hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i}{\sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i}
+\hat{\beta_1}*(\sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i) = \sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i \rightarrow \hat{\beta_1} = \frac{\sum_{i=1}^{n} y_i x_i - \bar{y_i} \sum_{i=1}^{n} x_i}{\sum_{i=1}^{n} x_i - \bar{x_i} \sum_{i=1}^{n} x_i}
 $$
 
 Again, using the relationship $\sum_{i=1}^{n} a_i = n*\frac{1}{n} \sum_{i=1}^{n} a_i = n \bar{a_i}$ 
 
 $$
-\hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - \bar{y_i} n \bar{x_i}}{\sum_{i=1}^{n} x_i - \bar{x_i} n \bar{x_i}} \rightarrow \hat{\beta} = \frac{\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} }{\sum_{i=1}^{n} x_i - n \bar{x_i} \bar{x_i}} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
+\hat{\beta_1} = \frac{\sum_{i=1}^{n} y_i x_i - \bar{y_i} n \bar{x_i}}{\sum_{i=1}^{n} x_i - \bar{x_i} n \bar{x_i}} \rightarrow \hat{\beta_1} = \frac{\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} }{\sum_{i=1}^{n} x_i - n \bar{x_i} \bar{x_i}} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
 $$
 
 $$
-\hat{\beta} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
+\hat{\beta_1} = \frac{cov(x_i,y_i)}{cov(x_i,x_i)}
 $$
 
 I will first expand the numerator to show that fraction above holds true:
@@ -216,15 +216,15 @@ This is always a must in any regression model to check for the accuracy of $\hat
 To find these measures, the mean and variance of the $\hat{\beta}$ is required. It is as follows
 
 $$
-E[\hat{\beta} | x_i ] = \beta \quad Var[\hat{\beta} | x_i ] = \frac{\sigma^2}{Var(x_i)}
+E[\hat{\beta_1} | x_i ] = \beta \quad Var[\hat{\beta_1} | x_i ] = \frac{\sigma^2}{Var(x_i)}
 $$
 
 Let us derive the values above.
 
-### Mean of $\hat{\beta}$:
+### Mean of $\hat{\beta_1}$:
 
 $$
-E[\hat{\beta} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
+E[\hat{\beta_1} | x_i ] = E[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
 $$
 
 Remember that $cov(x_i, y_i)$ can be expressed as $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$.  I will express $cov(x_i, x_i)$ now as $S_{xx}$ for simplicity. We substitute this into the equation above:
@@ -242,15 +242,15 @@ $$
 Plugging in $y_i = \alpha + \beta x_i + e_i$ into the equation above and expanding:
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha + \beta x_i + e_i)| x_i]
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\beta_0 + \beta_1 x_i + e_i)| x_i]
 $$
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})* \alpha + (x_i - \bar{x_i}) \beta x_i + (x_i - \bar{x_i})  e_i | x_i]
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})* \beta_0 + (x_i - \bar{x_i}) \beta_1 x_i + (x_i - \bar{x_i})  e_i | x_i]
 $$
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\alpha)|x_i] + E[(x_i - \bar{x_i}) \beta x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i]
+\frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\beta_0)|x_i] + E[(x_i - \bar{x_i}) \beta_1 x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i]
 $$
 
 Move the constants $\alpha$ and $\beta$ to the front and we see that we can move all terms of $x_i$'s out of the expectation as they are constants. We should also note that $E[e_i|x_i]=0$ based on error assumptions of the model :
@@ -260,11 +260,11 @@ $$
 $$
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i + (x_i - \bar{x_i}) E[e_i|x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \beta (x_i - \bar{x_i}) x_i
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \beta_0 (x_i - \bar{x_i}) + \beta_1 (x_i - \bar{x_i}) x_i + (x_i - \bar{x_i}) E[e_i|x_i] = \frac{1}{S_{xx}} \sum_{i=1}^{n} \beta_0 (x_i - \bar{x_i}) + \beta_1 (x_i - \bar{x_i}) x_i
 $$
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha (x_i - \bar{x_i}) + \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \beta_0 (x_i - \bar{x_i}) + \sum_{i=1}^{n} \beta_1 (x_i - \bar{x_i}) x_i
 $$
 
 We should see that one of terms $\sum_{i=1}^{n} (x_i - \bar{x_i})$ should cancel out:
@@ -276,29 +276,29 @@ $$
 Thus becoming:
 
 $$
-\frac{1}{S_{xx}} (0 + \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta \sum_{i=1}^{n} (x_i - \bar{x_i}) x_i
+\frac{1}{S_{xx}} (0 + \sum_{i=1}^{n} \beta_1 (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta_1 \sum_{i=1}^{n} (x_i - \bar{x_i}) x_i
 $$
 
 We should also note that using expansion of $cov(x_i,x_i)$ similar to the one I did on $cov(x_i, y_i)$, that is $cov(x_i, x_i) = \sum_{i=1}^{n} x_i x_i - n \bar{x_i} \bar{x_i} = \sum_{i=1}^{n} x_i x_i - \bar{x_i} x_i$. Hence we know the outer term is essentially the $Var(x_i)$ or $S_{xx}$. We therefore arrive at the final: 
 
 $$
-\frac{1}{S_{xx}} \beta \sum_{i=1}^{n} \beta (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta {S_{xx}} = \beta
+\frac{1}{S_{xx}} \beta_1 \sum_{i=1}^{n} \beta_1 (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta_1 {S_{xx}} = \beta_1
 $$
 
-We have shown that $E[\hat{\beta}] = \beta$.
+We have shown that $E[\hat{\beta_1}] = \beta_1$.
 
-### Variance of $\hat{\beta}$:
+### Variance of $\hat{\beta_1}$:
 
-Now, on to the variance of $\hat{\beta}$:
+Now, on to the variance of $\hat{\beta_1}$:
 
 $$
-Var[\hat{\beta} | x_i ] = Var[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
+Var[\hat{\beta_1} | x_i ] = Var[\frac{cov(x_i,y_i)}{cov(x_i,x_i)}]
 $$
 
 Substitute again $cov(x_i,y_i)$ by $\sum_{i=1}^{n} y_i x_i - n \bar{x_i} \bar{y_i} = \sum_{i=1}^{n} y_i x_i - y_i \bar{x_i}$ and $cov(x_i, x_i)$ by $S_{xx}$.
 
 $$
-Var[\hat{\beta} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i\bar{x_i}}{S_{xx}}|x_i] = Var[\frac{\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)}{S_{xx}}|x_i]
+Var[\hat{\beta_1} | x_i ] = Var[\frac{\sum_{i=1}^{n} y_i x_i - y_i\bar{x_i}}{S_{xx}}|x_i] = Var[\frac{\sum_{i=1}^{n} (x_i - \bar{x_i})*(y_i)}{S_{xx}}|x_i]
 $$
 
 $$
@@ -315,7 +315,7 @@ $$
 \frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 Var[y_i|x_i]
 $$
 
-We know that $\sum_{i=1}^{n} (x_i - \bar{x_i})^2$ is the variance of $x_i$ which we have denoted as $S_{xx}$. We also know that $Var[y_i|x_i]$ from the distribution of $y_i|x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that it is $\sigma^2$.
+We know that $\sum_{i=1}^{n} (x_i - \bar{x_i})^2$ is the variance of $x_i$ which we have denoted as $S_{xx}$. We also know that $Var[y_i|x_i]$ from the distribution of $y_i|x_i \sim N(\beta_0 + \beta_1 x_i , \sigma^2)$ that it is $\sigma^2$.
 
 $$
 \frac{1}{S_{xx}^2} \sum_{i=1}^{n} (x_i - \bar{x_i})^2 \sigma^2
@@ -332,7 +332,7 @@ We have therefore proven the variance of $\hat{\beta}$.
 But one thing still is unsolved. What type of distribution does $\hat{\beta}$ follow? That should be quite obvious by itself. As $\hat{\beta}$ is essentially linear combinations of the variable $y_i$, and since we know that $y_i$ is normally distributed (conditional on fixed $x_i$), $\hat{\beta}$ should follow the same distribution. 
 
 $$
-\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}})
+\hat{\beta_1}|x_i \sim N(\beta_1, \frac{\sigma^2}{S_{xx}})
 $$
 
 What this tells us is that the estimated beta $(\hat{\beta})$ is centered on the true value of parameter $\beta$ while the spread of the estimated beta depends on the variability of data $(S_{xx})$ and the spread of errors ($\sigma^2$, calculated from the variance of errors). 
@@ -366,7 +366,7 @@ Let us approach how we can arrive at the t-statistic and distribution.
 First, let us standardize the distribution of $\hat{\beta}$:
 
 $$
-\hat{\beta}|x_i \sim N(\beta, \frac{\sigma^2}{S_{xx}}) \rightarrow Z = \frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}} | x_i \sim N(0,1)
+\hat{\beta_1}|x_i \sim N(\beta_1, \frac{\sigma^2}{S_{xx}}) \rightarrow Z = \frac{\hat{\beta_1} - \beta_1}{\sqrt{\frac{\sigma^2}{S_{xx}}}} | x_i \sim N(0,1)
 $$
 
 We move on to the $s^2$ that is $\frac{\hat{e}_i^2}{\sigma^2}$ is chi-squared, which we can find as follows:
@@ -397,13 +397,13 @@ $$
 Now, arranging the standard normal and the chisquare statistics  to find the t-statistic based on the structure $t = \frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}}$ :
 
 $$
-t = \frac{\frac{\hat{\beta} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\sqrt{\frac{(n-2)\frac{s^2}{\sigma^2}}{n-2}}} \sim t(n-2)
+t = \frac{\frac{\hat{\beta_1} - \beta}{\sqrt{\frac{\sigma^2}{S_{xx}}}}}{\sqrt{\frac{(n-2)\frac{s^2}{\sigma^2}}{n-2}}} \sim t(n-2)
 $$
 
 We see that the $\sigma^2$ and $n-2$ cancels each other out, becoming:
 
 $$
-t = \frac{\hat{\beta} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
+t = \frac{\hat{\beta_1} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
 We have successfully derived the t-statistic to test for accuracy of $\beta$.
@@ -417,13 +417,13 @@ The main use of the t-statistic in regression is to check for whether some estim
 Testing for the above requires the following hypothesis:
 
 $$
-H_O : \beta = 0 \quad \text{vs} \quad H_a: \beta \neq 0
+H_O : \beta_1 = 0 \quad \text{vs} \quad H_a: \beta_1 \neq 0
 $$
 
 with t-statistic:
 
 $$
-t = \frac{\hat{\beta} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}}  = \frac{\hat{\beta} - 0}{\sqrt{\frac{s^2}{S_{xx}}}} = \frac{\hat{\beta}}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
+t = \frac{\hat{\beta_1} - \beta}{\sqrt{\frac{s^2}{S_{xx}}}}  = \frac{\hat{\beta_1} - 0}{\sqrt{\frac{s^2}{S_{xx}}}} = \frac{\hat{\beta_1}}{\sqrt{\frac{s^2}{S_{xx}}}} \sim t(n-2)
 $$
 
 The t-statistic which we normally see from regression outputs in R, conducts precisely this hypothesis testing above.
@@ -432,7 +432,7 @@ The t-statistic which we normally see from regression outputs in R, conducts pre
 
 We can also use the t-statistic to find the two-sided $100(1-\alpha)$% confidence interval of $\beta$ of regression results in R. 
 
-This confidence interval is important because if the interval we calculated can contain $0$, i.e. ($-2 \leq \beta \leq 2)$ it could provide evidence that the $\beta$ we estimated might not be significantly different from zero. 
+This confidence interval is important because if the interval we calculated can contain $0$, i.e. ($-2 \leq \beta_1 \leq 2)$ it could provide evidence that the $\beta$ we estimated might not be significantly different from zero. 
 
 We need to understand what the confidence interval really is:
 
@@ -443,7 +443,7 @@ We need to understand what the confidence interval really is:
 With this in mind, having $0$ in the interval essentially tells us that in $95$% of confidence intervals in repeated regressions can contain $\beta = 0$, hence how this can serve as proof that $\beta$ may not significantly differ from $0$.
 
 $$
-\beta \quad \epsilon \quad (\hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\beta}))
+\beta \quad \epsilon \quad (\hat{\beta} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\beta_1}))
 $$
 
 where
@@ -459,7 +459,7 @@ The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as th
 We move on to a more general form of the linear regression model, that is the multiple linear regression model where we consider effect of more than one predictor variable on some single response variable.
 
 $$
-y_i = \alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x_{ki} + e_i
+y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x_{ki} + e_i
 $$
 
 expressed in matrix-vector form as:
