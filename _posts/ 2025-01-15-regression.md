@@ -459,7 +459,7 @@ The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as th
 We move on to a more general form of the linear regression model, that is the multiple linear regression model where we consider effect of more than one predictor variable on some single response variable.
 
 $$
-y_i = \alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x{ki} + e_i
+y_i = \alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x_{ki} + e_i
 $$
 
 expressed in matrix-vector form as:
