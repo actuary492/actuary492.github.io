@@ -566,13 +566,19 @@ $$
 Transposing the objective function above will not change anything. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains the same scalar.
 
 $$
-\frac{d}{d\boldsymbol{\beta}} \boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\beta^T} }{d\boldsymbol{\beta}} \mathbf{X^T} \mathbf{Y} =  I\mathbf{X^T} \mathbf{Y}
+\frac{d}{d\boldsymbol{\beta}} \boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\beta^T} }{d\boldsymbol{\beta}} \mathbf{X^T} \mathbf{Y} =  I\mathbf{X^T} \mathbf{Y} = \mathbf{X^T} \mathbf{Y}
 $$
 
 On to the third term:
 
 $$
 \frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
+$$
+
+We can directly calculate this as we are differentiating tranpose of $\boldsymbol{\beta}$ on $\boldsymbol{\beta}$. There is no need to apply the transpose to the objective function.
+
+$$
+\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}} \mathbf{X^T}\boldsymbol{Y} = I \mathbf{X^T}\boldsymbol{Y} = \mathbf{X^T}\boldsymbol{Y}
 $$
 
 In the final term:
