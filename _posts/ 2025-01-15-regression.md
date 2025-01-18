@@ -453,7 +453,7 @@ where
 
 The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations to the left of this value instead, and this holds true due to the symmetry of the t-distribution.
 
-## The $\hat_{\beta_)$ (intercept): what does it tell us exactly?
+## The $\hat_{\beta_0}$ (intercept): what does it tell us exactly?
 
 
 # Multiple Linear Regression
