@@ -487,37 +487,7 @@ $$
 \mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}
 $$
 
-where
-
-$$
-\begin{bmatrix}
-Y_1 \\
-Y_2 \\
-\vdots \\
-Y_n
-\end{bmatrix}
-=
-\begin{bmatrix}
-1 & X_{11} & X_{12} & \cdots & X_{1p} \\
-1 & X_{21} & X_{22} & \cdots & X_{2p} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-1 & X_{n1} & X_{n2} & \cdots & X_{np}
-\end{bmatrix}
-\begin{bmatrix}
-\beta_0 \\
-\beta_1 \\
-\beta_2 \\
-\vdots \\
-\beta_p
-\end{bmatrix}
-+
-\begin{bmatrix}
-\epsilon_1 \\
-\epsilon_2 \\
-\vdots \\
-\epsilon_n
-\end{bmatrix}
-$$
+<img src="https://actuary492.github.io/assets/images/linregmat.png" alt="description" style="width: 80%; height: 80%;">
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
 
