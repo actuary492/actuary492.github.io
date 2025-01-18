@@ -465,7 +465,7 @@ $$
 expressed in matrix-vector form as:
 
 $$
-Y = X\beta + \eps
+Y = X\beta + \epsilon
 $$
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
