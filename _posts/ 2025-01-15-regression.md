@@ -490,7 +490,6 @@ $$
 where
 
 $$
-\[
 \begin{bmatrix}
 Y_1 \\
 Y_2 \\
@@ -518,7 +517,6 @@ Y_n
 \vdots \\
 \epsilon_n
 \end{bmatrix}
-\]
 $$
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
