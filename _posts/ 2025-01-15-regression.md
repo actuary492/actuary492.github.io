@@ -211,7 +211,7 @@ We have proven the equality of the numerator. With the same method above, one ca
 
 ## Quantifying accuracy of $\hat{\beta_1}$
 
-This is always a must in any regression model to check for the accuracy of $\hat{\beta}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
+This is always a must in any regression model to check for the accuracy of $\hat{\beta_1}$. This can be by means of plotting some $x$% confidence interval (interval where a parameter will lie with probability $x$%) or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
 
 To find these measures, the mean and variance of the $\hat{\beta}$ is required. It is as follows
 
@@ -452,6 +452,8 @@ where
 - $\pm t_{(n-2, 1-\frac{\alpha}{2})}$ is the critical value of the t-distribution with degrees of freedom n-2 and significance level $1-\frac{\alpha}{2}$%.
 
 The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations to the left of this value instead, and this holds true due to the symmetry of the t-distribution.
+
+## The $\hat_{\beta_)$ (intercept): what does it tell us exactly?
 
 
 # Multiple Linear Regression
