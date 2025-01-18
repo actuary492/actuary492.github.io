@@ -482,7 +482,7 @@ The same assumptions follow as in the simple linear regression model. Errors mus
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
 $$
-\min_{\boldsymbol{\beta}} \epsilon^T \epsilon = \min_{\boldsymbol{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\boldsymbol{\hat{\beta}}} \epsilon^T \epsilon = \min_{\boldsymbol{\hat{\beta}}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}})
 $$
 
 Let us derive the $\boldsymbol{\beta}$ from the minimization problem:
@@ -627,6 +627,12 @@ $$
 
 $$
 = \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1} =  \sigma^2 I (\mathbf{X^T}\boldsymbol{X})^{-1} = \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1}
+$$
+
+resulting in:
+
+$$
+\boldsymbol{\beta} \sim N(\boldsymbol{\beta} 
 $$
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
