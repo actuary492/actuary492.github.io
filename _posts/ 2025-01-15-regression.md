@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/regression.jpg"
 permalink: /posts/regression/
-published: true
+published: false
 draft: false
 tags: [post, regression]
 ---
