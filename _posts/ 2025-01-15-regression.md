@@ -523,10 +523,11 @@ $$
 \frac{\partial \boldsymbol{\beta}^T}{\partial \boldsymbol{\beta}} = \mathbf{I} \quad \text{and} \quad \frac{\partial \boldsymbol{\beta}}{\partial \boldsymbol{\beta}} \neq \mathbf{I}
 $$
 
-$$
-\frac{\partial}{\partial \boldsymbol{\beta}} \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix} \neq \mathbf{I}
-$$
+where
 
+$$
+\boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}, \quad \boldsymbol{\beta}^T = \begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix}
+$$
 
 
 
