@@ -601,11 +601,12 @@ $$
 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2\mathbf{X^T} \mathbf{Y}
 $$
 
-Expressing $\boldsymbol{\beta}$ in terms of the other factors:
+Expressing $\boldsymbol{\beta}$ in terms of the other factors, where we can change $\boldsymbol{\beta}$ into $\boldsymbol{\beta}$:
 
 $$
-\mathbf{\boldsymbol{\beta}} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{Y}
+\mathbf{\boldsymbol{\hat{\beta}}} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{Y}
 $$
+
 
 We can also expand this by replacing $\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}$
 
@@ -613,26 +614,26 @@ $$
 (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} = \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon}
 $$
 
-We have derived the $\boldsymbol{\beta}$ for multiple regression model.
+We have derived the $\boldsymbol{\hat{\beta}}$ for multiple regression model.
 
 We can also find the mean and variance of the $\boldsymbol{\beta}$ that can be useful to check for accuracy of beta.
 
 $$
-E[\boldsymbol{\beta} \mid X] = E[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X] = \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} E[\boldsymbol{\epsilon} \mid X] = \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}*0 = \boldsymbol{\beta} 
+E[\boldsymbol{\hat{\beta}} \mid X] = E[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X] = \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} E[\boldsymbol{\epsilon} \mid X] = \boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}*0 = \boldsymbol{\beta} 
 $$
 
 $$
-Var[\boldsymbol{\beta} \mid X] = Var[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X] = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} Var[\boldsymbol{\epsilon} \mid X] \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1}
+Var[\boldsymbol{\hat{\beta}} \mid X] = Var[\boldsymbol{\beta} + (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T}\boldsymbol{\epsilon} \mid X] = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} Var[\boldsymbol{\epsilon} \mid X] \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1}
 $$
 
 $$
-= \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1} =  \sigma^2 I (\mathbf{X^T}\boldsymbol{X})^{-1} = \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1}
+\sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{X} (\mathbf{X^T}\boldsymbol{X})^{-1} =  \sigma^2 I (\mathbf{X^T}\boldsymbol{X})^{-1} = \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1}
 $$
 
-resulting in:
+$\boldsymbol{\hat{\beta}$ is therefore normally distributed as such:
 
 $$
-\boldsymbol{\beta} \sim N(\boldsymbol{\beta} 
+\boldsymbol{\hat{\beta} \sim N(\boldsymbol{\beta}, \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1})
 $$
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
