@@ -560,7 +560,7 @@ $$
 Transposing the function above will not change the function. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains tranpose.
 
 $$
-\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
+\frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
 $$
 
 
