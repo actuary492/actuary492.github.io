@@ -1047,19 +1047,19 @@ $$
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
 $$
-\min_{\hat{\beta}} \epsilon^T \epsilon = \min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\beta} \epsilon^T \epsilon = \min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 Let us derive the $\boldsymbol{\beta}$ from the minimization problem:
 
 $$
-\min_{\hat{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\beta} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 Let us shift the transpose inside, becoming as follows:
 
 $$
-\min_{\hat{\beta}} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\beta} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 One should know that changes above should hold true simply by checking matrix dimensions.
@@ -1067,7 +1067,7 @@ One should know that changes above should hold true simply by checking matrix di
 Let us expand the terms.
 
 $$
-\min_{\hat{\boldsymbol{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
+\min_{\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
 $$
 
 We can now differentiate with respect to beta. 
@@ -1103,7 +1103,7 @@ $$
 We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$.
 
 $$
-\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d} - \frac{d\mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y}}{d\boldsymbol{\beta}} + \frac{d\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}}{d\boldsymbol{\beta}}
+\frac{d\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}}{d\boldsymbol{\beta}} - \frac{d\mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y}}{d\boldsymbol{\beta}} + \frac{d\mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}}{d\boldsymbol{\beta}}
 $$
 
 
