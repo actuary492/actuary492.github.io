@@ -459,7 +459,7 @@ We can view the intercept as the base of the predicted response $y_i$ when the p
 
 In most cases unlike the coefficients attached to predictors, the intercept in this model is generally seen as less important as $\hat{\beta_0}$ has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
 
-Nevertheless, it depends on our model whether or not we should consider the value of the intercept, the uncertainty of the intercept may be of big importance. For instance in risk management, the intercept can serve as a threshold, and could even ask the question on whether there are other hidden risks which was not captured by the model. In this case, finding measures such as the confidence interval of the intercept may give insights.
+Nevertheless, it depends on our model whether or not we should consider the uncertainty of the intercept to be of big importance. For instance in risk management, the intercept can serve as a threshold, and could even ask the question on whether there are other hidden risks which was not captured by the model. In this case, finding measures such as the confidence interval of the intercept may give insights.
 
 # Multiple Linear Regression
 
@@ -488,13 +488,13 @@ $$
 Let us derive the $\boldsymbol{\beta}$ from the minimization problem:
 
 $$
-\min_{\boldsymbol{\beta}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\boldsymbol{\hat{\beta}}} (\mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}})^T (\mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}})
 $$
 
 Let us shift the transpose inside, becoming as follows:
 
 $$
-\min_{\boldsymbol{\beta}} (\mathbf{Y^T} - \boldsymbol{\beta^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\beta})
+\min_{\boldsymbol{\hat{\beta}}} (\mathbf{Y^T} - \boldsymbol{\hat{\beta}^T} \mathbf{X^T} ) (\mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}})
 $$
 
 One should know that changes above should hold true simply by checking matrix dimensions.
@@ -502,27 +502,27 @@ One should know that changes above should hold true simply by checking matrix di
 Let us expand the terms.
 
 $$
-\min_{\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\beta}
+\min_{\boldsymbol{\hat{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}} - \mathbf{\hat{\beta}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\hat{\beta}}
 $$
 
-We can now differentiate with respect to $\boldsymbol{\beta}$. 
+We can now differentiate with respect to $\boldsymbol{\hat{\beta}}$. 
 
 However, we first have an intermezzo over differentiating with respect to vectors.
 
 $$
-\frac{\partial \boldsymbol{\beta}^T}{\partial \boldsymbol{\beta}} = \mathbf{I} \quad \text{and} \quad \frac{\partial \boldsymbol{\beta}}{\partial \boldsymbol{\beta}} \neq \mathbf{I}
+\frac{\partial \boldsymbol{\hat{\beta}}^T}{\partial \boldsymbol{\hat{\beta}}} = \mathbf{I} \quad \text{and} \quad \frac{\partial \boldsymbol{\hat{\beta}}}{\partial \boldsymbol{\hat{\beta}}} \neq \mathbf{I}
 $$
 
 where
 
 $$
-\boldsymbol{\beta} = \begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}, \quad \boldsymbol{\beta}^T = \begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_p \end{bmatrix} \quad I = \text{k * k identity matrix}
+\boldsymbol{\hat{\beta}} = \begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_p \end{bmatrix}, \quad \boldsymbol{\hat{\beta}}^T = \begin{bmatrix} \hat{\beta}_1 & \hat{\beta}_2 & \dots & \hat{\beta}_p \end{bmatrix} \quad I = \text{k * k identity matrix}
 $$
 
-We see that if we differentiate simply $\beta$ with respect to $\beta$ or column vector on column vector, the results will be invalid. The reason for this lies on the logic of differentiation. 
+We see that if we differentiate simply $\hat{\beta}$ with respect to $\hat{\beta}$ or column vector on column vector, the results will be invalid. The reason for this lies on the logic of differentiation. 
 
 $$
-\frac{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_k \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_k \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \beta_1 & \beta_2 & \dots & \beta_k \end{bmatrix}}{d\begin{bmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{bmatrix}}
+\frac{d\begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_k \end{bmatrix}}{d\begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_k \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \hat{\beta}_1 & \hat{\beta}_2 & \dots & \hat{\beta}_k \end{bmatrix}}{d\begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_p \end{bmatrix}}
 $$
 
 Looking at the first way of differentiation, it would not make sense. There is no clear logic on what to differentiate for instance first term of the vector in the numerator $\beta_1$ with respect to. It can be to $\beta_2$ or even to $beta_k$. 
