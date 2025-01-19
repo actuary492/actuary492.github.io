@@ -2,7 +2,7 @@
 layout: single
 title: "Linear Regression"
 date: 2025-01-10
-excerpt: "We will explore concept of linear regression and how to use it in R"
+excerpt: "We will explore concept of linear regression"
 author: Nicholas Wijaya
 toc: true
 classes: wide
@@ -59,7 +59,7 @@ $$
 
 There are two important assumptions in this model:
 - Errors in the model are not correlated in any way with each other
-- Errors are conditionally normally distributed $e_i \mid x_i$ with mean 0 and finite constant variance $\sigma^2$.
+- Errors are i.i.d (independent and identically distributed) conditionally normally distributed $e_i \mid x_i$ with mean 0 and finite constant variance $\sigma^2$.
 
 Why conditional on $X=x$? Fixed $x_i$'s are assumed in order to generate predictions $\hat{y_i}$ used to calculate errors. Random error realisations therefore require fixed $x_i$.
 
@@ -453,13 +453,15 @@ where
 
 The positive critical value of $t_{(n-2, 1-\frac{\alpha}{2})}$ can be seen as the quantile function for the t-distribution that marks the value that contains $1-\frac{\alpha}{2}$% of observations to the left of this value. The negative of this critical value marks the value that contains the $\frac{\alpha}{2}$% of observations to the left of this value instead, and this holds true due to the symmetry of the t-distribution.
 
-## The (intercept) $\hat{\beta_0}$ : what does it tell us exactly?
+## The (intercept) $\hat{\beta_0}$ and $e_i$ : what does it tell us exactly?
 
 We can view the intercept as the base of the predicted response $y_i$ when the predictor variable $x_i$ in the model is 0. 
 
 In most cases unlike the coefficients attached to predictors, the intercept in this model is generally seen as less important as $\hat{\beta_0}$ has no direct relation to $y_i$ unlike the coefficient of predictors that can essentially determine relationships of $x_i$ and $y_i$. 
 
 Nevertheless, it depends on our model whether or not we should consider the uncertainty of the intercept to be of big importance. For instance in risk management, the intercept can serve as a threshold, and could even ask the question on whether there are other hidden risks which was not captured by the model. In this case, finding measures such as the confidence interval of the intercept may give insights.
+
+The error on the other hand, can also be intuitiely interpreted as what the model could not explain after accounting for the predictors. At times, when we are not able to think of other predictors for the model, we can say that we leave it to the errors to explain for other unobservable or unincluded predictors for the model. 
 
 # Multiple Linear Regression
 
@@ -481,7 +483,7 @@ $$
 
 The same assumptions follow as in the simple linear regression model. 
 
-Errors must be uncorrelated with each other and errors are conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I)$.
+Errors must be uncorrelated with each other and errors are i.i.d conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I)$.
 
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
@@ -676,7 +678,7 @@ What we see here is that we essentially calculate a vector, where each element w
 
 # Important Measure of General Regression Models
 
-## R^2: R-squared
+## R^2: R-squared and it's Components
 
 We first need to understand some terms:
 
@@ -707,27 +709,78 @@ $$
 The $R^2$ of a regression model is a measure that tells us how much does the variability of the predictor variables explains variation of the response variable. The $R^2$ is shown by this formula:
 
 $$
-R^2 = \frac{\text{Regression Sum of Squares}{\text{Total Sum of Squares} = \frac{\text{Explained Variation}{\text{Total Variation}
+R^2 = \frac{\text{Regression Sum of Squares}{\text{Total Sum of Squares} = \frac{\text{Explained Variation}{\text{Total Variation}}
 $$
 
-
+A common rule of thumb is that the higher the $R^2$, the better the model explains the response variable. However, it is also wise to not consider the rule of thumb too literally, as in aiming for 90% or above. There are complex things in the world where explaning everything is simply not possible. Depending on the context, even a low $R^2$ would suffice if the aim was to find a model that can partly explain the response.
 
 
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
 
+A very simple way to check if assumptions of the linear regression is violated is through checking plots of the residuals of the regression model.
+
+Taking this example from the book of *R Programming for Actuarial Science* by McQuire & Kume (2020):
+
+<img src="https://actuary492.github.io/assets/images/violinreg.png" alt="description" style="width: 80%; height: 80%;">
+
+We see here examples of violations of the assumptions of the linear regression model.
+
+Alternating signs of residuals (-1 and 1) in the first model (column 1 graphs) violates the fact that errors are independent. 
+
+In the second model (column 2 graphs) one can clearly see that linear regression does not fit the graph that is most likely quadratic.
+
+In the third model, we clealy see that the mean of residuals is clearly not centered around zero. This violates the fact that $e_i\midx_i ~ N(0, \sigma^2)$. 
+
+Let us go through by theory the possible depatures from assumptions of the linear regression model and the possible remedies:
+
+## Heteroskedasticity: opposite of Homoskedasticity
+
+Homoskedasticity tells us that the diagonals of the variance-covariance of errors must be constant. Heteroskedasticity is when these variances are not constant. It can be that some residuals have smaller variance whilst other have larger variances and vice versa. 
+
+This can typically happen due to ommitted variable bias. If we miss out on some predictor in the model, the residuals will capture the effects of this missing variable that can exhibit some pattern leading to non-constant variance of residuals. A wrong functional form (such as in case 2 above) of trying to model a quadratic response using linear predictors can also be passed down to the residuals in the form of heteroskedasticity.
+
+There are two ways test for heteroscedasticity:
+- Graphically by plotting the residuals (x-axis) against the predicted values (y-axis) for less complex models (simple linear regression)
+- Use the Breusch-Pagan test for more complex models (multiple linear regression). 
+
+A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of predicted values are randomly scattered. 
+
+The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic  of $nR^2$ that is chi squared distributed with degrees of freedom $k-1$ where k is the number of predictors in the auxiliary regression. The degree of freedom is decided through the auxiliary regression for this test, where we regressed the squared residuals on the predictors, and check for whether coefficients of the predictors are zero but not including the intercept. Hence if our total predictors are k (inclusive intercept), then the intercept does not count into the test hence becoming d.o.f of $k-1$.
+
+
+## Autocorrelation
+
+The linear regression model assumes that there is no serial correlation (autocorrelation) between errors of observations, in other words the off-diagonal terms of the error terms are thus 0, making the variance-covariance of errors a completely diagonal matrix. Autocorrelation tells us that the off-diagonal terms of the variance-covariance matrix of errors of observations are not zero unlike assumed by the linear regression assumptions, telling us that there is correlation between the error terms of individual observations. 
+
+A very common occurence of autocorrelation is in time series data, where typically a response variable in this period is dependent on the response variable of the previous period. Take for instance a real life example where we want to model that can measure current price of a stock. Failing to include possible lagged values (omitted variable bias) of the historical prices may cause autocorrelation as the errors pick this up. Similar to heteroscedasticity, the incorrect functional form of the model can also cause autocorrelation.
+
+There are two ways to check for Autocorrelation:
+- Graph the autocorrelation plot (ACF plot). This plot shows the correlation between lags of the variable suspected to possess autocorrelation. 
+- Conduct the Breusch-Godfrey test.
+
+The typical ACF plot is served with a shaded blue region (or two horizontal lines that encloses a region) which can be seen as the confidence threshold that indicates evidence that correlation is significantly different from zero. If there is points that penetrate out of this blue region, it is a good indication that autocorrelation is present in one's data. If lines are contained inside this blue region, it is a evidence that autocorrelation is contained and statistically significant at 0. 
+
+The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. The auxiliary regression model regresses residuals on it's $k$ number of lags alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. Since there are $k$ number of lags in the auxiliary regression model, hence the d.o.f is k. 
+
+## Endogeneity
 
 
 
 
-# How to do Regression in R?
 
-# Dummy and Categorical Variables
 
-# Choosing the best model in Multiple Linear Regression by use of Statistical Tests
 
-## Types of Selection Tests
 
-## Commands in R to Select Models
+
+
+## Conclusion
+
+## References
+
+
+
+
+
 
 
 
