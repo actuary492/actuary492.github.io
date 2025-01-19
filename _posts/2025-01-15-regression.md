@@ -214,7 +214,7 @@ We have proven the equality of the numerator. With the same method above, one ca
 
 This is always a must in any regression model to check for the accuracy of $\hat{\beta_1}$. This can be by means of plotting some $x$% confidence interval or by conducting t-tests (testing if parameter has an effect or not the response) which I talked about in the previous post "Statistics".
 
-To find these measures, the mean and variance of the $\hat{\beta}$ is required. It is as follows
+To find these measures, the mean and variance of the $\hat{\beta_1}$ is required. It is as follows
 
 $$
 E[\hat{\beta_1} | x_i ] = \beta \quad Var[\hat{\beta_1} | x_i ] = \frac{\sigma^2}{Var(x_i)}
