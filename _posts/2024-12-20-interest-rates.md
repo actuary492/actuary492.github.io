@@ -11,6 +11,7 @@ header:
 permalink: /posts/interest-rates/
 published: true
 draft: false
+comments: true
 tags: [post, interest rate]
 ---
 
