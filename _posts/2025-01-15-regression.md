@@ -467,7 +467,7 @@ The error on the other hand, can also be intuitiely interpreted as what the mode
 
 We move on to a more general form of the linear regression model, that is the multiple linear regression model where we consider effect of more than one predictor variable on some single response variable.
 
-## Deriving \boldsymbol{\hat{\beta}}
+## Deriving $\boldsymbol{\hat{\beta}}$
 
 $$
 y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x_{ki} + e_i
