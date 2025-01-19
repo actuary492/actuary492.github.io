@@ -715,7 +715,9 @@ $$
 A common rule of thumb is that the higher the $R^2$, the better the model explains the response variable. However, it is also wise to not consider the rule of thumb too literally, as in aiming for 90% or above. There are complex things in the world where explaning everything is simply not possible. Depending on the context, even a low $R^2$ would suffice if the aim was to find a model that can partly explain the response.
 
 
-# Violation of Assumptions in (Simple and Multiple) Linear Regression
+# Violation of Assumptions in (Simple and Multiple) Linear Regression: Diagnosis and Solutions
+
+It is very important to check for these violations. We need to satisfy linear regression assumptions to ensure that our beta estimate is unbiased and consistent (sure to converge to true value in large population) while being able to produce accurate inferences in tests, measuring confidence intervals and standard errors. If violations of the model occur, these inferences above can potentially be invalid as these measures heavily rely on the assumptions of the linear regression being fulfilled.
 
 A very simple way to check if assumptions of the linear regression is violated is through checking plots of the residuals of the regression model.
 
@@ -745,7 +747,7 @@ There are two ways test for heteroscedasticity:
 
 A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of predicted values are randomly scattered. 
 
-The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic  of $nR^2$ that is chi squared distributed with degrees of freedom $k-1$ where k is the number of predictors in the auxiliary regression. The degree of freedom is decided through the auxiliary regression for this test, where we regressed the squared residuals on the predictors, and check for whether coefficients of the predictors are zero but not including the intercept. Hence if our total predictors are k (inclusive intercept), then the intercept does not count into the test hence becoming d.o.f of $k-1$.
+The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic  of $nR^2$ that is chi squared distributed with degrees of freedom $k-1$ where k is the number of predictors in the auxiliary regression. The degree of freedom is decided through the auxiliary regression for this test, where we regress the squared residuals on the predictors, and check for whether coefficients of the predictors are zero but not including the intercept. The idea of the auxiliary regression is to see whether the predictors explain the squared residuals, because if it does it is clear evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), then the intercept does not count into the test hence becoming d.o.f of $k-1$.
 
 
 ## Autocorrelation
@@ -760,9 +762,15 @@ There are two ways to check for Autocorrelation:
 
 The typical ACF plot is served with a shaded blue region (or two horizontal lines that encloses a region) which can be seen as the confidence threshold that indicates evidence that correlation is significantly different from zero. If there is points that penetrate out of this blue region, it is a good indication that autocorrelation is present in one's data. If lines are contained inside this blue region, it is a evidence that autocorrelation is contained and statistically significant at 0. 
 
-The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. The auxiliary regression model regresses residuals on it's $k$ number of lags alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. Since there are $k$ number of lags in the auxiliary regression model, hence the d.o.f is k. 
+The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. The auxiliary regression model regresses residuals on it's $k$ number of lags alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged variables do explain the residual then autocorrelation is present. Since there are $k$ number of lags in the auxiliary regression model, hence the d.o.f is k. 
+
 
 ## Endogeneity
+
+Endogeneity happens when there is correlation between the predictor and error term of the regression. 
+
+
+## Solutions to Autocorrelation and Heteroscedasticity:
 
 
 
