@@ -465,6 +465,8 @@ Nevertheless, it depends on our model whether or not we should consider the unce
 
 We move on to a more general form of the linear regression model, that is the multiple linear regression model where we consider effect of more than one predictor variable on some single response variable.
 
+## Deriving \boldsymbol{\hat{\beta}}
+
 $$
 y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x_{ki} + e_i
 $$
@@ -477,7 +479,9 @@ $$
 
 <img src="https://actuary492.github.io/assets/images/multregformula.png" alt="description" style="width: 80%; height: 80%;">
 
-The same assumptions follow as in the simple linear regression model. Errors must be uncorrelated with each other and errors are conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I)$.
+The same assumptions follow as in the simple linear regression model. 
+
+Errors must be uncorrelated with each other and errors are conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I)$.
 
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
@@ -616,6 +620,8 @@ $$
 
 We have derived the $\boldsymbol{\hat{\beta}}$ for multiple regression model.
 
+## Deriving distribution of $\hat{\boldsymbol{\beta}}$
+
 We can also find the mean and variance of the $\boldsymbol{\beta}$ that can be useful to check for accuracy of beta.
 
 $$
@@ -636,7 +642,82 @@ $$
 \boldsymbol{\hat{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2 (\mathbf{X^T}\boldsymbol{X})^{-1})
 $$
 
+## How does the $\hat{\beta}$ and $\boldsymbol{\hat{\beta}}$ estimates differ for both Simple and Multiple Linear Regressions?
+
+The $\beta_1$ in the simple linear regression model simply considers the direct relationship between the predictor and the response, which can be intuitively seen in the formula $\beta_1 = \frac{cov(x_i, y_i}{var(x_i}$
+
+In the multiple regression model however, each $\hat{\beta_k}$ element in the row vector $\boldsymbol{\hat{\beta}}$ is calculated such that it also has been controlled for the effect of other predictors as well, and this intuitively connected to the matrix term $\mathbf{X^T}\boldsymbol{X})^{-1}$ in the $\boldsymbol{\hat{\beta}}$ estimate. In $\mathbf{X^T}\boldsymbol{X})^{-1}$, the multiplication between different elements of the matrix is reflective of the relationships between variables. Although not strictly a variance-covariance matrix, it is referred to as such due to the fact that it is structurally equivalent to variance-covariance matrix.
+
+## Testing accuracy of the $\boldsymbol{\beta}$
+
+These betas are useful for the same purpose as described in the simple linear regression model, in order to conduct tests (t-tests) and obtain measures of confidence interval that can help show the accuracy of $\hat{\boldsymbol{\beta}}$. 
+
+There are slight changes to what the t-statistic and confidence interval will be constructed in the multiple regression model.
+
+### T-Tests
+
+$$
+t_j = \frac{\hat{\beta}_j}{\sqrt{s^2 {(X'X)^{-1}_{jj}} \sim t(n-k)
+$$
+
+We see some changes in the degrees of freedom. In this multiple regression model, we have k parameters (inclusive intercept), hence degree of freedoms is constrained by k parameters, meaning the independent observations become only n-k. 
+
+We also note of the structurally equivalent variance-covariance matrix $(X'X)^{-1}$. To find the t-statistic corresponding to every element in the vector $\hat{\boldsymbol{\beta}}$, we need the variance of every predictor, and this structurally lies in the diagonals of the term $(X'X)^{-1}$, hence the notation $(X'X)^{-1}_{jj}$.
+
+### Confidence Intervals
+
+The confidence intervals remain fairly similar. 
+
+$$
+\boldsymbol{\beta} \quad \epsilon \quad (\hat{\boldsymbol{\beta}} \pm t_{(n-2, 1-\frac{\alpha}{2})} \cdot \text{se}(\hat{\boldsymbol{\beta}}))
+$$
+
+What we see here is that we essentially calculate a vector, where each element will result in the individual confidence interval of every $\hat{\beta_j}$ of the multiple regression model. 
+
+# Important Measure of General Regression Models
+
+## R^2: R-squared
+
+We first need to understand some terms:
+
+The total sum of squares measures the total variation of $y_i$.
+
+$$
+\text{Total Sum of Squares} = \sum_{i=1}^n (y_i - \bar{y})^2
+$$
+
+The regression sum of squares measures the variation explained by the regression model. It essentially finds deviation of the predicted values $\hat{y}_i$ from the mean of observed response variable $\bar{y}$.
+
+$$
+\text{Regression Sum of Squares} = \sum_{i=1}^n (\hat{y}_i - \bar{y})^2
+$$
+
+The residual sum of squares is something we have discussed before. 
+
+$$
+\text{Residual Sum of Squares} = \sum_{i=1}^n (y_i - \hat{y}_i)^2
+$$
+
+The relationship between the three is as follows:
+
+$$
+\text{Total Sum of Squares} = \text{Regression Sum of Squares} + \text{Residual Sum of Squares}
+$$
+
+The $R^2$ of a regression model is a measure that tells us how much does the variability of the predictor variables explains variation of the response variable. The $R^2$ is shown by this formula:
+
+$$
+R^2 = \frac{\text{Regression Sum of Squares}{\text{Total Sum of Squares} = \frac{\text{Explained Variation}{\text{Total Variation}
+$$
+
+
+
+
 # Violation of Assumptions in (Simple and Multiple) Linear Regression
+
+
+
+
 
 # How to do Regression in R?
 
