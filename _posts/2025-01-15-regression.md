@@ -240,7 +240,7 @@ $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(y_i)| x_i]
 $$
 
-Plugging in $y_i = \alpha + \beta x_i + e_i$ into the equation above and expanding:
+Plugging in $y_i = \beta_0 + \beta_1 x_i + e_i$ into the equation above and expanding:
 
 $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\beta_0 + \beta_1 x_i + e_i)| x_i]
@@ -254,10 +254,10 @@ $$
 \frac{1}{S_{xx}} \sum_{i=1}^{n} E[(x_i - \bar{x_i})*(\beta_0)|x_i] + E[(x_i - \bar{x_i}) \beta_1 x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i]
 $$
 
-Move the constants $\alpha$ and $\beta$ to the front and we see that we can move all terms of $x_i$'s out of the expectation as they are constants. We should also note that $E[e_i \mid x_i]=0$ based on error assumptions of the model :
+Move the constants $\beta_0$ and $\beta_1$ and all fixed terms of $x_i$'s out of the expectation as they are constant. We should also note that $E[e_i \mid x_i]=0$ based on error assumptions of the model :
 
 $$
-\frac{1}{S_{xx}} \sum_{i=1}^{n} \alpha E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i] 
+\frac{1}{S_{xx}} \sum_{i=1}^{n} \beta_0 E[(x_i - \bar{x_i})|x_i] + \beta E[(x_i - \bar{x_i})x_i)| x_i] + E[(x_i - \bar{x_i})  e_i |x_i] 
 $$
 
 $$
