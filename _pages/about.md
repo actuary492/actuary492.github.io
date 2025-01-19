@@ -22,23 +22,22 @@ author: true
       I hope everyone who comes across this site will find my posts helpful, and of course, your feedbacks via the comments will be extremely helpful!
     </p>
 
-    <!-- Social Links -->
+
   <div style="margin-top: 10px;">
-      <!-- LinkedIn Logo -->
-      <a href="https://linkedin.com/in/nwjya" target="_blank" style="margin-right: 10px;">
+
+  
+  <a href="https://linkedin.com/in/nwjya" target="_blank" style="margin-right: 10px;">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
              alt="LinkedIn" 
              style="width: 30px; height: 30px;">
       </a>
       
-      <!-- GitHub Logo -->
   <a href="https://github.com/actuary492" target="_blank" style="margin-right: 10px;">
         <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
              alt="GitHub" 
              style="width: 30px; height: 30px;">
       </a>
       
-      <!-- Email Icon -->
   <a href="mailto:nicholas.wijaya1971@gmail.com" style="margin-right: 10px;">
         <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
              alt="Email" 
