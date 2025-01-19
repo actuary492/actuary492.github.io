@@ -10,6 +10,7 @@ header:
   image: "/assets/images/money.jpg"
 permalink: /posts/present-value/
 published: true
+comments: true
 tags: [post, present value]
 ---
 
