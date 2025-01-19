@@ -95,7 +95,7 @@ $$
 Finding $\beta_0$ and $\beta_1$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We know that error is the difference between the observed y $y_i$ and the estimated y from the regression model $\hat{y_i}$.
 
 $$
-\min_{\beta_0, \beta_1} \sum_{i=1}^{n} e_i^2 = \min_{\beta_0, \beta_1} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
+\min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} e_i^2 = \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
 $$
 
 In other words, the $\beta_0$ and $\beta_1$ is calculated such that it produces the regression line (consisting of paired observations of predicted $\hat{y_i}$ values and $x_i$) that minimizes the distance between observations of $x_i$ to the regression line. Visualised, it looks as such:
