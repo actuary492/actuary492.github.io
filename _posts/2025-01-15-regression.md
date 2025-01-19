@@ -741,6 +741,8 @@ Homoskedasticity tells us that the diagonals of the variance-covariance of error
 
 This can typically happen due to ommitted variable bias. If we miss out on some predictor in the model, the residuals will capture the effects of this missing variable that can exhibit some pattern leading to non-constant variance of residuals. A wrong functional form (such as in case 2 above) of trying to model a quadratic response using linear predictors can also be passed down to the residuals in the form of heteroskedasticity.
 
+### Detection
+
 There are two ways test for heteroscedasticity:
 - Graphically by plotting the residuals (x-axis) against the predicted values (y-axis) for less complex models (simple linear regression)
 - Use the Breusch-Pagan test for more complex models (multiple linear regression). 
@@ -748,6 +750,11 @@ There are two ways test for heteroscedasticity:
 A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of predicted values are randomly scattered. 
 
 The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic  of $nR^2$ that is chi squared distributed with degrees of freedom $k-1$ where k is the number of predictors in the auxiliary regression. The degree of freedom is decided through the auxiliary regression for this test, where we regress the squared residuals on the predictors, and check for whether coefficients of the predictors are zero but not including the intercept. The idea of the auxiliary regression is to see whether the predictors explain the squared residuals, because if it does it is clear evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), then the intercept does not count into the test hence becoming d.o.f of $k-1$.
+
+### Solution
+
+Robust standard errors are usually used in models with heteroscedasticity. These do not eliminate heteroscedasticity, but they produced adjusted standard errors accounted for heteroscedasticity. 
+
 
 
 ## Autocorrelation
@@ -767,10 +774,27 @@ The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and 
 
 ## Endogeneity
 
-Endogeneity happens when there is correlation between the predictor and error term of the regression. 
+Endogeneity happens when there is correlation between the predictor and error term of the regression. This is equivalent to saying that the error term of model affects the response. This violates the assumption of fixed $x_i$'s, as they are now stochastic due to unforeseen factors that influence the $x_i$. It will be hard to therefore distinguish individual contributions of the regressor on predicted responses. 
+
+Let me elaborate a model where this can happen. Assume that we aim to simply regress wages simply on education level of the individual. However, one came to hypothesize that level of parent's education can also affect the education level of the individual. However, it is not in the model. This therefore becomes captured in the errors. The level of education of the parent (in this case hidden in the error) will directly affect the wages through the education level of the individual.
+
+### Detection
+
+- By logic reasoning similar to the example above. We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
+
+- If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
+
+### Solution
+
+- IV estimator:
+
+- Two Stage Least Squares: 
 
 
-## Solutions to Autocorrelation and Heteroscedasticity:
+This can happen 
+
+
+
 
 
 
