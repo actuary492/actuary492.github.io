@@ -785,7 +785,7 @@ The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and 
 
 Endogeneity happens when there is correlation between the predictor and error term of the regression. This is equivalent to saying that the error term of model affects the response. This violates the assumption of fixed $x_i$'s, as they are now stochastic due to unforeseen factors that influence the $x_i$. It will be hard to therefore distinguish individual contributions of the regressor on predicted responses. 
 
-Let me elaborate a model where this can happen. Assume that we aim to simply regress wages simply on education level of the individual. However, one came to hypothesize that level of parent's education can also affect the education level of the individual. However, it is not in the model. This therefore becomes captured in the errors. The level of education of the parent (in this case hidden in the error) will directly affect the wages through the education level of the individual.
+Let me elaborate a model where this can happen. Assume that we aim to simply regress wages simply on education level of the individual. However, one came to hypothesize that level of parent's education can also affect the education level of the individual. However, it is not in the model. This therefore becomes captured in the errors. The level of education of the parent (in this case hidden in the error) will directly affect the wages.
 
 Other possible causes of endogeneity may be due to measurement errors, omitted variable bias, or more commonly due to simultaneity of variables. 
 
@@ -793,7 +793,7 @@ Other possible causes of endogeneity may be due to measurement errors, omitted v
 
 - By logical reasoning similar to the example above.
 
-We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
+We can logically assume that level of education of an individual can be affected by level of their parents education. It is very likely that if their parents do not attend university, so likely is 8the child as well. Of course, one can check the validity of this relationship by a separate regression. This is why people consider the level of education as endogenous. 
 
 - If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
 
