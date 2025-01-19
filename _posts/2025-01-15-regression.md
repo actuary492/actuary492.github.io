@@ -359,7 +359,7 @@ $$
 t = \frac{Z}{\sqrt{\frac{\chi^2(k)}{k}}} \sim t(k) \quad \text{where} \quad Z \sim N(0,1) \quad \text{and} \quad \text{k = k degrees of freedom}
 $$
 
-One can show this holds true by the transformation method, which I will not elaborate further here.
+One can show this holds true by the transformation method, assuming independence of both the standard normal and chi-square distribution, which I will not elaborate further here.
 
 Let us approach how we can arrive at the t-statistic and distribution.
 
