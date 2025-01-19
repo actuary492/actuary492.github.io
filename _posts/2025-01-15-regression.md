@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/regression.jpg"
 permalink: /posts/regression/
-published: true
+published: false
 draft: false
 tags: [post, regression]
 ---
@@ -343,7 +343,7 @@ Knowing these important descriptive statistics, we can now calculate t-statistic
 
 However, we have to consider the variable $\sigma^2$. Since this variable of the population variance is unknown in practice, it is often replaced by the unbiased estimate of $\sigma^2$ that is $\hat{\sigma^2} = \frac{\text{RSS}}{n - 2} = \frac{1}{n - 2} \sum_{i=1}^n e_i^2$, where $RSS$ is the sum of squared residuals.
 
-This unbiased estimator does indeed come from the adjusted MLE of the sigma from the distribution of the $y_i \mid x_i \sim N(\alpha + \beta x_i , \sigma^2)$ that is originally $\frac{RSS}{n}$, then adjusted for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$ instead of $n$. This has to do with the degree freedoms of the $RSS$ term that is chi-squared (to be explained) that will be important in our calculations for the t-statistic.
+This unbiased estimator reflects the adjustment for the number of estimated parameters of model, that is $\alpha$ and $\beta$, hence the denominator becoming $n-2$. This has to do with the degree freedoms of the $RSS$ term that is chi-squared (to be explained) that will be important in our calculations for the t-statistic.
 
 Why does having more parameters take up the degrees of freedom?
 - The degrees of freedom (dof) refer to the number of independent pieces of data we have to estimate a quantity.
