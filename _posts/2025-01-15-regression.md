@@ -509,7 +509,7 @@ One should know that changes above should hold true simply by checking matrix di
 Let us expand the terms.
 
 $$
-\min_{\boldsymbol{\hat{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}} - \mathbf{\hat{\beta}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\beta^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\hat{\beta}}
+\min_{\boldsymbol{\hat{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}} - \mathbf{\boldsymbol{\hat{\beta}}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\boldsymbol{\hat{\beta}}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}}
 $$
 
 We can now differentiate with respect to $\boldsymbol{\hat{\beta}}$. 
