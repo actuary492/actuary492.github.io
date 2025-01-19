@@ -659,7 +659,7 @@ There are slight changes to what the t-statistic and confidence interval will be
 ### T-Tests
 
 $$
-t_j = \frac{\hat{\beta}_j}{\sqrt{s^2 {(X'X)^{-1}_{jj}}}} \sim t(n-k)
+t_j = \frac{\hat{\beta}_j}{\sqrt{s^2 \cdot \left( (X'X)^{-1} \right)_{jj}}} \sim t(n-k)
 $$
 
 We see some changes in the degrees of freedom. In this multiple regression model, we have k parameters (inclusive intercept), hence degree of freedoms is constrained by k parameters, meaning the independent observations become only n-k. 
