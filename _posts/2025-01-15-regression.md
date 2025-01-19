@@ -647,7 +647,7 @@ $$
 
 ## How does the $\hat{\beta}$ and $\boldsymbol{\hat{\beta}}$ estimates differ for both Simple and Multiple Linear Regressions?
 
-The $\beta_1$ in the simple linear regression model simply considers the direct relationship between the predictor and the response, which can be intuitively seen in the formula $\beta_1 = \frac{cov(x_i, y_i)}{var(x_i}$
+The $\beta_1$ in the simple linear regression model simply considers the direct relationship between the predictor and the response, which can be intuitively seen in the formula $\beta_1 = \frac{cov(x_i, y_i)}{var(x_i})$
 
 In the multiple regression model however, each $\hat{\beta_k}$ element in the row vector $\boldsymbol{\hat{\beta}}$ is calculated such that it also has been controlled for the effect of other predictors as well, and this intuitively connected to the matrix term $(\mathbf{X^T}\boldsymbol{X})^{-1}$ in the $\boldsymbol{\hat{\beta}}$ estimate. In $(\mathbf{X^T}\boldsymbol{X})^{-1}$, the multiplication between different elements of the matrix is reflective of the relationships between variables. Although not strictly a variance-covariance matrix, it is referred to as such due to the fact that it is structurally equivalent to variance-covariance matrix.
 
@@ -803,7 +803,7 @@ This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with 
 
 - Two Stage Least Squares Regression
 
-The first stage attempts to first regress the suspected endogenous variable on it's possible predictors called instruments. Instruments must satisfy the fact they are indeed relevant (logical) and are strictly correlated only with the endogenous regressor but not with the response variable (or errors) in the main model. The predicted values of the endogenous regressor are then saved. In the second stage The response variable is then regressed on the predicted values of the suspected endogenous regressor along with other predictors. The idea of this regression is to ensure isolate effects of these instruments to the main model as it is already done in the first stage. In that sense, all effects of instruments to the endogenous variable is already captured in the first stage ensuring no direct spillover effects to the main regression model.
+The first stage attempts to first regress the suspected endogenous variable on it's possible predictors called instruments. Instruments must satisfy the fact they are indeed relevant (logical) and are strictly correlated only with the endogenous regressor but not with the response variable (or errors) in the main model. The predicted values of the endogenous regressor are then saved. In the second stage the response variable is then regressed on the predicted values of the suspected endogenous regressor along with other predictors. The idea of this regression is to ensure isolate effects of these instruments to the main model as it is already done in the first stage. In that sense, all effects of instruments to the endogenous variable is already captured in the first stage ensuring no direct spillover effects to the main regression model.
 
 - IV estimator
 
