@@ -767,6 +767,8 @@ The linear regression model assumes that there is no serial correlation (autocor
 
 A very common occurence of autocorrelation is in time series data, where typically a response variable in this period is dependent on the response variable of the previous period. Take for instance a real life example where we want to model that can measure current price of a stock. Failing to include possible lagged values (omitted variable bias) of the historical prices may cause autocorrelation as the errors pick this up. Similar to heteroscedasticity, the incorrect functional form of the model can also cause autocorrelation.
 
+## Detection
+
 There are two ways to check for Autocorrelation:
 - Graph the autocorrelation plot (ACF plot). This plot shows the correlation between lags of the variable suspected to possess autocorrelation. 
 - Conduct the Breusch-Godfrey test.
