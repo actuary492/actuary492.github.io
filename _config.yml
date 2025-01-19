@@ -25,7 +25,7 @@ description              : "Your source of inspiration"
 future                   : true
 url                      : "https://actuary492.github.io"
 baseurl                  : ""
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "actuary492/actuary492.github.io"
 header:
   teaser                 : "/assets/images/stethoscope-financial-graphs-scaled.jpg"
 logo                     : "/assets/images/pngimg.com - letter_a_PNG19.png"
