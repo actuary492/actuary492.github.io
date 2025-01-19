@@ -746,11 +746,12 @@ This can typically happen due to ommitted variable bias. If we miss out on some 
 
 There are two ways test for heteroscedasticity:
 - Graphically by plotting the residuals (x-axis) against the predicted values (y-axis) for less complex models (simple linear regression)
+
+A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of predicted values are randomly scattered.
+
 - Use the Breusch-Pagan test for more complex models (multiple linear regression). 
 
-A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of predicted values are randomly scattered. 
-
-The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic  of $nR^2$ that is chi squared distributed with degrees of freedom $k-1$ where k is the number of predictors in the auxiliary regression. The degree of freedom is decided through the auxiliary regression for this test, where we regress the squared residuals on the predictors, and check for whether coefficients of the predictors are zero but not including the intercept. The idea of the auxiliary regression is to see whether the predictors explain the squared residuals, because if it does it is clear evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), then the intercept does not count into the test hence becoming d.o.f of $k-1$.
+The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic of $nR^2$ that is chi squared distributed with degrees of freedom (d.o.f) $k-1$ where k is the number of predictors in the auxiliary regression. The test first starts with a preliminary regression of the full model where it's residuals are saved. The auxiliary regression for this test, where we regress the saved residuals from the preliminary regression on the predictors, and check for whether coefficients of the predictors are zero (excluding the intercept). The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), and if the intercept does not count into the test, hence the test-statistic has a d.o.f of $k-1$.
 
 ### Solution
 
@@ -770,7 +771,7 @@ There are two ways to check for Autocorrelation:
 
 The typical ACF plot is served with a shaded blue region (or two horizontal lines that encloses a region) which can be seen as the confidence threshold that indicates evidence that correlation is significantly different from zero. If there is points that penetrate out of this blue region, it is a good indication that autocorrelation is present in one's data. If lines are contained inside this blue region, it is a evidence that autocorrelation is contained and statistically significant at 0. 
 
-The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. The auxiliary regression model regresses residuals on it's $k$ number of lags alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged variables do explain the residual then autocorrelation is present. Since there are $k$ number of lags in the auxiliary regression model, hence the d.o.f is k. 
+The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. A preliminary regression is first conducted on the full model where it's residuals are saved up. The auxiliary regression model then regresses residuals from the preliminary regression on $k$ number of lags of residuals alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged residuals do explain the residual then autocorrelation is present. Since there are $k$ number of lags assumed in the auxiliary regression model, hence the d.o.f is k. 
 
 ## Solution
 - Add more explanatory variables, for instance lags. Recheck with relevant ACF plots if autocorrelation still exists or not. 
@@ -786,15 +787,23 @@ Other possible causes of endogeneity may be due to measurement errors, omitted v
 
 ### Detection
 
-- By logical reasoning similar to the example above. We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
+- By logical reasoning similar to the example above.
 
-- If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test. The DWH-test essentially tests the auxiliary regression of the response variable on the other predictors and the residuals of the model (inclusive of suspected endogenous variable) and tests for whether coefficient of this residual in the auxiliary is equal to 0. If it is, then it is evidence that the suspected endogenous regressor is indeed endogenous.
+We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
+
+- If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
+
+This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with d.o.f $k_0$. The DWH-test first saves up errors (residuals) of two preliminary regressions: first of the full model (inclusive all variables, endogenous included) and the second when the endogenous variable is regressed by the it's potential instruments. In the auxiliary regression, the errors (from the full model) are regressed onto the other exogenous predictors and the residuals of the second preliminary model and tests for whether coefficients of suspected endogenous residuals in the auxiliary regression is equal to 0. If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the full model, serving as evidence for endogeneity. 
 
 ### Solution
 
-- Two Stage Least Squares Regression: The first stage attempts to first regress the suspected endogenous variable on it's possible predictors called instruments. Instruments must satisfy the fact they are only correlated with the endogenous regressor but not with the response variable or errors in the main model. The predicted values of the endogenous regressor are then saved. In the second stage The response variable is then regressed on the predicted values of the suspected endogenous regressor along with other predictors. The idea of this regression is to ensure isolate effects of these instruments to the main model as it is already done in the first stage. In that sense, all effects of instruments to the endogenous variable is already captured in the first stage ensuring no direct spillover effects to the main regression model.
+- Two Stage Least Squares Regression
 
-- IV estimator: It has the same idea and purpose as the TSLS regression, the only difference that is directly incorporated as a matrix calculation of the $\boldsymbol{\beta}$.
+The first stage attempts to first regress the suspected endogenous variable on it's possible predictors called instruments. Instruments must satisfy the fact they are indeed relevant (logical) and are strictly correlated only with the endogenous regressor but not with the response variable (or errors) in the main model. The predicted values of the endogenous regressor are then saved. In the second stage The response variable is then regressed on the predicted values of the suspected endogenous regressor along with other predictors. The idea of this regression is to ensure isolate effects of these instruments to the main model as it is already done in the first stage. In that sense, all effects of instruments to the endogenous variable is already captured in the first stage ensuring no direct spillover effects to the main regression model.
+
+- IV estimator
+
+It has the same idea and purpose as the TSLS regression, the only difference that is directly incorporated as a matrix calculation of the $\boldsymbol{\beta}$.
 
 
 # Conclusion
