@@ -271,7 +271,7 @@ $$
 We should see that one of terms $\sum_{i=1}^{n} (x_i - \bar{x_i})$ should cancel out:
 
 $$
-\sum_{i=1}^{n} (x_i - \bar{x_i}) = \sum_{i=1}^{n} x_i -  \sum_{i=1}^{n} \bar{x_i}) = n \bar{x_i} - n \bar{x_i} = 0
+\sum_{i=1}^{n} (x_i - \bar{x_i}) = \sum_{i=1}^{n} x_i -  \sum_{i=1}^{n} \bar{x_i} = n \bar{x_i} - n \bar{x_i} = 0
 $$
 
 Thus becoming:
@@ -283,7 +283,7 @@ $$
 We should also note that using expansion of $cov(x_i,x_i)$ similar to the one I did on $cov(x_i, y_i)$, that is $cov(x_i, x_i) = \sum_{i=1}^{n} x_i x_i - n \bar{x_i} \bar{x_i} = \sum_{i=1}^{n} x_i x_i - \bar{x_i} x_i$. Hence we know the outer term is essentially the $Var(x_i)$ or $S_{xx}$. We therefore arrive at the final: 
 
 $$
-\frac{1}{S_{xx}} \beta_1 \sum_{i=1}^{n} \beta_1 (x_i - \bar{x_i}) x_i) = \frac{1}{S_{xx}} \beta_1 {S_{xx}} = \beta_1
+\frac{1}{S_{xx}} \beta_1 \sum_{i=1}^{n} \beta_1 (x_i - \bar{x_i}) x_i = \frac{1}{S_{xx}} \beta_1 {S_{xx}} = \beta_1
 $$
 
 We have shown that $E[\hat{\beta_1}] = \beta_1$.
