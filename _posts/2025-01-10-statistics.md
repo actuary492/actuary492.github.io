@@ -11,6 +11,7 @@ header:
 permalink: /posts/statistics/
 published: true
 draft: false
+comments: true
 tags: [post, statistics]
 ---
 
