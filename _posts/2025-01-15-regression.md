@@ -646,9 +646,9 @@ $$
 
 ## How does the $\hat{\beta}$ and $\boldsymbol{\hat{\beta}}$ estimates differ for both Simple and Multiple Linear Regressions?
 
-The $\beta_1$ in the simple linear regression model simply considers the direct relationship between the predictor and the response, which can be intuitively seen in the formula $\beta_1 = \frac{cov(x_i, y_i}{var(x_i}$
+The $\beta_1$ in the simple linear regression model simply considers the direct relationship between the predictor and the response, which can be intuitively seen in the formula $\beta_1 = \frac{cov(x_i, y_i)}{var(x_i}$
 
-In the multiple regression model however, each $\hat{\beta_k}$ element in the row vector $\boldsymbol{\hat{\beta}}$ is calculated such that it also has been controlled for the effect of other predictors as well, and this intuitively connected to the matrix term $\mathbf{X^T}\boldsymbol{X})^{-1}$ in the $\boldsymbol{\hat{\beta}}$ estimate. In $\mathbf{X^T}\boldsymbol{X})^{-1}$, the multiplication between different elements of the matrix is reflective of the relationships between variables. Although not strictly a variance-covariance matrix, it is referred to as such due to the fact that it is structurally equivalent to variance-covariance matrix.
+In the multiple regression model however, each $\hat{\beta_k}$ element in the row vector $\boldsymbol{\hat{\beta}}$ is calculated such that it also has been controlled for the effect of other predictors as well, and this intuitively connected to the matrix term $(\mathbf{X^T}\boldsymbol{X})^{-1}$ in the $\boldsymbol{\hat{\beta}}$ estimate. In $(\mathbf{X^T}\boldsymbol{X})^{-1}$, the multiplication between different elements of the matrix is reflective of the relationships between variables. Although not strictly a variance-covariance matrix, it is referred to as such due to the fact that it is structurally equivalent to variance-covariance matrix.
 
 ## Testing accuracy of the $\boldsymbol{\beta}$
 
