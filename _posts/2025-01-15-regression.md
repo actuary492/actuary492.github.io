@@ -787,7 +787,7 @@ Other possible causes of endogeneity may be due to measurement errors, omitted v
 
 - By logical reasoning similar to the example above. We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
 
-- If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
+- If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test. The DWH-test essentially tests the auxiliary regression of the response variable on the other predictors and the residuals of the model (inclusive of suspected endogenous variable) and tests for whether coefficient of this residual in the auxiliary is equal to 0. If it is, then it is evidence that the suspected endogenous regressor is indeed endogenous.
 
 ### Solution
 
@@ -796,13 +796,13 @@ Other possible causes of endogeneity may be due to measurement errors, omitted v
 - IV estimator: It has the same idea and purpose as the TSLS regression, the only difference that is directly incorporated as a matrix calculation of the $\boldsymbol{\beta}$.
 
 
-## Conclusion
+# Conclusion
 
 In this article, I explained the underlying idea of linear regression. Specifically, I went through step by step on how to derive estimates of regression, and how to create inferential statistics out of these estimates that can useful to test for accuracy of beta. I also went through the possible violations of the regression model, it's causes, how to detect them and solutions for it.
 
 In the next article, I will go through applications of regression in R, stay tuned!
 
-## References
+# References
 
 Heij, C., de Boer, P., Franses, P. H., Kloek, T., & van Dijk, H. (2004). Econometric Methods with Applications in Business and Economics. Oxford University Press.
 
