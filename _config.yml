@@ -54,13 +54,13 @@ comments:
     repo_id              : "R_kgDONbKdsA"
     category_name        : "Announcements"
     category_id          : "DIC_kwDONbKdsM4CmKTh"
-    discussion_term      : # "pathname" (default), "url", "title", "og:title"
+    discussion_term      : "url"
     reactions_enabled    : '1'
     theme                : "noborder_light"
-    strict               : "1"
+    strict               : 1
     input_position       : "bottom"
     emit_metadata        : "0"
-    lang                 : # "en" (default)
+    lang                 : "en"
     lazy                 : true
   staticman:
     branch               : # "master"
