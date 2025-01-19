@@ -525,20 +525,20 @@ $$
 \frac{d\begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_k \end{bmatrix}}{d\begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_k \end{bmatrix}} \quad \text{vs} \quad \frac{d\begin{bmatrix} \hat{\beta}_1 & \hat{\beta}_2 & \dots & \hat{\beta}_k \end{bmatrix}}{d\begin{bmatrix} \hat{\beta}_1 \\ \hat{\beta}_2 \\ \vdots \\ \hat{\beta}_p \end{bmatrix}}
 $$
 
-Looking at the first way of differentiation, it would not make sense. There is no clear logic on what to differentiate for instance first term of the vector in the numerator $\beta_1$ with respect to. It can be to $\beta_2$ or even to $beta_k$. 
+Looking at the first way of differentiation, it would not make sense. There is no clear logic on what to differentiate for instance first term of the vector in the numerator $\hat{\beta}_1$ with respect to. It can be to $\hat{\beta}_2$ or even to $\hat{\beta}_k$. 
 
 In the second way of differentiation, we see the clear logic on what we should differentiate with respect to. 
 
-By showing differentiation by row in numerator against column in denominator, we see that the first element of the transposed $\beta$ can be differentiated against the every $k$ elements of the $\beta$ below which forms the first row of the identity matrix. The first element of the resulting row matrix is 1 while the rest $k-1$ elements is 0. 
+By showing differentiation by row in numerator against column in denominator, we see that the first element of the transposed $\hat{\beta}$ can be differentiated against the every $k$ elements of the $\hat{\beta}$ below which forms the first row of the identity matrix. The first element of the resulting row matrix is 1 while the rest $k-1$ elements is 0. 
 
-The second element in the transposed $\beta$ can be differentiated in the same way to form second row of the identity matrix. The second element of the resulting row matrix will be 1 while the other $k-1$ elements will be 0. 
+The second element in the transposed $\hat{\beta}$ can be differentiated in the same way to form second row of the identity matrix. The second element of the resulting row matrix will be 1 while the other $k-1$ elements will be 0. 
 
 Continuing further we will produce $k$ rows that form the identity matrix of dimensions $k * k$.
 
-Continuining minimization of the $\boldsymbol{\beta}$:
+Continuining minimization of the $\boldsymbol{\hat{\beta}}$:
 
 $$
-\min_{\boldsymbol{\beta}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\beta} - \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
+\min_{\boldsymbol{\hat{\beta}}} \mathbf{Y^T}\mathbf{Y} - \mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}} - \mathbf{\boldsymbol{\hat{\beta}}^T}\mathbf{X^T}\boldsymbol{Y} + \mathbf{\boldsymbol{\hat{\beta}}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}}
 $$
 
 We cancel out differentiation of the first term as there is no $\boldsymbol{\beta}$ meaning the term is $0$. Let us solve the differentiation of the remaining terms, one by one. We start with the second term up to the fourth term.
@@ -546,62 +546,62 @@ We cancel out differentiation of the first term as there is no $\boldsymbol{\bet
 Second term:
 
 $$
-\frac{d}{d\boldsymbol{\beta}} -\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}
+\frac{d}{d\boldsymbol{\hat{\beta}}} -\mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}}
 $$
 
-We see that differentiation $\boldsymbol{\beta}$ on $\boldsymbol{\beta}$ is invalid, thus we have to transpose the objective function of differentiation to make this vector differentiation valid. 
+We see that differentiation $\boldsymbol{\hat{\beta}}$ on $\boldsymbol{\hat{\beta}}$ is invalid, thus we have to transpose the objective function of differentiation to make this vector differentiation valid. 
 
 $$
--(\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta})^T = -\boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y}
+-(\mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}})^T = -\boldsymbol{\hat{\beta}^T} \mathbf{X^T} \mathbf{Y}
 $$
 
-Transposing the objective function above will not change anything. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\beta}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains the same scalar.
+Transposing the objective function above will not change anything. Why? $\mathbf{Y^T}\mathbf{X}\boldsymbol{\hat{\beta}}$ itself is a $1x1$ scalar if we calculate it's dimensions. A transpose of a scalar remains the same scalar.
 
 $$
-\frac{d}{d\boldsymbol{\beta}} -\boldsymbol{\beta^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\beta^T} }{d\boldsymbol{\beta}} -\mathbf{X^T} \mathbf{Y} =  -I\mathbf{X^T} \mathbf{Y} = -\mathbf{X^T} \mathbf{Y}
+\frac{d}{d\boldsymbol{\hat{\beta}}} -\boldsymbol{\hat{\beta}^T} \mathbf{X^T} \mathbf{Y} = \frac{d\boldsymbol{\hat{\beta}^T} }{d\boldsymbol{\hat{\beta}}} -\mathbf{X^T} \mathbf{Y} =  -I\mathbf{X^T} \mathbf{Y} = -\mathbf{X^T} \mathbf{Y}
 $$
 
 Third term:
 
 $$
-\frac{d}{d\boldsymbol{\beta}} - \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{Y}
+\frac{d}{d\boldsymbol{\hat{\beta}}} - \mathbf{\boldsymbol{\hat{\beta}}^T}\mathbf{X^T}\boldsymbol{Y}
 $$
 
-We can directly calculate this as we are differentiating tranpose $\boldsymbol{\beta^T}$ on $\boldsymbol{\beta}$. There is no need to apply the transpose to the objective function.
+We can directly calculate this as we are differentiating tranpose $\boldsymbol{\hat{\beta}^T}$ on $\boldsymbol{\hat{\beta}}$. There is no need to apply the transpose to the objective function.
 
 $$
-\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}} -\mathbf{X^T}\boldsymbol{Y} = - I \mathbf{X^T}\boldsymbol{Y} = - \mathbf{X^T}\boldsymbol{Y}
+\frac{d\mathbf{\boldsymbol{\hat{\beta}}^T}}{d\boldsymbol{\hat{\beta}}} -\mathbf{X^T}\boldsymbol{Y} = - I \mathbf{X^T}\boldsymbol{Y} = - \mathbf{X^T}\boldsymbol{Y}
 $$
 
 Final term:
 
 $$
-\frac{d}{d\boldsymbol{\beta}} \mathbf{\boldsymbol{\beta}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
+\frac{d}{d\boldsymbol{\hat{\beta}}} \mathbf{\boldsymbol{\hat{\beta}}^T}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}}
 $$
 
 We also see that transpose is not necessary. We can directly arrive at the differentiation that is:
 
 $$
-\frac{d\mathbf{\boldsymbol{\beta}^T}}{d\boldsymbol{\beta}}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2I\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}}
+\frac{d\mathbf{\boldsymbol{\hat{\beta}}^T}}{d\boldsymbol{\hat{\beta}}}\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}} = 2I\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}} = 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}}
 $$
 
-The reason for the $2$ coming out is because we see that differentiation of the squared $\mathbf{\boldsymbol{\beta}}$ will bring the power of $2$ into the front.
+The reason for the $2$ coming out is because we see that differentiation of the squared $\mathbf{\boldsymbol{\hat{\beta}}}$ will bring the power of $2$ into the front.
 
 Combining the terms such that we satisfy the minimization procedure:
 
 $$
--\mathbf{X^T} \mathbf{Y} -\mathbf{X^T} \mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 0
+-\mathbf{X^T} \mathbf{Y} -\mathbf{X^T} \mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}} = 0
 $$
 
 $$
--2\mathbf{X^T}\mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 0
+-2\mathbf{X^T}\mathbf{Y} + 2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}} = 0
 $$
 
 $$
-2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\beta}} = 2\mathbf{X^T} \mathbf{Y}
+2\mathbf{X^T}\boldsymbol{X}\mathbf{\boldsymbol{\hat{\beta}}} = 2\mathbf{X^T} \mathbf{Y}
 $$
 
-Expressing $\boldsymbol{\beta}$ in terms of the other factors, where we can change $\boldsymbol{\beta}$ into $\boldsymbol{\hat{\beta}}$:
+Expressing $\boldsymbol{\hat{\beta}}$ in terms of the other factors:
 
 $$
 \mathbf{\boldsymbol{\hat{\beta}}} = (\mathbf{X^T}\boldsymbol{X})^{-1} \mathbf{X^T} \mathbf{Y}
