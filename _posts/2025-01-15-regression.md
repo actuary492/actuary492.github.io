@@ -678,7 +678,7 @@ What we see here is that we essentially calculate a vector, where each element w
 
 # Important Measure of General Regression Models
 
-## R^2: R-squared and it's Components
+## $R^2$: R-squared and it's Components
 
 We first need to understand some terms:
 
@@ -753,8 +753,8 @@ The Breusch Pagan test will always follow the null hypothesis that there is no h
 
 ### Solution
 
-Robust standard errors are usually used in models with heteroscedasticity. These do not eliminate heteroscedasticity, but they produced adjusted standard errors accounted for heteroscedasticity. 
-
+- Robust standard errors are usually used in models with heteroscedasticity. These do not eliminate heteroscedasticity, but they produced adjusted standard errors accounted for heteroscedasticity.
+- Add more variables that one could have possibly missed out on to ensure errors do not capture effect of missing variables.
 
 
 ## Autocorrelation
@@ -771,6 +771,9 @@ The typical ACF plot is served with a shaded blue region (or two horizontal line
 
 The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. The auxiliary regression model regresses residuals on it's $k$ number of lags alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged variables do explain the residual then autocorrelation is present. Since there are $k$ number of lags in the auxiliary regression model, hence the d.o.f is k. 
 
+## Solution
+- Add more explanatory variables, for instance lags. Recheck with relevant ACF plots if autocorrelation still exists or not. 
+
 
 ## Endogeneity
 
@@ -778,36 +781,32 @@ Endogeneity happens when there is correlation between the predictor and error te
 
 Let me elaborate a model where this can happen. Assume that we aim to simply regress wages simply on education level of the individual. However, one came to hypothesize that level of parent's education can also affect the education level of the individual. However, it is not in the model. This therefore becomes captured in the errors. The level of education of the parent (in this case hidden in the error) will directly affect the wages through the education level of the individual.
 
+Other possible causes of endogeneity may be due to measurement errors, omitted variable bias, or more commonly due to simultaneity of variables. 
+
 ### Detection
 
-- By logic reasoning similar to the example above. We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
+- By logical reasoning similar to the example above. We can logically assume that level of education of an level can be affected by level of their parents education. It is very likely that if their parents do not attend university, so would the child as well. Of course, one can check this by a separate regression as well. In this case we call level of education as endogenous. 
 
 - If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
 
 ### Solution
 
-- IV estimator:
+- Two Stage Least Squares Regression: The first stage attempts to first regress the suspected endogenous variable on it's possible predictors called instruments. Instruments must satisfy the fact they are only correlated with the endogenous regressor but not with the response variable or errors in the main model. The predicted values of the endogenous regressor are then saved. In the second stage The response variable is then regressed on the predicted values of the suspected endogenous regressor along with other predictors. The idea of this regression is to ensure isolate effects of these instruments to the main model as it is already done in the first stage. In that sense, all effects of instruments to the endogenous variable is already captured in the first stage ensuring no direct spillover effects to the main regression model.
 
-- Two Stage Least Squares: 
-
-
-This can happen 
-
-
-
-
-
-
-
-
-
-
-
+- IV estimator: It has the same idea and purpose as the TSLS regression, the only difference that is directly incorporated as a matrix calculation of the $\boldsymbol{\beta}$.
 
 
 ## Conclusion
 
+In this article, I explained the underlying idea of linear regression. Specifically, I went through step by step on how to derive estimates of regression, and how to create inferential statistics out of these estimates that can useful to test for accuracy of beta. I also went through the possible violations of the regression model, it's causes, how to detect them and solutions for it.
+
+In the next article, I will go through applications of regression in R, stay tuned!
+
 ## References
+
+Heij, C., de Boer, P., Franses, P. H., Kloek, T., & van Dijk, H. (2004). Econometric Methods with Applications in Business and Economics. Oxford University Press.
+
+McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
 
 
