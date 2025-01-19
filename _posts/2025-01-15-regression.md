@@ -707,7 +707,9 @@ $$
 \text{Total Sum of Squares} = \text{Regression Sum of Squares} + \text{Residual Sum of Squares}
 $$
 
-The $R^2$ of a regression model is a measure that tells us how much does the variability of the predictor variables explains variation of the response variable. The $R^2$ is shown by this formula:
+The $R^2$ of a regression model is a measure that tells us how much does the variability of the predictor variables explains variation of the response variable. 
+
+The $R^2$ is shown by this formula:
 
 $$
 R^2 = \frac{\text{Regression Sum of Squares}}{\text{Total Sum of Squares}} = \frac{\text{Explained Variation}}{\text{Total Variation}}
@@ -814,7 +816,7 @@ In the next article, I will go through applications of regression in R, stay tun
 
 # References
 
-Heij, C., de Boer, P., Franses, P. H., Kloek, T., & van Dijk, H. (2004). Econometric Methods with Applications in Business and Economics. Oxford University Press.
+Heij, C., de Boer, P., Franses, P. H., Kloek, T., & van Dijk, H. (2004). <em style="font-style:bold;">Econometric Methods with Applications in Business and Economics</em>. Oxford University Press.
 
 McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
