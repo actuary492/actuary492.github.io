@@ -709,7 +709,7 @@ $$
 The $R^2$ of a regression model is a measure that tells us how much does the variability of the predictor variables explains variation of the response variable. The $R^2$ is shown by this formula:
 
 $$
-R^2 = \frac{\text{Regression Sum of Squares}}{\text{Total Sum of Squares} = \frac{\text{Explained Variation}}{\text{Total Variation}}
+R^2 = \frac{\text{Regression Sum of Squares}}{\text{Total Sum of Squares}} = \frac{\text{Explained Variation}}{\text{Total Variation}}
 $$
 
 A common rule of thumb is that the higher the $R^2$, the better the model explains the response variable. However, it is also wise to not consider the rule of thumb too literally, as in aiming for 90% or above. There are complex things in the world where explaning everything is simply not possible. Depending on the context, even a low $R^2$ would suffice if the aim was to find a model that can partly explain the response.
