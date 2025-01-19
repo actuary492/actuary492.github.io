@@ -732,7 +732,7 @@ Alternating signs of residuals (-1 and 1) in the first model (column 1 graphs) v
 
 In the second model (column 2 graphs) one can clearly see that linear regression does not fit the graph that is most likely quadratic.
 
-In the third model, we clealy see that the mean of residuals is clearly not centered around zero. This violates the fact that $e_i \mid x_i ~ N(0, \sigma^2)$. 
+In the third model, we clealy see that the mean of residuals is clearly not centered around zero. This violates the fact that $e_i \mid x_i \sim N(0, \sigma^2)$. 
 
 Let us go through by theory the possible depatures from assumptions of the linear regression model and the possible remedies:
 
