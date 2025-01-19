@@ -468,8 +468,6 @@ The error on the other hand, can also be intuitiely interpreted as what the mode
 
 We move on to a more general form of the linear regression model, that is the multiple linear regression model where we consider effect of more than one predictor variable on some single response variable.
 
-## Deriving $\boldsymbol{\hat{\beta}}$
-
 $$
 y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + .... + \beta_k x_{ki} + e_i
 $$
@@ -485,6 +483,8 @@ $$
 The same assumptions follow as in the simple linear regression model. 
 
 Errors must be uncorrelated with each other and errors are i.i.d conditionally normally distributed $\boldsymbol{\epsilon} \mid \mathbf{X} \sim N(0, \sigma^2 I)$.
+
+## Deriving $\boldsymbol{\hat{\beta}}$
 
 Finding the beta now is also a different as we deal with differentiation of vector of $\hat{\beta}$. The idea is still the same, we minimize the sum of squared residuals that is now a vector.
 
