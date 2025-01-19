@@ -709,7 +709,7 @@ $$
 The $R^2$ of a regression model is a measure that tells us how much does the variability of the predictor variables explains variation of the response variable. The $R^2$ is shown by this formula:
 
 $$
-R^2 = \frac{\text{Regression Sum of Squares}{\text{Total Sum of Squares} = \frac{\text{Explained Variation}{\text{Total Variation}}
+R^2 = \frac{\text{Regression Sum of Squares}{\text{Total Sum of Squares} = \frac{\text{Explained Variation}}{\text{Total Variation}}
 $$
 
 A common rule of thumb is that the higher the $R^2$, the better the model explains the response variable. However, it is also wise to not consider the rule of thumb too literally, as in aiming for 90% or above. There are complex things in the world where explaning everything is simply not possible. Depending on the context, even a low $R^2$ would suffice if the aim was to find a model that can partly explain the response.
@@ -723,7 +723,7 @@ A very simple way to check if assumptions of the linear regression is violated i
 
 Taking this example from the book of *R Programming for Actuarial Science* by McQuire & Kume (2020):
 
-<img src="https://actuary492.github.io/assets/images/violinreg.png" alt="description" style="width: 80%; height: 80%;">
+<img src="https://actuary492.github.io/assets/images/violinreg.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 We see here examples of violations of the assumptions of the linear regression model.
 
@@ -731,7 +731,7 @@ Alternating signs of residuals (-1 and 1) in the first model (column 1 graphs) v
 
 In the second model (column 2 graphs) one can clearly see that linear regression does not fit the graph that is most likely quadratic.
 
-In the third model, we clealy see that the mean of residuals is clearly not centered around zero. This violates the fact that $e_i\midx_i ~ N(0, \sigma^2)$. 
+In the third model, we clealy see that the mean of residuals is clearly not centered around zero. This violates the fact that $e_i \mid x_i ~ N(0, \sigma^2)$. 
 
 Let us go through by theory the possible depatures from assumptions of the linear regression model and the possible remedies:
 
