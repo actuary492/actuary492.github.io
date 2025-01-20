@@ -772,7 +772,7 @@ The idea of the auxiliary regression is to see whether the predictors explain th
 The last step of this test calculates the of the Lagrange Multiplier test statistic of $nR^2$ that is chi squared distributed with degrees of freedom (d.o.f) $k-1$ where k is the number of predictors in the auxiliary regression and $R^2$ is the R-squared of the auxiliary regression. The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence that errors can vary, providing evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), and if the intercept does not count into the test, hence the test-statistic has a d.o.f of $k-1$.
 
 $$
-LM = nR^2_{\text{auxiliary}} \sim \chi^2(k)(k-1)
+LM = nR^2_{\text{auxiliary}} \sim \chi^2(k-1)
 $$
 
 ### Solution
