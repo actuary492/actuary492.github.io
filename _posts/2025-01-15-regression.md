@@ -802,7 +802,7 @@ $$
 \mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} \quad \text{then save the residuals} \quad \boldsymbol{e} = \mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}}
 $$
 
-The auxiliary regression model then regresses residuals from the preliminary regression on $k$ number of lags of residuals alongside predictors of the original model.
+The auxiliary regression model then regresses residuals from the preliminary regression on $k$ number of lags of residuals alongside predictors of the original model. The lagged residuals can be obtained by regressing lagged $\mathbf{Y}$ i.e. $\mathbf{Y_i-1}$ up to $\mathbf{Y_i-p}$ on $\mathbf{X}$'s.
 
 $$
 e_i = \mathbf{x}_i' \delta + \gamma_1 e_{i-1} + \cdots + \gamma_p e_{i-p} + \omega_i, \quad i = p + 1, \dots, n
