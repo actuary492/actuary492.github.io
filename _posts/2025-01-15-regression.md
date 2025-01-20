@@ -738,9 +738,9 @@ In the third model, we clealy see that the mean of residuals is clearly not cent
 
 Let us go through by theory the possible depatures from assumptions of the linear regression model and the possible remedies:
 
-## Heteroskedasticity: opposite of Homoskedasticity
+## Heteroskedasticity
 
-Homoskedasticity tells us that the diagonals of the variance-covariance of errors must be constant. Heteroskedasticity is when these variances are not constant. It can be that some residuals have smaller variance whilst other have larger variances and vice versa. 
+Homoskedasticity tells us that the diagonals of the variance-covariance of errors must be constant. Heteroskedasticity is the opposite of that: when these variances of residuals are not constant. It can be that some residuals have smaller variance whilst other have larger variances and vice versa. 
 
 This can typically happen due to ommitted variable bias. If we miss out on some predictor in the model, the residuals will capture the effects of this missing variable that can exhibit some pattern leading to non-constant variance of residuals. A wrong functional form (such as in case 2 above) of trying to model a quadratic response using linear predictors can also be passed down to the residuals in the form of heteroskedasticity.
 
@@ -749,11 +749,31 @@ This can typically happen due to ommitted variable bias. If we miss out on some 
 There are two ways test for heteroscedasticity:
 - Graphically by plotting the residuals (x-axis) against the predicted values (y-axis) for less complex models (simple linear regression)
 
-A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of predicted values are randomly scattered.
+A common diagnosis by the graph for heteroscedasticity if we see a clear pattern, for instance increasing residuals as the predicted values increase (typically cone shaped) or if there are clear clusters in the graph. There is no heteroscedasticity if the spread of these points are randomly scattered around 0.
 
 - Use the Breusch-Pagan test for more complex models (multiple linear regression). 
 
-The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model and makes use of the Lagrange Multiplier test statistic of $nR^2$ that is chi squared distributed with degrees of freedom (d.o.f) $k-1$ where k is the number of predictors in the auxiliary regression. The test first starts with a preliminary regression of the full model where it's residuals are saved. The auxiliary regression for this test, where we regress the saved residuals from the preliminary regression on the predictors, and check for whether coefficients of the predictors are zero (excluding the intercept). The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), and if the intercept does not count into the test, hence the test-statistic has a d.o.f of $k-1$.
+The Breusch Pagan test will always follow the null hypothesis that there is no heteroscedasticity in the model.
+
+The test first starts with a preliminary regression of the full model where it's residuals are saved. 
+
+$$
+\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} \quad \text{then save the residuals} \quad \boldsymbol{e} = \mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}}
+$$
+
+The auxiliary regression for this test, where we regress the squared of saved residuals from the preliminary regression on suspected predictors $Z = (z_1i, z_2i, ..., z_ki$)$ that cause the heteroscedasticity, and check for whether coefficients of the predictors are zero (excluding the intercept). These suspected predictors can be from the preliminary regression, or transformations of predictors.
+
+$$
+e_{i}^2 = \gamma_1 + \gamma_2 z_{1i} + \cdots + \gamma_p z_{ki} + \zeta_i \quad \text{or} \quad \boldsymbol{e} = \boldsymbol{Z} \boldsymbol{\gamma} + \boldsymbol{\Zeta}
+$$
+
+The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence of non-constant variance of errors.
+
+The last step of this test calculates the of the Lagrange Multiplier test statistic of $nR^2$ that is chi squared distributed with degrees of freedom (d.o.f) $k-1$ where k is the number of predictors in the auxiliary regression and $R^2$ is the R-squared of the auxiliary regression. The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence that errors can vary, providing evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), and if the intercept does not count into the test, hence the test-statistic has a d.o.f of $k-1$.
+
+$$
+LM = nR_{\text{auxiliary}^2 \sim \chisq(k-1)
+$$
 
 ### Solution
 
@@ -770,12 +790,15 @@ A very common occurence of autocorrelation is in time series data, where typical
 ## Detection
 
 There are two ways to check for Autocorrelation:
-- Graph the autocorrelation plot (ACF plot). This plot shows the correlation between lags of the variable suspected to possess autocorrelation. 
-- Conduct the Breusch-Godfrey test.
+- Graph the autocorrelation plot (ACF plot). This plot shows the correlation between lags of the variable suspected to possess autocorrelation.
 
 The typical ACF plot is served with a shaded blue region (or two horizontal lines that encloses a region) which can be seen as the confidence threshold that indicates evidence that correlation is significantly different from zero. If there is points that penetrate out of this blue region, it is a good indication that autocorrelation is present in one's data. If lines are contained inside this blue region, it is a evidence that autocorrelation is contained and statistically significant at 0. 
 
+- Conduct the Breusch-Godfrey test.
+
 The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. A preliminary regression is first conducted on the full model where it's residuals are saved up. The auxiliary regression model then regresses residuals from the preliminary regression on $k$ number of lags of residuals alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged residuals do explain the residual then autocorrelation is present. Since there are $k$ number of lags assumed in the auxiliary regression model, hence the d.o.f is k. 
+
+
 
 ## Solution
 - Add more explanatory variables, for instance lags. Recheck with relevant ACF plots if autocorrelation still exists or not. 
