@@ -764,7 +764,7 @@ $$
 The auxiliary regression for this test, where we regress the squared of saved residuals from the preliminary regression on suspected predictors $Z = (z_1i, z_2i, ..., z_ki$)$ that cause the heteroscedasticity, and check for whether coefficients of the predictors are zero (excluding the intercept). These suspected predictors can be from the preliminary regression, or transformations of predictors.
 
 $$
-e_{i}^2 = \gamma_1 + \gamma_2 z_{1i} + \cdots + \gamma_p z_{ki} + \zeta_i \quad \text{or} \quad \boldsymbol{e} = \boldsymbol{Z} \boldsymbol{\gamma} + \boldsymbol{\Zeta}
+e_{i}^2 = \gamma_1 + \gamma_2 z_{1i} + \cdots + \gamma_p z_{ki} + \zeta_i \quad \text{or} \quad \boldsymbol{e^{T}e} = \boldsymbol{Z} \boldsymbol{\gamma} + \boldsymbol{Z}
 $$
 
 The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence of non-constant variance of errors.
@@ -796,8 +796,25 @@ The typical ACF plot is served with a shaded blue region (or two horizontal line
 
 - Conduct the Breusch-Godfrey test.
 
-The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where k is the number of lags in the auxiliary regression model. A preliminary regression is first conducted on the full model where it's residuals are saved up. The auxiliary regression model then regresses residuals from the preliminary regression on $k$ number of lags of residuals alongside predictors of the original model. This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged residuals do explain the residual then autocorrelation is present. Since there are $k$ number of lags assumed in the auxiliary regression model, hence the d.o.f is k. 
+A preliminary regression is first conducted on the full model where it's residuals are saved up. 
 
+$$
+\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} \quad \text{then save the residuals} \quad \boldsymbol{e} = \mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}}
+$$
+
+The auxiliary regression model then regresses residuals from the preliminary regression on $k$ number of lags of residuals alongside predictors of the original model.
+
+$$
+e_i = \mathbf{x}_i' \delta + \gamma_1 e_{i-1} + \cdots + \gamma_p e_{i-p} + \omega_i, \quad i = p + 1, \dots, n
+$$
+
+This test aims to test whether coefficients of these lagged residuals are jointly equal to 0 or not. The idea is that if the lagged residuals do explain the residual then we have established that there is a relationship between errors, hence providing evidence that autocorrelation is present.
+
+The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where $k$ is the number of lags in the auxiliary regression model. Since there are $k$ number of lags to be tested in the auxiliary regression model, hence the d.o.f is k. 
+
+$$
+LM = nR_{\text{auxiliary}^2 \sim \chisq(k)
+$$
 
 
 ## Solution
@@ -820,7 +837,19 @@ We can logically assume that level of education of an individual can be affected
 
 - If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
 
-This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with d.o.f $k_0$. The DWH-test first saves up errors (residuals) of two preliminary regressions: first of the full model (inclusive all variables, endogenous included) and the second when the endogenous variable is regressed by the it's potential instruments. In the auxiliary regression, the errors (from the full model) are regressed onto the other exogenous predictors and the residuals of the second preliminary model and tests for whether coefficients of suspected endogenous residuals in the auxiliary regression is equal to 0. If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the full model, serving as evidence for endogeneity. If there are $k_0$ suspected endogenous variables, it therefore means there are $k_0$ coefficients to test in the auxiliary regression, hence the d.o.f of $k_0$.
+The DWH-test first saves up errors (residuals) of two preliminary regressions: first of the full model (inclusive all variables, endogenous included) and the second when the endogenous variable is regressed by the it's potential instruments. 
+
+$$
+\mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} \quad \text{then save the residuals} \quad \boldsymbol{e} = \mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}}
+$$
+
+$$
+\mathbf{Z} = \mathbf{X} \boldsymbol{\gamma} + \boldsymbol{\Upsilon} \quad \text{then save the residuals} \quad \boldsymbol{v} = \mathbf{Z} - \mathbf{X} \boldsymbol{\hat{\gamma}}
+$$
+
+In the auxiliary regression, the errors (from the full model) are regressed onto the other exogenous predictors and the residuals of the second preliminary model and tests for whether coefficients of suspected endogenous residuals in the auxiliary regression is equal to 0. If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the full model, serving as evidence for endogeneity.
+
+This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with d.o.f $k_0$. If there are $k_0$ suspected endogenous variables, it therefore means there are $k_0$ coefficients to test in the auxiliary regression, hence the d.o.f of $k_0$.
 
 ### Solution
 
