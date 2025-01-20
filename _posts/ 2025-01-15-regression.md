@@ -7,7 +7,7 @@ author: Nicholas Wijaya
 toc: true
 classes: wide
 header: 
-  image: "/assets/images/regression.jpg"
+  image: "/assets/images/regpic.jpg"
 permalink: /posts/regression/
 published: true
 draft: false
