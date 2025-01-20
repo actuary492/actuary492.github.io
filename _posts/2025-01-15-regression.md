@@ -772,7 +772,7 @@ The idea of the auxiliary regression is to see whether the predictors explain th
 The last step of this test calculates the of the Lagrange Multiplier test statistic of $nR^2$ that is chi squared distributed with degrees of freedom (d.o.f) $k-1$ where k is the number of predictors in the auxiliary regression and $R^2$ is the R-squared of the auxiliary regression. The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence that errors can vary, providing evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), and if the intercept does not count into the test, hence the test-statistic has a d.o.f of $k-1$.
 
 $$
-LM = nR_{\text{auxiliary}^2} \sim \chi^2(k)(k-1)
+LM = nR^2_{\text{auxiliary}} \sim \chi^2(k)(k-1)
 $$
 
 ### Solution
@@ -813,7 +813,7 @@ This test aims to test whether coefficients of these lagged residuals are jointl
 The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where $k$ is the number of lags in the auxiliary regression model. Since there are $k$ number of lags to be tested in the auxiliary regression model, hence the d.o.f is k. 
 
 $$
-LM = nR_{\text{auxiliary}^2} \sim \chi^2(k)
+LM = nR^2_{\text{auxiliary}} \sim \chi^2(k)
 $$
 
 
@@ -864,7 +864,7 @@ $$
 This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with d.o.f $k_0$. If there are $k_0$ residuals predicted from regression of every suspected endogenous variables on instruments used in the auxiliary regression whose coefficients will be tested, it therefore means there are $k_0$ coefficients to test in the auxiliary regression, hence the d.o.f of $k_0$.
 
 $$
-LM = nR_{\text{auxiliary}^2} \sim \chi^2(k_0)
+LM = nR^2_{\text{auxiliary}} \sim \chi^2(k_0)
 $$
 
 ### Solution
