@@ -2,12 +2,12 @@
 layout: single
 title: "Linear Regression in R"
 date: 2025-01-20
-excerpt: "I will show applications of regression in R"
+excerpt: "I will show applications of linear regression in R"
 author: Nicholas Wijaya
 toc: true
 classes: wide
 header: 
-  image: "/assets/images/regression.jpg"
+  image: "/assets/images/regression1.jpg"
 permalink: /posts/regression-in-r/
 published: false
 draft: false
