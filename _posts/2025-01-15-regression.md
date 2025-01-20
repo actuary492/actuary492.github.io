@@ -764,7 +764,7 @@ $$
 The auxiliary regression for this test, where we regress the squared of saved residuals from the preliminary regression on suspected predictors $Z = (z_{1i}, z_{2i}, ..., z_{ki})$ that cause the heteroscedasticity, and check for whether coefficients of the predictors are zero (excluding the intercept). These suspected predictors can be from the preliminary regression, or transformations of predictors.
 
 $$
-e_{i}^2 = \gamma_1 + \gamma_2 z_{1i} + \cdots + \gamma_p z_{ki} + \zeta_i \quad \text{or} \quad \boldsymbol{e^{T}e} = \boldsymbol{Z} \boldsymbol{\gamma} + \boldsymbol{Z}
+e_{i}^2 = \gamma_1 + \gamma_2 z_{1i} + \cdots + \gamma_p z_{ki} + \omega_i \quad \text{or} \quad \boldsymbol{e^{T}e} = \boldsymbol{Z} \boldsymbol{\gamma} + \boldsymbol{\Omega}
 $$
 
 The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence of non-constant variance of errors.
