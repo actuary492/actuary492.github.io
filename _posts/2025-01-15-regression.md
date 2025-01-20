@@ -847,9 +847,13 @@ $$
 
 $$
 \mathbf{x_1} = \mathbf{Z} \boldsymbol{\gamma_1} + \boldsymbol{\Upsilon_1} \quad \text{then save the residuals} \quad \boldsymbol{v_1} = \mathbf{x_1} - \mathbf{Z} \boldsymbol{\hat{\gamma_1}}
+$$
 
+$$
 \cdots
+$$
 
+$$
 \mathbf{x_i} = \mathbf{Z} \boldsymbol{\gamma_i} + \boldsymbol{\Upsilon_i} \quad \text{then save the residuals} \quad \boldsymbol{v_i} = \mathbf{x_i} - \mathbf{Z} \boldsymbol{\hat{\gamma_i}}
 $$
 
