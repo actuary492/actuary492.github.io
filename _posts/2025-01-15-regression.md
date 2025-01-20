@@ -772,7 +772,7 @@ The idea of the auxiliary regression is to see whether the predictors explain th
 The last step of this test calculates the of the Lagrange Multiplier test statistic of $nR^2$ that is chi squared distributed with degrees of freedom (d.o.f) $k-1$ where k is the number of predictors in the auxiliary regression and $R^2$ is the R-squared of the auxiliary regression. The idea of the auxiliary regression is to see whether the predictors explain the residuals, because if it does it is clear evidence that errors can vary, providing evidence of non-constant variance of errors. Hence if our total predictors are k (inclusive intercept), and if the intercept does not count into the test, hence the test-statistic has a d.o.f of $k-1$.
 
 $$
-LM = nR_{\text{auxiliary}^2} \sim \chisq(k-1)
+LM = nR_{\text{auxiliary}^2} \sim \chi^2(k)(k-1)
 $$
 
 ### Solution
@@ -813,7 +813,7 @@ This test aims to test whether coefficients of these lagged residuals are jointl
 The Breusch Godfrey test follows the null hypothesis of no autocorrelation, and has the test statistic of $nR^2$ that is chi-squared distributed with degree of freedom $k$, where $k$ is the number of lags in the auxiliary regression model. Since there are $k$ number of lags to be tested in the auxiliary regression model, hence the d.o.f is k. 
 
 $$
-LM = nR_{\text{auxiliary}^2} \sim \chisq(k)
+LM = nR_{\text{auxiliary}^2} \sim \chi^2(k)
 $$
 
 
@@ -837,6 +837,8 @@ We can logically assume that level of education of an individual can be affected
 
 - If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
 
+The null hypothesis tells us that $k_0$ suspected endogenous regressors are exogenous, while the alternative states that $k_0$ suspected endogenous regressors are indeed endogenous.
+
 The test first conducts two preliminary regressions: First of the full model (inclusive all variables, endogenous included) where all it's residuals will be saved and the second when every suspected endogenous variable $X = (x_1, \cdots , x_i) is regressed by the it's potential instruments $Z=(z_1, \cdots , z_i)$ where $k_0$ vectors of residuals are saved. 
 
 $$
@@ -851,16 +853,18 @@ $$
 \mathbf{x_i} = \mathbf{Z} \boldsymbol{\gamma_i} + \boldsymbol{\Upsilon_i} \quad \text{then save the residuals} \quad \boldsymbol{v_i} = \mathbf{x_i} - \mathbf{Z} \boldsymbol{\hat{\gamma_i}}
 $$
 
-In the auxiliary regression, the errors (from the full model) are regressed onto the predictors of the full model (inclusive $k_0$ endogenous variables and $k-k_0$ exogenous variables) and the $k_0$ vectors of residuals from the second preliminary model (every endogenous predictor on it's instruments) and tests for whether coefficients of these $k_0$ residuals in the auxiliary regression is equal to 0. If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the full model, serving as evidence for endogeneity.
+In the auxiliary regression, the errors (from the full model) are regressed onto the predictors of the full model (inclusive $k_0$ endogenous variables and $k-k_0$ exogenous variables) and the $k_0$ vectors of residuals from the second preliminary model (every endogenous predictor on it's instruments) and tests for whether coefficients of these $k_0$ vectors of residuals in the auxiliary regression is equal to 0. 
+
+If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the full model, serving as evidence for endogeneity.
 
 $$
 e_i = \sum_{j=1}^{k} \delta_j x_{ji} + \sum_{j=k-k_0+1}^{k} \alpha_j \hat{v}_{ji} + \zeta_i
 $$
 
-This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with d.o.f $k_0$. If there are $k_0$ suspected endogenous variables, it therefore means there are $k_0$ coefficients to test in the auxiliary regression, hence the d.o.f of $k_0$.
+This DWH-test has a test statistic of $nR^2$ that is chisquare distributed with d.o.f $k_0$. If there are $k_0$ residuals predicted from regression of every suspected endogenous variables on instruments used in the auxiliary regression whose coefficients will be tested, it therefore means there are $k_0$ coefficients to test in the auxiliary regression, hence the d.o.f of $k_0$.
 
 $$
-LM = nR_{\text{auxiliary}^2} \sim \chisq(k)
+LM = nR_{\text{auxiliary}^2} \sim \chi^2(k_0)
 $$
 
 ### Solution
