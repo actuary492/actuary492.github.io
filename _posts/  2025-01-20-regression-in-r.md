@@ -11,7 +11,7 @@ header:
 permalink: /posts/regression-in-r/
 published: false
 draft: false
-tags: [post, regression, R ]
+tags: [post, regression, R]
 ---
 
 <style>
