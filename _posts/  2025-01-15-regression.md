@@ -848,7 +848,7 @@ $$
 $$
 
 $$
-\mathbf{x_{k-k_0+1}} = \mathbf{Z} \boldsymbol{\gamma_1} + \boldsymbol{\Upsilon_1} \quad \text{then save the residuals} \quad \boldsymbol{v_1} = \mathbf{x_1} - \mathbf{Z} \boldsymbol{\hat{\gamma_1}}
+\mathbf{x_{k-k_0+1}} = \mathbf{Z} \boldsymbol{\gamma_1} + \boldsymbol{\Upsilon_1} \quad \text{then save the residuals} \quad \boldsymbol{v_{k-k_0+1}} = \mathbf{x_1} - \mathbf{Z} \boldsymbol{\hat{\gamma_1}}
 $$
 
 $$
@@ -856,7 +856,7 @@ $$
 $$
 
 $$
-\mathbf{x_{k_0}} = \mathbf{Z} \boldsymbol{\gamma_i} + \boldsymbol{\Upsilon_i} \quad \text{then save the residuals} \quad \boldsymbol{v_i} = \mathbf{x_i} - \mathbf{Z} \boldsymbol{\hat{\gamma_i}}
+\mathbf{x_{k_0}} = \mathbf{Z} \boldsymbol{\gamma_i} + \boldsymbol{\Upsilon_i} \quad \text{then save the residuals} \quad \boldsymbol{v_i} = \mathbf{x_{k_0}} - \mathbf{Z} \boldsymbol{\hat{\gamma_i}}
 $$
 
 In the auxiliary regression, the errors (from the full model) are regressed onto the predictors of the full model (inclusive $k_0$ endogenous variables and $k-k_0$ exogenous variables) and the $k_0$ vectors of residuals from the second preliminary model (every endogenous predictor on it's instruments) and tests for whether coefficients of these $k_0$ vectors of residuals in the auxiliary regression is equal to 0. 
