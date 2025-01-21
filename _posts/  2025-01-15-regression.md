@@ -93,7 +93,7 @@ $$
 
 ## Finding $\beta_0$ and $\beta_1$ through calculations
 
-Finding $\beta_0$ and $\beta_1$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We know that error is the difference between the observed y $y_i$ and the estimated y from the regression model $\hat{y_i}$.
+Finding $\beta_0$ and $\beta_1$ is done through the condition that these coefficients can *arrive at a model that can minimize the sum of squared residual errors*. We know that error is the difference between the observed response $y_i$ and the estimated response from the regression model $\hat{y_i}$.
 
 $$
 \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} e_i^2 = \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
