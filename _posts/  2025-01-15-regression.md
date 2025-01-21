@@ -11,8 +11,8 @@ header:
 permalink: /posts/regression/
 published: true
 draft: false
-tags: [post, regression]
 comments: true
+tags: [post, regression]
 ---
 
 <style>
