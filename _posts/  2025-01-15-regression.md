@@ -839,7 +839,7 @@ We can logically assume that level of education of an individual can be affected
 
 The null hypothesis tells us that $k_0$ suspected endogenous regressors are exogenous, while the alternative states that $k_0$ suspected endogenous regressors are indeed endogenous.
 
-The test first conducts two preliminary regressions: First of the full model (inclusive all variables, endogenous included) where all it's residuals will be saved and the second when every suspected endogenous variable $X = (x_1, \cdots , x_i)$ is regressed by the it's potential instruments $Z=(z_1, \cdots , z_i)$ where $k_0$ vectors of residuals are saved. 
+The test first conducts two preliminary regressions: First of the full model (inclusive all variables, endogenous included) where all it's residuals will be saved and the second when every suspected endogenous variable $X = (x_1, \cdots , x_{k_0})$ is regressed by the it's potential instruments $Z=(z_1, \cdots , z_i)$ where $k_0$ vectors of residuals are saved. 
 
 $$
 \mathbf{Y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon} \quad \text{then save the residuals} \quad \boldsymbol{e} = \mathbf{Y} - \mathbf{X} \boldsymbol{\hat{\beta}}
@@ -854,7 +854,7 @@ $$
 $$
 
 $$
-\mathbf{x_i} = \mathbf{Z} \boldsymbol{\gamma_i} + \boldsymbol{\Upsilon_i} \quad \text{then save the residuals} \quad \boldsymbol{v_i} = \mathbf{x_i} - \mathbf{Z} \boldsymbol{\hat{\gamma_i}}
+\mathbf{x_{k_0}} = \mathbf{Z} \boldsymbol{\gamma_i} + \boldsymbol{\Upsilon_i} \quad \text{then save the residuals} \quad \boldsymbol{v_i} = \mathbf{x_i} - \mathbf{Z} \boldsymbol{\hat{\gamma_i}}
 $$
 
 In the auxiliary regression, the errors (from the full model) are regressed onto the predictors of the full model (inclusive $k_0$ endogenous variables and $k-k_0$ exogenous variables) and the $k_0$ vectors of residuals from the second preliminary model (every endogenous predictor on it's instruments) and tests for whether coefficients of these $k_0$ vectors of residuals in the auxiliary regression is equal to 0. 
