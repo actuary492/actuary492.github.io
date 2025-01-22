@@ -99,7 +99,7 @@ $$
 \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} e_i^2 = \min_{\hat{\beta_0}, \hat{\beta_1}} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
 $$
 
-In other words, the $\beta_0$ and $\beta_1$ is calculated such that it produces the regression line (consisting of paired observations of predicted $\hat{y_i}$ values and $x_i$) that minimizes the distance between observations of $x_i$ to the regression line. Visualised, it looks as such:
+In other words, the $\beta_0$ and $\beta_1$ is calculated such that it produces the regression line (made out of paired observations of predicted $\hat{y_i}$ values and $x_i$) that minimizes the distance between the observations ($x_i$, $y_i$) to the regression line. Visualised, it looks as such:
 
 <img src="https://actuary492.github.io/assets/images/ssr.jpeg" alt="description" style="width: 80%; height: 80%;">
 
@@ -159,7 +159,7 @@ $$
 \sum_{i=1}^{n} y_i x_i - \sum_{i=1}^{n} \hat{\beta_0} x_i  - \sum_{i=1}^{n} \hat{\beta_1} x_i x_i = 0 \rightarrow \sum_{i=1}^{n} y_i x_i - \hat{\beta_0} \sum_{i=1}^{n} x_i  - \hat{\beta_1} \sum_{i=1}^{n} x_i = 0
 $$
 
-Plugging in \hat{\beta_0} into the last equation above:
+Plugging in $\hat{\beta_0}$ into the last equation above:
 
 $$
 \sum_{i=1}^{n} y_i x_i - (\bar{y_i} - \hat{\beta_1} \bar{x_i}) \sum_{i=1}^{n} x_i  - \hat{\beta_1} \sum_{i=1}^{n} x_i = 0
