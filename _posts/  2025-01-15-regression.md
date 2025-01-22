@@ -848,7 +848,7 @@ $$
 $$
 
 $$
-\mathbf{x_{k-k_0+1}} = \mathbf{Z} \boldsymbol{\gamma_{k-k_0+1}} + \boldsymbol{\Upsilon_{k-k_0+1}} \quad \text{then save the residuals} \quad \boldsymbol{v_{k-k_0+1}} = \mathbf{x_{k-k_0+1}} - \mathbf{Z} \boldsymbol{\hat{\gamma_{k-k_0+1}}}
+\mathbf{x_{k-k_0+1}} = \mathbf{Z} \boldsymbol{\gamma_{k-k_0+1}} + \boldsymbol{\Upsilon_{k-k_0+1}} \quad \text{then save the residuals} \quad \boldsymbol{v_{k-k_0+1}} = \mathbf{x_{k-k_0+1}} - \mathbf{Z} \boldsymbol{\hat{\gamma}}_{k-k_0+1}
 $$
 
 $$
