@@ -856,7 +856,7 @@ $$
 $$
 
 $$
-\mathbf{x_{k_0}} = \mathbf{Z} \boldsymbol{\gamma_{k_0}} + \boldsymbol{\Upsilon_{k_0}} \quad \text{then save the residuals} \quad \boldsymbol{v_{k_0}} = \mathbf{x_{k_0}} - \mathbf{Z} \boldsymbol{\hat{\gamma_{k_0}}}
+\mathbf{x_{k_0}} = \mathbf{Z} \boldsymbol{\gamma_{k_0}} + \boldsymbol{\Upsilon_{k_0}} \quad \text{then save the residuals} \quad \boldsymbol{v_{k_0}} = \mathbf{x_{k_0}} - \mathbf{Z} \boldsymbol{\hat{\gamma}}_{k_0}
 $$
 
 In the auxiliary regression, the errors (from the full model) are regressed onto the predictors of the full model (inclusive $k_0$ endogenous variables and $k-k_0$ exogenous variables) and the $k_0$ vectors of residuals from the second preliminary model (every endogenous predictor on it's instruments) and tests for whether coefficients of these $k_0$ vectors of residuals in the auxiliary regression is equal to 0. 
