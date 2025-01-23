@@ -152,7 +152,7 @@ where the equality comes from the relationship between log-likelihood and RSS th
 
 ### Akaike Information Criterion
 
-The AIC is a value that makes use of the number of parameters $p$ and log-likelihood $\mathcal{l}$ is formulated as follows:
+The AIC is a value that makes use of the number of parameters $p$ and log-likelihood $log(\mathcal{l})$ is formulated as follows:
 
 $$
 \text{AIC} = - 2 \log(\mathcal{l})  + 2p
@@ -169,7 +169,9 @@ The essence rather lies on the relative differences between AIC's of different m
 
 This is a variation of the AIC. The formula for BIC is as follows:
 
+$$
 \text{BIC} = -2 \log L(\hat{\theta}) + p \log n
+$$
 
 The idea of remains the same as the AIC. We also should not take conclusions from a single value of the BIC but rather inspect the differences between BIC of models as well.
 
