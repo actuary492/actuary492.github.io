@@ -671,9 +671,10 @@ Coefficients:
 ```
 We see that removal of the nyc$Service gives the lowest AIC, hence in the first step it is removed. In the second step, we see that no removal of variables gives the lowest AIC, hence resulting in the best model (by means of AIC selection) of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$.
 
-Now let us try forward selection using the AIC criterion. We start with the simplest model of only the intercept, stored as reg0 earlier.
 
 ```r
+# Now let us try forward selection using the AIC criterion. We start with the simplest model of only the intercept, stored as reg0 earlier.
+
 stepAIC(reg0, scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East, direction="forward")
 
 Start:  AIC=750.02
