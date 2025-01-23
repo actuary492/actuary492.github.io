@@ -146,7 +146,7 @@ $$
 2\mathcal{l}(\text{Full}) - 2\mathcal{l}(\text{Rest.}) = n \left( \log \text{RSS}_1 - \log \text{RSS}_{12} \right) \sim \chi^2_{p_2}
 $$
 
-where the equality comes from the relationship between log-likelihood and RSS that is $\mathcal{l}(\theta)} \approx -\frac{n}{2} \log(\text{RSS})$.
+where the equality comes from the relationship between log-likelihood and RSS that is $\mathcal{l}{\theta} \approx -\frac{n}{2} \log(\text{RSS})$.
 
 ## By means of cost values
 
