@@ -191,6 +191,8 @@ In this, we aim to build a models that can explain prices of a dinner in differe
 
 The predictor variables which we can use are ratings of the "Food", "Decoration" and "Service" (from 0 to 30) and the dummy variable "East" that tells us whether the location of the Italian restaurant is to the East or West of 5th Avenue.
 
+## Explanation on causality front of the dataset
+
 Before we start, let us check on the causality of these variables to Price.
 
 - There can be logical relationship between Price and Food, Decoration and Service. A combination of good ratings of Food and Service variables can potentially make restaurants charge more for the Price of dining in as demand for spots due to these good things in the restaurant can become high.
