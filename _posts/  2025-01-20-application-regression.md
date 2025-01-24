@@ -209,7 +209,7 @@ These two models have slightly different functions, but both aim to check the mo
 
 The aov() function only accepts one regression formula input (one model). It attempts to show the significance of every variable in model by the analysis of variance. The analysis of variance shows a significance of a variable in the model via whether a variable (regression sum of squares) significantly affects variation in the response (total sum of squares). One can see this as similar to the t-test where check for significance of every variable in the model.
 
-Let us build couple of regression models. The possible linear combinations of these dataset is as follows:
+Let us build couple of regression models. Some random possible linear combinations of these dataset is as follows:
 
 ```r
 reg1 <- lm(nyc$Price ~ nyc$Food) 
@@ -368,6 +368,7 @@ Model 2: nyc$Price ~ nyc$Food + nyc$Decor + nyc$East
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 # We see "East" is still significant (though less strong than "Food" and "Decor") in explaining "Price". We choose Model 2 instead.
+```
 
 In conclusion, same as aov(), anova() tells us that "Food", "Decor" and "East" explains the response "Price".
 
@@ -807,6 +808,8 @@ This is a dummy variable. How we interpret this is that Italian restaurants in t
 
 Let us check the first two plots of the plot() of the regression model.
 
+## Homoscedasticity
+
 ```r
 
 plot(lm(nyc$Price~nyc$Food+nyc$Decor+nyc$East))
@@ -815,6 +818,8 @@ plot(lm(nyc$Price~nyc$Food+nyc$Decor+nyc$East))
 <img src="https://actuary492.github.io/assets/images/nycresfit.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 We see via the residuals vs fitted value graph that there is no clear pattern between residuals and fitted values and that points vary around the line of $\text{Residuals}=0$, hence a clear indication that variances of residuals are constant an that homoscedasticity holds.
+
+## Normality of errors
 
 <img src="https://actuary492.github.io/assets/images/nycpp.jpeg" alt="description" style="width: 80%; height: 80%;">
 
@@ -842,7 +847,7 @@ We do not expect perfect normality from the residuals. We often see it as suffic
 
 # Investigating why "Service" is not significant in the full model
 
-In terms of causality as I elaborated, the full model of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East}$ would make more sense. However, a slight problem in the model as one might have caught on is the insignificance of "Service" when combined with other variables. It was significant when "Price" was only regressed on "Service" itself. 
+In terms of causality as I elaborated, the full model of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East}$ would make more sense. However, a slight problem in the model as one might have caught on is the insignificance of "Service" when combined with other variables.
 
 Let us first look at the pairwise plots to check the pairwise relationships between response variable "Price" and the possible predictor variables "Food", "Decor", "Service" and "East".
 
@@ -850,6 +855,10 @@ Let us first look at the pairwise plots to check the pairwise relationships betw
 pair.panels(nyc[,3:7])
 ```
 <img src="https://actuary492.github.io/assets/images/ppnyc.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+By this pairwise plots, we clearly see a moderately high correlation between "Service" and "Food" of around 0.64
+
+We can confirm this relationship further by regressing "Price" on "Service", which shows "Service" clearly
 
 
 
