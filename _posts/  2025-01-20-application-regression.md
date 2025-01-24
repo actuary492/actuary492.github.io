@@ -196,7 +196,7 @@ The predictor variables which we can use are ratings of the "Food", "Decoration"
 Before we start, let us check on the causality of these variables to Price.
 
 - There can be logical relationship between Price and Food, Decoration and Service. A combination of good ratings of Food and Service variables can potentially make restaurants charge more for the Price of dining in as demand for spots due to these good things in the restaurant can become high.
-- The inclusion of the "East" variable also has a logical explanation behind it. The 5th Avenue is seen as a dividing line between east and west of New York City in terms of demographics as the Upper East Side is known to be area where wealthy people are and where the high end shops are. Combination of these factors do indeed show that the variable "East" can affect price as restaurants might charge more for wealthy people visiting.
+- The inclusion of the "East" variable also has a logical explanation behind it. The 5th Avenue is seen as a dividing line between east and west of New York City in terms of demographics as the Upper East Side is known to be area that houses wealthy people and the high end shops are where tourists are rampant. Combination of these factors do indeed show that the variable "East" can affect price as restaurants might charge more for wealthy people and tourists that might visit.
 
 
 A conclusion is therefore that all the variables above may have an effect on "Price", and it is for us to find out which model fits best. Below, I will use couple of these concepts to find the best model fit and see whether they will end up at the same "best" model.
@@ -718,8 +718,7 @@ Coefficients:
 (Intercept)    nyc$Decor     nyc$Food     nyc$East  
     -24.027        1.909        1.536        2.067  
 ```
-We see that this AIC forward selection first adds "Decor", then "Food", and lastly "East". It also tells us that adding "Service" does not give a lower AIC as seen in the last part of the output. Hence, same as the AIC backward elimination, AIC forward selection yields the best fit model (based on AIC criteria) of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$.
-
+We see that this AIC forward selection first adds "Decor", then "Food", and lastly "East". In the last part of the output, adding nothing gives a more lower AIC compared to adding "Service" hence we do not add "Service" based on the low AIC criteria. Hence, same as the AIC backward elimination, AIC forward selection yields the best fit model (based on AIC criteria) of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$.
 
 
 # The final model to choose: remarks
@@ -752,10 +751,114 @@ stepAIC():
 
 - Backward Elimination: $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$
 
-Based on the above, I decide to choose $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$ as the best fit model. This based on how majority of selection methods arrived on this model, how the model contains all significant variables that explain the response "Price", the R-squared, which we remember was almost close to the highest R-squared from the full model of $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East)}$. 
 
-Of course in one's own research, doing all of the selection processes above is not necessary.
+Of course in one's own research, doing all of the selection processes above is not necessary. What methods to be used depends on the context of research. We should also be aware that different methods may produce different best fit models as shown above. 
 
+Based on the above, I decide to choose $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$ as the best fit model. 
+
+This based on how majority of selection methods arrived on this model, how the model contains all significant variables that explain the response "Price", the R-squared, which we remember was almost close to the highest R-squared from the possible linear combinations shown in the leaps() command. 
+
+# Interpreting the chosen best fit model
+
+Let us try to interpret the output of the best fit regression model.
+
+```r
+summary(lm(nyc$Price~nyc$Food+nyc$Decor+nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Food + nyc$Decor + nyc$East)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.0451  -3.8809   0.0389   3.3918  17.7557 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -24.0269     4.6727  -5.142 7.67e-07 ***
+nyc$Food      1.5363     0.2632   5.838 2.76e-08 ***
+nyc$Decor     1.9094     0.1900  10.049  < 2e-16 ***
+nyc$East      2.0670     0.9318   2.218   0.0279 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.72 on 164 degrees of freedom
+Multiple R-squared:  0.6279,	Adjusted R-squared:  0.6211 
+F-statistic: 92.24 on 3 and 164 DF,  p-value: < 2.2e-16
+
+```
+Intercept:
+
+Assuming that all attributes (predictors) are 0, meaning if a restaurant lies on the East of 5th avenue, and has the lowest possible ratings that is $0$ for Food, Decor then the Italian restaurant would be losing $24.0269$ on average, which directionally makes sense based on the causal theories. Low ratings mean less visitors and restaurant makes a loss. Additionally, being on the east of 5th avenue, where there can be fewer people visiting, than on the west of 5th avenue adds up to the directional bias we see in this intercept.
+
+nyc$Food to nyc$Price:
+
+This tells us that if food ratings go up by 1 point, the average price of a dinner in a Italian restaurant will go up by $1.5363. Coefficient agrees with causality theory.
+
+nyc$Decor:
+
+This tells us that if decoration ratings go up by 1 point, the average price of a dinner in a Italian restaurant will go up by $1.9094. Coefficient agrees with causality theory
+
+nyc$East:
+
+This is a dummy variable. How we interpret this is that Italian restaurants in the east of 5th Avenue charge on average $2.0670 more than Italian restaurants in the west of 5th Avenue. Coefficient agrees with causality theory.
+
+
+# Checking whether regression assumptions hold
+
+Let us check the first two plots of the plot() of the regression model.
+
+```r
+
+plot(lm(nyc$Price~nyc$Food+nyc$Decor+nyc$East))
+
+```
+<img src="https://actuary492.github.io/assets/images/nycresfit.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+We see via the residuals vs fitted value graph that there is no clear pattern between residuals and fitted values and that points vary around the line of $\text{Residuals}=0$, hence a clear indication that variances of residuals are constant an that homoscedasticity holds.
+
+<img src="https://actuary492.github.io/assets/images/nycpp.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+We see that the residuals are fairly normally distributed, except for some outlier points that strays from normality. These are the outlier points in the dataset
+
+```r
+nyc[130,]
+
+nyc[30,]
+
+nyc[56,]
+
+    Case    Restaurant Price Food Decor Service East
+130  130 Rainbow Grill    65   19    23      18    0
+   Case     Restaurant Price Food Decor Service East
+30   30 Harry Cipriani    65   21    20      20    1
+   Case Restaurant Price Food Decor Service East
+56   56      Nello    54   18    16      15    1
+
+```
+What we can learn here is indeed see that there are outlier points where ratings are not proportionate to the price. In this case, despite low ratings, restaurants still charge high prices. 
+
+We do not expect perfect normality from the residuals. We often see it as sufficient to simply report the presence of such outliers during our analysis.
+
+
+# Investigating why "Service" is not significant in the full model
+
+In terms of causality as I elaborated, the full model of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East}$ would make more sense. However, a slight problem in the model as one might have caught on is the insignificance of "Service" when combined with other variables. It was significant when "Price" was only regressed on "Service" itself. 
+
+Let us first look at the pairwise plots to check the pairwise relationships between response variable "Price" and the possible predictor variables "Food", "Decor", "Service" and "East".
+
+```r
+pair.panels(nyc[,3:7])
+```
+<img src="https://actuary492.github.io/assets/images/ppnyc.jpeg" alt="description" style="width: 80%; height: 80%;">
+
+
+
+
+Conducting further regressions, I also found that "Service" remained significant when 
+
+```r
+
+```
 
 
 
