@@ -487,7 +487,7 @@ We see that all single addition models are significant. So how do we proceed in 
 
 We use the AIC as a tiebreaker. We proceed with the model that has the lowest AIC, or the lowest cost.
 
-Hence, we choose "Decor", that happens to be the model that gives the lowest AIC $\text{lm(Price ~ Decor)}$ of 627.07.
+Hence, we choose "Decor" $\text{lm(Price ~ Decor)}$, that happens to be the model that gives the lowest AIC of 627.07.
 
 I will update the model reg0 by adding "Decor" using the command update().
 
@@ -517,7 +517,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ```
 In this new add1() test, we test the null hypothesis $H_0$: $\text{lm(Price ~ Decor)}$ on $H_a$ that is the single term additional models building up on $H_0$. I will not elaborate further on the structure of the $H_0$ and $H_a$. Reader can try to understand what every row tests for based on the explanation of the first add1() output above.
 
-We see that "Food", "Service" and "East" are the contenders for the next variable addition due to it's significance, but the tiebreaker is broken by lower AIC value of "Food" that is $\text{lm(Price ~ Decor + Food}$. Update the regression model as below by adding "Food".
+We see that "Food", "Service" and "East" are the contenders for the next variable addition due to it's significance, but the tiebreaker is broken by lower AIC value of "Food" that is $\text{lm(Price ~ Decor + Food)}$. Update the regression model as below by adding "Food".
 
 ```r
 
@@ -679,7 +679,7 @@ Coefficients:
 (Intercept)     nyc$Food    nyc$Decor     nyc$East  
     -24.027        1.536        1.909        2.067  
 ```
-We see that removal of the nyc$Service gives the lowest AIC, hence in the first step it is removed. In the second step, we see that no removal of variables gives the lowest AIC, hence resulting in the best model (by means of AIC selection) of $\text{lm(Price ~ Food + Decor + East)}$.
+We see that removal of the "Service" gives the lowest AIC, hence in the first step it is removed. In the second step, we see that no removal of variables gives the lowest AIC, hence resulting in the best model (by means of AIC selection) of $\text{lm(Price ~ Food + Decor + East)}$.
 
 
 ```r
@@ -728,7 +728,7 @@ Coefficients:
 (Intercept)    nyc$Decor     nyc$Food     nyc$East  
     -24.027        1.909        1.536        2.067  
 ```
-We see that this AIC forward selection first adds "Decor", then "Food", and lastly "East". In the last part of the output, adding nothing gives a more lower AIC compared to adding "Service" hence we do not add "Service" based on the low AIC criteria. Hence, same as the AIC backward elimination, AIC forward selection yields the best fit model (based on AIC criteria) of $\text{Price ~ Food + Decor + East}$.
+We see that this AIC forward selection first adds "Decor", then "Food", and lastly "East". In the last part of the output, adding nothing gives a more lower AIC compared to adding "Service" hence we do not add "Service" based on the low AIC criteria. Hence, same as the AIC backward elimination, AIC forward selection yields the best fit model (based on AIC criteria) of $\text{lm(Price ~ Food + Decor + East)}$.
 
 
 # The final model to choose: remarks
@@ -800,15 +800,15 @@ Intercept (Baseline Value of Price):
 
 Assuming that all attributes (predictors) are 0, meaning if a restaurant lies on the East of 5th avenue, and has the lowest possible ratings that is $0$ for Food, Decor then the Italian restaurant would be losing $24.0269$ on average, which directionally makes sense based on the causal theories. Low ratings mean less visitors and restaurant makes a loss. Additionally, being on the east of 5th avenue, where there can be fewer people visiting, than on the west of 5th avenue adds up to the directional bias we see in this intercept.
 
-nyc$Food to nyc$Price ("Food" to "Price"):
+"Food" to "Price":
 
 This tells us that if food ratings go up by 1 point, the average price of a dinner in a Italian restaurant will go up by $1.5363. Coefficient agrees with causality theory.
 
-nyc$Decor to nyc$Price ("Decor" to "Price"):
+"Decor" to "Price":
 
 This tells us that if decoration ratings go up by 1 point, the average price of a dinner in a Italian restaurant will go up by $1.9094. Coefficient agrees with causality theory
 
-nyc$East to nyc$Price ("East" to "Price"):
+"East" to "Price":
 
 This is a dummy variable. How we interpret this is that Italian restaurants in the east of 5th Avenue charge on average $2.0670 more than Italian restaurants in the west of 5th Avenue. Coefficient agrees with causality theory.
 
@@ -856,7 +856,7 @@ We do not expect perfect normality from the residuals. We often see it as suffic
 
 # Investigating why "Service" is not significant in the full model
 
-In terms of causality as I elaborated, the full model of $\text{Price ~ Food + Decor + Service + East}$ would make more sense causality-wise. However, a slight problem in the model as one might have caught on is the insignificance of "Service" itself when combined with other variables. 
+In terms of causality as I elaborated, the full model of $\text{lm(Price ~ Food + Decor + Service + East)}$ would make more sense causality-wise. However, a slight problem in the model as one might have caught on is the insignificance of "Service" itself when combined with other variables. 
 
 Could this mean the full model is not that accurate after all and that a new model is needed?
 
@@ -1063,7 +1063,7 @@ F-statistic: 68.76 on 4 and 163 DF,  p-value: < 2.2e-16
 ```
 We see that on the four models above that there is an overlap in explanatory power of "Food", "Decor" and "Service". As a result, in models where "Food" and "Decor" are present together alongside "Service", "Service" becomes insignificant but in models where "Food" and "Decor" are not present together, "Service" remains significant. *What we conclude from the above is that there is some kind of dependency between the three variables of "Food", "Decor" and "Service".*
 
-What can be logical explanation for these dependence? It can be said that better "Food" and "Decor" could go hand in hand with better Service. As a result, "Food" and "Decor" captured majority of the variation on Price, resulting in "Service" being insignificant.
+What can be logical explanation for these dependence? It can be said that better "Food" and "Decor" could go hand in hand with better "Service". As a result, "Food" and "Decor" captured majority of the variation on "Price", resulting in "Service" being insignificant.
 
 There are a few solutions to this:
 
@@ -1159,7 +1159,7 @@ We still see that the best fit model above still has the edge over the model wit
 So what model do we choose in the end? 
 
 - If we aim to find the best fit model that best explains the variation in Price, then we choose for the best fit model objectively based on factors such as R-squared and on which model minimizes most residuals.
-- If the aim was to focus on why "Service" was not significant in the full model, we may emphasize on the possible interaction between "Service" and "Food" and/or "Service". We showed earlier that the model with interaction "Service" and "Food" was able to explain the variation in price significantly while keeping other elements such as the intercept and other coefficients in the same sign and retaining their respective significance. We may also argue that it's R-squared is not far off from the best-fit model, hence concluding that with the interaction model we may get a better coverage of the variation of "Price" rather than sticking with the linear best fit model.
+- If the aim was to focus on why "Service" was not significant in the full model, we may emphasize on the possible interaction between "Service" and "Food" and/or "Service". We showed earlier that the model with interaction "Service" and "Food" was able to explain the variation in price significantly while keeping other elements such as the intercept and other coefficients in align in sign with causality while at the same time retaining their respective significance. We may also argue that it's R-squared is not far off from the best-fit model, hence concluding that with the interaction model we may get a better coverage of the variation of "Price" rather than sticking with the linear best fit model.
 
 To sum it all up, which model we choose in the end, depends on the context of our research.
 
