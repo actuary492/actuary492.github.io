@@ -8,7 +8,7 @@ library(regclass)
 
 # In this we will use a data set "nyc" (change directory)
 
-nyc <- read.csv("~/nyc.csv"); nyc
+nyc <- read.csv("~/Risk Analysis Textbooks + Codes/Data Files/nyc.csv"); nyc
 
 # The linear regression command lm()
 
@@ -46,19 +46,19 @@ drop1(reg4, test="F")
 # add1()
 add1(reg0, test="F", scope=.~.+ nyc$Food + nyc$Decor + nyc$Service + nyc$East)
 
-reg0_update <- update(reg0, .~. + nyc$Service)
+reg0_update <- update(reg0, .~. + nyc$Decor)
 
 add1(reg0_update, test="F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East)
 
-reg0_update_1 <-  update(reg0_update, .~. + nyc$Decor)
+reg0_update_1 <-  update(reg0_update, .~. + nyc$Food)
 
 add1(reg0_update_1, test= "F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East)
 
-reg0_update_2 <- update(reg0_update_1, .~.+ nyc$Food)
+reg0_update_2 <- update(reg0_update_1, .~.+ nyc$East)
 
 add1(reg0_update_2, test="F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East)
 
-reg0_update_3 <- update(reg0_update_2, .~.+ nyc$East)
+
 
 # AIC Forward Selection/Backward Elimination
 
