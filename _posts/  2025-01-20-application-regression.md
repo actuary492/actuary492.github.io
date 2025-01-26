@@ -183,7 +183,7 @@ Looking at the formula, we can see that adding more parameters $p$ add to the co
 Due to the $log(n)$ in the BIC formula, we should note that when $n \geq 8$ means that $log(n) \geq 2$. This means that when we estimate BIC of models (which will likely require way more than 8 observations), the part $p\log n$ will greatly penalize the inclusion of more parameters compared to AIC. Hence, AIC is better suited for predictions (involving complex models) while BIC is better suited for simpler models.
 
 
-# Applying concept of best model fit in R using Sheather (2009) dataset
+# Applying concepts to find best model fit in R using Sheather (2009) dataset
 
 Knowing all the possible theories for model selection, we can now try to apply them in R. There are multiple methods in R on how we will be able to arrive at the best fit model.
 
@@ -209,7 +209,7 @@ These two models have slightly different functions, but both aim to check the mo
 
 The aov() function only accepts one regression formula input (one model). It attempts to show the significance of every variable in model by the analysis of variance. The analysis of variance shows a significance of a variable in the model via whether a variable (regression sum of squares) significantly affects variation in the response (total sum of squares). One can see this as similar to the t-test where check for significance of every variable in the model.
 
-Let us build couple of regression models. Some random possible linear combinations of these dataset is as follows:
+Let us start by building couple of regression models. Some random possible linear combinations of these dataset is as follows:
 
 ```r
 reg1 <- lm(nyc$Price ~ nyc$Food) 
@@ -821,7 +821,7 @@ We see via the residuals vs fitted value graph that there is no clear pattern be
 
 ## Normality of errors
 
-<img src="https://actuary492.github.io/assets/images/nycpp.jpeg" alt="description" style="width: 80%; height: 80%;">
+<img src="https://actuary492.github.io/assets/images/nycqq.jpeg" alt="description" style="width: 80%; height: 80%;">
 
 We see that the residuals are fairly normally distributed, except for some outlier points that strays from normality. These are the outlier points in the dataset
 
@@ -847,7 +847,9 @@ We do not expect perfect normality from the residuals. We often see it as suffic
 
 # Investigating why "Service" is not significant in the full model
 
-In terms of causality as I elaborated, the full model of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East}$ would make more sense. However, a slight problem in the model as one might have caught on is the insignificance of "Service" when combined with other variables.
+In terms of causality as I elaborated, the full model of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East}$ would make more sense causality-wise. However, a slight problem in the model as one might have caught on is the insignificance of "Service" itself when combined with other variables. 
+
+Could this mean the full model is not that accurate after all and that a new model is needed?
 
 Let us first look at the pairwise plots to check the pairwise relationships between response variable "Price" and the possible predictor variables "Food", "Decor", "Service" and "East".
 
@@ -858,19 +860,310 @@ pair.panels(nyc[,3:7])
 
 By this pairwise plots, we clearly see a moderately high correlation between "Service" and "Food" of around 0.64
 
-We can confirm this relationship further by regressing "Price" on "Service", which shows "Service" clearly
+Note that we did not catch this effect due to the fact we built our initial random models as starting from $\text{lm(nyc$Price~nyc$Food)}$.
 
-
-
-
-Conducting further regressions, I also found that "Service" remained significant when 
+We can confirm this relationship further by regressing "Price" on "Service", which shows "Service" clearly has an significant effect on "Price".
 
 ```r
+summary(lm(nyc$Price ~ nyc$Service))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.6646  -4.7540  -0.2093   4.3368  26.2460 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -11.9778     5.1093  -2.344   0.0202 *  
+nyc$Service   2.8184     0.2618  10.764   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.153 on 166 degrees of freedom
+Multiple R-squared:  0.4111,	Adjusted R-squared:  0.4075 
+F-statistic: 115.9 on 1 and 166 DF,  p-value: < 2.2e-16
 
 ```
 
+Conducting further regressions, I also found that "Service" remained significant when we added a second variable "Food", "Decor" or "East". 
+
+```r
+summary(lm(nyc$Price~nyc$Service+nyc$Decor))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$Decor)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.7411  -3.7754  -0.8103   4.0936  20.1530 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -15.0615     4.3633  -3.452 0.000707 ***
+nyc$Service   1.3085     0.2916   4.487 1.35e-05 ***
+nyc$Decor     1.8301     0.2281   8.025 1.80e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.085 on 165 degrees of freedom
+Multiple R-squared:  0.5764,	Adjusted R-squared:  0.5713 
+F-statistic: 112.3 on 2 and 165 DF,  p-value: < 2.2e-16
+
+summary(lm(nyc$Price~nyc$Service+nyc$Food))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$Food)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.1333  -4.7053   0.4169   3.5992  27.0728 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -21.1586     5.6651  -3.735 0.000258 ***
+nyc$Service   1.7041     0.4185   4.072 7.22e-05 ***
+nyc$Food      1.4954     0.4462   3.351 0.000997 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.942 on 165 degrees of freedom
+Multiple R-squared:  0.4486,	Adjusted R-squared:  0.4419 
+F-statistic: 67.12 on 2 and 165 DF,  p-value: < 2.2e-16
+
+summary(lm(nyc$Price~nyc$Service+nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$East)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.8216  -4.8080  -0.4821   4.7460  26.8413 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -11.6636     5.1240  -2.276   0.0241 *  
+nyc$Service   2.7679     0.2679  10.331   <2e-16 ***
+nyc$East      1.0555     1.1702   0.902   0.3683    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.157 on 165 degrees of freedom
+Multiple R-squared:  0.414,	Adjusted R-squared:  0.4068 
+F-statistic: 58.27 on 2 and 165 DF,  p-value: < 2.2e-16
+```
+
+However, when we start to add a third variable of either "Food" or "Decor", making the model of $\text{lm(nyc$Price~nyc$Service+nyc$Decor+nyc$Food)}$, "Service" becomes insignificant.
+
+In the other possible three-variable regression models of $\text{lm(nyc$Price~nyc$Service+nyc$Decor+nyc$East)}$ and $\text{lm(nyc$Price~nyc$Service+nyc$Food+nyc$East)}$, we see that "Service" does not become insignificant.
+
+When we add a fourth variable, "Service" remains insignificant. These are shown below:
+
+```r
+summary(lm(nyc$Price~nyc$Service+nyc$Decor+nyc$Food))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$Decor + nyc$Food)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.8440  -3.7039  -0.1525   3.6218  19.0576 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -24.6409     4.7536  -5.184 6.33e-07 ***
+nyc$Service   0.1350     0.3957   0.341    0.733    
+nyc$Decor     1.8473     0.2176   8.491 1.17e-14 ***
+nyc$Food      1.5556     0.3731   4.170 4.93e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.803 on 164 degrees of freedom
+Multiple R-squared:  0.617,	Adjusted R-squared:   0.61 
+F-statistic: 88.06 on 3 and 164 DF,  p-value: < 2.2e-16
+
+summary(lm(nyc$Price~nyc$Service+nyc$Decor+nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$Decor + nyc$East)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-14.514  -3.668  -0.769   3.704  18.778 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -14.5308     4.3220  -3.362 0.000963 ***
+nyc$Service   1.1513     0.2973   3.872 0.000156 ***
+nyc$Decor     1.8956     0.2276   8.331 3.05e-14 ***
+nyc$East      2.1535     0.9927   2.169 0.031489 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.018 on 164 degrees of freedom
+Multiple R-squared:  0.5882,	Adjusted R-squared:  0.5807 
+F-statistic: 78.09 on 3 and 164 DF,  p-value: < 2.2e-16
+
+summary(lm(nyc$Price~nyc$Service+nyc$Food+nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$Food + nyc$East)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.2862  -4.5254   0.3421   3.7079  27.6119 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -20.8155     5.6843  -3.662 0.000337 ***
+nyc$Service   1.6647     0.4214   3.950 0.000116 ***
+nyc$Food      1.4863     0.4467   3.327 0.001083 ** 
+nyc$East      0.9649     1.1363   0.849 0.397053    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.948 on 164 degrees of freedom
+Multiple R-squared:  0.451,	Adjusted R-squared:  0.441 
+F-statistic: 44.91 on 3 and 164 DF,  p-value: < 2.2e-16
+
+summary(lm(nyc$Price~nyc$Service+nyc$Decor+nyc$East+nyc$Food))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service + nyc$Decor + nyc$East + 
+    nyc$Food)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.0465  -3.8837   0.0373   3.3942  17.7491 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -24.023800   4.708359  -5.102 9.24e-07 ***
+nyc$Service  -0.002727   0.396232  -0.007   0.9945    
+nyc$Decor     1.910087   0.217005   8.802 1.87e-15 ***
+nyc$East      2.068050   0.946739   2.184   0.0304 *  
+nyc$Food      1.538120   0.368951   4.169 4.96e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.738 on 163 degrees of freedom
+Multiple R-squared:  0.6279,	Adjusted R-squared:  0.6187 
+F-statistic: 68.76 on 4 and 163 DF,  p-value: < 2.2e-16
+
+```
+We see that on the four models above that there is an overlap in explanatory power of "Food", "Decor" and "Service". As a result, in models where "Food" and "Decor" are present together alongside "Service", "Service" becomes insignificant but in models where "Food" and "Decor" are not present together, "Service" remains significant. *What we conclude from the above is that there is some kind of dependency between the three variables of "Food", "Decor" and "Service".*
+
+What can be logical explanation for these dependence? It can be said that better "Food" and "Decor" could go hand in hand with better Service. As a result, "Food" and "Decor" captured majority of the variation on Price, resulting in "Service" being insignificant.
+
+There are a few solutions to this:
+
+- Remove "Service" completely from the model because we aim to find the most complete model. It appears that "Service" does not explain much in the full model, and this is enough reason to drop it.
+- We can try to add interaction terms, however it is often times not suggested as it may lead to complicating the model. We should try to only add interaction terms when we can support it by theory, which in this case, we can.
 
 
+# Model with Interaction Terms
+
+Here, we try two models that use interaction terms between "Service" on "Food" or "Price".
+
+```r
+summary(lm(nyc$Price ~ nyc$Service:nyc$Decor + nyc$Food + nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service:nyc$Decor + nyc$Food + nyc$East)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.1012  -3.5422  -0.0879   3.4140  20.5181 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(>|t|)    
+(Intercept)           0.452969   5.212134   0.087    0.931    
+nyc$Food              0.775154   0.332542   2.331    0.021 *  
+nyc$East              1.583350   0.968071   1.636    0.104    
+nyc$Service:nyc$Decor 0.072887   0.008123   8.973  6.4e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.955 on 164 degrees of freedom
+Multiple R-squared:  0.5967,	Adjusted R-squared:  0.5894 
+F-statistic:  80.9 on 3 and 164 DF,  p-value: < 2.2e-16
+
+summary(lm(nyc$Price ~ nyc$Service:nyc$Food + nyc$Decor + nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Service:nyc$Food + nyc$Decor + nyc$East)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.7735  -3.6537  -0.2284   3.7593  18.9379 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(>|t|)    
+(Intercept)          -5.863007   3.064891  -1.913   0.0575 .  
+nyc$Decor             1.763692   0.213458   8.262 4.57e-14 ***
+nyc$East              1.856157   0.958367   1.937   0.0545 .  
+nyc$Service:nyc$Food  0.040185   0.007594   5.291 3.84e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.81 on 164 degrees of freedom
+Multiple R-squared:  0.6161,	Adjusted R-squared:  0.6091 
+F-statistic: 87.73 on 3 and 164 DF,  p-value: < 2.2e-16
+
+``` 
+Using the interaction term "Decor" and "Service" is not appropriate as it made the model stray off from theory, especially looking at the intercept that is not significant anymore and also in the wrong sign. Not having a baseline value is a sign that tells us something in the model is wrong.
+
+On the other hand, we see that interaction term of "Food" and "Service" is significant and can be appropriate as it produces a model whose intercept coefficient signs still agree with theory and still significant in at least 10% level. The positive sign of the interaction term coefficient tells us that the higher the rating of Food, the more positively stronger Service is to the Price. This agrees with theory that states good Service tends to come with good Food, which will increase Price.
+
+# Model with Interaction Term vs Best Fit Model: Which to choose?
+
+Comparing the interaction model ("Service" and "Food") to the best fit model we concluded earlier: 
+
+```r
+summary(lm(nyc$Price~nyc$Food+nyc$Decor+nyc$East))
+
+Call:
+lm(formula = nyc$Price ~ nyc$Food + nyc$Decor + nyc$East)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.0451  -3.8809   0.0389   3.3918  17.7557 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -24.0269     4.6727  -5.142 7.67e-07 ***
+nyc$Food      1.5363     0.2632   5.838 2.76e-08 ***
+nyc$Decor     1.9094     0.1900  10.049  < 2e-16 ***
+nyc$East      2.0670     0.9318   2.218   0.0279 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.72 on 164 degrees of freedom
+Multiple R-squared:  0.6279,	Adjusted R-squared:  0.6211 
+F-statistic: 92.24 on 3 and 164 DF,  p-value: < 2.2e-16
+
+```
+
+We still see that the best fit model above still has the edge over the model with interaction terms in terms of R-squared and how it has a lower spread of residuals. 
+
+So what model do we choose in the end? 
+
+- If we aim to find the best fit model that best explains the variation in Price, then we choose for the best fit model objectively based on factors such as R-squared and on which model minimizes most residuals.
+- If the aim was to focus on why "Service" was not significant in the full model, we may emphasize on the possible interaction between "Service" and "Food" and/or "Service". We showed earlier that the model with interaction "Service" and "Food" was able to explain the variation in price significantly while keeping other elements such as the intercept and other coefficients in the same sign and retaining their respective significance. We may also argue that it's R-squared is not far off from the best-fit model, hence concluding that with the interaction model we may get a better coverage of the variation of "Price" rather than sticking with the linear best fit model.
+
+To sum it all up, which model we choose in the end, depends on the context of our research.
+
+# Conclusion
+
+In this article, I went through the steps on what we should consider when doing regression. What models should we choose? How do we arrive at the best model and what factors should we consider? These are elemetary questions that we will encounter when doing regression. I have given an example to tackle these questions using the Sheather (2009) dataset. I hope you have found this article helpful.
+
+# Dataset and R-Script Download
+The R-Script, along with the dataset, can be downloaded from the assets directory in my GitHub repository. The R code is under the folder "codes", named AppRegression_Rcode_Actuary492.R and the dataset lies under the folder "dataset", named nyc.csv
+
+# References
+
+McQuire, A., & Kume, M. (2020). <em style="font-style:bold;">R Programming for Actuarial Science</em>. Wiley.
 
 
 
