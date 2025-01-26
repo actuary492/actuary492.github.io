@@ -128,7 +128,7 @@ Why use RSS? The RSS essentially consists of the squared of errors that is also 
 The F-statistic goes as follows:
 
 $$
-\text{F-statistic} = \frac{\frac{\text{RSS}_1 - \text{RSS}_{12}}{p_2}}{\frac{\text{RSS}_{12}}{n - p}} \sim F_{(p_2, n-p)}
+\text{F-statistic} = \frac{\frac{\text{RSS}_{Full} - \text{RSS}_{Part}}{p_{2}}}{\frac{\text{RSS}_{Part}}{n - p}} \sim F_{(p_{2}, n-p)}
 $$
 
 The essence of this test finds out whether difference between sum of squared residuals of models when $p_2$ is included and excluded of the different modelsare significant,. If it is, it serves as evidence that $p_2$ should be included.
@@ -143,10 +143,10 @@ Instead of using the log-likelihood, it is again replaced by the RSS. We should 
 The chi-square test statistic is as follows:
 
 $$
-2\mathcal{l}(\text{Full}) - 2\mathcal{l}(\text{Rest.}) = n \left( \log \text{RSS}_1 - \log \text{RSS}_{12} \right) \sim \chi^2_{p_2}
+2\mathcal{l}(\text{Full}) - 2\mathcal{l}(\text{Part}) = n \left( \log \text{RSS}_{Full} - \log \text{RSS}_{Part} \right) \sim \chi^2 (p_2)
 $$
 
-where the equality comes from the relationship between log-likelihood and RSS that is $\mathcal{l}{\theta} \approx -\frac{n}{2} \log(\text{RSS})$.
+where the equality comes from the relationship between log-likelihood and RSS that is $\mathcal{l}(\theta) \approx -\frac{n}{2} \log(\text{RSS})$.
 
 ## By means of cost values
 
@@ -180,14 +180,14 @@ The idea of remains the same as the AIC. We also should not take conclusions fro
 
 Looking at the formula, we can see that adding more parameters $p$ add to the cost of the model, hence when it comes these values we aim to find the balance between model complexity and cost. We want to include more models that can help in explanation of the response variable, but we have to be aware that it comes at a cost.
 
-Due to the $log(n)$ in the BIC formula, we should note that when $n \geq 8$ means that $log(n) \geq 2$. This means that when we estimate BIC of models (which will likely require way more than 8 observations), the part $p\log n$ will greatly penalize the inclusion of more parameters compared to AIC. Hence, AIC is better suited for predictions (involving complex models) while BIC is better suited for simpler models.
+Due to the $log(n)$ in the BIC formula, we should note that when $n \geq 8$ tells us that $log(n) \geq 2$. This means if when we estimate BIC of regression models (which will likely require way more than 8 observations), the part "$p\log n$" will greatly penalize the inclusion of more parameters compared to AIC. Hence, AIC is better suited for predictions (involving complex models) while BIC is better suited for simpler models.
 
 
 # Applying concepts to find best model fit in R using Sheather (2009) dataset
 
 Knowing all the possible theories for model selection, we can now try to apply them in R. There are multiple methods in R on how we will be able to arrive at the best fit model.
 
-In this, we aim to build a models that can explain prices of a dinner in different Italian restaurants in New York City. The Price is therefore the response variable here.
+In this, we aim to build a model that can explain Prices of a dinner in different Italian restaurants in New York City. The Price is therefore the response variable here.
 
 The predictor variables which we can use are ratings of the "Food", "Decoration" and "Service" (from 0 to 30) and the dummy variable "East" that tells us whether the location of the Italian restaurant is to the East or West of 5th Avenue.
 
@@ -195,9 +195,8 @@ The predictor variables which we can use are ratings of the "Food", "Decoration"
 
 Before we start, let us check on the causality of these variables to Price.
 
-- There can be logical relationship between Price and Food, Decoration and Service. A combination of good ratings of Food and Service variables can potentially make restaurants charge more for the Price of dining in as demand for spots due to these good things in the restaurant can become high.
-- The inclusion of the "East" variable also has a logical explanation behind it. The 5th Avenue is seen as a dividing line between east and west of New York City in terms of demographics as the Upper East Side is known to be area that houses wealthy people and the high end shops are where tourists are rampant. Combination of these factors do indeed show that the variable "East" can affect price as restaurants might charge more for wealthy people and tourists that might visit.
-
+- There can be logical relationship between "Food", "Decoration" and "Service" on "Price". Good ratings of "Food", "Service", or "Decoration" individually or combined may potentially make restaurants charge more for the Price of dining in as demand for spots can become high due to these good characteristics of the restaurant.
+- The inclusion of the "East" variable also has a logical explanation behind it. The 5th Avenue is seen as a dividing line between east and west of New York City in terms of demographics as the Upper East Side is known to be area that houses wealthy people and the high end shops are where tourists are rampant. Combination of these factors do indeed show that the variable "East" can affect price as restaurants lying on the east might charge more for wealthy people and tourists that may visit.
 
 A conclusion is therefore that all the variables above may have an effect on "Price", and it is for us to find out which model fits best. Below, I will use couple of these concepts to find the best model fit and see whether they will end up at the same "best" model.
 
@@ -301,7 +300,7 @@ Model 2: nyc$Price ~ nyc$Food + nyc$Decor + nyc$East + nyc$Service
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
 
-Doing this F-test tests joint significance of additional variables "Decor", "East" and "Service" between reg1 and reg4. The null hypothesis tells us that all three additional variables are jointly not significant in explaining "Price" (pick Model 1). The alternative hypothesis tells us that at least one of the three variables above are significant in explaining "Price" (pick Model 2). If the alternative will hold (such that we pick Model 2). But which of the three is significant? We do not know. Therefore in a simpler model such as this however, it would be wise to conduct a step by step check by anova() and check for significance of every additional variable.
+Doing this F-test tests joint significance of additional variables "Decor", "East" and "Service" between reg1 and reg4. The null hypothesis tells us that all three additional variables are jointly not significant in explaining "Price". The alternative hypothesis tells us that at least one of the three variables above are significant in explaining "Price". If the alternative will hold, we still have to ask the question of the three is significant? We do not know. Therefore in a simpler model such as this however, it would be wise to conduct a step by step check by anova() and check for significance of every additional variable.
 
 
 ```r
@@ -372,7 +371,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 In conclusion, same as aov(), anova() tells us that "Food", "Decor" and "East" explains the response "Price".
 
-Note that in more complex models, the step by step check as above would be too much work to do and is not necessary. The purpose of this anova() function is to compare models. In more complex models, this can be more of straightforward approach to directly build a model of best fit when we are . What matters in the more complex model is the fact that we are able to find the best model that can potentially explain variation of the response. We do not have to know which of the X number of variables that are significant when the alternative hypothesis holds and this can be accounted for later in the analysis. 
+Note that in more complex models, the step by step check as above would be too much work to do and is not necessary. The purpose of this anova() function is to compare models. In more complex models, this can be more of straightforward approach to directly build a model of best fit. What matters in the more complex model is the fact that we are able to find the best model that can potentially explain variation of the response. We do not have to know which of the X number of variables that are significant when the alternative hypothesis holds and this can be accounted for later in the analysis. 
 
 ## Backward Elimination: drop1() command in R
 
@@ -396,25 +395,25 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 ```
 
-In every line, we test for between the model with the variable deletion every row and the full model (lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East)). Below I interpret the results above:
+In every line, we test for between the model with the variable deletion every row and the full model (lm(Price ~ Food + Decor + Service + East)). Below I interpret the results above:
 
 In the row of nyc$Food: 
-- We test for the $H_0$: nyc$Food has no effect on model $\text{lm(nyc$Price ~ nyc$Decor + nyc$Service + nyc$East)}$ given presence of other predictors against $H_a$: nyc$Food has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: nyc$Food has no effect on model $\text{lm(Price ~ Decor + Service + East)}$ given presence of other predictors against $H_a$: "Food" has effect on model given presence of other predictors (full model). 
 - Low p-value of the F-statistic indicates we reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
 In the row of nyc$Decor: 
-- We test for the $H_0$: nyc$Decor has no effect on model $\text{lm(nyc$Price ~ nyc$Food + nyc$Service + nyc$East)}$ given presence of other predictors against $H_a$: nyc$Decor has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: nyc$Decor has no effect on model $\text{lm(Price ~ Food + Service + East)}$ given presence of other predictors against $H_a$: "Decor" has effect on model given presence of other predictors (full model). 
 - Low p-value of the F-statistic indicates we reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
 In the row of nyc$Service: 
-- We test for the $H_0$: nyc$Service has no effect on model $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$East)}$ given presence of other predictors against $H_a$: nyc$Service has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: nyc$Service has no effect on model $\text{lm(Price ~ Food + Decor + East)}$ given presence of other predictors against $H_a$: "Service" has effect on model given presence of other predictors (full model). 
 - High p-value indicates that we do not reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
 In the row of nyc$East: 
-- We test for the $H_0$: nyc$East has no effect on model \text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service)} given presence of other predictors against $H_a$: nyc$East has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: nyc$East has no effect on model \text{lm(Price ~ Food + Decor + Service)} given presence of other predictors against $H_a$: "East" has effect on model given presence of other predictors (full model). 
 - Low p-value of the F-statistic indicates we reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
-To conclude, we see that in 3 of the 4 cases that we opt for the full model, but when we test for the exclusion of nyc$Service, we do indeed see evidence for the exclusion of nyc$Service instead of opting for the full model. This gives us evidence that we should pick the model of $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$East)}$. 
+To conclude, we see that in 3 of the 4 cases that we opt for the full model, but when we test for the exclusion of nyc$Service, we do indeed see evidence for the exclusion of nyc$Service instead of opting for the full model. This gives us evidence that we should pick the model of $\text{lm(Price ~ Food + Decor + East)}$. 
 
 To check whether we should still stick to this model, we conduct another backwards elimination test to check for certain if we can still drop other variables. 
 
@@ -435,7 +434,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 ```
-We still see that low p-value of all three variables tested for exclusion rejects the null hypothesis of exclusion of the given variable. Hence, there is no variables that should be excluded through the test above, hence we stick to the model $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$East)}$.
+We still see that low p-value of all three variables tested for exclusion rejects the null hypothesis of exclusion of the given variable. Hence, there is no variables that should be excluded through the test above, hence we stick to the model $\text{lm(Price ~ Food + Decor + East)}$.
 
 To conclude, via the backwards elimination method, the model we choose therefore shows that "Food", "Decor" and "East" are significant for explaining "Price", but "Service" isn't.
 
@@ -466,35 +465,35 @@ nyc$East     1     502.3 13919.2 746.07   5.9906 0.01542 *
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 ```
-In this output, we test $H_0$ that is the inputted model (nyc$Price ~ 1) against $H_a$ that is the single term addition models. 
+In this output, we test $H_0$ that is the inputted model of only the intercept $\text{lm(Price ~ 1)}$ against $H_a$ that is the single term addition models. 
 
 In the row nyc$Food: 
-- We test $H_0$ that is $\text{lm(nyc$Price ~ 1)}$ and $H_a$ that is $\text{lm(nyc$Price ~ nyc$Food)}$
-- A low p-value tells us nyc$Food is significant, thus we should choose $H_a$, that is the model $\text{lm(nyc$Price ~ nyc$Food)}$.
+- We test $H_0$ that is $\text{lm(Price ~ 1)}$ and $H_a$ that is $\text{lm(Price ~ Food)}$
+- A low p-value tells us "Food" is significant, thus we should choose $H_a$, that is the model $\text{lm(Price ~ Food)}$.
 
 In the row nyc$Decor:
-- We test $H_0$ that is $\text{lm(nyc$Price ~ 1)}$ and $H_a$ that is $\text{lm(nyc$Price ~ nyc$Decor)}$
-- A low p-value tells us nyc$Decor is significant, thus we should choose $H_a$, that is the model $\text{lm(nyc$Price ~ nyc$Decor)}$.
+- We test $H_0$ that is $\text{lm(Price ~ 1)}$ and $H_a$ that is $\text{lm(Price ~ Decor)}$
+- A low p-value tells us "Decor" is significant, thus we should choose $H_a$, that is the model $\text{lm(Price ~ Decor)}$.
 
 In the row nyc$Service:
-- We test $H_0$ that is $\text{lm(nyc$Price ~ 1)}$ and $H_a$ that is $\text{lm(nyc$Price ~ nyc$Service)}$
-- A low p-value tells us nyc$Service is significant, thus we should choose $H_a$, that is the model $\text{lm(nyc$Price ~ nyc$Service)}$.
+- We test $H_0$ that is $\text{lm(Price ~ 1)}$ and $H_a$ that is $\text{lm(Price ~ Service)}$
+- A low p-value tells us "Service" is significant, thus we should choose $H_a$, that is the model $\text{lm(Price ~ Service)}$.
 
 In the row nyc$East:
-- We test $H_0$ that is $\text{lm(nyc$Price ~ 1)}$ and $H_a$ that is $\text{lm(nyc$Price ~ nyc$East)}$
-- A low p-value tells us nyc$East is significant, thus we should choose $H_a$, that is the model $\text{lm(nyc$Price ~ nyc$East)}$.
+- We test $H_0$ that is $\text{lm(Price ~ 1)}$ and $H_a$ that is $\text{lm(Price ~ East)}$
+- A low p-value tells us "East" is significant, thus we should choose $H_a$, that is the model $\text{lm(Price ~ East)}$.
 
 We see that all single addition models are significant. So how do we proceed in case of a tiebreaker such as this?
 
 We use the AIC as a tiebreaker. We proceed with the model that has the lowest AIC, or the lowest cost.
 
-Hence, we choose nyc$Decor, that happens to be the model that gives the lowest AIC $\text{lm(nyc$Price ~ nyc$Decor)}$.
+Hence, we choose "Decor", that happens to be the model that gives the lowest AIC $\text{lm(Price ~ Decor)}$ of 627.07.
 
-I will update the model reg0 by adding nyc$Service using the command update().
+I will update the model reg0 by adding "Decor" using the command update().
 
 ```r
 
-reg0_update <- update(reg0, .~. + nyc$Service)
+reg0_update <- update(reg0, .~. + nyc$Decor)
 
 ```
 
@@ -506,26 +505,26 @@ add1(reg0_update, test="F", scope=.~.+ nyc$Food + nyc$Service + nyc$East)
 Single term additions
 
 Model:
-nyc$Price ~ nyc$Service
-          Df Sum of Sq    RSS    AIC F value    Pr(>F)    
-<none>                 8493.4 663.08                      
-nyc$Food   1    541.28 7952.1 654.01 11.2312 0.0009972 ***
-nyc$Decor  1   2384.25 6109.2 609.72 64.3953 1.804e-13 ***
-nyc$East   1     41.68 8451.7 664.25  0.8137 0.3683417    
+nyc$Price ~ nyc$Decor
+            Df Sum of Sq    RSS    AIC F value    Pr(>F)    
+<none>                   6854.7 627.07                      
+nyc$Food     1   1327.20 5527.5 592.91  39.618 2.682e-09 ***
+nyc$Service  1    745.59 6109.2 609.72  20.137 1.347e-05 ***
+nyc$East     1    373.07 6481.7 619.67   9.497  0.002412 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 ```
-In this new add1() test, we test the null hypothesis $H_0$: $\text{lm(nyc$Price ~ nyc$Service)}$ on $H_a$ that is the single term additional models building up on $H_0$. I will not elaborate further on the structure of the $H_0$ and $H_a$. Reader can try to understand what every row tests for based on the explanation of the first add1() output above.
+In this new add1() test, we test the null hypothesis $H_0$: $\text{lm(Price ~ Decor)}$ on $H_a$ that is the single term additional models building up on $H_0$. I will not elaborate further on the structure of the $H_0$ and $H_a$. Reader can try to understand what every row tests for based on the explanation of the first add1() output above.
 
-We see that nyc$Decor and nyc$Food are the contenders for the next variable addition due to it's significance, but the tiebreaker is broken by lower AIC value of nyc$Decor that is $\text{lm(nyc$Price~nyc$}$. Update the regression model as below by adding nyc$Decor.
+We see that "Food", "Service" and "East" are the contenders for the next variable addition due to it's significance, but the tiebreaker is broken by lower AIC value of "Food" that is $\text{lm(Price ~ Decor + Food}$. Update the regression model as below by adding "Food".
 
 ```r
 
-reg0_update_1 <-  update(reg0_update, .~. + nyc$Decor)
+reg0_update_1 <-  update(reg0_update, .~. + nyc$Food)
 
 ```
-
+Onto the next single term addition
 
 ```r
 
@@ -534,33 +533,43 @@ add1(reg0_update_1, test= "F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + 
 Single term additions
 
 Model:
-nyc$Price ~ nyc$Service + nyc$Decor
-         Df Sum of Sq    RSS    AIC F value    Pr(>F)    
-<none>                6109.2 609.72                      
-nyc$Food  1    585.53 5523.6 594.79 17.3849 4.933e-05 ***
-nyc$East  1    170.43 5938.7 606.97  4.7065   0.03149 *  
+nyc$Price ~ nyc$Decor + nyc$Food
+            Df Sum of Sq    RSS    AIC F value  Pr(>F)  
+<none>                   5527.5 592.91                  
+nyc$Service  1     3.924 5523.6 594.79  0.1165 0.73330  
+nyc$East     1   161.019 5366.5 589.95  4.9207 0.02791 *
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-# We see that nyc$Food is the most significant variable to add to the model next, based on p-value and also the AIC. We add nyc$Food to the model.
-
-reg0_update_2 <- update(reg0_update_1, .~.+ nyc$Food)
-
-add1(reg0_update_2, test="F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East)
-
 ```
 
-The final command with one more possible variable that is nyc$East. By p-value, it is significant, but not very strong. However, in terms of AIC, we clearly see that adding nyc$East to the model reduces cost of the model although not by much. We add nyc$East to the model by update().
-
+We see that "East" is the most significant variable to add to the model, based on p-value and also the AIC. We add "East" to the model.
 
 ```r
 
-reg0_update_3 <- update(reg0_update_2, .~.+ nyc$East)
+reg0_update_2 <- update(reg0_update_1, .~.+ nyc$East)
 
 ```
-In conclusion, using forward selection gives a best fit model that is $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East)}$, where all variables of "Food", "Decor", "Service" and "East" are significant to the model based on this selection criteria.
 
-We should note that this result is different to the previous three where we showed that "Service" does not play a role in explaning "Price". 
+Moving on to the last addition term:
+
+```r
+add1(reg0_update_2, test="F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East)
+
+Single term additions
+
+Model:
+nyc$Price ~ nyc$Decor + nyc$Food + nyc$East
+            Df Sum of Sq    RSS    AIC F value Pr(>F)
+<none>                   5366.5 589.95               
+nyc$Service  1   0.00156 5366.5 591.95       0 0.9945
+
+```
+
+The final command checks if "Service" can be added to the model. By p-value, it is not significant at all. As a result, we stop at this model.
+
+The best fit model by this add1() or forward selection is $\text{lm(Price ~ Decor + Food + East)}$.
+
+The result is remarkably the same to the previous three where we showed that "Service" does not play a role in explaning "Price". 
 
 
 ## $R^2$ (R-squared) Criteria
@@ -631,7 +640,7 @@ cbind(M$which[order(M$r2), ], sort(M$r2))
 
 ```
 
-By this R-squared criteria, we see that the last 2 rows that is $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$East)}$ and $\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East)}$ are fairly close in terms of the R-squared, with 0.62788083 and 0.62788094 respectively. Nevertheless, objectively using the rule of thumb of choosing the highest R-squared, we choose for the latter model instead.
+By this R-squared criteria, we see that the last 2 rows that is $\text{lm(Price ~ Food + Decor + East)}$ and $\text{lm(Price ~ Food + Decor + Service + East)}$ are fairly close in terms of the R-squared, with 0.62788083 and 0.62788094 respectively. Nevertheless, objectively using the rule of thumb of choosing the highest R-squared, we choose for the latter model instead.
 
 ## AIC Forward Selection or Backward Elimination
 
@@ -670,7 +679,7 @@ Coefficients:
 (Intercept)     nyc$Food    nyc$Decor     nyc$East  
     -24.027        1.536        1.909        2.067  
 ```
-We see that removal of the nyc$Service gives the lowest AIC, hence in the first step it is removed. In the second step, we see that no removal of variables gives the lowest AIC, hence resulting in the best model (by means of AIC selection) of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$.
+We see that removal of the nyc$Service gives the lowest AIC, hence in the first step it is removed. In the second step, we see that no removal of variables gives the lowest AIC, hence resulting in the best model (by means of AIC selection) of $\text{lm(Price ~ Food + Decor + East)}$.
 
 
 ```r
@@ -719,7 +728,7 @@ Coefficients:
 (Intercept)    nyc$Decor     nyc$Food     nyc$East  
     -24.027        1.909        1.536        2.067  
 ```
-We see that this AIC forward selection first adds "Decor", then "Food", and lastly "East". In the last part of the output, adding nothing gives a more lower AIC compared to adding "Service" hence we do not add "Service" based on the low AIC criteria. Hence, same as the AIC backward elimination, AIC forward selection yields the best fit model (based on AIC criteria) of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$.
+We see that this AIC forward selection first adds "Decor", then "Food", and lastly "East". In the last part of the output, adding nothing gives a more lower AIC compared to adding "Service" hence we do not add "Service" based on the low AIC criteria. Hence, same as the AIC backward elimination, AIC forward selection yields the best fit model (based on AIC criteria) of $\text{Price ~ Food + Decor + East}$.
 
 
 # The final model to choose: remarks
@@ -728,36 +737,36 @@ Based on the different model selection methods above, I summarize the best fit m
 
 aov():
 
-$\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$
+$\text{lm(Price ~ Food + Decor + East)}$
 
 anova():
 
-$\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$
+$\text{lm(Price ~ Food + Decor + East)}$
 
 drop1():
 
-$\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$
+$\text{lm(Price ~ Food + Decor + East)}$
 
 add1():
 
-$\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East)}$
+$\text{lm(Price ~ Food + Decor + East)}$
 
 leaps():
 
-$\text{lm(nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East)}$
+$\text{lm(Price ~ Food + Decor + East + Service)}$
 
 stepAIC():
 
-- Forward Selection: $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$
+- Forward Selection: $\text{lm(Price ~ Food + Decor + East)}$
 
-- Backward Elimination: $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$
+- Backward Elimination: $\text{lm(Price ~ Food + Decor + East)}$
 
 
 Of course in one's own research, doing all of the selection processes above is not necessary. What methods to be used depends on the context of research. We should also be aware that different methods may produce different best fit models as shown above. 
 
-Based on the above, I decide to choose $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$East}$ as the best fit model. 
+Based on the above, I decide to choose $\text{lm(Price ~ Food + Decor + East)}$ as the best fit model.
 
-This based on how majority of selection methods arrived on this model, how the model contains all significant variables that explain the response "Price", the R-squared, which we remember was almost close to the highest R-squared from the possible linear combinations shown in the leaps() command. 
+This based on how majority of selection methods converged on this model, how it contains all significant variables that explain the response "Price", the R-squared, which we remember was almost close to the highest R-squared from the possible linear combinations shown in the leaps() command. 
 
 # Interpreting the chosen best fit model
 
@@ -787,19 +796,19 @@ Multiple R-squared:  0.6279,	Adjusted R-squared:  0.6211
 F-statistic: 92.24 on 3 and 164 DF,  p-value: < 2.2e-16
 
 ```
-Intercept:
+Intercept (Baseline Value of Price):
 
 Assuming that all attributes (predictors) are 0, meaning if a restaurant lies on the East of 5th avenue, and has the lowest possible ratings that is $0$ for Food, Decor then the Italian restaurant would be losing $24.0269$ on average, which directionally makes sense based on the causal theories. Low ratings mean less visitors and restaurant makes a loss. Additionally, being on the east of 5th avenue, where there can be fewer people visiting, than on the west of 5th avenue adds up to the directional bias we see in this intercept.
 
-nyc$Food to nyc$Price:
+nyc$Food to nyc$Price ("Food" to "Price"):
 
 This tells us that if food ratings go up by 1 point, the average price of a dinner in a Italian restaurant will go up by $1.5363. Coefficient agrees with causality theory.
 
-nyc$Decor:
+nyc$Decor to nyc$Price ("Decor" to "Price"):
 
 This tells us that if decoration ratings go up by 1 point, the average price of a dinner in a Italian restaurant will go up by $1.9094. Coefficient agrees with causality theory
 
-nyc$East:
+nyc$East to nyc$Price ("East" to "Price"):
 
 This is a dummy variable. How we interpret this is that Italian restaurants in the east of 5th Avenue charge on average $2.0670 more than Italian restaurants in the west of 5th Avenue. Coefficient agrees with causality theory.
 
@@ -847,7 +856,7 @@ We do not expect perfect normality from the residuals. We often see it as suffic
 
 # Investigating why "Service" is not significant in the full model
 
-In terms of causality as I elaborated, the full model of $\text{nyc$Price ~ nyc$Food + nyc$Decor + nyc$Service + nyc$East}$ would make more sense causality-wise. However, a slight problem in the model as one might have caught on is the insignificance of "Service" itself when combined with other variables. 
+In terms of causality as I elaborated, the full model of $\text{Price ~ Food + Decor + Service + East}$ would make more sense causality-wise. However, a slight problem in the model as one might have caught on is the insignificance of "Service" itself when combined with other variables. 
 
 Could this mean the full model is not that accurate after all and that a new model is needed?
 
@@ -860,7 +869,7 @@ pair.panels(nyc[,3:7])
 
 By this pairwise plots, we clearly see a moderately high correlation between "Service" and "Food" of around 0.64
 
-Note that we did not catch this effect due to the fact we built our initial random models as starting from $\text{lm(nyc$Price~nyc$Food)}$.
+Note that we did not catch this effect due to the fact we built our initial random models as starting from $\text{lm(Price~Food)}$. Remember objects reg0 - reg4.
 
 We can confirm this relationship further by regressing "Price" on "Service", which shows "Service" clearly has an significant effect on "Price".
 
@@ -954,10 +963,10 @@ Multiple R-squared:  0.414,	Adjusted R-squared:  0.4068
 F-statistic: 58.27 on 2 and 165 DF,  p-value: < 2.2e-16
 ```
 
-However, when we start to add a third variable of either "Food" or "Decor", making the model of $\text{lm(nyc$Price~nyc$Service+nyc$Decor+nyc$Food)}$, "Service" becomes insignificant.
+However, when we start to add a third variable of either "Food" or "Decor", making the model of $\text{lm(Price ~ Service + Decor + Food)}$, "Service" becomes insignificant.
 
-In the other possible three-variable regression models of $\text{lm(nyc$Price~nyc$Service+nyc$Decor+nyc$East)}$ and $\text{lm(nyc$Price~nyc$Service+nyc$Food+nyc$East)}$, we see that "Service" does not become insignificant.
-
+In the other possible three-variable regression models of $\text{lm(Price ~ Service + Decor + East)}$ and $\text{lm(Price ~ Service + Food + East)}$, we see that "Service" does not become insignificant.
+ 
 When we add a fourth variable, "Service" remains insignificant. These are shown below:
 
 ```r
