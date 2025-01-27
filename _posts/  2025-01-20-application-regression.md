@@ -398,22 +398,22 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 In every line, we test for between the model with the variable deletion every row and the full model (lm(Price ~ Food + Decor + Service + East)). Below I interpret the results above:
 
 In the row of nyc$Food: 
-- We test for the $H_0$: nyc$Food has no effect on model $\text{lm(Price ~ Decor + Service + East)}$ given presence of other predictors against $H_a$: "Food" has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: "Food" has no effect on model $\text{lm(Price ~ Decor + Service + East)}$ given presence of other predictors against $H_a$: "Food" has effect on model given presence of other predictors (full model). 
 - Low p-value of the F-statistic indicates we reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
 In the row of nyc$Decor: 
-- We test for the $H_0$: nyc$Decor has no effect on model $\text{lm(Price ~ Food + Service + East)}$ given presence of other predictors against $H_a$: "Decor" has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: "Decor" has no effect on model $\text{lm(Price ~ Food + Service + East)}$ given presence of other predictors against $H_a$: "Decor" has effect on model given presence of other predictors (full model). 
 - Low p-value of the F-statistic indicates we reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
 In the row of nyc$Service: 
-- We test for the $H_0$: nyc$Service has no effect on model $\text{lm(Price ~ Food + Decor + East)}$ given presence of other predictors against $H_a$: "Service" has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: "Service" has no effect on model $\text{lm(Price ~ Food + Decor + East)}$ given presence of other predictors against $H_a$: "Service" has effect on model given presence of other predictors (full model). 
 - High p-value indicates that we do not reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
 In the row of nyc$East: 
-- We test for the $H_0$: nyc$East has no effect on model \text{lm(Price ~ Food + Decor + Service)} given presence of other predictors against $H_a$: "East" has effect on model given presence of other predictors (full model). 
+- We test for the $H_0$: "East" has no effect on model \text{lm(Price ~ Food + Decor + Service)} given presence of other predictors against $H_a$: "East" has effect on model given presence of other predictors (full model). 
 - Low p-value of the F-statistic indicates we reject $H_0$ (part model) in favour of the $H_a$ that is the full model.
 
-To conclude, we see that in 3 of the 4 cases that we opt for the full model, but when we test for the exclusion of nyc$Service, we do indeed see evidence for the exclusion of nyc$Service instead of opting for the full model. This gives us evidence that we should pick the model of $\text{lm(Price ~ Food + Decor + East)}$. 
+To conclude, we see that in 3 of the 4 cases that we opt for the full model, but when we test for the exclusion of "Service", we do indeed see evidence for the exclusion of nyc$Service instead of opting for the full model. This gives us evidence that we should pick the model of $\text{lm(Price ~ Food + Decor + East)}$. 
 
 To check whether we should still stick to this model, we conduct another backwards elimination test to check for certain if we can still drop other variables. 
 
