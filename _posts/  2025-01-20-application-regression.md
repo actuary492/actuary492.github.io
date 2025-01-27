@@ -395,7 +395,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 ```
 
-In every line, we test for between the model with the variable deletion every row and the full model (lm(Price ~ Food + Decor + Service + East)). Below I interpret the results above:
+In every line, we test for between the model with the variable deletion every row and the full model $\text{lm(Price ~ Food + Decor + Service + East)}$ Below I interpret the results above:
 
 In the row of nyc$Food: 
 - We test for the $H_0$: "Food" has no effect on model $\text{lm(Price ~ Decor + Service + East)}$ given presence of other predictors against $H_a$: "Food" has effect on model given presence of other predictors (full model). 
@@ -1123,7 +1123,7 @@ F-statistic: 87.73 on 3 and 164 DF,  p-value: < 2.2e-16
 ``` 
 Using the interaction term "Decor" and "Service" is not appropriate as it made the model stray off from theory, especially looking at the intercept that is not significant anymore and also in the wrong sign. Not having a baseline value is a sign that tells us something in the model is wrong.
 
-On the other hand, we see that interaction term of "Food" and "Service" is significant and can be appropriate as it produces a model whose intercept coefficient signs still agree with theory and still significant in at least 10% level. The positive sign of the interaction term coefficient tells us that the higher the rating of Food, the more positively stronger Service is to the Price. This agrees with theory that states good Service tends to come with good Food, which will increase Price.
+On the other hand, we see that interaction term of "Food" and "Service" is significant and can be appropriate as it produces a model whose intercept and coefficient signs still agree with theory and still significant in at least the 10% level. The positive sign of the interaction term coefficient tells us that the higher the rating of Food, the more positively stronger Service is to the Price. This agrees with theory that states good Service tends to come with good Food, which will increase Price.
 
 # Model with Interaction Term vs Best Fit Model: Which to choose?
 
@@ -1159,7 +1159,7 @@ We still see that the best fit model above still has the edge over the model wit
 So what model do we choose in the end? 
 
 - If we aim to find the best fit model that best explains the variation in Price, then we choose for the best fit model objectively based on factors such as R-squared and on which model minimizes most residuals.
-- If the aim was to focus on why "Service" was not significant in the full model, we may emphasize on the possible interaction between "Service" and "Food" and/or "Service". We showed earlier that the model with interaction "Service" and "Food" was able to explain the variation in price significantly while keeping other elements such as the intercept and other coefficients in align in sign with causality while at the same time retaining their respective significance. We may also argue that it's R-squared is not far off from the best-fit model, hence concluding that with the interaction model we may get a better coverage of the variation of "Price" rather than sticking with the linear best fit model.
+- If the aim was to focus on why "Service" was not significant in the full model, we may emphasize on the possible interaction between "Service" and "Food" and/or "Service". We showed earlier that the model with interaction "Service" and "Food" was able to explain the variation in price significantly while keeping other elements such as the intercept and other coefficients align in it's directional bias of causality while at the same time retaining their respective significance. We may also argue that it's R-squared is not far off from the best-fit model, hence concluding that with the interaction model we may get a better coverage of the variation of "Price" rather than sticking with the linear best fit model.
 
 To sum it all up, which model we choose in the end, depends on the context of our research.
 
