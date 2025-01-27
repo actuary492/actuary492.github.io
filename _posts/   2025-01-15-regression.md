@@ -833,7 +833,7 @@ Other possible causes of endogeneity may be due to measurement errors, omitted v
 
 - By logical reasoning similar to the example above.
 
-We can logically assume that level of education of an individual can be affected by level of their parents education. It is very likely that if their parents do not attend university, so likely is 8the child as well. Of course, one can check the validity of this relationship by a separate regression. This is why people consider the level of education as endogenous. 
+We can logically assume that level of education of an individual can be affected by level of their parents education. It is very likely that if their parents do not attend university, so likely will the child  not attend university as well. Of course, one can check the validity of this relationship by a separate regression. This is why people consider the level of education as endogenous. 
 
 - If logical reasoning is unable to help us deduce (or if we need strong evidence to support the logical reasoning) we can use the Durbin-Wu-Hausman test.
 
@@ -861,7 +861,7 @@ $$
 
 In the auxiliary regression, the errors (from the full model) are regressed onto the predictors of the full model (inclusive $k_0$ endogenous variables and $k-k_0$ exogenous variables) and the $k_0$ vectors of residuals from the second preliminary model (every endogenous predictor on it's instruments) and tests for whether coefficients of these $k_0$ vectors of residuals in the auxiliary regression is equal to 0. 
 
-If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the full model, serving as evidence for endogeneity.
+If it is, then it is evidence that the suspected endogenous residuals do indeed have a relationship with the errors full model, serving as evidence for endogeneity.
 
 $$
 e_i = \sum_{j=1}^{k} \delta_j x_{ji} + \sum_{j=k-k_0+1}^{k} \alpha_j v_{ji} + \zeta_i
