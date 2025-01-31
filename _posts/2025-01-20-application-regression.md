@@ -392,7 +392,6 @@ nyc$Service  1       0.0 5366.5 589.95  0.0000   0.99452
 nyc$East     1     157.1 5523.6 594.79  4.7716   0.03036 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
 ```
 
 In every line, we test for between the model with the variable deletion every row and the full model $\text{lm(Price ~ Food + Decor + Service + East)}$ Below I interpret the results above:
@@ -431,8 +430,6 @@ nyc$Decor  1    3304.1 8670.6 668.55 100.9726 < 2.2e-16 ***
 nyc$East   1     161.0 5527.5 592.91   4.9207   0.02791 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-
 ```
 We still see that low p-value of all three variables tested for exclusion rejects the null hypothesis of exclusion of the given variable. Hence, there is no variables that should be excluded through the test above, hence we stick to the model $\text{lm(Price ~ Food + Decor + East)}$.
 
@@ -446,7 +443,6 @@ The forward selection method is simply the opposite of the backwards elimination
 We start with simply the intercept, and see which one of the variables "Food", "Decor", "Service" or "East" is the best fit to add the model. The new model is then subjected to the same command add1() to add a new variable to further build to model. This goes on until the best fit model is found using all variables.
 
 ```r
-
 # The scope input in add1() is a term that specifies the terms to be considered for adding.
 
 add1(reg0, test="F", scope=.~.+ nyc$Food + nyc$Decor + nyc$Service + nyc$East)
@@ -463,8 +459,8 @@ nyc$Service  1    5928.1  8493.4 663.08 115.8627 < 2e-16 ***
 nyc$East     1     502.3 13919.2 746.07   5.9906 0.01542 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
 ```
+
 In this output, we test $H_0$ that is the inputted model of only the intercept $\text{lm(Price ~ 1)}$ against $H_a$ that is the single term addition models. 
 
 In the row nyc$Food: 
@@ -492,9 +488,7 @@ Hence, we choose "Decor" $\text{lm(Price ~ Decor)}$, that happens to be the mode
 I will update the model reg0 by adding "Decor" using the command update().
 
 ```r
-
 reg0_update <- update(reg0, .~. + nyc$Decor)
-
 ```
 
 We continue to find new single additions.
@@ -513,21 +507,17 @@ nyc$Service  1    745.59 6109.2 609.72  20.137 1.347e-05 ***
 nyc$East     1    373.07 6481.7 619.67   9.497  0.002412 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
 ```
 In this new add1() test, we test the null hypothesis $H_0$: $\text{lm(Price ~ Decor)}$ on $H_a$ that is the single term additional models building up on $H_0$. I will not elaborate further on the structure of the $H_0$ and $H_a$. Reader can try to understand what every row tests for based on the explanation of the first add1() output above.
 
 We see that "Food", "Service" and "East" are the contenders for the next variable addition due to it's significance, but the tiebreaker is broken by lower AIC value of "Food" that is $\text{lm(Price ~ Decor + Food)}$. Update the regression model as below by adding "Food".
 
 ```r
-
 reg0_update_1 <-  update(reg0_update, .~. + nyc$Food)
-
 ```
 Onto the next single term addition
 
 ```r
-
 add1(reg0_update_1, test= "F", scope=.~. + nyc$Food + nyc$Decor + nyc$Service + nyc$East)
 
 Single term additions
@@ -545,9 +535,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 We see that "East" is the most significant variable to add to the model, based on p-value and also the AIC. We add "East" to the model.
 
 ```r
-
 reg0_update_2 <- update(reg0_update_1, .~.+ nyc$East)
-
 ```
 
 Moving on to the last addition term:
@@ -562,7 +550,6 @@ nyc$Price ~ nyc$Decor + nyc$Food + nyc$East
             Df Sum of Sq    RSS    AIC F value Pr(>F)
 <none>                   5366.5 589.95               
 nyc$Service  1   0.00156 5366.5 591.95       0 0.9945
-
 ```
 
 The final command checks if "Service" can be added to the model. By p-value, it is not significant at all. As a result, we stop at this model.
@@ -577,7 +564,6 @@ The result is remarkably the same to the previous three where we showed that "Se
 The R-squared criteria uses $R^2$ criteria to rank linear combinations of the "nyc" dataset based on it's $R^2$ value. It makes use of the leaps() function.
 
 ```r
-
 library(leaps)
 
 # The "int" input considers adding intercept for the model when conducting the exhaustive search
@@ -637,7 +623,6 @@ cbind(M$which[order(M$r2), ], sort(M$r2))
 4 1 1 1 1 0.62788094
 
 # 1st column tells us the number of variables in the model. Every row in the 2nd-5th column returns 1/0 that shows model of every possible combination of variables. The last column tells us the R-squared of every model combination from lowest to highest.
-
 ```
 
 By this R-squared criteria, we see that the last 2 rows that is $\text{lm(Price ~ Food + Decor + East)}$ and $\text{lm(Price ~ Food + Decor + Service + East)}$ are fairly close in terms of the R-squared, with 0.62788083 and 0.62788094 respectively. Nevertheless, objectively using the rule of thumb of choosing the highest R-squared, we choose for the latter model instead.
@@ -820,9 +805,7 @@ Let us check the first two plots of the plot() of the regression model.
 ## Homoscedasticity
 
 ```r
-
 plot(lm(nyc$Price~nyc$Food+nyc$Decor+nyc$East))
-
 ```
 <img src="https://actuary492.github.io/assets/images/nycresfit.jpeg" alt="description" style="width: 80%; height: 80%;">
 
@@ -847,7 +830,6 @@ nyc[56,]
 30   30 Harry Cipriani    65   21    20      20    1
    Case Restaurant Price Food Decor Service East
 56   56      Nello    54   18    16      15    1
-
 ```
 What we can learn here is indeed see that there are outlier points where ratings are not proportionate to the price. In this case, despite low ratings, restaurants still charge high prices. 
 
@@ -893,7 +875,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 7.153 on 166 degrees of freedom
 Multiple R-squared:  0.4111,	Adjusted R-squared:  0.4075 
 F-statistic: 115.9 on 1 and 166 DF,  p-value: < 2.2e-16
-
 ```
 
 Conducting further regressions, I also found that "Service" remained significant when we added a second variable "Food", "Decor" or "East". 
