@@ -208,7 +208,7 @@ We see that to create the average, we need to add the term $\frac{1}{n(n-1)}$ to
 $$
 \frac{1}{n} \cdot \frac{1}{n} \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(R_i, R_j) 
 = \frac{1}{n} \cdot \frac{1}{n} \cdot \frac{n(n-1)}{1} \cdot \frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(R_i, R_j) 
-= \frac{1}{n} \cdot \frac{1}{n} \cdot \left( \frac{n(n-1)}{1} \cdot \frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(R_i, R_j) \right)
+= \frac{1}{n} \cdot \frac{1}{n} \cdot \frac{n(n-1)}{1} \cdot \left(\frac{1}{n(n-1)} \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(R_i, R_j) \right)
 = \frac{1}{n} \cdot \frac{1}{n} \cdot \frac{n(n-1)}{1} \overline{\text{Cov}(R_i, R_j)} 
 = \frac{n-1}{n} \overline{\text{Cov}(R_i, R_j)}
 $$
