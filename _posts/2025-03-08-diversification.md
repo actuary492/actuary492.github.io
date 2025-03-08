@@ -213,6 +213,31 @@ $$
 = \frac{n-1}{n} \overline{\text{Cov}(R_i, R_j)}
 $$
 
+This is the mathematical concept of risk of return in a nutshell.
+
+# Graphing the Variance of Returns of 1 to n-asset Portfolios
+
+Let us first build a R-code that produces output of the variance of portfolio returns. Here we introduce two important measures, the correlation coefficient $\rho$ which we assume in this example to be $0.2$ and the standard deviation $\sigma$ of return each asset to be the same, that is $0.1$:
+
+Let us recall the formula for correlation coefficient between A and B:
+
+$$
+\rho_{AB} = \frac{cov(A,B)}{\sigma_A * \sigma_B}
+$$
+
+```r
+var_sum <- 0; covar_sum <- 0; total_var <- 0; covar <- 0
+sd <- 0.1
+rho <- 0.2
+covariance <- sd*sd*rho #Remember the formula for correlation coefficient  = covariance / 
+
+for(i in 1:50){
+  
+}
+
+```
+
+
 
 
 
