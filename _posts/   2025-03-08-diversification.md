@@ -53,18 +53,43 @@ The variance on the other hand should be interpreted as the risk of return of th
 
 These two measures come hand-in-hand. Ideally, one wants to ensure a high mean return with the least variance (or risk) as possible but in real life this is hard to achieve. More on this will be highlighted in the next article about Modern Portfolio Theory. 
 
-We can easily find the mean as follows: 
+We can easily find the mean of the portfolio return as follows: 
 
 $$
 E[R_p] = E[w_1 R_1 + w_2 R_2 + \dots + w_n R_n] = E[\sum_{i=1}^{n} w_i R_i] = \sum_{i=1}^{n} E[w_i R_i] = w_1 E[R_1] + w_2 E[R_2] + \dots + w_n E[R_n]
 $$
 
-The variance on the other hand looks more complex:
+The variance of the portfolio return on the other hand looks more complex:
 
 $$
-\text{Variance}(R_p) = \text{Var}(w_1 R_1 + w_2 R_2 + \dots + w_n R_n \)
+\text{Var}(R_p) = \text{Var}(w_1 R_1 + w_2 R_2 + \dots + w_n R_n \)
 = \sum_{i=1}^{n} \sum_{j=1}^{n} w_i w_j \text{Cov}(R_i, R_j)
 = \sum_{i=1}^{n} w_i^2 \text{Var}(R_i) + \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} w_i w_j \text{Cov}(R_i, R_j)
 $$
+
+where we see two important terms, that is $\text{Cov}(R_i, R_j)$ that is the covariance between asset $i$ and asset $j$ and $\text{Var}(R_i)$ is the variance of asset $i$ itself.
+
+Although the equation looks complex, the underlying idea behind the result of the variance is very simple. 
+
+First, why can we say that the variance is the risk of return? Remembering the equation of variance:
+
+$$
+\text{Var}(R) = \sum_{i=1}^{n} (R_i - E[R])^2
+$$
+
+The variance itself is the dispersion of returns around their expected value. This dispersion can be seen as uncertainty. Of course, this uncertainty in our case of portfolio, is not only the risk in each individual assets that is the variance, but also the risk between asset pairs in the portfolio that is called the covariance.
+
+Now we have variance and covariance terms of the every individual weighted assets in the portfolio. Let us express them by a variance-covariance matrix. This matrix makes the representation of risk much easier to grasp.
+
+$$
+\text{Var-Cov Matrix} =
+\begin{bmatrix}
+\text{Var}(R_1) & \text{Cov}(R_1, R_2) & \dots & \text{Cov}(R_1, R_n) \\
+\text{Cov}(R_2, R_1) & \text{Var}(R_2) & \dots & \text{Cov}(R_2, R_n) \\
+\vdots & \vdots & \ddots & \vdots \\
+\text{Cov}(R_n, R_1) & \text{Cov}(R_n, R_2) & \dots & \text{Var}(R_n)
+\end{bmatrix}
+$$
+
 
 
