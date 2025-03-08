@@ -217,7 +217,9 @@ This is the mathematical concept of risk of return in a nutshell.
 
 # Graphing the Variance of Returns of 1 to n-asset Portfolios
 
-Let us first build a R-code that produces output of the variance of portfolio returns. Here we introduce two important measures, the correlation coefficient $\rho$ which we assume in this example to be $0.2$ and the standard deviation $\sigma$ of return each asset to be the same, that is $0.1$:
+Let us first build a R-code that produces output of the variance of portfolio return where asset weighting are equal. 
+
+Here we introduce two important measures, which we assume the correlation coefficient $\rho$ between different return pairs to be the same, that is $0.2$ and also the standard deviation $\sigma$ of return each asset to be the same, that is $0.1$, in order to make calculations straightforward:
 
 Let us recall the formula for correlation coefficient between A and B:
 
@@ -226,13 +228,16 @@ $$
 $$
 
 ```r
-var_sum <- 0; covar_sum <- 0; total_var <- 0; covar <- 0
-sd <- 0.1
-rho <- 0.2
-covariance <- sd*sd*rho #Remember the formula for correlation coefficient  = covariance / 
+var_sum <- 0; covar_sum <- 0; total_var <- 0;
+sd <- 0.1 # Same standard deviation applies to every asset return
+rho <- 0.2 # Same correlation coefficient applies to every possible asset pair
+variance <- sd*sd
+covariance <- variance*rho # Remember the formula for correlation coefficient above
 
-for(i in 1:50){
-  
+for(n in 1:50){
+  var_sum[n] <- 1/n * variance # Average of the same variance term 0.01 remains 0.01
+  covar_sum[n] <- (n-1)/(n) * covariance # Average of the same covariance terms 0.002 remain 0.002
+  total_var[n] <- var_sum[n] + covar_sum[n]
 }
 
 ```
