@@ -96,17 +96,17 @@ $$
 
 The first row starts with all the possible variance and covariance terms beginning with $R_1$, that is the covariance of $R_1$ with itself, which is equivalent to it's variance, then continuing with covariance of $R_1$ with $R_2$ up to $R_n$. The second then starts in a similar fashion with variance and covariance terms beginning with $R_2$, here we first start with the covariance of $R_2$ with $R_1$, afterwards the covariance of $R_2$ with itself $R_2$ that is the variance of $R_2$, then covariance of $R_2$ with $R_3$ up to $R_n$. And so on for the third row up to the n-th row.
 
-*Doing this repeatedly forms the complete $n \text{by} n$ variance-covariance matrix which we see variance terms are all located in the diagonals, and the off-diagonals consist of the covariance terms.* 
+>*Doing this repeatedly forms the complete $n \text{by} n$ variance-covariance matrix which we see all variance terms are located in the diagonals, and covariance terms in the off-diagonals.* 
 
 Now, let us add the weight vectors to make it align with the portfolio variance equation, because we are dealing with $w_1 R_1$ up to $w_n R_n$ weighted assets returns in the portfolio return instead of simply unweighted asset returns of $R_1$ up to $R_n$. 
 
 One might wonder why is there a transpose? The idea is that the weightings of assets $w$ which are constants, are squared when taken out of the variance terms (i.e. $\text{Var}(w_1 R_1) = {w_1}^2 Var(R_1)$). This similarly applies to the covariance terms (i.e. $\text{Cov}(w_1 R_1, w_2 R_2) = w_1 w_2 Cov(R_1, R_2)$). The use of weight vectors reflect this perfectly.
 
 $$
-\text{Var}(R_p) = w^{T}Cw
+\text{Var}(R_p) = \text{Var}(w_1 R_1 + w_2 R_2 + \dots + w_n R_n) w^{T}Cw
 $$
 
-Perhaps a more easier way to follow is indeed by directly applying the weighted random returns of individual assets directly into the variance-covariance matrix as follows:
+Perhaps a more easier way to follow is indeed by directly applying the weighted random returns of individual assets directly into the variance-covariance matrix as follows, which will produce the same result as the equation above:
 
 $$
 \text{C}_w = 
@@ -132,8 +132,20 @@ $$
 
 >*If we look closely at the portfolio return variance expression earlier, we can see that it is simply the sum of all the variance and covariance terms of the variance-covariance matrix that has been weight-adjusted by inclusion of weight vectors $w^{T}Cw$. We have a separate summation term for all variance terms $\sum_{i=1}^{n} w_i^2 \text{Var}(R_i)$, then another separate summation for the covariance terms $\sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} w_i w_j \text{Cov}(R_i, R_j)$, whose extra summation of $\sum_{\substack{j=1 \\ j \neq i}}^{n}$ ensures that there is no covariance term of the same asset return (i.e. cov(R_i, R_i)) because those are essentially the variance terms that have already been reflected in the first summation.*
 
-# Special case of Variance of Portfolio: Equal Asset Weighting $\frac{1}{n}$
+# Special case of Variance of Portfolio Return : Equal Asset Weighting $\frac{1}{n}$
 
+A good way to put our understanding of the concept of risk of portfolio return into the test is by checking the case when we deal with equal asset weightings $w_1 = \dots = w_n = \frac{1}{n}$. The idea on using equal asset weighting ensures that calculations are made as simple as possible, which we will show later.
+
+But first let us find the mean and variance (risk) of portfolio returns where assets are equally weighted: 
+
+$$
+\text{E}(\frac{R_1}{n} + \frac{R_2}{n} + \dots + \frac{R_n}{n})  = \frac{1}{n}(\text{E}(R_1) + \dots + \text{E}(R_n))
+$$
+
+$$
+\text{Var}(\frac{R_1}{n} + \frac{R_2}{n} + \dots + \frac{R_n}{n}) 
+= \frac{\overline{\text{Var}(R_i)}}{n} + \frac{(n - 1) \overline{\text{Cov}(R_i, R_j)}}{n}
+$$
 
 
 
