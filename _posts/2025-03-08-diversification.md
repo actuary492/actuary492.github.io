@@ -121,8 +121,7 @@ $$
 which is equivalent to 
 
 $$
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 w_1 w_1 \text{Var}(R_1) & w_1 w_2 \text{Cov}(R_1, R_2) & \dots & w_1 w_n \text{Cov}(R_1, R_n) \\
 w_2 w_1 \text{Cov}(R_2, R_1) & w_2 w_2 \text{Var}(R_2) & \dots & w_2 w_n \text{Cov}(R_2, R_n) \\
 \vdots & \vdots & \ddots & \vdots \\
