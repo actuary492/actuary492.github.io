@@ -62,7 +62,7 @@ $$
 The variance on the other hand looks more complex:
 
 $$
-\text{Variance}(R_p) = \text{Variance} \left( w_1 R_1 + w_2 R_2 + \dots + w_n R_n \)
+\text{Variance}(R_p) = \text{Var}(w_1 R_1 + w_2 R_2 + \dots + w_n R_n \)
 = \sum_{i=1}^{n} \sum_{j=1}^{n} w_i w_j \text{Cov}(R_i, R_j)
 = \sum_{i=1}^{n} w_i^2 \text{Var}(R_i) + \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} w_i w_j \text{Cov}(R_i, R_j)
 $$
