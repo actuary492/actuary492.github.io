@@ -79,10 +79,10 @@ $$
 
 The variance itself is the dispersion of returns around their expected value. This dispersion can be seen as uncertainty. Of course, this uncertainty in our case of portfolio, is not only the risk in each individual assets that is the variance, but also the risk between asset pairs in the portfolio that is called the covariance.
 
-Now we have variance and covariance terms of the every individual weighted assets in the portfolio. Let us express them by a variance-covariance matrix. This matrix makes the representation of risk much easier to grasp.
+Having the variance and covariance terms of the every individual weighted assets in the portfolio, let us express them by a variance-covariance matrix. This matrix makes the representation of risk much easier to grasp.
 
 $$
-\text{Var-Cov Matrix} =
+\text{C} = \text{Var-Cov Matrix} =
 \begin{bmatrix}
 \text{Var}(R_1) & \text{Cov}(R_1, R_2) & \dots & \text{Cov}(R_1, R_n) \\
 \text{Cov}(R_2, R_1) & \text{Var}(R_2) & \dots & \text{Cov}(R_2, R_n) \\
@@ -91,5 +91,16 @@ $$
 \end{bmatrix}
 $$
 
+The first row starts with all the possible variance and covariance terms beginning with $R_1$, that is the covariance of $R_1$ with itself, which is equivalent to it's variance, then continuing with covariance of $R_1$ with $R_2$ up to $R_n$. The second then starts in a similar fashion with variance and covariance terms beginning with $R_2$, here we first start with the covariance of $R_2$ with $R_1$, afterwards the covariance of $R_2$ with itself $R_2$ that is the variance of $R_2$, then covariance of $R_2$ with $R_3$ up to $R_n$. And so on for the third row up to the n-th row.
+
+Doing this repeatedly forms the complete $n \text{by} n$ variance-covariance matrix which we see variance terms are all located in the diagonals, and the off-diagonals consist of the covariance terms. 
+
+Now, let us add the weight vectors to make it align with the variance equation, because we are dealing with $w_1 R_1$ up to $w_n R_n$ weighted assets returns instead of simply unweighted asset returns of $R_1$ up to $R_n$.
+
+$$
+R_p = w^{T}Cw
+$$
+
+*If we look closely at the variance expression earlier, we can see that it is simply the sum of all the variance and covariance terms of the n assets.*
 
 
