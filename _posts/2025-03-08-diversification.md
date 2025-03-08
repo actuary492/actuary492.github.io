@@ -132,4 +132,8 @@ $$
 
 >*If we look closely at the portfolio return variance expression earlier, we can see that it is simply the sum of all the variance and covariance terms of the variance-covariance matrix that has been weight-adjusted by inclusion of weight vectors $w^{T}Cw$. We have a separate summation term for all variance terms $\sum_{i=1}^{n} w_i^2 \text{Var}(R_i)$, then another separate summation for the covariance terms $\sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} w_i w_j \text{Cov}(R_i, R_j)$, whose extra summation of $\sum_{\substack{j=1 \\ j \neq i}}^{n}$ ensures that there is no covariance term of the same asset return (i.e. cov(R_i, R_i)) because those are essentially the variance terms that have already been reflected in the first summation.*
 
+# Special case of Variance of Portfolio: Equal Asset Weighting $\frac{1}{n}$
+
+
+
 
