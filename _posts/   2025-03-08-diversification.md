@@ -9,7 +9,7 @@ classes: wide
 header: 
   image: "/assets/images/diversification.png"
 permalink: /posts/diversification/
-published: false
+published: true
 draft: false
 tags: [post, diversification, R]
 ---
@@ -32,7 +32,10 @@ Diversification may come in different forms but it's main purpose remains the sa
 
 Take for example, diversification in hedge funds and pension funds. They typically have assets in different asset classes such as stocks, bonds, and real estate whose returns have been proven by research to have very little correlation with one another. This reduces the risk of asset value loss. How? If the stock market was bearish, there may be an inflow of funds into bonds that may increase price of bonds, offsetting the temporary loss of stocks during it's bearish phase.
 
-For insurance companies, they diversify their policyholder portfolio by making it as large as possible. A large portfolio of carefully chosen policyholders (they go through an underwriting process pick the least risky policyholders) ensure that financial losses of the portfolio (by means of total claims) become as predictable as possible, in the process reducing the risk of extreme claims. Of course, the diversification process which I described in these two scenarios also have to be backed up by data and expertise, which institutions such as hedge or pension funds, and insurance companies possess. Having these prerequisites allows them to create extremely reliable predictions which they can use to support their diversification policy and actions.
+For insurance companies, they diversify their policyholder portfolio by making it as large as possible. A large portfolio of carefully chosen policyholders (they go through an underwriting process pick the least risky policyholders) ensure that financial losses of the portfolio (by means of total claims) become as predictable as possible, in the process reducing the risk of extreme claims. 
+
+Of course, the diversification process which I described in these two scenarios also have to be backed up by data and expertise, which institutions such as hedge or pension funds, and insurance companies possess. Having these prerequisites allows them to create extremely reliable predictions which they can use to support their diversification policy and actions.
+
 Diversification can also apply to the average person. In investing, we are always advised to never put our eggs in one basket, that is why people diversify their investment in different asset classes!
 
 # The mathematical intutition behind diversification
@@ -93,14 +96,40 @@ $$
 
 The first row starts with all the possible variance and covariance terms beginning with $R_1$, that is the covariance of $R_1$ with itself, which is equivalent to it's variance, then continuing with covariance of $R_1$ with $R_2$ up to $R_n$. The second then starts in a similar fashion with variance and covariance terms beginning with $R_2$, here we first start with the covariance of $R_2$ with $R_1$, afterwards the covariance of $R_2$ with itself $R_2$ that is the variance of $R_2$, then covariance of $R_2$ with $R_3$ up to $R_n$. And so on for the third row up to the n-th row.
 
-Doing this repeatedly forms the complete $n \text{by} n$ variance-covariance matrix which we see variance terms are all located in the diagonals, and the off-diagonals consist of the covariance terms. 
+*Doing this repeatedly forms the complete $n \text{by} n$ variance-covariance matrix which we see variance terms are all located in the diagonals, and the off-diagonals consist of the covariance terms.* 
 
-Now, let us add the weight vectors to make it align with the variance equation, because we are dealing with $w_1 R_1$ up to $w_n R_n$ weighted assets returns instead of simply unweighted asset returns of $R_1$ up to $R_n$.
+Now, let us add the weight vectors to make it align with the portfolio variance equation, because we are dealing with $w_1 R_1$ up to $w_n R_n$ weighted assets returns in the portfolio return instead of simply unweighted asset returns of $R_1$ up to $R_n$. 
+
+One might wonder why is there a transpose? The idea is that the weightings of assets $w$ which are constants, are squared when taken out of the variance terms (i.e. $\text{Var}(w_1 R_1) = {w_1}^2 Var(R_1)$). This similarly applies to the covariance terms (i.e. $\text{Cov}(w_1 R_1, w_2 R_2) = w_1 w_2 Cov(R_1, R_2)$). The use of weight vectors reflect this perfectly.
 
 $$
-R_p = w^{T}Cw
+\text{Var}(R_p) = w^{T}Cw
 $$
 
-*If we look closely at the variance expression earlier, we can see that it is simply the sum of all the variance and covariance terms of the n assets.*
+Perhaps a more easier way to follow is indeed by directly applying the weighted random returns of individual assets directly into the variance-covariance matrix as follows:
+
+$$
+
+\text{C}_w = 
+\begin{bmatrix}
+\text{Var}(w_1 R_1) & \text{Cov}(w_1 R_1, w_2 R_2) & \dots & \text{Cov}(w_1 R_1, w_n R_n) \\
+\text{Cov}(w_2 R_2, w_1 R_1) & \text{Var}(w_2 R_2) & \dots & \text{Cov}(w_2 R_2, w_n R_n) \\
+\vdots & \vdots & \ddots & \vdots \\
+\text{Cov}(w_n R_n, w_1 R_1) & \text{Cov}(w_n R_n, w_2 R_2) & \dots & \text{Var}(w_n R_n)
+\end{bmatrix}
+
+= 
+
+\begin{bmatrix}
+w_1 w_1 \text{Var}(R_1) & w_1 w_2 \text{Cov}(R_1, R_2) & \dots & w_1 w_n \text{Cov}(R_1, R_n) \\
+w_2 w_1 \text{Cov}(R_2, R_1) & w_2 w_2 \text{Var}(R_2) & \dots & w_2 w_n \text{Cov}(R_2, R_n) \\
+\vdots & \vdots & \ddots & \vdots \\
+w_n w_1 \text{Cov}(R_n, R_1) & w_n w_2 \text{Cov}(R_n, R_2) & \dots & w_n w_n \text{Var}(R_n)
+\end{bmatrix}
+$$
+
+
+
+*If we look closely at the portfolio return variance expression earlier, we can see that it is simply the sum of all the variance and covariance terms of the variance-covariance matrix that has been weight-adjusted by inclusion of weight vectors $w^{T}Cw$. We have a separate summation term for all variance terms $\sum_{i=1}^{n} w_i^2 \text{Var}(R_i)$, then another separate summation for the covariance terms $\sum_{i=1}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} w_i w_j \text{Cov}(R_i, R_j)$, whose extra summation of $\sum_{\substack{j=1 \\ j \neq i}}^{n}$ ensures that there is no covariance term of the same asset return (i.e. cov(R_i, R_i)) because those are essentially the variance terms that have already been reflected in the first summation.*
 
 
