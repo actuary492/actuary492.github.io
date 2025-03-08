@@ -109,7 +109,6 @@ $$
 Perhaps a more easier way to follow is indeed by directly applying the weighted random returns of individual assets directly into the variance-covariance matrix as follows:
 
 $$
-
 \text{C}_w = 
 \begin{bmatrix}
 \text{Var}(w_1 R_1) & \text{Cov}(w_1 R_1, w_2 R_2) & \dots & \text{Cov}(w_1 R_1, w_n R_n) \\
@@ -117,9 +116,11 @@ $$
 \vdots & \vdots & \ddots & \vdots \\
 \text{Cov}(w_n R_n, w_1 R_1) & \text{Cov}(w_n R_n, w_2 R_2) & \dots & \text{Var}(w_n R_n)
 \end{bmatrix}
+$$
 
-= 
+which is equivalent to 
 
+$$
 \begin{bmatrix}
 w_1 w_1 \text{Var}(R_1) & w_1 w_2 \text{Cov}(R_1, R_2) & \dots & w_1 w_n \text{Cov}(R_1, R_n) \\
 w_2 w_1 \text{Cov}(R_2, R_1) & w_2 w_2 \text{Var}(R_2) & \dots & w_2 w_n \text{Cov}(R_2, R_n) \\
