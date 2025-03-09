@@ -453,12 +453,12 @@ We can see that for the 2-asset portfolio that in 1% of cases, the worst case re
 
 Let us take this scenario of an insurance company that sells policies for houses that are each worth £1 m from the example of book of McQuire & Kume (2020). Assume that the claim distribution of the policy for houses as follows:
 
-● There is a 95% probability that a policy has no claims,
-● There is a 4.9% probability that a policy has exactly one claim for £5,000,
-● There is a 0.09% probability that a policy has exactly one claim for £100,000,
-● There is a 0.01% probability that a policy has exactly one claim for £1 m,
-● There are no policies make more than one claim, and
-● All property claims are independent.
+- There is a 95% probability that a policy has no claims.
+- There is a 4.9% probability that a policy has exactly one claim for £5,000.
+- There is a 0.09% probability that a policy has exactly one claim for £100,000.
+- There is a 0.01% probability that a policy has exactly one claim for £1 m.
+- There are no policies make more than one claim.
+- All property claims are independent.
 
 There are many answers that an insurance companies want of this scenario. 
 
@@ -585,7 +585,7 @@ max(claims_ind_100)
 max(claims_ind_1000)
 [1] 4385000
 ```
-As seen above by output of the table() functins, due to the extremely small probability of the absolute worst case scenario happening where the insurance company has to pay the whole value of houses in their portfolio, it is barely seen in the histogram. Yet, this becomes extremely important information for the insurance company because it essentially tells them that there is still a chance that it can happen, although the probability is extremely small ($0.00010$).
+As seen above by output of the table() functions, due to the extremely small probability of the absolute worst case scenario happening where the insurance company has to pay the whole value of houses in their portfolio, it is barely seen in the histogram. Yet, this becomes extremely important information for the insurance company because it essentially tells them that there is still a chance that it can happen, although the probability is extremely small ($0.00010$).
 
 What we can also see is that in a portfolio where claims are perfectly correlated with each other, diversification will not have it's desired effect. 
 
