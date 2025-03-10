@@ -2,7 +2,7 @@
 layout: single
 title: "Present Value"
 date: 2024-12-18
-excerpt: "We will explore the present value and it's applications in Actuarial Science using R"
+excerpt: "Why study present value?"
 author: Nicholas Wijaya
 toc: true
 classes: wide
