@@ -2,7 +2,7 @@
 layout: single
 title: "Interest Rates"
 date: 2024-12-10
-excerpt: "We will learn about application of interest rates in Actuarial Science."
+excerpt: "How is it useful in risk management?"
 author: Nicholas Wijaya
 toc: true
 classes: wide
