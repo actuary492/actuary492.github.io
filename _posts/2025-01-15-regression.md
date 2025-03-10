@@ -2,7 +2,7 @@
 layout: single
 title: "Linear Regression"
 date: 2025-01-10
-excerpt: "We will explore the concept of linear regression"
+excerpt: "Exploring the concept of linear regression"
 author: Nicholas Wijaya
 toc: true
 classes: wide
