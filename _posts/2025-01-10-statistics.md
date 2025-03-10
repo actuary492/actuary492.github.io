@@ -2,7 +2,7 @@
 layout: single
 title: "Statistics"
 date: 2025-01-10
-excerpt: "We will be going through concepts of basic statistics necessary for actuaries and how to apply them in R."
+excerpt: "Revisiting Basic Statistics using R."
 author: Nicholas Wijaya
 toc: true
 classes: wide
