@@ -2,7 +2,7 @@
 layout: single
 title: "Application of Linear Regression"
 date: 2025-01-20
-excerpt: "I will show application of linear regression in R"
+excerpt: "Step-by-step guide on conducting linear regression in R"
 author: Nicholas Wijaya
 toc: true
 classes: wide
