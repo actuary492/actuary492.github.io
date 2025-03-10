@@ -2,7 +2,7 @@
 layout: single
 title: "Diversification"
 date: 2025-03-08
-excerpt: "Exploring the concept of diversification by simple examples using R"
+excerpt: "Exploring the concept of diversification using R"
 author: Nicholas Wijaya
 toc: true
 classes: wide
