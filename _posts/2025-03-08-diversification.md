@@ -598,7 +598,7 @@ What we can also see is that in a portfolio where claims are perfectly correlate
 
 In this article, I have explained the concept of diversification, how it is mathematically expressed. I also pointed out the importance of being able to simulate returns of the portfolio, and also of total claims of a policy portfolio in R. I hope that this article has been insightful to you. See you on the next one!
 
-# Diversification: When Does it Work or Hurt?
+# Diversification: When Does it Work or Hurt? It is Useful for Everyone?
 
 People, such as retail investors, take the idea of diversification at face value -  believing that simply spreading investments across different assets will reduce the risks. However, true diversification has to be supported with data-driven decision making and careful research, just like how the institutions approach it. 
 
