@@ -604,7 +604,7 @@ People, such as retail investors, take the idea of diversification at face value
 
 A common mistake is called *blind diversification* - simply diversifying one's stock portfolio by investing in random stocks from different sectors without analyzing fundamentals. This often leads to suboptimal returns rather than risk reduction.
 
-On the other hand, there is a practice called 'stock sniping'. This essentially contradicts the idea of diversification. Instead of spreading investments, the idea of this concept is to find one potential stock that can beat the market by multiples. From a psychological standpoint, it is suggested that focusing on one stock is better for one's decision making and discipline compared to splitting one's attention into multiple in your portfolio.
+On the other hand, there is a practice called *stock sniping*. This essentially contradicts the idea of diversification. Instead of spreading investments, the idea of this concept is to find one potential stock that can beat the market by multiples. From a psychological standpoint, it is suggested that focusing on one stock is better for one's decision making and discipline compared to splitting one's attention into multiple in your portfolio.
 
 At the end of the day, diversification is a very subjective concept, and this concept may or may not be applied depending on the knowledge and risk appetite of the investor.
 
