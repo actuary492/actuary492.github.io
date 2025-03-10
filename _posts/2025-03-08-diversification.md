@@ -177,7 +177,7 @@ Now, let us group the summation into the variance and covariance terms.
 
 Let us first start with the variance.
 
-Looking at the matrix above, we see tha variance terms are only located in the diagonals. Because we have 'n' rows, this means that we have 'n' diagonal terms. Summing these diagonal terms is therefore as follows:
+Looking at the matrix above, we see that the variance terms are only located in the diagonals. Because we have $n$ rows, this means that we have $n$ diagonal terms. Summing these diagonal terms is therefore as follows:
 
 $$
 \frac{1}{n^2} \text{Var}(R_1) + \frac{1}{n^2} \text{Var}(R_2) + \dots + \frac{1}{n^2} \text{Var}(R_n) = \frac{1}{n^2} \sum_{i=1}^{n} \text{Var}(R_i)
