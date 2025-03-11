@@ -367,7 +367,7 @@ outstanding <- function(q){
   outstanding_loan <- NULL
   interest_paid <- NULL
   loan_repaid <- NULL
-  # q[3] (Loan[3], if one checks, is the row of the time to maturity of bond)
+  # q[3] or Loan100[3], if one checks, is the column of the time to maturity of bond
   time <- seq(0, as.numeric(q[3]))
   for(i in 1:as.numeric(q[3])){
     # q[2] or Loan100[2] is the loan amount
