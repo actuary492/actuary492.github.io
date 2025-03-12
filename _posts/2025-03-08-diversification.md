@@ -80,7 +80,7 @@ $$
 \text{Var}(R) = \sum_{i=1}^{n} (R_i - E[R])^2
 $$
 
-The variance itself is the dispersion of returns around their expected value. This dispersion can be seen as uncertainty. Of course, this uncertainty in our case of portfolio, is not only the risk in each individual assets that is the variance, but also the risk between STRICTLY DIFFERENT asset pairs in the portfolio that is called the covariance.
+The variance itself is the dispersion of returns around their expected value. This dispersion can be seen as uncertainty or the risk associated with the return. Of course, this uncertainty in our case of portfolio, is not only the risk in each individual assets that is the variance, but also the risk between STRICTLY DIFFERENT asset pairs in the portfolio that is called the covariance.
 
 Having the variance and covariance terms of the every individual weighted assets in the portfolio, let us express them by a variance-covariance matrix. This matrix makes the representation of risk much easier to grasp because it essentially presents all the possible 'dispersions' between ALL possible STRICTLY DIFFERENT return pairs (we call this covariance), including itself (we call this variance).
 
