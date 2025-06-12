@@ -194,7 +194,7 @@ Now, let us move on to the summation of the covariance terms.
 We should remember, that there are now $n^2 - n = n(n-1)$ covariance terms. There are a total of $n^2$ terms based on the n by n variance-covariance matrix. We then substract by 'n' terms because we do not want to count the variance terms in the diagonals that are already in the first summation earlier. Let us now create a summation for these terms:
 
 $$
-\sum_{i}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \frac{1}{n^2} \text{Cov}(\frac{R_i}{n^2}, \frac{R_j}{n^2}) =  \sum_{i}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \frac{1}{n^2} \text{Cov}(R_i, R_j) = \frac{1}{n^2} \sum_{i}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(R_i, R_j)
+\sum_{i}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(\frac{R_i}{n}, \frac{R_j}{n}) =  \sum_{i}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \frac{1}{n^2} \text{Cov}(R_i, R_j) = \frac{1}{n^2} \sum_{i}^{n} \sum_{\substack{j=1 \\ j \neq i}}^{n} \text{Cov}(R_i, R_j)
 $$
 
 Now, let us see how can we manipulate the equation derived above to get the average of covariances:
